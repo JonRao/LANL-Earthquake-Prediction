@@ -1,0 +1,38 @@
+2019-04-12 22:59:43,042 - seismic_prediction - INFO - Begin Logging:
+2019-04-12 23:02:21,494 - seismic_prediction - INFO - Begin Logging:
+2019-04-12 23:03:12,450 - seismic_prediction - INFO - Begin Logging:
+2019-04-12 23:05:27,086 - seismic_prediction - INFO - Begin Logging:
+2019-04-12 23:06:14,177 - seismic_prediction - INFO - Begin Logging:
+2019-04-12 23:06:24,560 - seismic_prediction.train - INFO - model: xgb, fold: 0, score: 0.65
+2019-04-12 23:06:35,114 - seismic_prediction.train - INFO - model: xgb, fold: 1, score: 1.47
+2019-04-12 23:06:55,704 - seismic_prediction.train - INFO - model: xgb, fold: 2, score: 2.81
+2019-04-12 23:07:02,307 - seismic_prediction.train - INFO - model: xgb, fold: 3, score: 0.87
+2019-04-12 23:07:11,785 - seismic_prediction.train - INFO - model: xgb, fold: 4, score: 2.16
+2019-04-12 23:07:18,306 - seismic_prediction.train - INFO - model: xgb, fold: 5, score: 0.97
+2019-04-12 23:07:24,645 - seismic_prediction.train - INFO - model: xgb, fold: 6, score: 1.12
+2019-04-12 23:07:44,371 - seismic_prediction.train - INFO - model: xgb, fold: 7, score: 3.66
+2019-04-12 23:07:50,404 - seismic_prediction.train - INFO - model: xgb, fold: 8, score: 1.02
+2019-04-12 23:07:56,973 - seismic_prediction.train - INFO - model: xgb, fold: 9, score: 1.10
+2019-04-12 23:08:05,128 - seismic_prediction.train - INFO - model: xgb, fold: 10, score: 1.36
+2019-04-12 23:08:13,527 - seismic_prediction.train - INFO - model: xgb, fold: 11, score: 1.26
+2019-04-12 23:08:19,767 - seismic_prediction.train - INFO - model: xgb, fold: 12, score: 0.94
+2019-04-12 23:08:25,915 - seismic_prediction.train - INFO - model: xgb, fold: 13, score: 0.98
+2019-04-12 23:08:35,077 - seismic_prediction.train - INFO - model: xgb, fold: 14, score: 3.26
+2019-04-12 23:08:41,236 - seismic_prediction.train - INFO - model: xgb, fold: 15, score: 1.25
+2019-04-12 23:08:51,442 - seismic_prediction.train - INFO - model: xgb, fold: 16, score: 1.60
+2019-04-12 23:08:51,442 - seismic_prediction.train - INFO - model: xgb, mean_score: 1.56, std: 0.86
+2019-04-13 10:16:08,497 - seismic_prediction - INFO - Begin Logging:
+2019-04-13 10:16:14,713 - seismic_prediction.train - INFO - model: xgb, fold: 0, score: 0.65
+2019-04-13 10:16:24,954 - seismic_prediction.train - INFO - model: xgb, fold: 1, score: 1.47
+2019-04-13 10:18:21,038 - seismic_prediction - INFO - Begin Logging:
+2019-04-13 10:18:28,221 - seismic_prediction.train - INFO - model: xgb, fold: 0, score: 2.18
+2019-04-13 10:18:34,746 - seismic_prediction.train - INFO - model: xgb, fold: 1, score: 2.05
+2019-04-13 10:18:42,022 - seismic_prediction.train - INFO - model: xgb, fold: 2, score: 2.05
+2019-04-13 10:18:49,207 - seismic_prediction.train - INFO - model: xgb, fold: 3, score: 2.01
+2019-04-13 10:18:58,602 - seismic_prediction.train - INFO - model: xgb, fold: 4, score: 2.18
+2019-04-13 10:19:05,181 - seismic_prediction.train - INFO - model: xgb, fold: 5, score: 2.06
+2019-04-13 10:19:11,740 - seismic_prediction.train - INFO - model: xgb, fold: 6, score: 2.03
+2019-04-13 10:19:18,275 - seismic_prediction.train - INFO - model: xgb, fold: 7, score: 1.95
+2019-04-13 10:19:24,814 - seismic_prediction.train - INFO - model: xgb, fold: 8, score: 1.96
+2019-04-13 10:19:31,400 - seismic_prediction.train - INFO - model: xgb, fold: 9, score: 2.21
+2019-04-13 10:19:31,400 - seismic_prediction.train - INFO - model: xgb, mean_score: 2.07, std: 0.09
