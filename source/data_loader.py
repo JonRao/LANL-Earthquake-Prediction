@@ -8,11 +8,11 @@ from tqdm import tqdm
 import data_transform
 
 def load_train():
-    train = pickle.load(open('../data/train.p', 'rb'))
+    train = pickle.load(open('./data/train.p', 'rb'))
     return train
 
 def load_transfrom_train(update=False):
-    cache_path = '../data/transform.p'
+    cache_path = './data/transform.p'
     existed = True
     if os.path.exists(cache_path):
         X_tr, y_tr = pickle.load(open(cache_path, 'rb'))
@@ -35,7 +35,7 @@ def load_transfrom_train(update=False):
     return X_tr, y_tr
 
 def load_transfrom_test(update=False):
-    cache_path = '../data/test_transform.p'
+    cache_path = './data/test_transform.p'
     existed = True
     if os.path.exists(cache_path):
         result = pickle.load(open(cache_path, 'rb'))
@@ -58,8 +58,8 @@ def load_transfrom_test(update=False):
     return result
 
 def load_test():
-    cache_path = '../data/test_submission.p'
-    test_path = '../data/test'
+    cache_path = './data/test_submission.p'
+    test_path = './data/test'
     if os.path.exists(cache_path):
         result = pickle.load(open(cache_path, 'rb'))
     else:
@@ -75,7 +75,7 @@ def load_test():
     return result
 
 def load_earthquake_id():
-    cache_path = '../data/earthquake_id.p'
+    cache_path = './data/earthquake_id.p'
     if os.path.exists(cache_path):
         earthquake_id = pickle.load(open(cache_path, 'rb'))
     else:
@@ -87,5 +87,5 @@ def load_earthquake_id():
 
 
 if __name__ == '__main__':
-    load_transfrom_train()
-    load_transfrom_test()
+    load_transfrom_train(update=True)
+    load_transfrom_test(update=True)

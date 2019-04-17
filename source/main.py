@@ -32,7 +32,7 @@ def main():
     logger = logging.getLogger('seismic_prediction')
     logger.setLevel(logging.DEBUG)
 
-    fh = logging.FileHandler('../seismic.log')
+    fh = logging.FileHandler('./seismic.log')
     fh.setLevel(logging.DEBUG)
     ch = logging.StreamHandler()
     ch.setLevel(logging.INFO)
@@ -44,7 +44,7 @@ def main():
     logger.addHandler(ch)
 
     logger.info('Begin Logging:')
-    cv_predict('default')
+    cv_predict('earthquake')
 
 
 def cv_predict(fold_choice='earthquake'):
@@ -58,7 +58,7 @@ def cv_predict(fold_choice='earthquake'):
     X_test = data_transform.missing_fix_test(X_test, means_dict)
 
     predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='xgb', params=data_train.XGB_PARAMS)
-    generateSubmission(predicted_result, file_group, file_name='submission_shuffle.csv')
+    generateSubmission(predicted_result, file_group, file_name='submission_mfcc_linear_rmse')
 
 def blend():
     X_tr, y_tr = data_loader.load_transfrom_train()
@@ -84,7 +84,7 @@ def generateSubmission(predicted_result, file_group, file_name='submission.csv')
     df = df.rename(columns={0: 'time_to_failure'})
     df.index.name = 'seg_id'
     df['time_to_failure'] = df['time_to_failure'].clip(0, 16)
-    df.to_csv(f'../{file_name}.csv')
+    df.to_csv(f'./test_result/{file_name}.csv')
 
 def hypo_train_xgb():
     X_tr, y_tr = data_loader.load_transfrom_train()

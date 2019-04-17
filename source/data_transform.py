@@ -2,8 +2,9 @@
 import pandas as pd
 import numpy as np
 import tqdm
+import librosa  # MFCC feature
 import warnings
-from collections import ChainMap
+from collections import ChainMap, defaultdict
 from sklearn.linear_model import LinearRegression
 from scipy import stats
 from sklearn.preprocessing import StandardScaler
@@ -56,7 +57,8 @@ def transform_earthquake_id(train, rows=150_000):
 def transform(df):
     """ augment X to more features"""
     transform_pack = [
-        transform_pack1,
+        # transform_pack1,
+        transform_pack2,
     ]
     dump = []
     for func in transform_pack:
@@ -66,11 +68,17 @@ def transform(df):
     return ChainMap(*dump)
 
 def transform_pack2(df):
-    """ augment X to more features until 04/07 FFT related"""
+    """ augment X to more features until 04/15 MFCC related"""
     output = {}
-    xc = df.values
-    zc = np.fft.fft(xc)
-    pass
+    data = df.values.astype(np.float32)
+    mfcc = librosa.feature.mfcc(data)
+    mfcc_mean = mfcc.mean(axis=1)
+
+    output = defaultdict(list)
+    for i, each_mfcc_mean in enumerate(mfcc_mean):
+        output[f'mfcc_{i}'] = each_mfcc_mean
+    return output
+
 
 def transform_pack1(df):
     """ augment X to more features until 04/06"""

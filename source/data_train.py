@@ -20,7 +20,7 @@ XGB_PARAMS = {'eta': 0.03,
               'max_depth': 9,
               'subsample': 0.9,
               'objective': 'reg:linear',
-              'eval_metric': 'mae',
+              'eval_metric': 'rmse',
               'silent': True,
               }
 
