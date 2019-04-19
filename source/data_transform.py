@@ -8,6 +8,8 @@ from collections import ChainMap, defaultdict
 from sklearn.linear_model import LinearRegression
 from scipy import stats
 from sklearn.preprocessing import StandardScaler
+from scipy.signal import firls, convolve, decimate, hilbert, hann
+from scipy.spatial.distance import pdist
 
 warnings.filterwarnings("ignore")
 
@@ -20,7 +22,8 @@ def transform_train(train, rows=150_000):
 
     for segment in tqdm.tqdm(range(segments)):
         seg = train.iloc[segment*rows : segment*rows+rows]
-        x = pd.Series(seg['acoustic_data'].values)
+        x_denoised = resample(seg['acoustic_data'].values)
+        x = pd.Series(x_denoised.real)
         y = seg['time_to_failure'].values[-1]
 
         y_tr.loc[segment, 'time_to_failure'] = y
@@ -57,7 +60,7 @@ def transform_earthquake_id(train, rows=150_000):
 def transform(df):
     """ augment X to more features"""
     transform_pack = [
-        # transform_pack1,
+        transform_pack1,
         transform_pack2,
     ]
     dump = []
@@ -72,16 +75,68 @@ def transform_pack2(df):
     output = {}
     data = df.values.astype(np.float32)
     mfcc = librosa.feature.mfcc(data)
-    mfcc_mean = mfcc.mean(axis=1)
 
-    output = defaultdict(list)
-    for i, each_mfcc_mean in enumerate(mfcc_mean):
-        output[f'mfcc_{i}'] = each_mfcc_mean
+    output = {}
+    for i, each_mfcc in enumerate(mfcc):
+        output[f'mfcc_mean_{i}'] = np.mean(each_mfcc)
+        output[f'mfcc_std_{i}'] = np.std(each_mfcc)
+        output[f'mfcc_skew_{i}'] = stats.skew(each_mfcc)
+        output[f'mfcc_kurtosis_{i}'] = stats.kurtosis(each_mfcc)
+        output[f'mfcc_min_{i}'] = np.min(each_mfcc)
+        output[f'mfcc_max_{i}'] = np.max(each_mfcc)
+    
+    for i, each_mfcc in enumerate(librosa.feature.delta(mfcc)):
+        output[f'delta_mfcc_mean_{i}'] = np.mean(each_mfcc)
+        output[f'delta_mfcc_std_{i}'] = np.std(each_mfcc)
+        output[f'delta_mfcc_skew_{i}'] = stats.skew(each_mfcc)
+        output[f'delta_mfcc_kurtosis_{i}'] = stats.kurtosis(each_mfcc)
+        output[f'delta_mfcc_min_{i}'] = np.min(each_mfcc)
+        output[f'delta_mfcc_max_{i}'] = np.min(each_mfcc)
+
+    for i, each_mfcc in enumerate(librosa.feature.delta(mfcc, order=2)):
+        output[f'accelerate_mfcc_mean_{i}'] = np.mean(each_mfcc)
+        output[f'accelerate_mfcc_std_{i}'] = np.std(each_mfcc)
+        output[f'accelerate_mfcc_skew_{i}'] = stats.skew(each_mfcc)
+        output[f'accelerate_mfcc_kurtosis_{i}'] = stats.kurtosis(each_mfcc)
+        output[f'accelerate_mfcc_min_{i}'] = np.min(each_mfcc)
+        output[f'accelerate_mfcc_max_{i}'] = np.min(each_mfcc)
+    
+
+    melspec = librosa.feature.melspectrogram(data)
+    logmel = librosa.core.power_to_db(melspec)
+    delta = librosa.feature.delta(logmel)
+    accelerate = librosa.feature.delta(logmel, order=2)
+
+    for i, each_logmel in enumerate(logmel):
+        output[f'logmel_mean_{i}'] = np.mean(each_logmel)
+        output[f'logmel_std_{i}'] = np.std(each_logmel)
+        output[f'logmel_skew_{i}'] = stats.skew(each_logmel)
+        output[f'logmel_kurtosis_{i}'] = stats.kurtosis(each_logmel)
+        output[f'logmel_min_{i}'] = np.min(each_logmel)
+        output[f'logmel_max_{i}'] = np.max(each_logmel)
+    
+    for i, each_logmel in enumerate(delta):
+        output[f'delta_logmel_mean_{i}'] = np.mean(each_logmel)
+        output[f'delta_logmel_std_{i}'] = np.std(each_logmel)
+        output[f'delta_logmel_skew_{i}'] = stats.skew(each_logmel)
+        output[f'delta_logmel_kurtosis_{i}'] = stats.kurtosis(each_logmel)
+        output[f'delta_logmel_min_{i}'] = np.min(each_logmel)
+        output[f'delta_logmel_max_{i}'] = np.min(each_logmel)
+
+    for i, each_logmel in enumerate(accelerate):
+        output[f'accelerate_logmel_mean_{i}'] = np.mean(each_logmel)
+        output[f'accelerate_logmel_std_{i}'] = np.std(each_logmel)
+        output[f'accelerate_logmel_skew_{i}'] = stats.skew(each_logmel)
+        output[f'accelerate_logmel_kurtosis_{i}'] = stats.kurtosis(each_logmel)
+        output[f'accelerate_logmel_min_{i}'] = np.min(each_logmel)
+        output[f'accelerate_logmel_max_{i}'] = np.min(each_logmel)
+
+
     return output
 
 
 def transform_pack1(df):
-    """ augment X to more features until 04/06"""
+    """ augment X to more features """
     output = {}
     output['mean'] = df.mean()
     output['std'] = df.std()
@@ -99,6 +154,9 @@ def transform_pack1(df):
     tmp = np.abs(df)
     output['abs_min'] = tmp.min()
     output['abs_std'] = tmp.std()
+
+    output['Hilbert_mean'] = np.abs(hilbert(df.values)).mean()
+    output['Hann_window_mean'] = (convolve(df.values, hann(150), mode='same') / sum(hann(150))).mean()
 
     # split into segments
     for first in (50_000, 100_000):
@@ -132,12 +190,12 @@ def transform_pack1(df):
     x = np.cumsum(df ** 2)
     # Convert to float
     x = np.require(x, dtype=np.float)
-    n_sta_group = (50, 100, 500, 3333, 5000, 6666)
-    n_lta_group = (1000, 10000, 10000, 6666, 10000, 25000)
+    n_sta_group = (50, 5000, 3333, 10000, 50, 333, 4000)
+    n_lta_group = (10000, 100000, 6666, 25000, 1000, 666, 10000)
     for i, (n_sta, n_lta) in enumerate(zip(n_sta_group, n_lta_group)):
         tmp = feature_sta_lta_ratio(x, n_sta, n_lta)
-        output[f'classic_sta_lta{i}_mean'] = np.mean(tmp)
-        output[f'classic_sta_lta{i}_std'] = np.std(tmp)
+        output[f'classic_sta_lta{i}_mean'] = np.nanmean(tmp)
+        output[f'classic_sta_lta{i}_std'] = np.nanstd(tmp)
 
 
     for window in (500, 5000, 10000):
@@ -186,6 +244,15 @@ def transform_pack1(df):
     
 
     return output
+
+
+def resample(xs):
+    filt = firls(2001, bands=[0,240e3,245e3,250e3,255e3,2e6], desired=[0,0,1,1,0,0], fs=4e6)
+    xs = convolve(xs.astype(float), filt, mode='valid')
+    t = 2*np.pi*250e3/4e6*np.arange(len(xs))
+    xs = xs*(np.cos(t) + 1j*np.sin(t))
+    # xs = decimate(xs, 150, ftype='fir')
+    return xs
 
 def feature_trend(y, abs_value=False):
     """ linear regression """
@@ -240,6 +307,7 @@ def missing_fix_tr(X_tr):
     means_dict = {}
     for col in X_tr.columns:
         if X_tr[col].isnull().any():
+            print(col)
             mean_value = X_tr.loc[X_tr[col] != -np.inf, col].mean()
             X_tr.loc[X_tr[col] == -np.inf, col] = mean_value
             X_tr[col] = X_tr[col].fillna(mean_value)

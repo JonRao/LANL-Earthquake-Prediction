@@ -5,13 +5,14 @@ import xgboost as xgb
 import lightgbm as lgb
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import KFold, LeaveOneGroupOut
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 
 from keras.models import Sequential
 from keras.layers import Dense, CuDNNGRU
 from keras.optimizers import adam
 from keras.callbacks import ModelCheckpoint
 
-import data_loader
+import source.data_loader as data_loader
 
 logger = logging.getLogger('seismic_prediction.train')
 
@@ -22,21 +23,30 @@ XGB_PARAMS = {'eta': 0.03,
               'objective': 'reg:linear',
               'eval_metric': 'rmse',
               'silent': True,
+            #   'feature_selector': 'thrifty',
+            #   'top_k': 100,
+            
               }
 
-LGB_PARAMS = {'num_leaves': 128,
-          'min_data_in_leaf': 79,
-          'objective': 'huber',
+LGB_PARAMS = {
+          'num_leaves': 51,
+          'min_data_in_leaf': 10,
+          'objective': 'gamma',
           'max_depth': -1,
-          'learning_rate': 0.01,
+          'learning_rate': 0.03,
+          'max_depth': 9,
           "boosting": "gbdt",
           "bagging_freq": 5,
           "bagging_fraction": 0.8126672064208567,
           "bagging_seed": 11,
-          "metric": 'mae',
+          "metric": 'rmse',
           "verbosity": -1,
+          "random_state": 42,
           'reg_alpha': 0.1302650970728192,
-          'reg_lambda': 0.3603427518866501
+          'reg_lambda': 0.3603427518866501,
+        #   'device': 'gpu',
+        #   'gpu_platform_id': 0,
+        #   'gpu_device_id':  0,
          }
 
 def train_CV(X, y, fold_iter, model_choice='xgb', params=XGB_PARAMS):
@@ -62,6 +72,9 @@ def train_CV_test(X, y, X_test, fold_iter, model_choice='xgb', params=XGB_PARAMS
         X_train, X_valid = X.iloc[train_index], X.iloc[valid_index]
         y_train, y_valid = y.iloc[train_index], y.iloc[valid_index]
 
+        # lda = LDA(n_components=20)
+        # X_train = lda.fit_transform(X_train, y_train)
+        # X_valid = lda.transform(X_valid)
         predictor = train_model(model_choice, X_train, y_train, params, X_valid, y_valid)
         y_pred = predictor(X_valid)
         prediction += predictor(X_test)
@@ -121,7 +134,12 @@ def train_xgb(X, y, params=XGB_PARAMS, X_valid=None, y_valid=None):
 def train_lgb(X, y, params=LGB_PARAMS, X_valid=None, y_valid=None):
 
     model = lgb.LGBMRegressor(**params, n_estimators=50000, silent=True)
-    model.fit(X, y, eval_set=[(X, y),], eval_metric='mae', verbose=False, early_stopping_rounds=200)
+    if X_valid is not None:
+        eval_set = [(X_valid, y_valid),]
+    else:
+        eval_set = None
+
+    model.fit(X, y, eval_set=eval_set, eval_metric='rmse', verbose=False, early_stopping_rounds=500)
 
     def predict(X):
         """ wrapper for prediction"""
