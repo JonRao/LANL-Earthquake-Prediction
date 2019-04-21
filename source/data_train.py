@@ -12,7 +12,7 @@ from keras.layers import Dense, CuDNNGRU
 from keras.optimizers import adam
 from keras.callbacks import ModelCheckpoint
 
-import source.data_loader as data_loader
+import data_loader
 
 logger = logging.getLogger('seismic_prediction.train')
 
@@ -21,7 +21,7 @@ XGB_PARAMS = {'eta': 0.03,
               'max_depth': 9,
               'subsample': 0.9,
               'objective': 'reg:linear',
-              'eval_metric': 'rmse',
+              'eval_metric': 'mae',
               'silent': True,
             #   'feature_selector': 'thrifty',
             #   'top_k': 100,
@@ -31,19 +31,19 @@ XGB_PARAMS = {'eta': 0.03,
 LGB_PARAMS = {
           'num_leaves': 51,
           'min_data_in_leaf': 10,
-          'objective': 'gamma',
+          'objective': 'huber',
           'max_depth': -1,
-          'learning_rate': 0.03,
-          'max_depth': 9,
+          'learning_rate': 0.01,
           "boosting": "gbdt",
-          "bagging_freq": 5,
-          "bagging_fraction": 0.8126672064208567,
+          "bagging_freq": 1,
+          "bagging_fraction": 0.91,
           "bagging_seed": 11,
-          "metric": 'rmse',
+          "metric": 'mae',
           "verbosity": -1,
           "random_state": 42,
-          'reg_alpha': 0.1302650970728192,
-          'reg_lambda': 0.3603427518866501,
+        #   'reg_alpha': 0.1302650970728192,
+        #   'reg_lambda': 0.3603427518866501,
+        #   'num_threads': 5,
         #   'device': 'gpu',
         #   'gpu_platform_id': 0,
         #   'gpu_device_id':  0,
@@ -121,7 +121,7 @@ def train_xgb(X, y, params=XGB_PARAMS, X_valid=None, y_valid=None):
         valid_data = xgb.DMatrix(data=X_valid, label=y_valid, feature_names=X_valid.columns)
         watchlist += [(valid_data, 'valid'),]
 
-    model = xgb.train(dtrain=train_data, num_boost_round=20000, early_stopping_rounds=500, 
+    model = xgb.train(dtrain=train_data, num_boost_round=20000, early_stopping_rounds=200, 
                       evals=watchlist, verbose_eval=500, params=params)
 
     def predict(X):
@@ -133,17 +133,17 @@ def train_xgb(X, y, params=XGB_PARAMS, X_valid=None, y_valid=None):
 
 def train_lgb(X, y, params=LGB_PARAMS, X_valid=None, y_valid=None):
 
-    model = lgb.LGBMRegressor(**params, n_estimators=50000, silent=True)
+    model = lgb.LGBMRegressor(**params, n_estimators=20000, silent=True)
+    
+    eval_set = [(X, y),]
     if X_valid is not None:
-        eval_set = [(X_valid, y_valid),]
-    else:
-        eval_set = None
+        eval_set += [(X_valid, y_valid),]
 
-    model.fit(X, y, eval_set=eval_set, eval_metric='rmse', verbose=False, early_stopping_rounds=500)
+    model.fit(X, y, eval_set=eval_set, eval_metric='mae', verbose=1000, early_stopping_rounds=200)
 
     def predict(X):
         """ wrapper for prediction"""
-        y_pred = model.predict(X, ntree_limit=model.best_iteration_)
+        y_pred = model.predict(X, num_iteration=model.best_iteration_)
         return y_pred
     return predict
 

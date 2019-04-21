@@ -7,9 +7,9 @@ from sklearn.preprocessing import StandardScaler
 import warnings
 import logging
 
-import source.data_loader as data_loader
-import source.data_transform as data_transform
-import source.data_train as data_train
+import data_loader
+import data_transform
+import data_train
 
 warnings.filterwarnings("ignore")
 
@@ -59,14 +59,17 @@ def cv_predict(fold_choice='earthquake'):
     X_test = X_test[X_tr.columns]
     X_test = data_transform.missing_fix_test(X_test, means_dict)
 
-    scaler = StandardScaler()
-    scaler.fit(X_tr)
-    scaled_train_X = pd.DataFrame(scaler.transform(X_tr), columns=X_tr.columns)
-    scaled_test_X = pd.DataFrame(scaler.transform(X_test), columns=X_test.columns)
+    # X_tr = X_tr.clip(-1e6, 1e6)
+    # X_test = X_test.clip(-1e6, 1e6)
+
+    # scaler = StandardScaler()
+    # scaler.fit(X_tr)
+    # scaled_train_X = pd.DataFrame(scaler.transform(X_tr), columns=X_tr.columns)
+    # scaled_test_X = pd.DataFrame(scaler.transform(X_test), columns=X_test.columns)
 
     fold_iter = data_train.fold_maker(X_tr, fold_choice=fold_choice)
-    predicted_result = data_train.train_CV_test(scaled_train_X, y_tr, scaled_test_X, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
-    generateSubmission(predicted_result, file_group, file_name='submission_lgb')
+    predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
+    generateSubmission(predicted_result, file_group, file_name='submission_lgb_mae')
 
 def blend():
     X_tr, y_tr = data_loader.load_transfrom_train()

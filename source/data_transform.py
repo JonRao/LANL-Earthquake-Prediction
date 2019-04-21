@@ -22,8 +22,9 @@ def transform_train(train, rows=150_000):
 
     for segment in tqdm.tqdm(range(segments)):
         seg = train.iloc[segment*rows : segment*rows+rows]
-        x_denoised = resample(seg['acoustic_data'].values)
-        x = pd.Series(x_denoised.real)
+        # x_denoised = resample(seg['acoustic_data'].values)
+        # x = pd.Series(x_denoised.real)
+        x = pd.Series(seg['acoustic_data'].values)
         y = seg['time_to_failure'].values[-1]
 
         y_tr.loc[segment, 'time_to_failure'] = y
@@ -80,57 +81,32 @@ def transform_pack2(df):
     for i, each_mfcc in enumerate(mfcc):
         output[f'mfcc_mean_{i}'] = np.mean(each_mfcc)
         output[f'mfcc_std_{i}'] = np.std(each_mfcc)
-        output[f'mfcc_skew_{i}'] = stats.skew(each_mfcc)
-        output[f'mfcc_kurtosis_{i}'] = stats.kurtosis(each_mfcc)
-        output[f'mfcc_min_{i}'] = np.min(each_mfcc)
-        output[f'mfcc_max_{i}'] = np.max(each_mfcc)
     
-    for i, each_mfcc in enumerate(librosa.feature.delta(mfcc)):
-        output[f'delta_mfcc_mean_{i}'] = np.mean(each_mfcc)
-        output[f'delta_mfcc_std_{i}'] = np.std(each_mfcc)
-        output[f'delta_mfcc_skew_{i}'] = stats.skew(each_mfcc)
-        output[f'delta_mfcc_kurtosis_{i}'] = stats.kurtosis(each_mfcc)
-        output[f'delta_mfcc_min_{i}'] = np.min(each_mfcc)
-        output[f'delta_mfcc_max_{i}'] = np.min(each_mfcc)
+    # for i, each_mfcc in enumerate(librosa.feature.delta(mfcc)):
+    #     output[f'delta_mfcc_mean_{i}'] = np.mean(each_mfcc)
+    #     output[f'delta_mfcc_std_{i}'] = np.std(each_mfcc)
 
-    for i, each_mfcc in enumerate(librosa.feature.delta(mfcc, order=2)):
-        output[f'accelerate_mfcc_mean_{i}'] = np.mean(each_mfcc)
-        output[f'accelerate_mfcc_std_{i}'] = np.std(each_mfcc)
-        output[f'accelerate_mfcc_skew_{i}'] = stats.skew(each_mfcc)
-        output[f'accelerate_mfcc_kurtosis_{i}'] = stats.kurtosis(each_mfcc)
-        output[f'accelerate_mfcc_min_{i}'] = np.min(each_mfcc)
-        output[f'accelerate_mfcc_max_{i}'] = np.min(each_mfcc)
+    # for i, each_mfcc in enumerate(librosa.feature.delta(mfcc, order=2)):
+    #     output[f'accelerate_mfcc_mean_{i}'] = np.mean(each_mfcc)
+    #     output[f'accelerate_mfcc_std_{i}'] = np.std(each_mfcc)
     
 
     melspec = librosa.feature.melspectrogram(data)
     logmel = librosa.core.power_to_db(melspec)
-    delta = librosa.feature.delta(logmel)
-    accelerate = librosa.feature.delta(logmel, order=2)
+    # delta = librosa.feature.delta(logmel)
+    # accelerate = librosa.feature.delta(logmel, order=2)
 
     for i, each_logmel in enumerate(logmel):
         output[f'logmel_mean_{i}'] = np.mean(each_logmel)
         output[f'logmel_std_{i}'] = np.std(each_logmel)
-        output[f'logmel_skew_{i}'] = stats.skew(each_logmel)
-        output[f'logmel_kurtosis_{i}'] = stats.kurtosis(each_logmel)
-        output[f'logmel_min_{i}'] = np.min(each_logmel)
-        output[f'logmel_max_{i}'] = np.max(each_logmel)
     
-    for i, each_logmel in enumerate(delta):
-        output[f'delta_logmel_mean_{i}'] = np.mean(each_logmel)
-        output[f'delta_logmel_std_{i}'] = np.std(each_logmel)
-        output[f'delta_logmel_skew_{i}'] = stats.skew(each_logmel)
-        output[f'delta_logmel_kurtosis_{i}'] = stats.kurtosis(each_logmel)
-        output[f'delta_logmel_min_{i}'] = np.min(each_logmel)
-        output[f'delta_logmel_max_{i}'] = np.min(each_logmel)
+    # for i, each_logmel in enumerate(delta):
+    #     output[f'delta_logmel_mean_{i}'] = np.mean(each_logmel)
+    #     output[f'delta_logmel_std_{i}'] = np.std(each_logmel)
 
-    for i, each_logmel in enumerate(accelerate):
-        output[f'accelerate_logmel_mean_{i}'] = np.mean(each_logmel)
-        output[f'accelerate_logmel_std_{i}'] = np.std(each_logmel)
-        output[f'accelerate_logmel_skew_{i}'] = stats.skew(each_logmel)
-        output[f'accelerate_logmel_kurtosis_{i}'] = stats.kurtosis(each_logmel)
-        output[f'accelerate_logmel_min_{i}'] = np.min(each_logmel)
-        output[f'accelerate_logmel_max_{i}'] = np.min(each_logmel)
-
+    # for i, each_logmel in enumerate(accelerate):
+    #     output[f'accelerate_logmel_mean_{i}'] = np.mean(each_logmel)
+    #     output[f'accelerate_logmel_std_{i}'] = np.std(each_logmel)
 
     return output
 
@@ -147,16 +123,21 @@ def transform_pack1(df):
     output['skew'] = df.skew()
     output['med'] = df.median()
 
-    output['max_to_min'] = df.max() / np.abs(df.min())
-    output['max_to_min_diff'] = df.max() - np.abs(df.min())
+    output['max_to_abs_min'] = df.max() / np.abs(df.min())
+    output['max_to_min_abs_diff'] = df.max() - np.abs(df.min())
     
     # abs
     tmp = np.abs(df)
     output['abs_min'] = tmp.min()
     output['abs_std'] = tmp.std()
+    output['abs_med'] = tmp.median()
 
     output['Hilbert_mean'] = np.abs(hilbert(df.values)).mean()
     output['Hann_window_mean'] = (convolve(df.values, hann(150), mode='same') / sum(hann(150))).mean()
+
+    x = df.values
+    output['F_test'], output['p_test'] = stats.f_oneway(x[:30000],x[30000:60000],x[60000:90000],x[90000:120000],x[120000:])
+    output['av_change_rate'] = np.mean(np.nonzero((np.diff(x) / x[:-1]))[0])
 
     # split into segments
     for first in (50_000, 100_000):
@@ -170,6 +151,7 @@ def transform_pack1(df):
         output[f'std_change_rate_first_{first}'] = tmp.diff().std()
         output[f'trend_first_{first}'] = feature_trend(tmp)
         output[f'abs_trend_first_{first}'] = feature_trend(tmp, abs_value=True)
+
     
     for last in (50_000, 100_000):
         tmp = df[-last:]
@@ -190,16 +172,15 @@ def transform_pack1(df):
     x = np.cumsum(df ** 2)
     # Convert to float
     x = np.require(x, dtype=np.float)
-    n_sta_group = (50, 5000, 3333, 10000, 50, 333, 4000)
+    n_sta_group = (500, 5000, 3333, 10000, 50, 333, 4000)
     n_lta_group = (10000, 100000, 6666, 25000, 1000, 666, 10000)
     for i, (n_sta, n_lta) in enumerate(zip(n_sta_group, n_lta_group)):
         tmp = feature_sta_lta_ratio(x, n_sta, n_lta)
         output[f'classic_sta_lta{i}_mean'] = np.nanmean(tmp)
-        output[f'classic_sta_lta{i}_std'] = np.nanstd(tmp)
 
 
     for window in (500, 5000, 10000):
-        output[f'exp_moving_average_{window}_std'] = pd.Series.ewm(df, span=window).mean().std(skipna=True)
+        output[f'exp_moving_average_{window}_mean'] = pd.Series.ewm(df, span=window).mean().mean(skipna=True)
 
     # quantile related
     for q in (0.001, 0.1, 0.3, 0.7, 0.9, 0.999):
@@ -207,7 +188,7 @@ def transform_pack1(df):
 
     output['ave_trim_tail_0.1'] = stats.trim_mean(df, 0.1)
 
-    for windows in [10, 100, 1000, 10000]:
+    for windows in [10, 100, 1000]:
         x_roll_std = df.rolling(windows).std().dropna().values
         x_roll_mean = df.rolling(windows).mean().dropna().values
         
@@ -220,6 +201,7 @@ def transform_pack1(df):
         output[f'q95_roll_std_{windows}'] = np.quantile(x_roll_std, 0.95)
         output[f'q99_roll_std_{windows}'] = np.quantile(x_roll_std, 0.99)
         output[f'trend_roll_mean_{windows}'] = feature_trend(x_roll_std)
+        output[f'av_change_roll_std_{windows}'] = np.mean(np.diff(x_roll_std))
         
         output[f'std_roll_mean_{windows}'] = x_roll_mean.std()
         output[f'max_roll_mean_{windows}'] = x_roll_mean.max()
@@ -228,6 +210,7 @@ def transform_pack1(df):
         output[f'q05_roll_mean_{windows}'] = np.quantile(x_roll_mean, 0.05)
         output[f'q95_roll_mean_{windows}'] = np.quantile(x_roll_mean, 0.95)
         output[f'q99_roll_mean_{windows}'] = np.quantile(x_roll_mean, 0.99)
+        output[f'av_change_roll_mean_{windows}'] = np.mean(np.diff(x_roll_mean))
 
         # abs related
         tmp_mean = np.abs(x_roll_mean)
@@ -235,18 +218,21 @@ def transform_pack1(df):
         output[f'skew_abs_roll_mean_{windows}'] = stats.skew(tmp_mean)
         output[f'kurt_abs_roll_mean_{windows}'] = stats.kurtosis(tmp_mean)
         output[f'trend_abs_roll_mean_{windows}'] = feature_trend(tmp_mean)
+        output[f'av_change_abs_roll_mean_{windows}'] = np.mean(np.diff(tmp_mean))
 
         tmp_std = np.abs(x_roll_std)
         output[f'std_abs_roll_std_{windows}'] = tmp_std.std()
         output[f'skew_abs_roll_std_{windows}'] = stats.skew(tmp_std)
         output[f'kurt_abs_roll_std_{windows}'] = stats.kurtosis(tmp_std)
         output[f'trend_abs_roll_std_{windows}'] = feature_trend(tmp_std)
+        output[f'av_change_abs_roll_std_{windows}'] = np.mean(np.diff(tmp_std))
     
 
     return output
 
 
 def resample(xs):
+    """ Resample out the noise, seems not good..."""
     filt = firls(2001, bands=[0,240e3,245e3,250e3,255e3,2e6], desired=[0,0,1,1,0,0], fs=4e6)
     xs = convolve(xs.astype(float), filt, mode='valid')
     t = 2*np.pi*250e3/4e6*np.arange(len(xs))
@@ -310,6 +296,8 @@ def missing_fix_tr(X_tr):
             print(col)
             mean_value = X_tr.loc[X_tr[col] != -np.inf, col].mean()
             X_tr.loc[X_tr[col] == -np.inf, col] = mean_value
+            if np.abs(mean_value) > 1e10:
+                mean_value = 0
             X_tr[col] = X_tr[col].fillna(mean_value)
             means_dict[col] = mean_value
     return X_tr, means_dict

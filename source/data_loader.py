@@ -5,7 +5,7 @@ import pickle
 import pandas as pd
 from tqdm import tqdm
 
-import source.data_transform as data_transform
+import data_transform
 
 def load_train():
     train = pickle.load(open('./data/train.p', 'rb'))
@@ -87,5 +87,5 @@ def load_earthquake_id():
 
 
 if __name__ == '__main__':
-    load_transfrom_train()
+    # load_transfrom_train()
     load_transfrom_test()
