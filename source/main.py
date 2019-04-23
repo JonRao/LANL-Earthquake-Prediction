@@ -10,6 +10,9 @@ import logging
 import data_loader
 import data_transform
 import data_train
+from model.xgb_train import XGBModel
+from model.lgb_train import LGBModel
+from model.cat_train import CatModel
 
 warnings.filterwarnings("ignore")
 
@@ -31,7 +34,7 @@ def main():
     # predictor = blend()
     # generateSubmission(predictor, test_data)
 
-    logger = logging.getLogger('seismic_prediction')
+    logger = logging.getLogger('LANL')
     logger.setLevel(logging.DEBUG)
 
     fh = logging.FileHandler('./seismic.log')
@@ -46,6 +49,7 @@ def main():
     logger.addHandler(ch)
 
     logger.info('Begin Logging:')
+    print(XGBModel.subclasses)
     cv_predict('earthquake')
 
 
@@ -68,8 +72,10 @@ def cv_predict(fold_choice='earthquake'):
     # scaled_test_X = pd.DataFrame(scaler.transform(X_test), columns=X_test.columns)
 
     fold_iter = data_train.fold_maker(X_tr, fold_choice=fold_choice)
-    predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
-    generateSubmission(predicted_result, file_group, file_name='submission_lgb_mae')
+    model = CatModel()
+    predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+    # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
+    generateSubmission(predicted_result, file_group, file_name='submission_lgb_mae_reg_more')
 
 def blend():
     X_tr, y_tr = data_loader.load_transfrom_train()

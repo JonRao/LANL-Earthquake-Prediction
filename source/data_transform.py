@@ -10,8 +10,14 @@ from scipy import stats
 from sklearn.preprocessing import StandardScaler
 from scipy.signal import firls, convolve, decimate, hilbert, hann
 from scipy.spatial.distance import pdist
+from tsfresh.feature_extraction import feature_calculators
+from multiprocessing import Pool
+
+import data_loader
 
 warnings.filterwarnings("ignore")
+
+     
 
 def transform_train(train, rows=150_000):
     """ Transfrom train data into X, y with lower frequency"""
@@ -33,6 +39,34 @@ def transform_train(train, rows=150_000):
             X_tr.loc[segment, key] = val
     
     return X_tr, y_tr
+
+def transform_train_pool(df_iter, total=None, num_worker=6):
+    """ Transform data in parallel?"""
+    # grouper = data_loader.load_train_chunk(chunk=rows)
+
+    dump = []
+    with Pool(num_worker) as p:
+        for result in p.imap_unordered(transform_train_pool_helper, tqdm.tqdm(enumerate(df_iter), total=total)):
+            dump.append(result)
+    
+    count = len(dump)
+    X_tr = pd.DataFrame(index=range(count), dtype=np.float64)
+    y_tr = pd.DataFrame(index=range(count), dtype=np.float64, columns=['time_to_failure'])
+    for segment, result_one, y in dump:
+        y_tr.loc[segment, 'time_to_failure'] = y
+        for key, val in result_one.items():
+            X_tr.loc[segment, key] = val
+
+    return X_tr, y_tr
+
+def transform_train_pool_helper(args):
+    """ Transform in parallel helper"""
+    segmentId, seg = args
+    x = pd.Series(seg['acoustic_data'].values)
+    y = seg['time_to_failure'].values[-1]
+
+    result_one = transform(x)
+    return segmentId, result_one, y
 
 def transform_earthquake_id(train, rows=150_000):
     segments = int(np.floor(train.shape[0] / rows))
@@ -63,6 +97,7 @@ def transform(df):
     transform_pack = [
         transform_pack1,
         transform_pack2,
+        transform_pack3,
     ]
     dump = []
     for func in transform_pack:
@@ -70,6 +105,80 @@ def transform(df):
         dump.append(x)
     
     return ChainMap(*dump)
+
+def transform_pack3(df):
+    """ augment X form tsfresh features"""
+    x = df.values
+    output = {}
+
+    output['kstat_1'] = stats.kstat(x, 1)
+    output['kstat_2'] = stats.kstat(x, 2)
+    output['kstat_3'] = stats.kstat(x, 3)
+    output['kstat_4'] = stats.kstat(x, 4)
+    output['abs_energy'] = feature_calculators.abs_energy(x)
+    output['abs_sum_of_changes'] = feature_calculators.absolute_sum_of_changes(x)
+    output['count_above_mean'] = feature_calculators.count_above_mean(x)
+    output['count_below_mean'] = feature_calculators.count_below_mean(x)
+    # output['mean_abs_change'] = feature_calculators.mean_abs_change(x)
+    # output['mean_change'] = feature_calculators.mean_change(x)
+    output['range_minf_m4000'] = feature_calculators.range_count(x, -np.inf, -4000)
+    output['range_m4000_m3000'] = feature_calculators.range_count(x, -4000, -3000)
+    output['range_m3000_m2000'] = feature_calculators.range_count(x, -3000, -2000)
+    output['range_m2000_m1000'] = feature_calculators.range_count(x, -2000, -1000)
+    output['range_m1000_0'] = feature_calculators.range_count(x, -1000, 0)
+    output['range_0_p1000'] = feature_calculators.range_count(x, 0, 1000)
+    output['range_p1000_p2000'] = feature_calculators.range_count(x, 1000, 2000)
+    output['range_p2000_p3000'] = feature_calculators.range_count(x, 2000, 3000)
+    output['range_p3000_p4000'] = feature_calculators.range_count(x, 3000, 4000)
+    output['range_p4000_pinf'] = feature_calculators.range_count(x, 4000, np.inf)
+
+    output['ratio_unique_values'] = feature_calculators.ratio_value_number_to_time_series_length(x)
+    output['first_loc_min'] = feature_calculators.first_location_of_minimum(x)
+    output['first_loc_max'] = feature_calculators.first_location_of_maximum(x)
+    output['last_loc_min'] = feature_calculators.last_location_of_minimum(x)
+    output['last_loc_max'] = feature_calculators.last_location_of_maximum(x)
+    output['time_rev_asym_stat_10'] = feature_calculators.time_reversal_asymmetry_statistic(x, 10)
+    output['time_rev_asym_stat_100'] = feature_calculators.time_reversal_asymmetry_statistic(x, 100)
+    output['time_rev_asym_stat_1000'] = feature_calculators.time_reversal_asymmetry_statistic(x, 1000)
+
+    output['autocorrelation_10'] = feature_calculators.autocorrelation(x, 10)
+    output['autocorrelation_100'] = feature_calculators.autocorrelation(x, 100)
+    output['autocorrelation_1000'] = feature_calculators.autocorrelation(x, 1000)
+    output['autocorrelation_5000'] = feature_calculators.autocorrelation(x, 5000)
+
+    output['c3_5'] = feature_calculators.c3(x, 5)
+    output['c3_10'] = feature_calculators.c3(x, 10)
+    output['c3_100'] = feature_calculators.c3(x, 100)
+
+    output['long_strk_above_mean'] = feature_calculators.longest_strike_above_mean(x)
+    output['long_strk_below_mean'] = feature_calculators.longest_strike_below_mean(x)
+    output['cid_ce_0'] = feature_calculators.cid_ce(x, 0)
+    output['cid_ce_1'] = feature_calculators.cid_ce(x, 1)
+    output['binned_entropy_10'] = feature_calculators.binned_entropy(x, 10)
+    output['binned_entropy_50'] = feature_calculators.binned_entropy(x, 50)
+    output['binned_entropy_80'] = feature_calculators.binned_entropy(x, 80)
+    output['binned_entropy_100'] = feature_calculators.binned_entropy(x, 100)
+
+    tmp = np.abs(x)
+    output['num_crossing_0'] = feature_calculators.number_crossing_m(tmp, 0)
+    output['num_crossing_10'] = feature_calculators.number_crossing_m(tmp, 10)
+    output['num_crossing_100'] = feature_calculators.number_crossing_m(tmp, 100)
+    output['num_peaks_10'] = feature_calculators.number_peaks(tmp, 10)
+    output['num_peaks_50'] = feature_calculators.number_peaks(tmp, 50)
+    output['num_peaks_100'] = feature_calculators.number_peaks(tmp, 100)
+    output['num_peaks_500'] = feature_calculators.number_peaks(tmp, 500)
+
+    output['spkt_welch_density_1'] = list(feature_calculators.spkt_welch_density(x, [{'coeff': 1}]))[0][1]
+    output['spkt_welch_density_10'] = list(feature_calculators.spkt_welch_density(x, [{'coeff': 10}]))[0][1]
+    output['spkt_welch_density_50'] = list(feature_calculators.spkt_welch_density(x, [{'coeff': 50}]))[0][1]
+    output['spkt_welch_density_100'] = list(feature_calculators.spkt_welch_density(x, [{'coeff': 100}]))[0][1]
+
+    output['time_rev_asym_stat_1'] = feature_calculators.time_reversal_asymmetry_statistic(x, 1)
+    output['time_rev_asym_stat_10'] = feature_calculators.time_reversal_asymmetry_statistic(x, 10)
+    output['time_rev_asym_stat_100'] = feature_calculators.time_reversal_asymmetry_statistic(x, 100)     
+
+    return output
+
 
 def transform_pack2(df):
     """ augment X to more features until 04/15 MFCC related"""
@@ -81,33 +190,14 @@ def transform_pack2(df):
     for i, each_mfcc in enumerate(mfcc):
         output[f'mfcc_mean_{i}'] = np.mean(each_mfcc)
         output[f'mfcc_std_{i}'] = np.std(each_mfcc)
-    
-    # for i, each_mfcc in enumerate(librosa.feature.delta(mfcc)):
-    #     output[f'delta_mfcc_mean_{i}'] = np.mean(each_mfcc)
-    #     output[f'delta_mfcc_std_{i}'] = np.std(each_mfcc)
-
-    # for i, each_mfcc in enumerate(librosa.feature.delta(mfcc, order=2)):
-    #     output[f'accelerate_mfcc_mean_{i}'] = np.mean(each_mfcc)
-    #     output[f'accelerate_mfcc_std_{i}'] = np.std(each_mfcc)
-    
 
     melspec = librosa.feature.melspectrogram(data)
     logmel = librosa.core.power_to_db(melspec)
-    # delta = librosa.feature.delta(logmel)
-    # accelerate = librosa.feature.delta(logmel, order=2)
 
     for i, each_logmel in enumerate(logmel):
         output[f'logmel_mean_{i}'] = np.mean(each_logmel)
         output[f'logmel_std_{i}'] = np.std(each_logmel)
     
-    # for i, each_logmel in enumerate(delta):
-    #     output[f'delta_logmel_mean_{i}'] = np.mean(each_logmel)
-    #     output[f'delta_logmel_std_{i}'] = np.std(each_logmel)
-
-    # for i, each_logmel in enumerate(accelerate):
-    #     output[f'accelerate_logmel_mean_{i}'] = np.mean(each_logmel)
-    #     output[f'accelerate_logmel_std_{i}'] = np.std(each_logmel)
-
     return output
 
 
@@ -165,9 +255,9 @@ def transform_pack1(df):
         output[f'trend_last_{last}'] = feature_trend(tmp)
         output[f'abs_trend_last_{last}'] = feature_trend(tmp, abs_value=True)
 
-    tmp = np.abs(df)
-    output['count_big'] = np.sum(tmp > 100)
-    output['count_med'] = np.sum((tmp <= 100) & (tmp > 10))
+    # tmp = np.abs(df)
+    # output['count_big'] = np.sum(tmp > 100)
+    # output['count_med'] = np.sum((tmp <= 100) & (tmp > 10))
 
     x = np.cumsum(df ** 2)
     # Convert to float
@@ -305,6 +395,10 @@ def missing_fix_tr(X_tr):
 def missing_fix_test(X_test, means_dict):
     for col in X_test.columns:
         if X_test[col].isnull().any():
-            X_test.loc[X_test[col] == -np.inf, col] = means_dict[col]
-            X_test[col] = X_test[col].fillna(means_dict[col])
+            X_test.loc[X_test[col] == -np.inf, col] = means_dict.get(col, 0)
+            X_test[col] = X_test[col].fillna(means_dict.get(col, 0))
+            print(col)
     return X_test
+
+if __name__ == "__main__":
+    transform_train_pool()

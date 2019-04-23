@@ -1,89 +1,17 @@
 import pandas as pd
 import numpy as np
 import logging
-import xgboost as xgb
-import lightgbm as lgb
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import KFold, LeaveOneGroupOut
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 
-from keras.models import Sequential
-from keras.layers import Dense, CuDNNGRU
-from keras.optimizers import adam
-from keras.callbacks import ModelCheckpoint
 
 import data_loader
+import data_transform
+from model.xgb_train import XGBModel
+from model.lgb_train import LGBModel
+from model.cat_train import CatModel
 
-logger = logging.getLogger('seismic_prediction.train')
-
-
-XGB_PARAMS = {'eta': 0.03,
-              'max_depth': 9,
-              'subsample': 0.9,
-              'objective': 'reg:linear',
-              'eval_metric': 'mae',
-              'silent': True,
-            #   'feature_selector': 'thrifty',
-            #   'top_k': 100,
-            
-              }
-
-LGB_PARAMS = {
-          'num_leaves': 51,
-          'min_data_in_leaf': 10,
-          'objective': 'huber',
-          'max_depth': -1,
-          'learning_rate': 0.01,
-          "boosting": "gbdt",
-          "bagging_freq": 1,
-          "bagging_fraction": 0.91,
-          "bagging_seed": 11,
-          "metric": 'mae',
-          "verbosity": -1,
-          "random_state": 42,
-        #   'reg_alpha': 0.1302650970728192,
-        #   'reg_lambda': 0.3603427518866501,
-        #   'num_threads': 5,
-        #   'device': 'gpu',
-        #   'gpu_platform_id': 0,
-        #   'gpu_device_id':  0,
-         }
-
-def train_CV(X, y, fold_iter, model_choice='xgb', params=XGB_PARAMS):
-    dump = []
-    for fold_n, (train_index, valid_index) in enumerate(fold_iter):
-        X_train, X_valid = X.iloc[train_index], X.iloc[valid_index]
-        y_train, y_valid = y.iloc[train_index], y.iloc[valid_index]
-
-        predictor = train_model(model_choice, X_train, y_train, params, X_valid, y_valid)
-        y_pred = predictor(X_valid)
-
-        score = mean_absolute_error(y_pred, y_valid)
-        logger.info(f"model: {model_choice}, fold: {fold_n}, score: {score:.2f}")
-        dump.append(score)
-    logger.info(f"model: {model_choice}, mean_score: {np.mean(dump):.2f}, std: {np.std(dump):.2f}")
-    return dump
-
-def train_CV_test(X, y, X_test, fold_iter, model_choice='xgb', params=XGB_PARAMS):
-    dump = []
-    prediction = np.zeros(len(X_test))
-
-    for fold_n, (train_index, valid_index) in enumerate(fold_iter):
-        X_train, X_valid = X.iloc[train_index], X.iloc[valid_index]
-        y_train, y_valid = y.iloc[train_index], y.iloc[valid_index]
-
-        # lda = LDA(n_components=20)
-        # X_train = lda.fit_transform(X_train, y_train)
-        # X_valid = lda.transform(X_valid)
-        predictor = train_model(model_choice, X_train, y_train, params, X_valid, y_valid)
-        y_pred = predictor(X_valid)
-        prediction += predictor(X_test)
-
-        score = mean_absolute_error(y_pred, y_valid)
-        logger.info(f"model: {model_choice}, fold: {fold_n}, score: {score:.2f}")
-        dump.append(score)
-    logger.info(f"model: {model_choice}, mean_score: {np.mean(dump):.2f}, std: {np.std(dump):.2f}")
-    return prediction / fold_n
+logger = logging.getLogger('LANL.train')
 
 def fold_maker(X, n_fold=10, fold_choice='default'):
     if fold_choice == 'default':
@@ -98,75 +26,33 @@ def fold_maker(X, n_fold=10, fold_choice='default'):
 
     return fold_iter
 
-def train_model(model_choice, X, y, params=None, X_valid=None, y_valid=None):
-    if model_choice == 'xgb':
-        if params is None:
-            params = XGB_PARAMS
-        predictor = train_xgb(X, y, params, X_valid, y_valid)
-    elif model_choice == 'lgb':
-        if params is None:
-            params = LGB_PARAMS
-        predictor = train_lgb(X, y, params, X_valid, y_valid)
-    elif model_choice == 'rnn':
-        predictor = train_rnn(X, y, params, X_valid, y_valid)
-    else:
-        raise AttributeError(f"Not support {model_choice} yet...")
-    return predictor
+def cv_predict(fold_choice='earthquake'):
+    X_tr, y_tr = data_loader.load_transfrom_train()
+    X_tr, means_dict = data_transform.missing_fix_tr(X_tr)
 
-def train_xgb(X, y, params=XGB_PARAMS, X_valid=None, y_valid=None):
+    X_test = data_loader.load_transfrom_test()
+    file_group = X_test.index
 
-    train_data = xgb.DMatrix(data=X, label=y, feature_names=X.columns)
-    watchlist = [(train_data, 'train'),]
-    if X_valid is not None:
-        valid_data = xgb.DMatrix(data=X_valid, label=y_valid, feature_names=X_valid.columns)
-        watchlist += [(valid_data, 'valid'),]
+    X_test = X_test[X_tr.columns]
+    X_test = data_transform.missing_fix_test(X_test, means_dict)
 
-    model = xgb.train(dtrain=train_data, num_boost_round=20000, early_stopping_rounds=200, 
-                      evals=watchlist, verbose_eval=500, params=params)
+    # X_tr = X_tr.clip(-1e6, 1e6)
+    # X_test = X_test.clip(-1e6, 1e6)
 
-    def predict(X):
-        """ wrapper for prediction"""
-        data = xgb.DMatrix(data=X, feature_names=X.columns)
-        y_pred = model.predict(data, ntree_limit=model.best_ntree_limit)
-        return y_pred
-    return predict
+    # scaler = StandardScaler()
+    # scaler.fit(X_tr)
+    # scaled_train_X = pd.DataFrame(scaler.transform(X_tr), columns=X_tr.columns)
+    # scaled_test_X = pd.DataFrame(scaler.transform(X_test), columns=X_test.columns)
 
-def train_lgb(X, y, params=LGB_PARAMS, X_valid=None, y_valid=None):
+    fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
+    model = CatModel()
+    predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+    # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
+    generateSubmission(predicted_result, file_group, file_name='submission_lgb_mae_reg_more')
 
-    model = lgb.LGBMRegressor(**params, n_estimators=20000, silent=True)
-    
-    eval_set = [(X, y),]
-    if X_valid is not None:
-        eval_set += [(X_valid, y_valid),]
-
-    model.fit(X, y, eval_set=eval_set, eval_metric='mae', verbose=1000, early_stopping_rounds=200)
-
-    def predict(X):
-        """ wrapper for prediction"""
-        y_pred = model.predict(X, num_iteration=model.best_iteration_)
-        return y_pred
-    return predict
-
-def train_rnn(X, y, params, X_valid=None, y_valid=None):
-    cb = [ModelCheckpoint("model.hdf5", save_best_only=True, period=3)]
-
-    model = Sequential()
-    model.add(CuDNNGRU(48, input_shape=(None, X.shape[1])))
-    model.add(Dense(10, activation='relu'))
-    model.add(Dense(1))
-
-    model.summary()
-    model.compile(optimizer=adam(lr=0.0005), loss="mae")
-
-    history = model.fit(X, y,
-                        batch_size=2048,
-                        steps_per_epoch=1000,
-                        epochs=50,
-                        verbose=0,
-                        callbacks=cb)
-
-    def predict(X):
-        """ wrapper for prediction"""
-        y_pred = model.predict(X, batch_size=2048)
-        return y_pred
-    return predict
+def generateSubmission(predicted_result, file_group, file_name='submission.csv'):
+    df = pd.Series(predicted_result, index=file_group).to_frame()
+    df = df.rename(columns={0: 'time_to_failure'})
+    df.index.name = 'seg_id'
+    df['time_to_failure'] = df['time_to_failure'].clip(0, 16)
+    df.to_csv(f'./test_result/{file_name}.csv')
