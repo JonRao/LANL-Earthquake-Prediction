@@ -536,3 +536,4 @@
 2019-04-22 23:01:53,969 - LANL.train.cat - INFO - fold: 0, score: 0.70
 2019-04-22 23:02:36,037 - LANL.train.cat - INFO - fold: 1, score: 1.45
 2019-04-22 23:03:24,665 - LANL.train.cat - INFO - fold: 2, score: 2.77
+2019-04-23 22:00:23,578 - LANL - INFO - Begin Logging:

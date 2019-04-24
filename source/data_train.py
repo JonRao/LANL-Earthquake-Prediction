@@ -44,11 +44,11 @@ def cv_predict(fold_choice='earthquake'):
     # scaled_train_X = pd.DataFrame(scaler.transform(X_tr), columns=X_tr.columns)
     # scaled_test_X = pd.DataFrame(scaler.transform(X_test), columns=X_test.columns)
 
-    fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
-    model = CatModel()
-    predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
-    # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
-    generateSubmission(predicted_result, file_group, file_name='submission_lgb_mae_reg_more')
+    # fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
+    # model = CatModel()
+    # predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+    # # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
+    # generateSubmission(predicted_result, file_group, file_name='submission_lgb_mae_reg_more')
 
 def generateSubmission(predicted_result, file_group, file_name='submission.csv'):
     df = pd.Series(predicted_result, index=file_group).to_frame()

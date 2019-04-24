@@ -11,15 +11,6 @@ def load_train():
     train = pickle.load(open('./data/train.p', 'rb'))
     return train
 
-def load_train_chunk(chunk=150_000):
-    """ Load data by chunk (useful for parallel handling"""
-    iter_df = pd.read_csv('./train.csv', iterator=True, chunksize=chunk, 
-                          dtype={'acoustic_data': np.int32, 'time_to_failure': np.float64})
-    return iter_df
-
-def load_test_chunk():
-    """ Load test data one file by one file"""
-    pass
 
 def load_transfrom_train(update=False):
     cache_path = './data/transform.p'
@@ -30,10 +21,8 @@ def load_transfrom_train(update=False):
         existed = False
     
     if (not existed) or update:
-        # train = load_train()
-        # X_tr_new, y_tr_new = data_transform.transform_train(train)
-        df_iter = load_train_chunk()
-        X_tr_new, y_tr_new = data_transform.transform_train_pool(df_iter, total=4149)
+        train = load_train()
+        X_tr_new, y_tr_new = data_transform.transform_train(train)
         if existed:
             # upload cache
             X_tr_new = pd.concat([X_tr, X_tr_new], axis=1)
@@ -55,11 +44,7 @@ def load_transfrom_test(update=False):
 
     if (not existed) or update:
         raw = load_test()
-        dump = {}
-        for name, df in tqdm(raw):
-            tmp = data_transform.transform(df)
-            dump[name] = dict(tmp)
-        result_new = pd.DataFrame(dump).T
+        result_new = data_transform.transfrom_test(raw)
         if existed:
             # upload cache
             result_new = pd.concat([result, result_new], axis=1)
@@ -98,5 +83,5 @@ def load_earthquake_id():
 
 
 if __name__ == '__main__':
-    # load_transfrom_train(update=True)
+    load_transfrom_train(update=True)
     load_transfrom_test(update=True)

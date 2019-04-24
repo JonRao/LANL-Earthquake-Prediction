@@ -4,6 +4,7 @@ import numpy as np
 import tqdm
 import librosa  # MFCC feature
 import warnings
+import multiprocessing
 from collections import ChainMap, defaultdict
 from sklearn.linear_model import LinearRegression
 from scipy import stats
@@ -11,42 +12,47 @@ from sklearn.preprocessing import StandardScaler
 from scipy.signal import firls, convolve, decimate, hilbert, hann
 from scipy.spatial.distance import pdist
 from tsfresh.feature_extraction import feature_calculators
-from multiprocessing import Pool
 
 import data_loader
 
 warnings.filterwarnings("ignore")
 
-     
+def transfrom_test(raw):
+    """ Transform test data in parallel"""
+    num_process = multiprocessing.cpu_count()
+    ctx = multiprocessing.get_context('spawn')
+
+    dump = {}
+    with ctx.Pool(num_process) as p:
+        for name, df in p.imap_unordered(transform_helper, tqdm.tqdm(raw)):
+            dump[name] = df
+
+    result = pd.DataFrame(dump).T
+    return result
+
+
+def transform_helper(data):
+    """ Helper for test data case"""
+    name, df = data
+    tmp = transform(df)
+    return name, tmp
+
 
 def transform_train(train, rows=150_000):
-    """ Transfrom train data into X, y with lower frequency"""
+    # num_process = 6
+    num_process = multiprocessing.cpu_count()
+    ctx = multiprocessing.get_context('spawn')
 
-    segments = int(np.floor(train.shape[0] / rows))
-    X_tr = pd.DataFrame(index=range(segments), dtype=np.float64)
-    y_tr = pd.DataFrame(index=range(segments), dtype=np.float64, columns=['time_to_failure'])
+    segments = int(np.floor(train.shape[0] / rows)) # missing last part
+    def train_getter(segments):
+        for segment in range(segments):
+            seg = train.iloc[segment*rows : segment*rows + rows]
+            yield seg
 
-    for segment in tqdm.tqdm(range(segments)):
-        seg = train.iloc[segment*rows : segment*rows+rows]
-        # x_denoised = resample(seg['acoustic_data'].values)
-        # x = pd.Series(x_denoised.real)
-        x = pd.Series(seg['acoustic_data'].values)
-        y = seg['time_to_failure'].values[-1]
-
-        y_tr.loc[segment, 'time_to_failure'] = y
-        result_one = transform(x)
-        for key, val in result_one.items():
-            X_tr.loc[segment, key] = val
-    
-    return X_tr, y_tr
-
-def transform_train_pool(df_iter, total=None, num_worker=6):
-    """ Transform data in parallel?"""
-    # grouper = data_loader.load_train_chunk(chunk=rows)
 
     dump = []
-    with Pool(num_worker) as p:
-        for result in p.imap_unordered(transform_train_pool_helper, tqdm.tqdm(enumerate(df_iter), total=total)):
+    with ctx.Pool(num_process) as p:
+        for result in p.imap_unordered(transform_train_helper, tqdm.tqdm(enumerate(train_getter(segments)), total=segments)):
             dump.append(result)
     
     count = len(dump)
@@ -59,7 +65,8 @@ def transform_train_pool(df_iter, total=None, num_worker=6):
 
     return X_tr, y_tr
 
-def transform_train_pool_helper(args):
+
+def transform_train_helper(args):
     """ Transform in parallel helper"""
     segmentId, seg = args
     x = pd.Series(seg['acoustic_data'].values)
@@ -67,6 +74,7 @@ def transform_train_pool_helper(args):
 
     result_one = transform(x)
     return segmentId, result_one, y
+
 
 def transform_earthquake_id(train, rows=150_000):
     segments = int(np.floor(train.shape[0] / rows))
@@ -105,6 +113,7 @@ def transform(df):
         dump.append(x)
     
     return ChainMap(*dump)
+
 
 def transform_pack3(df):
     """ augment X form tsfresh features"""
@@ -255,17 +264,14 @@ def transform_pack1(df):
         output[f'trend_last_{last}'] = feature_trend(tmp)
         output[f'abs_trend_last_{last}'] = feature_trend(tmp, abs_value=True)
 
-    # tmp = np.abs(df)
-    # output['count_big'] = np.sum(tmp > 100)
-    # output['count_med'] = np.sum((tmp <= 100) & (tmp > 10))
+    tmp = np.abs(df)
+    output['count_big'] = np.sum(tmp > 100)
+    output['count_med'] = np.sum((tmp <= 100) & (tmp > 10))
 
-    x = np.cumsum(df ** 2)
-    # Convert to float
-    x = np.require(x, dtype=np.float)
     n_sta_group = (500, 5000, 3333, 10000, 50, 333, 4000)
     n_lta_group = (10000, 100000, 6666, 25000, 1000, 666, 10000)
     for i, (n_sta, n_lta) in enumerate(zip(n_sta_group, n_lta_group)):
-        tmp = feature_sta_lta_ratio(x, n_sta, n_lta)
+        tmp = feature_sta_lta_ratio(df.values, n_sta, n_lta)
         output[f'classic_sta_lta{i}_mean'] = np.nanmean(tmp)
 
 
@@ -321,15 +327,6 @@ def transform_pack1(df):
     return output
 
 
-def resample(xs):
-    """ Resample out the noise, seems not good..."""
-    filt = firls(2001, bands=[0,240e3,245e3,250e3,255e3,2e6], desired=[0,0,1,1,0,0], fs=4e6)
-    xs = convolve(xs.astype(float), filt, mode='valid')
-    t = 2*np.pi*250e3/4e6*np.arange(len(xs))
-    xs = xs*(np.cos(t) + 1j*np.sin(t))
-    # xs = decimate(xs, 150, ftype='fir')
-    return xs
-
 def feature_trend(y, abs_value=False):
     """ linear regression """
     if not isinstance(y, np.ndarray):
@@ -341,8 +338,12 @@ def feature_trend(y, abs_value=False):
     m, _ = np.linalg.lstsq(A, y, rcond=None)[0]
     return m
 
+
 def feature_sta_lta_ratio(x, length_sta, length_lta):
     """ short-term change over long-term change ratio (not rolling mean)"""
+    x = np.cumsum(x ** 2)
+    # Convert to float
+    x = np.require(x, dtype=np.float)
 
     sta = x
     # Copy for LTA
@@ -364,13 +365,6 @@ def feature_sta_lta_ratio(x, length_sta, length_lta):
 
     return sta / lta
 
-def concat_scaling(X_tr, X_test):
-    raw = pd.concat([X_tr, X_test], sort=False)
-    df = preprocess_features(raw)
-    train_cutoff = len(X_tr)
-    test_cutoff = len(X_test)
-    return df[:train_cutoff], df[:test_cutoff]
-
 
 def preprocess_features(X):
     # scaling 
@@ -379,11 +373,12 @@ def preprocess_features(X):
     X = pd.DataFrame(scaler.transform(X), columns=X.columns)
     return X
 
+
 def missing_fix_tr(X_tr):
     means_dict = {}
     for col in X_tr.columns:
         if X_tr[col].isnull().any():
-            print(col)
+            print('train', col)
             mean_value = X_tr.loc[X_tr[col] != -np.inf, col].mean()
             X_tr.loc[X_tr[col] == -np.inf, col] = mean_value
             if np.abs(mean_value) > 1e10:
@@ -392,13 +387,12 @@ def missing_fix_tr(X_tr):
             means_dict[col] = mean_value
     return X_tr, means_dict
 
+
 def missing_fix_test(X_test, means_dict):
     for col in X_test.columns:
         if X_test[col].isnull().any():
             X_test.loc[X_test[col] == -np.inf, col] = means_dict.get(col, 0)
             X_test[col] = X_test[col].fillna(means_dict.get(col, 0))
-            print(col)
+            print('test', col)
     return X_test
 
-if __name__ == "__main__":
-    transform_train_pool()
