@@ -7,7 +7,7 @@ logger = logging.getLogger('LANL.train.lgb')
 LGB_PARAMS = {
           'num_leaves': 51,
           'min_data_in_leaf': 10,
-          'objective': 'regression',
+          'objective': 'gamma',
           'max_depth': -1,
           'learning_rate': 0.01,
           "boosting": "gbdt",

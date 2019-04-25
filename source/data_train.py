@@ -9,7 +9,8 @@ import data_loader
 import data_transform
 from model.xgb_train import XGBModel
 from model.lgb_train import LGBModel
-from model.cat_train import CatModel
+# from model.cat_train import CatModel
+from model.sklearn_train import SklearnModel
 
 logger = logging.getLogger('LANL.train')
 
@@ -26,7 +27,7 @@ def fold_maker(X, n_fold=10, fold_choice='default'):
 
     return fold_iter
 
-def cv_predict(fold_choice='earthquake'):
+def cv_predict(fold_choice):
     X_tr, y_tr = data_loader.load_transfrom_train()
     X_tr, means_dict = data_transform.missing_fix_tr(X_tr)
 
@@ -36,23 +37,39 @@ def cv_predict(fold_choice='earthquake'):
     X_test = X_test[X_tr.columns]
     X_test = data_transform.missing_fix_test(X_test, means_dict)
 
-    # X_tr = X_tr.clip(-1e6, 1e6)
-    # X_test = X_test.clip(-1e6, 1e6)
+    X_tr = X_tr.clip(-1e8, 1e8)
+    X_test = X_test.clip(-1e8, 1e8)
 
     # scaler = StandardScaler()
     # scaler.fit(X_tr)
     # scaled_train_X = pd.DataFrame(scaler.transform(X_tr), columns=X_tr.columns)
     # scaled_test_X = pd.DataFrame(scaler.transform(X_test), columns=X_test.columns)
 
-    # fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
-    # model = CatModel()
-    # predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
-    # # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
-    # generateSubmission(predicted_result, file_group, file_name='submission_lgb_mae_reg_more')
+    fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
+    # model = SklearnModel('RandomForest')
+    model = SklearnModel()
+    predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+    # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
+    return predicted_result, oof, file_group
 
-def generateSubmission(predicted_result, file_group, file_name='submission.csv'):
-    df = pd.Series(predicted_result, index=file_group).to_frame()
-    df = df.rename(columns={0: 'time_to_failure'})
-    df.index.name = 'seg_id'
-    df['time_to_failure'] = df['time_to_failure'].clip(0, 16)
-    df.to_csv(f'./test_result/{file_name}.csv')
+def blend(fold_choice):
+    X_tr, y_tr = data_loader.load_transfrom_train()
+    X_tr, means_dict = data_transform.missing_fix_tr(X_tr)
+
+    X_test = data_loader.load_transfrom_test()
+    file_group = X_test.index
+
+    X_test = X_test[X_tr.columns]
+    X_test = data_transform.missing_fix_test(X_test, means_dict)
+
+    X_tr = X_tr.clip(-1e8, 1e8)
+    X_test = X_test.clip(-1e8, 1e8)
+
+    fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
+    prediction = np.zeros(len(X_test))
+    for model in XGBModel.subclasses:
+        model = model()
+        predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+        prediction += predicted_result
+    # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
+    return prediction / len(XGBModel.subclasses), oof, file_group

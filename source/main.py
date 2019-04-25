@@ -46,28 +46,17 @@ def main():
     logger.addHandler(ch)
 
     logger.info('Begin Logging:')
-    data_train.cv_predict('earthquake')
+    predicted_result, _, file_group = data_train.blend('earthquake')
+    generateSubmission(predicted_result, file_group, file_name='submission_blend')
 
 
+def generateSubmission(predicted_result, file_group, file_name='submission.csv'):
+    df = pd.Series(predicted_result, index=file_group).to_frame()
+    df = df.rename(columns={0: 'time_to_failure'})
+    df.index.name = 'seg_id'
+    df['time_to_failure'] = df['time_to_failure'].clip(0, 16)
+    df.to_csv(f'./test_result/{file_name}.csv')
 
-def blend():
-    X_tr, y_tr = data_loader.load_transfrom_train()
-    # # test_data = X_tr
-
-    dump = []
-    for model_choice in ('lgb', 'xgb'):
-    # for model_choice in ('xgb',):
-        print(f"Working on {model_choice}")
-        predictor = data_train.train_model(model_choice, X_tr, y_tr)
-        dump.append(predictor)
-
-    def predict(X):
-        tmp = []
-        for model in dump:
-            result = model(X)
-            tmp.append(result)
-        return np.mean(tmp, axis=0)
-    return predict
 
 
 def hypo_train_xgb():

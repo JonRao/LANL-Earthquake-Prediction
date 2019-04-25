@@ -25,7 +25,7 @@ def load_transfrom_train(update=False):
         X_tr_new, y_tr_new = data_transform.transform_train(train)
         if existed:
             # upload cache
-            X_tr_new = pd.concat([X_tr, X_tr_new], axis=1)
+            X_tr_new = update_dataframe(X_tr, X_tr_new)
 
         dump = X_tr_new, y_tr_new
         pickle.dump(dump, open(cache_path, 'wb'))
@@ -33,6 +33,7 @@ def load_transfrom_train(update=False):
     
 
     return X_tr, y_tr
+
 
 def load_transfrom_test(update=False):
     cache_path = './data/test_transform.p'
@@ -47,11 +48,12 @@ def load_transfrom_test(update=False):
         result_new = data_transform.transfrom_test(raw)
         if existed:
             # upload cache
-            result_new = pd.concat([result, result_new], axis=1)
+            result_new = update_dataframe(result, result_new)
         pickle.dump(result_new, open(cache_path, 'wb'))
         result = result_new
 
     return result
+
 
 def load_test():
     cache_path = './data/test_submission.p'
@@ -70,6 +72,7 @@ def load_test():
         pickle.dump(result, open(cache_path, 'wb'))
     return result
 
+
 def load_earthquake_id():
     cache_path = './data/earthquake_id.p'
     if os.path.exists(cache_path):
@@ -82,6 +85,54 @@ def load_earthquake_id():
     return earthquake_id
 
 
+def update_dataframe(df_old, df_new):
+    """ Update old dataframe with the new one, new values and new columns"""
+    # assume left and right index matches
+    df_old = df_old.reindex(columns=df_old.columns.union(df_new.columns))
+    df_old.update(df_new)
+    return df_old
+
+
+def load_feature_names(version=None):
+    """ load feature names, give newest by default"""
+    feature_path = r'./data/features'
+    feature_group = os.listdir(feature_path)
+
+    feature_name, _ = find_feature_version(feature_group, version)
+    dump = []
+    with open(os.path.join(feature_path, feature_name), 'r') as f:
+        for line in f:
+            dump.append(line.strip())
+    return dump
+
+
+def store_feature_names(column_names):
+    """ Store feature names"""
+    feature_path = r'./data/features'
+    feature_group = os.listdir(feature_path)
+    _, current_version = find_feature_version(feature_group)
+    columns_names = sorted(column_names)
+    with open(os.path.join(feature_path, f'{current_version + 1}_{len(column_names)}.txt'), 'w') as f:
+        f.write('\n'.join(column_names))
+
+
+def find_feature_version(feature_group, version=None):
+    """ Return lastest file name and version number given names if version is None"""
+    if not len(feature_group):
+        return '', -1
+    if version is None:
+        feature_find = max(feature_group, key=lambda x: int(x.split('_', 1)[0]))
+    else:
+        version_find = [name for name in feature_group if name.split('_', 1)[0] == version]
+        assert len(version_find) == 1, f'Too many versions: {version_find}'
+        feature_find = version_find[0]
+
+    current_version = int(feature_find.split('_', 1)[0])
+    return feature_find, current_version
+
 if __name__ == '__main__':
-    load_transfrom_train(update=True)
+    # load_transfrom_train(update=True)
     load_transfrom_test(update=True)
+    # column_names = ['a', 'b']
+    # store_feature_names(column_names)
+    # print(load_feature_names())

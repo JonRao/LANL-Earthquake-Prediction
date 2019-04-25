@@ -24,11 +24,15 @@ def transfrom_test(raw):
 
     dump = {}
     with ctx.Pool(num_process) as p:
-        for name, df in p.imap_unordered(transform_helper, tqdm.tqdm(raw)):
-            dump[name] = df
+        for name, result_one in p.imap_unordered(transform_helper, tqdm.tqdm(raw)):
+            dump[name] = result_one 
 
-    result = pd.DataFrame(dump).T
-    return result
+    X_test = pd.DataFrame(index=dump, dtype=np.float64)
+    for name, result_one in tqdm.tqdm(dump.items()):
+        for key, val in result_one.items():
+            X_test.loc[name, key] = val
+
+    return X_test 
 
 
 def transform_helper(data):
@@ -58,7 +62,7 @@ def transform_train(train, rows=150_000):
     count = len(dump)
     X_tr = pd.DataFrame(index=range(count), dtype=np.float64)
     y_tr = pd.DataFrame(index=range(count), dtype=np.float64, columns=['time_to_failure'])
-    for segment, result_one, y in dump:
+    for segment, result_one, y in tqdm.tqdm(dump):
         y_tr.loc[segment, 'time_to_failure'] = y
         for key, val in result_one.items():
             X_tr.loc[segment, key] = val
@@ -103,9 +107,10 @@ def transform_earthquake_id(train, rows=150_000):
 def transform(df):
     """ augment X to more features"""
     transform_pack = [
-        transform_pack1,
-        transform_pack2,
-        transform_pack3,
+        # transform_pack1,
+        # transform_pack2,
+        # transform_pack3,
+        transform_pack4,
     ]
     dump = []
     for func in transform_pack:
@@ -114,6 +119,14 @@ def transform(df):
     
     return ChainMap(*dump)
 
+def transform_pack4(df):
+    x = df.values.astype(np.float32)
+    output = {}
+    output['spectral_rolloff'] = librosa.feature.spectral_rolloff(x)[0][0]
+    output['spectral_centroid'] = librosa.feature.spectral_centroid(x)[0][0]
+    output['spectral_contrast'] = librosa.feature.spectral_contrast(x)[0][0]
+    output['spectral_bandwidth'] = librosa.feature.spectral_bandwidth(x)[0][0]
+    return output
 
 def transform_pack3(df):
     """ augment X form tsfresh features"""
