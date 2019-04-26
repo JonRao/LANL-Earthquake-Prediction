@@ -110,7 +110,8 @@ def transform(df):
         # transform_pack1,
         # transform_pack2,
         # transform_pack3,
-        transform_pack4,
+        # transform_pack4,
+        transform_pack5,
     ]
     dump = []
     for func in transform_pack:
@@ -118,6 +119,25 @@ def transform(df):
         dump.append(x)
     
     return ChainMap(*dump)
+
+def transform_pack5(df):
+    """ 0425 more features"""
+    output = {}
+
+    percentiles = [1, 5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 95, 99]
+    for w in [50, 500, 5000]:
+        x_roll_std = df.rolling(w).std().dropna().values
+        x_roll_mean = df.rolling(w).mean().dropna().values
+
+        for p in percentiles:
+            output[f'percentile_roll_{w}_mean_{p}'] = np.percentile(x_roll_mean, p)
+            output[f'percentile_roll_{w}_std_{p}'] = np.percentile(x_roll_std, p)
+
+        output[f'mean_abs_change_mean_{w}'] = feature_calculators.mean_abs_change(x_roll_mean)
+        output[f'mean_change_roll_mean_{w}'] = feature_calculators.mean_change(x_roll_mean)
+        output[f'mean_abs_change_std_{w}'] = feature_calculators.mean_abs_change(x_roll_std)
+        output[f'mean_change_roll_std_{w}'] = feature_calculators.mean_change(x_roll_std)
+    return output
 
 def transform_pack4(df):
     x = df.values.astype(np.float32)
@@ -141,8 +161,6 @@ def transform_pack3(df):
     output['abs_sum_of_changes'] = feature_calculators.absolute_sum_of_changes(x)
     output['count_above_mean'] = feature_calculators.count_above_mean(x)
     output['count_below_mean'] = feature_calculators.count_below_mean(x)
-    # output['mean_abs_change'] = feature_calculators.mean_abs_change(x)
-    # output['mean_change'] = feature_calculators.mean_change(x)
     output['range_minf_m4000'] = feature_calculators.range_count(x, -np.inf, -4000)
     output['range_m4000_m3000'] = feature_calculators.range_count(x, -4000, -3000)
     output['range_m3000_m2000'] = feature_calculators.range_count(x, -3000, -2000)

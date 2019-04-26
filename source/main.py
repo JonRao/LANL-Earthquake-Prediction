@@ -46,8 +46,9 @@ def main():
     logger.addHandler(ch)
 
     logger.info('Begin Logging:')
-    predicted_result, _, file_group = data_train.cv_predict('earthquake')
-    # generateSubmission(predicted_result, file_group, file_name='submission_blend')
+    # predicted_result, _, file_group = data_train.stack()
+    predicted_result, _, file_group = data_train.blend('earthquake')
+    # generateSubmission(predicted_result, file_group, file_name='stack')
 
 
 def generateSubmission(predicted_result, file_group, file_name='submission.csv'):

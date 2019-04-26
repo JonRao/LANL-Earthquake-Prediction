@@ -20,7 +20,10 @@ class ModelTrain(metaclass=ABCMeta):
     def __init__(self, feature_version=None, params=None, logger=None):
         self.params = params
         self.logger = logger
-        self.columns, self.feature_version = data_loader.load_feature_names(feature_version)
+        if feature_version == 'stack':
+            self.feature_version = feature_version
+        else:
+            self.columns, self.feature_version = data_loader.load_feature_names(feature_version)
         self.model_name = type(self).__name__
 
     def update(self, params):
@@ -54,8 +57,10 @@ class ModelTrain(metaclass=ABCMeta):
         dump = []
         prediction = np.zeros(len(X_test))
         oof = np.zeros(len(y))
-        X = X[self.columns]
-        X_test = X_test[self.columns]
+
+        if self.feature_version != 'stack':
+            X = X[self.columns]
+            X_test = X_test[self.columns]
 
         for fold_n, (train_index, valid_index) in enumerate(fold_iter):
             X_train, X_valid = X.iloc[train_index], X.iloc[valid_index]

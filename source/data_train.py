@@ -3,14 +3,16 @@ import numpy as np
 import logging
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import KFold, LeaveOneGroupOut
+import pickle
+import os
 
 
 import data_loader
 import data_transform
 from model.xgb_train import XGBModel
 from model.lgb_train import LGBModel
-# from model.cat_train import CatModel
-from model.sklearn_train import SklearnModel
+from model.cat_train import CatModel
+from model.sklearn_train import SklearnModel, package
 
 logger = logging.getLogger('LANL.train')
 
@@ -47,7 +49,7 @@ def cv_predict(fold_choice):
 
     fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
     # model = SklearnModel('RandomForest')
-    model = LGBModel()
+    model = LGBModel(feature_version='1')
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
     model.store_model()
     # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
@@ -69,8 +71,45 @@ def blend(fold_choice):
     fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
     prediction = np.zeros(len(X_test))
     for model in XGBModel.subclasses:
-        model = model()
-        predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
-        prediction += predicted_result
+        try:
+            if model is SklearnModel:
+                for name in package:
+                    model = model(name)
+                    predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+                    prediction += predicted_result
+                    model.store_model()
+            else:
+                model = model()
+                predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+                prediction += predicted_result
+                model.store_model()
+        except:
+            continue
     # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
     return prediction / len(XGBModel.subclasses), oof, file_group
+
+def stack(fold_choice='earthquake'):
+    """ Stack from existing models"""
+    folder = r'./data/prediction'
+    X_tr, y_tr = data_loader.load_transfrom_train()
+    X_test = data_loader.load_transfrom_test()
+    file_group = X_test.index
+    fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
+
+    train_stack = []
+    test_stack = []
+    for name in os.listdir(folder):
+        if 'CV' in name:
+            path = os.path.join(folder, name)
+            data = pickle.load(open(path, 'rb'))
+            test_stack.append(data['prediction'])
+            train_stack.append(data['oof'])
+
+    train_stack = np.vstack(train_stack).transpose()
+    train_stack = pd.DataFrame(train_stack)
+    test_stack = np.vstack(test_stack).transpose()
+    test_stack = pd.DataFrame(test_stack)
+
+    model = LGBModel(feature_version='stack')
+    predicted_result, oof = model.train_CV_test(train_stack, y_tr, test_stack, fold_iter)
+    return predicted_result, oof, file_group

@@ -132,10 +132,10 @@ def find_feature_version(feature_group, version=None):
     return feature_find, current_version
 
 if __name__ == '__main__':
-    X_tr, _ = load_transfrom_train()
-    store_feature_names(X_tr.columns.tolist()[:100])
+    X_tr, _ = load_transfrom_train(update=True)
+    load_transfrom_test(update=True)
+    store_feature_names(X_tr.columns.tolist())
     # print(load_feature_names()[-1])
-    # load_transfrom_test(update=True)
     # column_names = ['a', 'b']
     # store_feature_names(column_names)
     # print(load_feature_names())
