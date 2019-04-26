@@ -17,8 +17,8 @@ package = {
           }
 
 class SklearnModel(ModelTrain):
-    def __init__(self, model_name='NuSVR', params=None):
-        super().__init__(None, logger)
+    def __init__(self, model_name='NuSVR', feature_version=None, params=None):
+        super().__init__(feature_version=feature_version, params=params, logger=logger)
         self.model, self.params = package[model_name]
 
         if params is not None:

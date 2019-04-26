@@ -28,8 +28,8 @@ LGB_PARAMS = {
          }
 
 class LGBModel(ModelTrain):
-    def __init__(self, params=LGB_PARAMS):
-        super().__init__(params, logger)
+    def __init__(self, feature_version=None, params=LGB_PARAMS):
+        super().__init__(feature_version=feature_version, params=params, logger=logger)
     
     def train(self, X, y, X_valid, y_valid):
         """ Train model output model for prediction"""

@@ -47,8 +47,9 @@ def cv_predict(fold_choice):
 
     fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
     # model = SklearnModel('RandomForest')
-    model = SklearnModel()
+    model = LGBModel()
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+    model.store_model()
     # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
     return predicted_result, oof, file_group
 

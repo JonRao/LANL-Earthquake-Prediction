@@ -98,12 +98,12 @@ def load_feature_names(version=None):
     feature_path = r'./data/features'
     feature_group = os.listdir(feature_path)
 
-    feature_name, _ = find_feature_version(feature_group, version)
+    feature_name, current_version = find_feature_version(feature_group, version)
     dump = []
     with open(os.path.join(feature_path, feature_name), 'r') as f:
         for line in f:
             dump.append(line.strip())
-    return dump
+    return dump, current_version
 
 
 def store_feature_names(column_names):
@@ -120,6 +120,7 @@ def find_feature_version(feature_group, version=None):
     """ Return lastest file name and version number given names if version is None"""
     if not len(feature_group):
         return '', -1
+
     if version is None:
         feature_find = max(feature_group, key=lambda x: int(x.split('_', 1)[0]))
     else:
@@ -131,8 +132,10 @@ def find_feature_version(feature_group, version=None):
     return feature_find, current_version
 
 if __name__ == '__main__':
-    # load_transfrom_train(update=True)
-    load_transfrom_test(update=True)
+    X_tr, _ = load_transfrom_train()
+    store_feature_names(X_tr.columns.tolist()[:100])
+    # print(load_feature_names()[-1])
+    # load_transfrom_test(update=True)
     # column_names = ['a', 'b']
     # store_feature_names(column_names)
     # print(load_feature_names())
