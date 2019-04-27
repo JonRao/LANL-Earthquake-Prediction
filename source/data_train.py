@@ -49,9 +49,11 @@ def cv_predict(fold_choice):
 
     fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
     # model = SklearnModel('RandomForest')
-    model = LGBModel(feature_version='1')
+    model = LGBModel()
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
     model.store_model()
+    df = model.rank_feature()
+    df.to_csv('./feature.csv')
     # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
     return predicted_result, oof, file_group
 
@@ -70,21 +72,29 @@ def blend(fold_choice):
 
     fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
     prediction = np.zeros(len(X_test))
-    for model in XGBModel.subclasses:
-        try:
-            if model is SklearnModel:
-                for name in package:
-                    model = model(name)
-                    predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
-                    prediction += predicted_result
-                    model.store_model()
-            else:
-                model = model()
-                predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
-                prediction += predicted_result
-                model.store_model()
-        except:
-            continue
+
+    for name in package:
+        model = SklearnModel(name)
+        predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+        prediction += predicted_result
+        model.store_model()
+
+
+    # for model in XGBModel.subclasses:
+    #     try:
+    #         if model is SklearnModel:
+    #             for name in package:
+    #                 model = model(name)
+    #                 predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+    #                 prediction += predicted_result
+    #                 model.store_model()
+    #         else:
+    #             model = model()
+    #             predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+    #             prediction += predicted_result
+    #             model.store_model()
+    #     except:
+    #         continue
     # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
     return prediction / len(XGBModel.subclasses), oof, file_group
 
