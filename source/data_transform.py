@@ -111,7 +111,8 @@ def transform(df):
         # transform_pack2,
         # transform_pack3,
         # transform_pack4,
-        transform_pack5,
+        # transform_pack5,
+        transform_pack6,
     ]
     dump = []
     for func in transform_pack:
@@ -119,6 +120,24 @@ def transform(df):
         dump.append(x)
     
     return ChainMap(*dump)
+
+def transform_pack6(df):
+    """ 0427 paper amplitude features"""
+    output = {}
+
+    percentiles = [1, 5, 10, 20, 25, 30]
+
+    # In absolute space
+    df = np.abs(df)
+    length = len(df)
+
+    x = np.sort(df.values)
+    for p in percentiles:
+        bound = int((p / 100) * length)
+        output[f'ampl_p{p}'] = np.sum(np.power(2, x[:bound]))
+    
+    return output
+
 
 def transform_pack5(df):
     """ 0425 more features"""

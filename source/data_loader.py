@@ -84,6 +84,20 @@ def load_earthquake_id():
 
     return earthquake_id
 
+def load_data():
+    """ load processed train data and test data as well"""
+    X_tr, y_tr = load_transfrom_train()
+    X_tr, means_dict = data_transform.missing_fix_tr(X_tr)
+
+    X_test = load_transfrom_test()
+    file_group = X_test.index
+
+    X_test = X_test[X_tr.columns]
+    X_test = data_transform.missing_fix_test(X_test, means_dict)
+
+    X_tr = X_tr.clip(-1e8, 1e8)
+    X_test = X_test.clip(-1e8, 1e8)
+    return X_tr, y_tr, X_test, file_group
 
 def update_dataframe(df_old, df_new):
     """ Update old dataframe with the new one, new values and new columns"""
@@ -132,12 +146,14 @@ def find_feature_version(feature_group, version=None):
     return feature_find, current_version
 
 if __name__ == '__main__':
-    # X_tr, _ = load_transfrom_train(update=True)
-    # load_transfrom_test(update=True)
-    df = pd.read_csv('./feature.csv')
-    col = df['feature'].tolist()[:100]
+    X_tr, _ = load_transfrom_train(update=True)
+    load_transfrom_test(update=True)
+    store_feature_names(X_tr.columns.tolist())
+    # df = pd.read_csv('./feature.csv')
+    # col = df['feature'].tolist()[:15]
     # store_feature_names(X_tr.columns.tolist())
-    store_feature_names(col)
+    # col, _ = load_feature_names('6')
+    # store_feature_names(col[:20])
     # print(load_feature_names()[-1])
     # column_names = ['a', 'b']
     # store_feature_names(column_names)

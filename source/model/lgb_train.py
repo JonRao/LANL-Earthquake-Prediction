@@ -21,14 +21,6 @@ LGB_PARAMS = {
           "random_state": 42,
           'n_estimators': 20000,
           'silent': True,
-        #   'reg_alpha': 1.0,
-
-        #   'reg_alpha': 0.1302650970728192,
-        #   'reg_lambda': 0.3603427518866501,
-        #   'num_threads': 5,
-        #   'device': 'gpu',
-        #   'gpu_platform_id': 0,
-        #   'gpu_device_id':  0,
          }
 
 class LGBModel(ModelTrain):

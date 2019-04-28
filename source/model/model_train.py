@@ -35,7 +35,7 @@ class ModelTrain(metaclass=ABCMeta):
     
     def store_model(self):
         prefix = datetime.datetime.now().strftime(r'%m%d_%H%M')
-        name_model = f'{prefix}_{self.model_name}_{self.feature_version}_CV_{self.mean_score:.2f}_{self.std_score:.2f}'
+        name_model = f'{prefix}_{self.model_name}_{self.feature_version}_CV_{self.oof_score:.2f}_{self.mean_score:.2f}_{self.std_score:.2f}'
 
         data = {}
         data['prediction'] = self.prediction
@@ -81,7 +81,7 @@ class ModelTrain(metaclass=ABCMeta):
         self.std_score = np.std(dump)
         self.prediction = prediction / fold_n
         self.oof = oof
+        self.oof_score = mean_absolute_error(oof, y)
 
-
-        self.logger.info(f"mean_score: {self.mean_score:.2f}, std: {self.std_score:.2f}")
+        self.logger.info(f"oof_score: {self.oof_score:.2f}, mean_score: {self.mean_score:.2f}, std: {self.std_score:.2f}")
         return self.prediction, self.oof
