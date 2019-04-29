@@ -35,13 +35,30 @@ def cv_predict(fold_choice):
     fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
 
     # model = SklearnModel('RandomForest')
-    model = LGBModel(feature_version='6')
+    model = XGBModel(feature_version='5')
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
     model.store_model()
     # df = model.rank_feature()
     # df.to_csv('./feature_tmp.csv')
     # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
-    return predicted_result, oof, file_group
+    return predicted_result, oof, file_group, model.oof_score
+
+def cv_predict_all(fold_choice, feature_version):
+    """ Generate prediction packages"""
+    X_tr, y_tr, X_test, file_group = data_loader.load_data()
+    fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
+    for model in LGBModel.subclasses:
+        if model is SklearnModel:
+            for name in package:
+                if name != 'RandomForest':
+                    obj = model(feature_version=feature_version, model_name=name)
+                    obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+                    obj.store_model()
+        else:
+            continue
+            obj = model(feature_version=feature_version)
+            obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+            obj.store_model()
 
 def ensemble(fold_choice='earthquake'):
     """ Stack/blend/ensemble from existing outputs"""
@@ -65,9 +82,9 @@ def ensemble(fold_choice='earthquake'):
     test_stack = np.vstack(test_stack).transpose()
     test_stack = pd.DataFrame(test_stack)
 
-    model = LGBModel(feature_version='stack')
+    model = SklearnModel(model_name='RandomForest', feature_version='stack')
     predicted_result, oof = model.train_CV_test(train_stack, y_tr, test_stack, fold_iter)
-    return predicted_result, oof, file_group
+    return predicted_result, oof, file_group, model.oof_score
 
 def tune_model():
     X_tr, y_tr, X_test, _ = data_loader.load_data()

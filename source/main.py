@@ -22,11 +22,13 @@ def main():
     # predicted_result, _, file_group = data_train.stack()
     # predicted_result, _, file_group = data_train.cv_predict('earthquake')
     # generateSubmission(predicted_result, file_group, file_name='all_lgb')
-    feature_selection_iterative()
+    # feature_selection_iterative()
     # result = data_train.tune_model()
     # print(result)
-    # predicted_result, _, file_group = data_train.cv_predict('earthquake')
-    # generateSubmission(predicted_result, file_group, file_name='top25_lgb')
+    # predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
+    predicted_result, _, file_group, score = data_train.ensemble()
+    generateSubmission(predicted_result, file_group, file_name=f'ensemble_{score:.2f}')
+    # data_train.cv_predict_all('earthquake', feature_version='5')
     
 
 def feature_selection_iterative():
@@ -37,8 +39,8 @@ def feature_selection_iterative():
         col = df['feature'].tolist()[:num]
         data_loader.store_feature_names(col)
         logger.info(f'Iteration {i} - features - {num}')
-        predicted_result, _, file_group = data_train.cv_predict('earthquake')
-        generateSubmission(predicted_result, file_group, file_name=f'top_feature_{num}_lgb')
+        predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
+        generateSubmission(predicted_result, file_group, file_name=f'top_feature_{num}_score_{score:.2f}_lgb')
 
 def generateSubmission(predicted_result, file_group, file_name='submission.csv'):
     df = pd.Series(predicted_result, index=file_group).to_frame()

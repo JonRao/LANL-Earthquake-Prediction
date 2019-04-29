@@ -22,6 +22,27 @@ LGB_PARAMS = {
           'n_estimators': 20000,
           'silent': True,
          }
+# tune based on feature version 5
+TUNED = {
+    # 'num_leaves': hp.choice('num_leaves', np.arange(30, 100, 4, dtype=int)),
+    # 'learning_rate': hp.loguniform('learning_rate', np.log(0.01), np.log(0.1)),
+    # 'min_data_in_leaf': hp.choice('min_data_in_leaf', np.arange(10, 100, 5, dtype=int)),
+    'num_leaves': 30,
+    'learning_rate': 0.01,
+    'min_data_in_leaf': 10,
+
+    # "bagging_freq": hp.choice('bagging_freq', np.arange(1, 10, 1, dtype=int)),
+    # "bagging_fraction": hp.uniform('bagging_fraction', 0, 1),
+    # "feature_fraction_fraction": hp.uniform('feature_fraction_fraction', 0, 1),
+    "bagging_freq": 9,
+    "bagging_fraction": 0.44024,
+    "feature_fraction_fraction": 0.38314,
+    "bagging_seed": 11,
+    "feature_fraction_seed": 11,
+    "lambda_l2": 1.545969040487455e-05,
+    # "lambda_l1": hp.uniform('lambda_l1', 0, 1),
+    "lambda_l2": 0.2030,
+}
 
 class LGBModel(ModelTrain):
     def __init__(self, feature_version=None, params=LGB_PARAMS):
@@ -30,6 +51,7 @@ class LGBModel(ModelTrain):
     
     def train(self, X, y, X_valid, y_valid):
         """ Train model output model for prediction"""
+        self.update(TUNED)
         model = lgb.LGBMRegressor(**self.params)
         
         eval_set = [(X, y), (X_valid, y_valid)]

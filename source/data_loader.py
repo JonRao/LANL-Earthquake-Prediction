@@ -138,7 +138,7 @@ def find_feature_version(feature_group, version=None):
     if version is None:
         feature_find = max(feature_group, key=lambda x: int(x.split('_', 1)[0]))
     else:
-        version_find = [name for name in feature_group if name.split('_', 1)[0] == version]
+        version_find = [name for name in feature_group if int(name.split('_', 1)[0]) == int(version)]
         assert len(version_find) == 1, f'Too many versions: {version_find}'
         feature_find = version_find[0]
 
