@@ -30,18 +30,19 @@ def fold_maker(X, n_fold=10, fold_choice='default'):
 
     return fold_iter
 
-def cv_predict(fold_choice):
+def cv_predict(fold_choice, feature_version=None):
     X_tr, y_tr, X_test, file_group = data_loader.load_data()
     fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
 
+    model = LGBModel(feature_version=feature_version)
     # model = SklearnModel('RandomForest')
-    model = XGBModel(feature_version='5')
+    # model = SklearnModel('KernelRidge', feature_version=feature_version)
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
     model.store_model()
-    # df = model.rank_feature()
-    # df.to_csv('./feature_tmp.csv')
-    # predicted_result = data_train.train_CV_test(X_tr, y_tr, X_test, fold_iter, model_choice='lgb', params=data_train.LGB_PARAMS)
+    df = model.rank_feature()
+    df.to_csv('./feature_all.csv')
     return predicted_result, oof, file_group, model.oof_score
+
 
 def cv_predict_all(fold_choice, feature_version):
     """ Generate prediction packages"""
@@ -50,12 +51,10 @@ def cv_predict_all(fold_choice, feature_version):
     for model in LGBModel.subclasses:
         if model is SklearnModel:
             for name in package:
-                if name != 'RandomForest':
-                    obj = model(feature_version=feature_version, model_name=name)
-                    obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
-                    obj.store_model()
-        else:
-            continue
+                obj = model(feature_version=feature_version, model_name=name)
+                obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+                obj.store_model()
+        elif model is not LGBModel:
             obj = model(feature_version=feature_version)
             obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
             obj.store_model()
@@ -82,7 +81,11 @@ def ensemble(fold_choice='earthquake'):
     test_stack = np.vstack(test_stack).transpose()
     test_stack = pd.DataFrame(test_stack)
 
+    # TODO: ensemble hyperparameter setup
+    # model = SklearnModel(model_name='RandomForest', feature_version='stack')
     model = SklearnModel(model_name='RandomForest', feature_version='stack')
+    # model = LGBModel(feature_version='stack')
+    model = CatModel(feature_version='stack')
     predicted_result, oof = model.train_CV_test(train_stack, y_tr, test_stack, fold_iter)
     return predicted_result, oof, file_group, model.oof_score
 

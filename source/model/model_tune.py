@@ -49,7 +49,7 @@ class ModelTune(object):
         return best
 
 
-def tune_lgb(X, y, X_test, fold_iter):
+def tune_lgb(X, y, X_test, fold_iter, feature_version=5):
     """ Tune lgb model"""
     fold_iter = list(fold_iter)
     space = {
@@ -72,7 +72,7 @@ def tune_lgb(X, y, X_test, fold_iter):
         # "lambda_l1": hp.uniform('lambda_l1', 0, 1),
         "lambda_l2": 0.2030,
     }
-    model = LGBModel(feature_version='5')
+    model = LGBModel(feature_version=feature_version)
     obj = ModelTune(X, y, X_test, fold_iter, model, space)
     return obj.tune()
 

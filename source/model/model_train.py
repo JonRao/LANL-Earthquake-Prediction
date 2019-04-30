@@ -52,7 +52,7 @@ class ModelTrain(metaclass=ABCMeta):
 
         self.logger.info('Model stored!')
 
-    def train_CV_test(self, X, y, X_test, fold_iter):
+    def train_CV_test(self, X, y, X_test, fold_iter, exclude_score=10):
         """ Return predicted values as well as oof"""
         dump = []
         prediction = np.zeros(len(X_test))
@@ -61,7 +61,8 @@ class ModelTrain(metaclass=ABCMeta):
         if self.feature_version != 'stack':
             X = X[self.columns]
             X_test = X_test[self.columns]
-
+        
+        exclude_count = 0
         for fold_n, (train_index, valid_index) in enumerate(fold_iter):
             X_train, X_valid = X.iloc[train_index], X.iloc[valid_index]
             y_train, y_valid = y.iloc[train_index], y.iloc[valid_index]
@@ -69,17 +70,23 @@ class ModelTrain(metaclass=ABCMeta):
             predictor = self.train(X_train, y_train, X_valid, y_valid)
             y_pred = predictor(X_valid)
 
-            oof[valid_index] = y_pred
-            prediction += predictor(X_test)
-
+            oof[valid_index] = y_pred.flatten()
             score = mean_absolute_error(y_pred, y_valid)
-            self.logger.info(f"fold: {fold_n}, score: {score:.2f}")
             dump.append(score)
+
+            self.logger.info(f"fold: {fold_n}, score: {score:.2f}")
+
+            if score > exclude_score:
+                self.logger.warning(f"Excluded as the cutoff: {exclude_score}, fold: {fold_n}, score: {score:.2f}")
+                exclude_count += 1
+            else:
+                prediction += predictor(X_test).flatten()
+
 
         # store all necessary info
         self.mean_score = np.mean(dump)
         self.std_score = np.std(dump)
-        self.prediction = prediction / fold_n
+        self.prediction = prediction / (fold_n - exclude_count)
         self.oof = oof
         self.oof_score = mean_absolute_error(oof, y)
 

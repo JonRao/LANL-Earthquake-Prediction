@@ -12,7 +12,7 @@ logger = logging.getLogger('LANL.train.sklearn')
 package = {
             'NuSVR': (NuSVR, {'gamma': 'scale', 'nu': 0.9, 'C': 10.0, 'tol': 0.01}),
             'SVR': (SVR, {'gamma': 'scale', 'C': 1.0, 'epsilon': 0.2}),
-            # 'KernelRidge': (KernelRidge, {'kernel': 'rbf', 'alpha': 0.1, 'gamma': 0.01}),
+            'KernelRidge': (KernelRidge, {'kernel': 'rbf', 'alpha': 0.1, 'gamma': 0.01}),
             'RandomForest': (RandomForestRegressor, {'n_estimators': 100, 'min_samples_leaf': 2, 'max_features': 0.5})
           }
 

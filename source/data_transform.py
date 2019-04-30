@@ -131,10 +131,20 @@ def transform_pack6(df):
     df = np.abs(df)
     length = len(df)
 
-    x = np.sort(df.values)
+    x = np.sort(df.values)[::-1]
     for p in percentiles:
         bound = int((p / 100) * length)
-        output[f'ampl_p{p}'] = np.sum(np.power(2, x[:bound]))
+        other_bound = length - bound
+        output[f'ampl_p{p}'] = np.mean(np.power(2, x[:bound]))
+        output[f'ampl_p{100-p}'] = np.mean(np.power(2, x[other_bound:]))
+        output[f'ampl_p{p}_ratio'] = output[f'ampl_p{p}']  / output[f'ampl_p{100-p}']
+        output[f'ampl_p{p}_diff'] = output[f'ampl_p{p}'] - output[f'ampl_p{100-p}']
+
+    tmp = x
+    output['num_peaks_1'] = feature_calculators.number_peaks(tmp, 1)
+    output['num_peaks_5'] = feature_calculators.number_peaks(tmp, 5)
+    output['binned_entropy_5'] = feature_calculators.binned_entropy(x, 5)
+
     
     return output
 

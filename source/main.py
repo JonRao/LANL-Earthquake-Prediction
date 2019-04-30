@@ -3,7 +3,6 @@ import os
 import sys
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler
 import warnings
 import logging
 
@@ -20,22 +19,23 @@ def main():
     logger = log_prep()
     logger.info('Begin Logging:')
     # predicted_result, _, file_group = data_train.stack()
-    # predicted_result, _, file_group = data_train.cv_predict('earthquake')
+#     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
     # generateSubmission(predicted_result, file_group, file_name='all_lgb')
-    # feature_selection_iterative()
+#     feature_selection_iterative()
     # result = data_train.tune_model()
     # print(result)
-    # predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
-    predicted_result, _, file_group, score = data_train.ensemble()
-    generateSubmission(predicted_result, file_group, file_name=f'ensemble_{score:.2f}')
-    # data_train.cv_predict_all('earthquake', feature_version='5')
+#     predicted_result, _, file_group, score = data_train.cv_predict('earthquake', feature_version=5)
+#     predicted_result, _, file_group, score = data_train.ensemble()
+#     generateSubmission(predicted_result, file_group, file_name=f'KernelRidge_{score:.2f}')
+    for v in range(34, 48):
+        data_train.cv_predict_all('earthquake', feature_version=v)
     
 
 def feature_selection_iterative():
     logger = logging.getLogger('LANL.train.feature_select')
-    for i in range(9):
+    num_feature_group = [500, 400, 250, 150, 100, 50, 25, 20, 15, 10]
+    for i, num in enumerate(num_feature_group):
         df = pd.read_csv('./feature_tmp.csv')
-        num = int(len(df) / 2)
         col = df['feature'].tolist()[:num]
         data_loader.store_feature_names(col)
         logger.info(f'Iteration {i} - features - {num}')
