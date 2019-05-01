@@ -27,4 +27,4 @@ class CatModel(ModelTrain):
             y_pred = model.predict(X)
             return y_pred
 
-        return predict
+        return predict, model

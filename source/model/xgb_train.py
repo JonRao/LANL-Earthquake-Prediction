@@ -37,4 +37,4 @@ class XGBModel(ModelTrain):
             y_pred = model.predict(data, ntree_limit=model.best_ntree_limit)
             return y_pred
 
-        return predict
+        return predict, model

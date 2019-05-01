@@ -8128,3 +8128,2064 @@
 2019-04-29 23:16:22,547 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.45
 2019-04-29 23:16:26,377 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.33
 2019-04-29 23:16:30,164 - LANL.train.KernelRidge - INFO - fold: 5, score: 4.04
+2019-04-29 23:16:34,053 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.59
+2019-04-29 23:16:37,734 - LANL.train.KernelRidge - INFO - fold: 7, score: 8.04
+2019-04-29 23:16:41,461 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.95
+2019-04-29 23:16:45,265 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.82
+2019-04-29 23:16:49,015 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.72
+2019-04-29 23:16:52,725 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.51
+2019-04-29 23:16:56,485 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.41
+2019-04-29 23:17:00,277 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.30
+2019-04-29 23:17:03,977 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.36
+2019-04-29 23:17:07,706 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.75
+2019-04-29 23:17:11,653 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.67
+2019-04-29 23:17:11,653 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.67
+2019-04-29 23:17:11,654 - LANL.train.KernelRidge - INFO - oof_score: 5.68, mean_score: 5.40, std: 2.07
+2019-04-29 23:17:11,654 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-29 23:17:50,646 - LANL.train.RandomForest - INFO - fold: 0, score: 3.36
+2019-04-29 23:18:25,682 - LANL.train.RandomForest - INFO - fold: 1, score: 1.49
+2019-04-29 23:19:01,220 - LANL.train.RandomForest - INFO - fold: 2, score: 2.70
+2019-04-29 23:19:36,416 - LANL.train.RandomForest - INFO - fold: 3, score: 1.53
+2019-04-29 23:20:11,549 - LANL.train.RandomForest - INFO - fold: 4, score: 1.96
+2019-04-29 23:20:47,450 - LANL.train.RandomForest - INFO - fold: 5, score: 2.76
+2019-04-29 23:21:23,365 - LANL.train.RandomForest - INFO - fold: 6, score: 2.96
+2019-04-29 23:21:57,383 - LANL.train.RandomForest - INFO - fold: 7, score: 3.51
+2019-04-29 23:22:33,416 - LANL.train.RandomForest - INFO - fold: 8, score: 2.89
+2019-04-29 23:23:08,505 - LANL.train.RandomForest - INFO - fold: 9, score: 1.31
+2019-04-29 23:23:43,553 - LANL.train.RandomForest - INFO - fold: 10, score: 1.20
+2019-04-29 23:24:18,146 - LANL.train.RandomForest - INFO - fold: 11, score: 1.06
+2019-04-29 23:24:53,736 - LANL.train.RandomForest - INFO - fold: 12, score: 1.70
+2019-04-29 23:25:29,135 - LANL.train.RandomForest - INFO - fold: 13, score: 2.09
+2019-04-29 23:26:03,732 - LANL.train.RandomForest - INFO - fold: 14, score: 3.15
+2019-04-29 23:26:39,183 - LANL.train.RandomForest - INFO - fold: 15, score: 2.38
+2019-04-29 23:27:16,950 - LANL.train.RandomForest - INFO - fold: 16, score: 1.42
+2019-04-29 23:27:16,985 - LANL.train.RandomForest - INFO - oof_score: 2.23, mean_score: 2.20, std: 0.79
+2019-04-29 23:27:16,986 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-29 23:27:22,188 - LANL.train.xgb - INFO - fold: 0, score: 0.63
+2019-04-29 23:27:34,415 - LANL.train.xgb - INFO - fold: 1, score: 1.50
+2019-04-29 23:27:45,559 - LANL.train.xgb - INFO - fold: 2, score: 2.78
+2019-04-29 23:27:51,474 - LANL.train.xgb - INFO - fold: 3, score: 0.75
+2019-04-29 23:28:04,371 - LANL.train.xgb - INFO - fold: 4, score: 1.99
+2019-04-29 23:28:09,839 - LANL.train.xgb - INFO - fold: 5, score: 0.96
+2019-04-29 23:28:15,382 - LANL.train.xgb - INFO - fold: 6, score: 1.08
+2019-04-29 23:28:29,344 - LANL.train.xgb - INFO - fold: 7, score: 3.50
+2019-04-29 23:28:34,816 - LANL.train.xgb - INFO - fold: 8, score: 0.92
+2019-04-29 23:28:41,004 - LANL.train.xgb - INFO - fold: 9, score: 1.00
+2019-04-29 23:28:52,018 - LANL.train.xgb - INFO - fold: 10, score: 1.20
+2019-04-29 23:29:02,833 - LANL.train.xgb - INFO - fold: 11, score: 1.08
+2019-04-29 23:29:08,769 - LANL.train.xgb - INFO - fold: 12, score: 0.86
+2019-04-29 23:29:14,439 - LANL.train.xgb - INFO - fold: 13, score: 0.95
+2019-04-29 23:29:28,015 - LANL.train.xgb - INFO - fold: 14, score: 3.16
+2019-04-29 23:29:33,749 - LANL.train.xgb - INFO - fold: 15, score: 0.97
+2019-04-29 23:29:49,067 - LANL.train.xgb - INFO - fold: 16, score: 1.37
+2019-04-29 23:29:49,088 - LANL.train.xgb - INFO - oof_score: 1.70, mean_score: 1.45, std: 0.85
+2019-04-29 23:29:49,090 - LANL.train.xgb - INFO - Model stored!
+2019-04-29 23:29:54,047 - LANL.train.cat - INFO - fold: 0, score: 0.70
+2019-04-29 23:30:30,433 - LANL.train.cat - INFO - fold: 1, score: 1.43
+2019-04-29 23:30:54,975 - LANL.train.cat - INFO - fold: 2, score: 2.76
+2019-04-29 23:31:04,349 - LANL.train.cat - INFO - fold: 3, score: 0.83
+2019-04-29 23:31:42,074 - LANL.train.cat - INFO - fold: 4, score: 1.98
+2019-04-29 23:31:49,634 - LANL.train.cat - INFO - fold: 5, score: 0.98
+2019-04-29 23:31:56,759 - LANL.train.cat - INFO - fold: 6, score: 1.00
+2019-04-29 23:33:05,372 - LANL.train.cat - INFO - fold: 7, score: 3.54
+2019-04-29 23:33:12,696 - LANL.train.cat - INFO - fold: 8, score: 1.01
+2019-04-29 23:33:23,075 - LANL.train.cat - INFO - fold: 9, score: 0.99
+2019-04-29 23:34:23,151 - LANL.train.cat - INFO - fold: 10, score: 1.23
+2019-04-29 23:35:02,076 - LANL.train.cat - INFO - fold: 11, score: 1.02
+2019-04-29 23:35:11,239 - LANL.train.cat - INFO - fold: 12, score: 0.90
+2019-04-29 23:35:19,370 - LANL.train.cat - INFO - fold: 13, score: 1.01
+2019-04-29 23:36:09,764 - LANL.train.cat - INFO - fold: 14, score: 3.17
+2019-04-29 23:36:19,330 - LANL.train.cat - INFO - fold: 15, score: 1.01
+2019-04-29 23:36:55,792 - LANL.train.cat - INFO - fold: 16, score: 1.49
+2019-04-29 23:36:55,870 - LANL.train.cat - INFO - oof_score: 1.71, mean_score: 1.47, std: 0.84
+2019-04-29 23:36:55,871 - LANL.train.cat - INFO - Model stored!
+2019-04-29 23:37:01,820 - LANL.train.NuSVR - INFO - fold: 0, score: 3.48
+2019-04-29 23:37:10,714 - LANL.train.NuSVR - INFO - fold: 1, score: 1.94
+2019-04-29 23:37:19,291 - LANL.train.NuSVR - INFO - fold: 2, score: 3.00
+2019-04-29 23:37:28,009 - LANL.train.NuSVR - INFO - fold: 3, score: 1.29
+2019-04-29 23:37:36,700 - LANL.train.NuSVR - INFO - fold: 4, score: 2.38
+2019-04-29 23:37:45,508 - LANL.train.NuSVR - INFO - fold: 5, score: 2.20
+2019-04-29 23:37:54,453 - LANL.train.NuSVR - INFO - fold: 6, score: 2.37
+2019-04-29 23:38:03,043 - LANL.train.NuSVR - INFO - fold: 7, score: 3.97
+2019-04-29 23:38:11,793 - LANL.train.NuSVR - INFO - fold: 8, score: 2.42
+2019-04-29 23:38:20,629 - LANL.train.NuSVR - INFO - fold: 9, score: 1.12
+2019-04-29 23:38:29,370 - LANL.train.NuSVR - INFO - fold: 10, score: 1.72
+2019-04-29 23:38:38,104 - LANL.train.NuSVR - INFO - fold: 11, score: 1.51
+2019-04-29 23:38:46,897 - LANL.train.NuSVR - INFO - fold: 12, score: 1.40
+2019-04-29 23:38:55,746 - LANL.train.NuSVR - INFO - fold: 13, score: 1.77
+2019-04-29 23:39:04,346 - LANL.train.NuSVR - INFO - fold: 14, score: 3.70
+2019-04-29 23:39:13,055 - LANL.train.NuSVR - INFO - fold: 15, score: 1.44
+2019-04-29 23:39:22,201 - LANL.train.NuSVR - INFO - fold: 16, score: 2.36
+2019-04-29 23:39:25,582 - LANL.train.NuSVR - INFO - oof_score: 2.30, mean_score: 2.24, std: 0.84
+2019-04-29 23:39:25,583 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-29 23:39:31,522 - LANL.train.SVR - INFO - fold: 0, score: 3.82
+2019-04-29 23:39:40,597 - LANL.train.SVR - INFO - fold: 1, score: 2.27
+2019-04-29 23:39:49,352 - LANL.train.SVR - INFO - fold: 2, score: 3.14
+2019-04-29 23:39:58,264 - LANL.train.SVR - INFO - fold: 3, score: 1.37
+2019-04-29 23:40:07,158 - LANL.train.SVR - INFO - fold: 4, score: 2.50
+2019-04-29 23:40:16,106 - LANL.train.SVR - INFO - fold: 5, score: 1.86
+2019-04-29 23:40:25,193 - LANL.train.SVR - INFO - fold: 6, score: 2.13
+2019-04-29 23:40:33,983 - LANL.train.SVR - INFO - fold: 7, score: 4.13
+2019-04-29 23:40:42,890 - LANL.train.SVR - INFO - fold: 8, score: 2.04
+2019-04-29 23:40:51,883 - LANL.train.SVR - INFO - fold: 9, score: 1.50
+2019-04-29 23:41:00,825 - LANL.train.SVR - INFO - fold: 10, score: 2.01
+2019-04-29 23:41:09,754 - LANL.train.SVR - INFO - fold: 11, score: 1.82
+2019-04-29 23:41:18,760 - LANL.train.SVR - INFO - fold: 12, score: 1.47
+2019-04-29 23:41:27,822 - LANL.train.SVR - INFO - fold: 13, score: 1.69
+2019-04-29 23:41:36,610 - LANL.train.SVR - INFO - fold: 14, score: 3.73
+2019-04-29 23:41:45,503 - LANL.train.SVR - INFO - fold: 15, score: 1.52
+2019-04-29 23:41:54,822 - LANL.train.SVR - INFO - fold: 16, score: 3.56
+2019-04-29 23:41:58,372 - LANL.train.SVR - INFO - oof_score: 2.41, mean_score: 2.39, std: 0.90
+2019-04-29 23:41:58,373 - LANL.train.SVR - INFO - Model stored!
+2019-04-29 23:42:00,954 - LANL.train.KernelRidge - INFO - fold: 0, score: 1.01
+2019-04-29 23:42:04,689 - LANL.train.KernelRidge - INFO - fold: 1, score: 5.79
+2019-04-29 23:42:08,289 - LANL.train.KernelRidge - INFO - fold: 2, score: 7.09
+2019-04-29 23:42:11,966 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.45
+2019-04-29 23:42:15,617 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.33
+2019-04-29 23:42:19,323 - LANL.train.KernelRidge - INFO - fold: 5, score: 4.04
+2019-04-29 23:42:23,084 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.59
+2019-04-29 23:42:26,686 - LANL.train.KernelRidge - INFO - fold: 7, score: 8.04
+2019-04-29 23:42:30,362 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.95
+2019-04-29 23:42:34,082 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.82
+2019-04-29 23:42:37,753 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.72
+2019-04-29 23:42:41,425 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.51
+2019-04-29 23:42:45,134 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.41
+2019-04-29 23:42:48,860 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.30
+2019-04-29 23:42:52,473 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.36
+2019-04-29 23:42:56,144 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.75
+2019-04-29 23:43:00,005 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.67
+2019-04-29 23:43:00,005 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.67
+2019-04-29 23:43:00,005 - LANL.train.KernelRidge - INFO - oof_score: 5.68, mean_score: 5.40, std: 2.07
+2019-04-29 23:43:00,006 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-29 23:43:29,896 - LANL.train.RandomForest - INFO - fold: 0, score: 3.41
+2019-04-29 23:43:57,947 - LANL.train.RandomForest - INFO - fold: 1, score: 1.48
+2019-04-29 23:44:25,187 - LANL.train.RandomForest - INFO - fold: 2, score: 2.72
+2019-04-29 23:44:53,667 - LANL.train.RandomForest - INFO - fold: 3, score: 1.50
+2019-04-29 23:45:21,328 - LANL.train.RandomForest - INFO - fold: 4, score: 1.97
+2019-04-29 23:45:49,582 - LANL.train.RandomForest - INFO - fold: 5, score: 2.76
+2019-04-29 23:46:18,198 - LANL.train.RandomForest - INFO - fold: 6, score: 2.96
+2019-04-29 23:46:44,890 - LANL.train.RandomForest - INFO - fold: 7, score: 3.52
+2019-04-29 23:47:13,364 - LANL.train.RandomForest - INFO - fold: 8, score: 2.83
+2019-04-29 23:47:41,381 - LANL.train.RandomForest - INFO - fold: 9, score: 1.31
+2019-04-29 23:48:09,490 - LANL.train.RandomForest - INFO - fold: 10, score: 1.16
+2019-04-29 23:48:37,499 - LANL.train.RandomForest - INFO - fold: 11, score: 1.07
+2019-04-29 23:49:05,851 - LANL.train.RandomForest - INFO - fold: 12, score: 1.71
+2019-04-29 23:49:34,021 - LANL.train.RandomForest - INFO - fold: 13, score: 2.14
+2019-04-29 23:50:01,867 - LANL.train.RandomForest - INFO - fold: 14, score: 3.15
+2019-04-29 23:50:30,137 - LANL.train.RandomForest - INFO - fold: 15, score: 2.35
+2019-04-29 23:51:00,533 - LANL.train.RandomForest - INFO - fold: 16, score: 1.42
+2019-04-29 23:51:00,568 - LANL.train.RandomForest - INFO - oof_score: 2.22, mean_score: 2.20, std: 0.79
+2019-04-29 23:51:00,568 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-29 23:51:04,087 - LANL.train.xgb - INFO - fold: 0, score: 0.64
+2019-04-29 23:51:11,021 - LANL.train.xgb - INFO - fold: 1, score: 1.46
+2019-04-29 23:51:22,491 - LANL.train.xgb - INFO - fold: 2, score: 2.77
+2019-04-29 23:51:26,439 - LANL.train.xgb - INFO - fold: 3, score: 0.79
+2019-04-29 23:51:38,755 - LANL.train.xgb - INFO - fold: 4, score: 1.91
+2019-04-29 23:51:42,405 - LANL.train.xgb - INFO - fold: 5, score: 0.95
+2019-04-29 23:51:46,055 - LANL.train.xgb - INFO - fold: 6, score: 1.11
+2019-04-29 23:52:00,301 - LANL.train.xgb - INFO - fold: 7, score: 3.51
+2019-04-29 23:52:03,972 - LANL.train.xgb - INFO - fold: 8, score: 0.91
+2019-04-29 23:52:08,005 - LANL.train.xgb - INFO - fold: 9, score: 1.00
+2019-04-29 23:52:16,291 - LANL.train.xgb - INFO - fold: 10, score: 1.20
+2019-04-29 23:52:22,849 - LANL.train.xgb - INFO - fold: 11, score: 1.11
+2019-04-29 23:52:26,792 - LANL.train.xgb - INFO - fold: 12, score: 0.84
+2019-04-29 23:52:30,514 - LANL.train.xgb - INFO - fold: 13, score: 0.92
+2019-04-29 23:52:50,163 - LANL.train.xgb - INFO - fold: 14, score: 3.16
+2019-04-29 23:52:53,984 - LANL.train.xgb - INFO - fold: 15, score: 0.95
+2019-04-29 23:53:04,081 - LANL.train.xgb - INFO - fold: 16, score: 1.24
+2019-04-29 23:53:04,099 - LANL.train.xgb - INFO - oof_score: 1.69, mean_score: 1.44, std: 0.85
+2019-04-29 23:53:04,106 - LANL.train.xgb - INFO - Model stored!
+2019-04-29 23:53:07,312 - LANL.train.cat - INFO - fold: 0, score: 0.71
+2019-04-29 23:53:28,549 - LANL.train.cat - INFO - fold: 1, score: 1.43
+2019-04-29 23:53:48,151 - LANL.train.cat - INFO - fold: 2, score: 2.72
+2019-04-29 23:53:54,271 - LANL.train.cat - INFO - fold: 3, score: 0.84
+2019-04-29 23:54:12,877 - LANL.train.cat - INFO - fold: 4, score: 1.95
+2019-04-29 23:54:17,701 - LANL.train.cat - INFO - fold: 5, score: 0.97
+2019-04-29 23:54:22,293 - LANL.train.cat - INFO - fold: 6, score: 0.98
+2019-04-29 23:55:12,414 - LANL.train.cat - INFO - fold: 7, score: 3.50
+2019-04-29 23:55:17,047 - LANL.train.cat - INFO - fold: 8, score: 0.99
+2019-04-29 23:55:23,654 - LANL.train.cat - INFO - fold: 9, score: 0.99
+2019-04-29 23:55:56,379 - LANL.train.cat - INFO - fold: 10, score: 1.20
+2019-04-29 23:56:24,161 - LANL.train.cat - INFO - fold: 11, score: 1.04
+2019-04-29 23:56:29,977 - LANL.train.cat - INFO - fold: 12, score: 0.88
+2019-04-29 23:56:35,147 - LANL.train.cat - INFO - fold: 13, score: 1.02
+2019-04-29 23:57:06,715 - LANL.train.cat - INFO - fold: 14, score: 3.15
+2019-04-29 23:57:12,975 - LANL.train.cat - INFO - fold: 15, score: 1.04
+2019-04-29 23:57:38,252 - LANL.train.cat - INFO - fold: 16, score: 1.49
+2019-04-29 23:57:38,302 - LANL.train.cat - INFO - oof_score: 1.70, mean_score: 1.47, std: 0.83
+2019-04-29 23:57:38,303 - LANL.train.cat - INFO - Model stored!
+2019-04-29 23:57:42,026 - LANL.train.NuSVR - INFO - fold: 0, score: 3.41
+2019-04-29 23:57:47,512 - LANL.train.NuSVR - INFO - fold: 1, score: 1.94
+2019-04-29 23:57:52,822 - LANL.train.NuSVR - INFO - fold: 2, score: 3.51
+2019-04-29 23:57:58,196 - LANL.train.NuSVR - INFO - fold: 3, score: 1.12
+2019-04-29 23:58:03,561 - LANL.train.NuSVR - INFO - fold: 4, score: 2.63
+2019-04-29 23:58:09,016 - LANL.train.NuSVR - INFO - fold: 5, score: 2.07
+2019-04-29 23:58:14,548 - LANL.train.NuSVR - INFO - fold: 6, score: 2.33
+2019-04-29 23:58:19,844 - LANL.train.NuSVR - INFO - fold: 7, score: 3.85
+2019-04-29 23:58:25,279 - LANL.train.NuSVR - INFO - fold: 8, score: 2.28
+2019-04-29 23:58:30,746 - LANL.train.NuSVR - INFO - fold: 9, score: 1.20
+2019-04-29 23:58:36,124 - LANL.train.NuSVR - INFO - fold: 10, score: 1.84
+2019-04-29 23:58:41,521 - LANL.train.NuSVR - INFO - fold: 11, score: 1.68
+2019-04-29 23:58:46,940 - LANL.train.NuSVR - INFO - fold: 12, score: 1.17
+2019-04-29 23:58:52,403 - LANL.train.NuSVR - INFO - fold: 13, score: 1.60
+2019-04-29 23:58:57,710 - LANL.train.NuSVR - INFO - fold: 14, score: 3.48
+2019-04-29 23:59:03,095 - LANL.train.NuSVR - INFO - fold: 15, score: 2.00
+2019-04-29 23:59:08,722 - LANL.train.NuSVR - INFO - fold: 16, score: 2.42
+2019-04-29 23:59:10,778 - LANL.train.NuSVR - INFO - oof_score: 2.35, mean_score: 2.27, std: 0.83
+2019-04-29 23:59:10,778 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-29 23:59:14,459 - LANL.train.SVR - INFO - fold: 0, score: 3.79
+2019-04-29 23:59:20,041 - LANL.train.SVR - INFO - fold: 1, score: 2.26
+2019-04-29 23:59:25,416 - LANL.train.SVR - INFO - fold: 2, score: 3.45
+2019-04-29 23:59:30,893 - LANL.train.SVR - INFO - fold: 3, score: 1.29
+2019-04-29 23:59:36,354 - LANL.train.SVR - INFO - fold: 4, score: 2.84
+2019-04-29 23:59:41,859 - LANL.train.SVR - INFO - fold: 5, score: 1.87
+2019-04-29 23:59:47,465 - LANL.train.SVR - INFO - fold: 6, score: 2.18
+2019-04-29 23:59:52,846 - LANL.train.SVR - INFO - fold: 7, score: 4.01
+2019-04-29 23:59:58,311 - LANL.train.SVR - INFO - fold: 8, score: 1.97
+2019-04-30 00:00:03,876 - LANL.train.SVR - INFO - fold: 9, score: 1.55
+2019-04-30 00:00:09,373 - LANL.train.SVR - INFO - fold: 10, score: 2.19
+2019-04-30 00:00:14,835 - LANL.train.SVR - INFO - fold: 11, score: 2.00
+2019-04-30 00:00:20,355 - LANL.train.SVR - INFO - fold: 12, score: 1.46
+2019-04-30 00:00:25,933 - LANL.train.SVR - INFO - fold: 13, score: 1.72
+2019-04-30 00:00:31,337 - LANL.train.SVR - INFO - fold: 14, score: 3.57
+2019-04-30 00:00:36,781 - LANL.train.SVR - INFO - fold: 15, score: 1.62
+2019-04-30 00:00:42,503 - LANL.train.SVR - INFO - fold: 16, score: 3.51
+2019-04-30 00:00:44,671 - LANL.train.SVR - INFO - oof_score: 2.46, mean_score: 2.43, std: 0.88
+2019-04-30 00:00:44,671 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 00:00:47,227 - LANL.train.KernelRidge - INFO - fold: 0, score: 1.01
+2019-04-30 00:00:50,936 - LANL.train.KernelRidge - INFO - fold: 1, score: 5.79
+2019-04-30 00:00:54,506 - LANL.train.KernelRidge - INFO - fold: 2, score: 7.09
+2019-04-30 00:00:58,146 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.45
+2019-04-30 00:01:01,764 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.33
+2019-04-30 00:01:05,433 - LANL.train.KernelRidge - INFO - fold: 5, score: 4.04
+2019-04-30 00:01:09,156 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.59
+2019-04-30 00:01:12,726 - LANL.train.KernelRidge - INFO - fold: 7, score: 8.04
+2019-04-30 00:01:16,366 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.95
+2019-04-30 00:01:20,044 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.82
+2019-04-30 00:01:23,686 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.72
+2019-04-30 00:01:27,311 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.51
+2019-04-30 00:01:30,979 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.41
+2019-04-30 00:01:34,666 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.30
+2019-04-30 00:01:38,247 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.36
+2019-04-30 00:01:41,876 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.75
+2019-04-30 00:01:45,686 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.67
+2019-04-30 00:01:45,686 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.67
+2019-04-30 00:01:45,687 - LANL.train.KernelRidge - INFO - oof_score: 5.68, mean_score: 5.40, std: 2.07
+2019-04-30 00:01:45,687 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 00:02:04,530 - LANL.train.RandomForest - INFO - fold: 0, score: 3.35
+2019-04-30 00:02:22,067 - LANL.train.RandomForest - INFO - fold: 1, score: 1.50
+2019-04-30 00:02:39,132 - LANL.train.RandomForest - INFO - fold: 2, score: 2.69
+2019-04-30 00:02:56,996 - LANL.train.RandomForest - INFO - fold: 3, score: 1.49
+2019-04-30 00:03:14,719 - LANL.train.RandomForest - INFO - fold: 4, score: 1.88
+2019-04-30 00:03:32,322 - LANL.train.RandomForest - INFO - fold: 5, score: 2.74
+2019-04-30 00:03:50,190 - LANL.train.RandomForest - INFO - fold: 6, score: 2.91
+2019-04-30 00:04:07,130 - LANL.train.RandomForest - INFO - fold: 7, score: 3.50
+2019-04-30 00:04:25,026 - LANL.train.RandomForest - INFO - fold: 8, score: 2.85
+2019-04-30 00:04:42,393 - LANL.train.RandomForest - INFO - fold: 9, score: 1.35
+2019-04-30 00:04:59,901 - LANL.train.RandomForest - INFO - fold: 10, score: 1.15
+2019-04-30 00:05:18,175 - LANL.train.RandomForest - INFO - fold: 11, score: 1.06
+2019-04-30 00:05:35,886 - LANL.train.RandomForest - INFO - fold: 12, score: 1.68
+2019-04-30 00:05:53,589 - LANL.train.RandomForest - INFO - fold: 13, score: 2.17
+2019-04-30 00:06:10,946 - LANL.train.RandomForest - INFO - fold: 14, score: 3.17
+2019-04-30 00:06:28,599 - LANL.train.RandomForest - INFO - fold: 15, score: 2.28
+2019-04-30 00:06:47,583 - LANL.train.RandomForest - INFO - fold: 16, score: 1.42
+2019-04-30 00:06:47,616 - LANL.train.RandomForest - INFO - oof_score: 2.21, mean_score: 2.19, std: 0.79
+2019-04-30 00:06:47,617 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 00:06:55,182 - LANL.train.xgb - INFO - fold: 0, score: 0.62
+2019-04-30 00:07:24,871 - LANL.train.xgb - INFO - fold: 1, score: 1.50
+2019-04-30 00:07:41,050 - LANL.train.xgb - INFO - fold: 2, score: 2.80
+2019-04-30 00:07:49,695 - LANL.train.xgb - INFO - fold: 3, score: 0.75
+2019-04-30 00:08:19,001 - LANL.train.xgb - INFO - fold: 4, score: 1.98
+2019-04-30 00:08:27,175 - LANL.train.xgb - INFO - fold: 5, score: 0.96
+2019-04-30 00:08:35,273 - LANL.train.xgb - INFO - fold: 6, score: 1.11
+2019-04-30 00:08:53,163 - LANL.train.xgb - INFO - fold: 7, score: 3.53
+2019-04-30 00:09:01,324 - LANL.train.xgb - INFO - fold: 8, score: 0.95
+2019-04-30 00:09:10,385 - LANL.train.xgb - INFO - fold: 9, score: 0.98
+2019-04-30 00:09:30,939 - LANL.train.xgb - INFO - fold: 10, score: 1.21
+2019-04-30 00:09:48,148 - LANL.train.xgb - INFO - fold: 11, score: 1.11
+2019-04-30 00:09:56,955 - LANL.train.xgb - INFO - fold: 12, score: 0.87
+2019-04-30 00:10:05,497 - LANL.train.xgb - INFO - fold: 13, score: 0.96
+2019-04-30 00:10:24,374 - LANL.train.xgb - INFO - fold: 14, score: 3.15
+2019-04-30 00:10:32,712 - LANL.train.xgb - INFO - fold: 15, score: 0.95
+2019-04-30 00:10:52,905 - LANL.train.xgb - INFO - fold: 16, score: 1.30
+2019-04-30 00:10:52,930 - LANL.train.xgb - INFO - oof_score: 1.71, mean_score: 1.46, std: 0.85
+2019-04-30 00:10:52,934 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 00:11:00,554 - LANL.train.cat - INFO - fold: 0, score: 0.72
+2019-04-30 00:12:06,549 - LANL.train.cat - INFO - fold: 1, score: 1.42
+2019-04-30 00:12:56,440 - LANL.train.cat - INFO - fold: 2, score: 2.77
+2019-04-30 00:13:10,831 - LANL.train.cat - INFO - fold: 3, score: 0.82
+2019-04-30 00:14:50,776 - LANL.train.cat - INFO - fold: 4, score: 1.98
+2019-04-30 00:15:02,434 - LANL.train.cat - INFO - fold: 5, score: 0.99
+2019-04-30 00:15:13,540 - LANL.train.cat - INFO - fold: 6, score: 1.00
+2019-04-30 00:16:39,489 - LANL.train.cat - INFO - fold: 7, score: 3.56
+2019-04-30 00:16:50,866 - LANL.train.cat - INFO - fold: 8, score: 1.01
+2019-04-30 00:17:06,625 - LANL.train.cat - INFO - fold: 9, score: 1.00
+2019-04-30 00:18:15,656 - LANL.train.cat - INFO - fold: 10, score: 1.22
+2019-04-30 00:19:27,373 - LANL.train.cat - INFO - fold: 11, score: 1.02
+2019-04-30 00:19:41,807 - LANL.train.cat - INFO - fold: 12, score: 0.91
+2019-04-30 00:19:54,460 - LANL.train.cat - INFO - fold: 13, score: 1.02
+2019-04-30 00:21:20,816 - LANL.train.cat - INFO - fold: 14, score: 3.17
+2019-04-30 00:21:35,413 - LANL.train.cat - INFO - fold: 15, score: 1.00
+2019-04-30 00:22:30,135 - LANL.train.cat - INFO - fold: 16, score: 1.48
+2019-04-30 00:22:30,260 - LANL.train.cat - INFO - oof_score: 1.71, mean_score: 1.48, std: 0.84
+2019-04-30 00:22:30,262 - LANL.train.cat - INFO - Model stored!
+2019-04-30 00:22:39,738 - LANL.train.NuSVR - INFO - fold: 0, score: 3.57
+2019-04-30 00:22:54,092 - LANL.train.NuSVR - INFO - fold: 1, score: 1.90
+2019-04-30 00:23:07,934 - LANL.train.NuSVR - INFO - fold: 2, score: 2.93
+2019-04-30 00:23:22,029 - LANL.train.NuSVR - INFO - fold: 3, score: 1.37
+2019-04-30 00:23:36,059 - LANL.train.NuSVR - INFO - fold: 4, score: 2.33
+2019-04-30 00:23:50,294 - LANL.train.NuSVR - INFO - fold: 5, score: 2.15
+2019-04-30 00:24:04,729 - LANL.train.NuSVR - INFO - fold: 6, score: 2.45
+2019-04-30 00:24:18,558 - LANL.train.NuSVR - INFO - fold: 7, score: 3.93
+2019-04-30 00:24:32,655 - LANL.train.NuSVR - INFO - fold: 8, score: 2.41
+2019-04-30 00:24:46,933 - LANL.train.NuSVR - INFO - fold: 9, score: 1.21
+2019-04-30 00:25:01,013 - LANL.train.NuSVR - INFO - fold: 10, score: 1.74
+2019-04-30 00:25:15,064 - LANL.train.NuSVR - INFO - fold: 11, score: 1.50
+2019-04-30 00:25:29,294 - LANL.train.NuSVR - INFO - fold: 12, score: 1.44
+2019-04-30 00:25:43,590 - LANL.train.NuSVR - INFO - fold: 13, score: 1.86
+2019-04-30 00:25:57,464 - LANL.train.NuSVR - INFO - fold: 14, score: 3.65
+2019-04-30 00:26:11,508 - LANL.train.NuSVR - INFO - fold: 15, score: 1.44
+2019-04-30 00:26:26,178 - LANL.train.NuSVR - INFO - fold: 16, score: 2.45
+2019-04-30 00:26:31,667 - LANL.train.NuSVR - INFO - oof_score: 2.30, mean_score: 2.25, std: 0.82
+2019-04-30 00:26:31,667 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 00:26:41,136 - LANL.train.SVR - INFO - fold: 0, score: 3.82
+2019-04-30 00:26:55,710 - LANL.train.SVR - INFO - fold: 1, score: 2.09
+2019-04-30 00:27:09,791 - LANL.train.SVR - INFO - fold: 2, score: 3.00
+2019-04-30 00:27:24,130 - LANL.train.SVR - INFO - fold: 3, score: 1.35
+2019-04-30 00:27:38,417 - LANL.train.SVR - INFO - fold: 4, score: 2.45
+2019-04-30 00:27:52,825 - LANL.train.SVR - INFO - fold: 5, score: 2.01
+2019-04-30 00:28:07,452 - LANL.train.SVR - INFO - fold: 6, score: 2.42
+2019-04-30 00:28:21,568 - LANL.train.SVR - INFO - fold: 7, score: 3.94
+2019-04-30 00:28:35,855 - LANL.train.SVR - INFO - fold: 8, score: 2.21
+2019-04-30 00:28:50,321 - LANL.train.SVR - INFO - fold: 9, score: 1.42
+2019-04-30 00:29:04,637 - LANL.train.SVR - INFO - fold: 10, score: 1.95
+2019-04-30 00:29:18,900 - LANL.train.SVR - INFO - fold: 11, score: 1.71
+2019-04-30 00:29:33,311 - LANL.train.SVR - INFO - fold: 12, score: 1.43
+2019-04-30 00:29:47,831 - LANL.train.SVR - INFO - fold: 13, score: 1.83
+2019-04-30 00:30:01,947 - LANL.train.SVR - INFO - fold: 14, score: 3.64
+2019-04-30 00:30:16,178 - LANL.train.SVR - INFO - fold: 15, score: 1.46
+2019-04-30 00:30:31,074 - LANL.train.SVR - INFO - fold: 16, score: 3.14
+2019-04-30 00:30:36,794 - LANL.train.SVR - INFO - oof_score: 2.36, mean_score: 2.35, std: 0.84
+2019-04-30 00:30:36,795 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 00:30:39,391 - LANL.train.KernelRidge - INFO - fold: 0, score: 1.01
+2019-04-30 00:30:43,139 - LANL.train.KernelRidge - INFO - fold: 1, score: 5.79
+2019-04-30 00:30:46,772 - LANL.train.KernelRidge - INFO - fold: 2, score: 7.09
+2019-04-30 00:30:50,473 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.45
+2019-04-30 00:30:54,143 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.33
+2019-04-30 00:30:57,863 - LANL.train.KernelRidge - INFO - fold: 5, score: 4.04
+2019-04-30 00:31:01,646 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.59
+2019-04-30 00:31:05,273 - LANL.train.KernelRidge - INFO - fold: 7, score: 8.04
+2019-04-30 00:31:08,970 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.95
+2019-04-30 00:31:12,703 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.82
+2019-04-30 00:31:16,390 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.72
+2019-04-30 00:31:20,073 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.51
+2019-04-30 00:31:23,801 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.41
+2019-04-30 00:31:27,543 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.30
+2019-04-30 00:31:31,181 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.36
+2019-04-30 00:31:34,861 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.75
+2019-04-30 00:31:38,727 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.67
+2019-04-30 00:31:38,727 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.67
+2019-04-30 00:31:38,728 - LANL.train.KernelRidge - INFO - oof_score: 5.68, mean_score: 5.40, std: 2.07
+2019-04-30 00:31:38,728 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 00:32:24,670 - LANL.train.RandomForest - INFO - fold: 0, score: 3.40
+2019-04-30 00:33:07,447 - LANL.train.RandomForest - INFO - fold: 1, score: 1.50
+2019-04-30 00:33:49,469 - LANL.train.RandomForest - INFO - fold: 2, score: 2.70
+2019-04-30 00:34:32,713 - LANL.train.RandomForest - INFO - fold: 3, score: 1.50
+2019-04-30 00:35:16,498 - LANL.train.RandomForest - INFO - fold: 4, score: 1.97
+2019-04-30 00:35:59,384 - LANL.train.RandomForest - INFO - fold: 5, score: 2.76
+2019-04-30 00:36:45,156 - LANL.train.RandomForest - INFO - fold: 6, score: 2.93
+2019-04-30 00:37:26,958 - LANL.train.RandomForest - INFO - fold: 7, score: 3.52
+2019-04-30 00:38:10,756 - LANL.train.RandomForest - INFO - fold: 8, score: 2.81
+2019-04-30 00:38:54,756 - LANL.train.RandomForest - INFO - fold: 9, score: 1.30
+2019-04-30 00:39:37,691 - LANL.train.RandomForest - INFO - fold: 10, score: 1.18
+2019-04-30 00:40:20,753 - LANL.train.RandomForest - INFO - fold: 11, score: 1.09
+2019-04-30 00:41:04,292 - LANL.train.RandomForest - INFO - fold: 12, score: 1.69
+2019-04-30 00:41:47,373 - LANL.train.RandomForest - INFO - fold: 13, score: 2.11
+2019-04-30 00:42:29,483 - LANL.train.RandomForest - INFO - fold: 14, score: 3.15
+2019-04-30 00:43:14,722 - LANL.train.RandomForest - INFO - fold: 15, score: 2.39
+2019-04-30 00:44:01,057 - LANL.train.RandomForest - INFO - fold: 16, score: 1.30
+2019-04-30 00:44:01,093 - LANL.train.RandomForest - INFO - oof_score: 2.22, mean_score: 2.19, std: 0.80
+2019-04-30 00:44:01,094 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 00:44:07,385 - LANL.train.xgb - INFO - fold: 0, score: 0.60
+2019-04-30 00:44:21,946 - LANL.train.xgb - INFO - fold: 1, score: 1.50
+2019-04-30 00:44:36,997 - LANL.train.xgb - INFO - fold: 2, score: 2.78
+2019-04-30 00:44:44,242 - LANL.train.xgb - INFO - fold: 3, score: 0.77
+2019-04-30 00:45:06,462 - LANL.train.xgb - INFO - fold: 4, score: 1.98
+2019-04-30 00:45:13,139 - LANL.train.xgb - INFO - fold: 5, score: 0.97
+2019-04-30 00:45:19,780 - LANL.train.xgb - INFO - fold: 6, score: 1.11
+2019-04-30 00:45:45,195 - LANL.train.xgb - INFO - fold: 7, score: 3.54
+2019-04-30 00:45:51,932 - LANL.train.xgb - INFO - fold: 8, score: 0.93
+2019-04-30 00:45:59,429 - LANL.train.xgb - INFO - fold: 9, score: 0.99
+2019-04-30 00:46:11,481 - LANL.train.xgb - INFO - fold: 10, score: 1.23
+2019-04-30 00:46:25,726 - LANL.train.xgb - INFO - fold: 11, score: 1.09
+2019-04-30 00:46:33,034 - LANL.train.xgb - INFO - fold: 12, score: 0.87
+2019-04-30 00:46:39,951 - LANL.train.xgb - INFO - fold: 13, score: 0.94
+2019-04-30 00:47:05,495 - LANL.train.xgb - INFO - fold: 14, score: 3.16
+2019-04-30 00:47:12,588 - LANL.train.xgb - INFO - fold: 15, score: 0.94
+2019-04-30 00:47:25,855 - LANL.train.xgb - INFO - fold: 16, score: 1.36
+2019-04-30 00:47:25,874 - LANL.train.xgb - INFO - oof_score: 1.71, mean_score: 1.46, std: 0.85
+2019-04-30 00:47:25,877 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 00:47:32,127 - LANL.train.cat - INFO - fold: 0, score: 0.69
+2019-04-30 00:48:18,855 - LANL.train.cat - INFO - fold: 1, score: 1.43
+2019-04-30 00:48:53,983 - LANL.train.cat - INFO - fold: 2, score: 2.80
+2019-04-30 00:49:05,818 - LANL.train.cat - INFO - fold: 3, score: 0.83
+2019-04-30 00:49:51,417 - LANL.train.cat - INFO - fold: 4, score: 2.00
+2019-04-30 00:50:00,969 - LANL.train.cat - INFO - fold: 5, score: 0.97
+2019-04-30 00:50:09,739 - LANL.train.cat - INFO - fold: 6, score: 1.01
+2019-04-30 00:51:21,726 - LANL.train.cat - INFO - fold: 7, score: 3.55
+2019-04-30 00:51:30,713 - LANL.train.cat - INFO - fold: 8, score: 1.01
+2019-04-30 00:51:43,638 - LANL.train.cat - INFO - fold: 9, score: 1.00
+2019-04-30 00:52:21,394 - LANL.train.cat - INFO - fold: 10, score: 1.24
+2019-04-30 00:53:05,130 - LANL.train.cat - INFO - fold: 11, score: 1.04
+2019-04-30 00:53:16,629 - LANL.train.cat - INFO - fold: 12, score: 0.92
+2019-04-30 00:53:26,872 - LANL.train.cat - INFO - fold: 13, score: 1.02
+2019-04-30 00:54:20,783 - LANL.train.cat - INFO - fold: 14, score: 3.17
+2019-04-30 00:54:32,525 - LANL.train.cat - INFO - fold: 15, score: 1.00
+2019-04-30 00:55:14,038 - LANL.train.cat - INFO - fold: 16, score: 1.45
+2019-04-30 00:55:14,132 - LANL.train.cat - INFO - oof_score: 1.72, mean_score: 1.48, std: 0.84
+2019-04-30 00:55:14,133 - LANL.train.cat - INFO - Model stored!
+2019-04-30 00:55:21,582 - LANL.train.NuSVR - INFO - fold: 0, score: 3.42
+2019-04-30 00:55:32,809 - LANL.train.NuSVR - INFO - fold: 1, score: 1.84
+2019-04-30 00:55:43,631 - LANL.train.NuSVR - INFO - fold: 2, score: 3.02
+2019-04-30 00:55:54,605 - LANL.train.NuSVR - INFO - fold: 3, score: 1.36
+2019-04-30 00:56:05,564 - LANL.train.NuSVR - INFO - fold: 4, score: 2.32
+2019-04-30 00:56:16,661 - LANL.train.NuSVR - INFO - fold: 5, score: 2.29
+2019-04-30 00:56:27,920 - LANL.train.NuSVR - INFO - fold: 6, score: 2.43
+2019-04-30 00:56:38,755 - LANL.train.NuSVR - INFO - fold: 7, score: 3.96
+2019-04-30 00:56:49,760 - LANL.train.NuSVR - INFO - fold: 8, score: 2.57
+2019-04-30 00:57:00,913 - LANL.train.NuSVR - INFO - fold: 9, score: 1.09
+2019-04-30 00:57:11,938 - LANL.train.NuSVR - INFO - fold: 10, score: 1.64
+2019-04-30 00:57:22,967 - LANL.train.NuSVR - INFO - fold: 11, score: 1.43
+2019-04-30 00:57:34,043 - LANL.train.NuSVR - INFO - fold: 12, score: 1.49
+2019-04-30 00:57:45,201 - LANL.train.NuSVR - INFO - fold: 13, score: 1.83
+2019-04-30 00:57:56,055 - LANL.train.NuSVR - INFO - fold: 14, score: 3.69
+2019-04-30 00:58:07,029 - LANL.train.NuSVR - INFO - fold: 15, score: 1.51
+2019-04-30 00:58:18,535 - LANL.train.NuSVR - INFO - fold: 16, score: 2.12
+2019-04-30 00:58:22,819 - LANL.train.NuSVR - INFO - oof_score: 2.31, mean_score: 2.24, std: 0.83
+2019-04-30 00:58:22,820 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 00:58:30,182 - LANL.train.SVR - INFO - fold: 0, score: 3.60
+2019-04-30 00:58:41,461 - LANL.train.SVR - INFO - fold: 1, score: 2.07
+2019-04-30 00:58:52,330 - LANL.train.SVR - INFO - fold: 2, score: 2.98
+2019-04-30 00:59:03,437 - LANL.train.SVR - INFO - fold: 3, score: 1.22
+2019-04-30 00:59:14,545 - LANL.train.SVR - INFO - fold: 4, score: 2.39
+2019-04-30 00:59:25,718 - LANL.train.SVR - INFO - fold: 5, score: 1.94
+2019-04-30 00:59:37,053 - LANL.train.SVR - INFO - fold: 6, score: 2.24
+2019-04-30 00:59:47,972 - LANL.train.SVR - INFO - fold: 7, score: 4.00
+2019-04-30 00:59:59,042 - LANL.train.SVR - INFO - fold: 8, score: 2.17
+2019-04-30 01:00:10,319 - LANL.train.SVR - INFO - fold: 9, score: 1.25
+2019-04-30 01:00:21,441 - LANL.train.SVR - INFO - fold: 10, score: 1.82
+2019-04-30 01:00:32,487 - LANL.train.SVR - INFO - fold: 11, score: 1.61
+2019-04-30 01:00:43,693 - LANL.train.SVR - INFO - fold: 12, score: 1.35
+2019-04-30 01:00:55,003 - LANL.train.SVR - INFO - fold: 13, score: 1.68
+2019-04-30 01:01:05,966 - LANL.train.SVR - INFO - fold: 14, score: 3.71
+2019-04-30 01:01:16,986 - LANL.train.SVR - INFO - fold: 15, score: 1.31
+2019-04-30 01:01:28,556 - LANL.train.SVR - INFO - fold: 16, score: 2.99
+2019-04-30 01:01:32,962 - LANL.train.SVR - INFO - oof_score: 2.30, mean_score: 2.25, std: 0.87
+2019-04-30 01:01:32,963 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 01:01:35,533 - LANL.train.KernelRidge - INFO - fold: 0, score: 1.01
+2019-04-30 01:01:39,253 - LANL.train.KernelRidge - INFO - fold: 1, score: 5.79
+2019-04-30 01:01:42,846 - LANL.train.KernelRidge - INFO - fold: 2, score: 7.09
+2019-04-30 01:01:46,522 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.45
+2019-04-30 01:01:50,165 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.33
+2019-04-30 01:01:53,859 - LANL.train.KernelRidge - INFO - fold: 5, score: 4.04
+2019-04-30 01:01:57,607 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.59
+2019-04-30 01:02:01,203 - LANL.train.KernelRidge - INFO - fold: 7, score: 8.04
+2019-04-30 01:02:04,875 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.95
+2019-04-30 01:02:08,583 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.82
+2019-04-30 01:02:12,245 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.72
+2019-04-30 01:02:15,903 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.51
+2019-04-30 01:02:19,601 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.41
+2019-04-30 01:02:23,321 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.30
+2019-04-30 01:02:26,931 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.36
+2019-04-30 01:02:30,590 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.75
+2019-04-30 01:02:34,429 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.67
+2019-04-30 01:02:34,429 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.67
+2019-04-30 01:02:34,430 - LANL.train.KernelRidge - INFO - oof_score: 5.68, mean_score: 5.40, std: 2.07
+2019-04-30 01:02:34,430 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 01:03:13,225 - LANL.train.RandomForest - INFO - fold: 0, score: 3.29
+2019-04-30 01:03:47,805 - LANL.train.RandomForest - INFO - fold: 1, score: 1.48
+2019-04-30 01:04:21,839 - LANL.train.RandomForest - INFO - fold: 2, score: 2.71
+2019-04-30 01:04:57,162 - LANL.train.RandomForest - INFO - fold: 3, score: 1.49
+2019-04-30 01:05:31,849 - LANL.train.RandomForest - INFO - fold: 4, score: 1.95
+2019-04-30 01:06:06,798 - LANL.train.RandomForest - INFO - fold: 5, score: 2.80
+2019-04-30 01:06:42,690 - LANL.train.RandomForest - INFO - fold: 6, score: 2.95
+2019-04-30 01:07:17,834 - LANL.train.RandomForest - INFO - fold: 7, score: 3.51
+2019-04-30 01:07:53,835 - LANL.train.RandomForest - INFO - fold: 8, score: 2.81
+2019-04-30 01:08:28,382 - LANL.train.RandomForest - INFO - fold: 9, score: 1.32
+2019-04-30 01:09:03,113 - LANL.train.RandomForest - INFO - fold: 10, score: 1.19
+2019-04-30 01:09:37,808 - LANL.train.RandomForest - INFO - fold: 11, score: 1.04
+2019-04-30 01:10:12,943 - LANL.train.RandomForest - INFO - fold: 12, score: 1.66
+2019-04-30 01:10:48,119 - LANL.train.RandomForest - INFO - fold: 13, score: 2.11
+2019-04-30 01:11:22,461 - LANL.train.RandomForest - INFO - fold: 14, score: 3.18
+2019-04-30 01:11:57,787 - LANL.train.RandomForest - INFO - fold: 15, score: 2.40
+2019-04-30 01:12:35,298 - LANL.train.RandomForest - INFO - fold: 16, score: 1.37
+2019-04-30 01:12:35,333 - LANL.train.RandomForest - INFO - oof_score: 2.22, mean_score: 2.19, std: 0.79
+2019-04-30 01:12:35,334 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 01:12:40,531 - LANL.train.xgb - INFO - fold: 0, score: 0.63
+2019-04-30 01:12:52,744 - LANL.train.xgb - INFO - fold: 1, score: 1.50
+2019-04-30 01:13:03,906 - LANL.train.xgb - INFO - fold: 2, score: 2.78
+2019-04-30 01:13:09,846 - LANL.train.xgb - INFO - fold: 3, score: 0.75
+2019-04-30 01:13:22,724 - LANL.train.xgb - INFO - fold: 4, score: 1.99
+2019-04-30 01:13:28,255 - LANL.train.xgb - INFO - fold: 5, score: 0.96
+2019-04-30 01:13:33,696 - LANL.train.xgb - INFO - fold: 6, score: 1.08
+2019-04-30 01:13:47,769 - LANL.train.xgb - INFO - fold: 7, score: 3.50
+2019-04-30 01:13:53,273 - LANL.train.xgb - INFO - fold: 8, score: 0.92
+2019-04-30 01:13:59,432 - LANL.train.xgb - INFO - fold: 9, score: 1.00
+2019-04-30 01:14:10,371 - LANL.train.xgb - INFO - fold: 10, score: 1.20
+2019-04-30 01:14:21,157 - LANL.train.xgb - INFO - fold: 11, score: 1.08
+2019-04-30 01:14:27,183 - LANL.train.xgb - INFO - fold: 12, score: 0.86
+2019-04-30 01:14:32,866 - LANL.train.xgb - INFO - fold: 13, score: 0.95
+2019-04-30 01:14:46,329 - LANL.train.xgb - INFO - fold: 14, score: 3.16
+2019-04-30 01:14:52,064 - LANL.train.xgb - INFO - fold: 15, score: 0.97
+2019-04-30 01:15:07,579 - LANL.train.xgb - INFO - fold: 16, score: 1.37
+2019-04-30 01:15:07,600 - LANL.train.xgb - INFO - oof_score: 1.70, mean_score: 1.45, std: 0.85
+2019-04-30 01:15:07,604 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 01:15:12,574 - LANL.train.cat - INFO - fold: 0, score: 0.70
+2019-04-30 01:15:48,937 - LANL.train.cat - INFO - fold: 1, score: 1.43
+2019-04-30 01:16:13,495 - LANL.train.cat - INFO - fold: 2, score: 2.76
+2019-04-30 01:16:22,918 - LANL.train.cat - INFO - fold: 3, score: 0.83
+2019-04-30 01:17:00,717 - LANL.train.cat - INFO - fold: 4, score: 1.98
+2019-04-30 01:17:08,319 - LANL.train.cat - INFO - fold: 5, score: 0.98
+2019-04-30 01:17:15,510 - LANL.train.cat - INFO - fold: 6, score: 1.00
+2019-04-30 01:18:24,224 - LANL.train.cat - INFO - fold: 7, score: 3.54
+2019-04-30 01:18:31,560 - LANL.train.cat - INFO - fold: 8, score: 1.01
+2019-04-30 01:18:41,971 - LANL.train.cat - INFO - fold: 9, score: 0.99
+2019-04-30 01:19:42,098 - LANL.train.cat - INFO - fold: 10, score: 1.23
+2019-04-30 01:20:21,164 - LANL.train.cat - INFO - fold: 11, score: 1.02
+2019-04-30 01:20:30,297 - LANL.train.cat - INFO - fold: 12, score: 0.90
+2019-04-30 01:20:38,464 - LANL.train.cat - INFO - fold: 13, score: 1.01
+2019-04-30 01:21:28,852 - LANL.train.cat - INFO - fold: 14, score: 3.17
+2019-04-30 01:21:38,468 - LANL.train.cat - INFO - fold: 15, score: 1.01
+2019-04-30 01:22:14,958 - LANL.train.cat - INFO - fold: 16, score: 1.49
+2019-04-30 01:22:15,035 - LANL.train.cat - INFO - oof_score: 1.71, mean_score: 1.47, std: 0.84
+2019-04-30 01:22:15,036 - LANL.train.cat - INFO - Model stored!
+2019-04-30 01:22:20,979 - LANL.train.NuSVR - INFO - fold: 0, score: 3.48
+2019-04-30 01:22:29,894 - LANL.train.NuSVR - INFO - fold: 1, score: 1.94
+2019-04-30 01:22:38,461 - LANL.train.NuSVR - INFO - fold: 2, score: 3.00
+2019-04-30 01:22:47,188 - LANL.train.NuSVR - INFO - fold: 3, score: 1.29
+2019-04-30 01:22:55,892 - LANL.train.NuSVR - INFO - fold: 4, score: 2.38
+2019-04-30 01:23:04,698 - LANL.train.NuSVR - INFO - fold: 5, score: 2.20
+2019-04-30 01:23:13,645 - LANL.train.NuSVR - INFO - fold: 6, score: 2.37
+2019-04-30 01:23:22,239 - LANL.train.NuSVR - INFO - fold: 7, score: 3.97
+2019-04-30 01:23:30,968 - LANL.train.NuSVR - INFO - fold: 8, score: 2.42
+2019-04-30 01:23:39,812 - LANL.train.NuSVR - INFO - fold: 9, score: 1.12
+2019-04-30 01:23:48,557 - LANL.train.NuSVR - INFO - fold: 10, score: 1.72
+2019-04-30 01:23:57,290 - LANL.train.NuSVR - INFO - fold: 11, score: 1.51
+2019-04-30 01:24:06,094 - LANL.train.NuSVR - INFO - fold: 12, score: 1.40
+2019-04-30 01:24:14,958 - LANL.train.NuSVR - INFO - fold: 13, score: 1.77
+2019-04-30 01:24:23,567 - LANL.train.NuSVR - INFO - fold: 14, score: 3.70
+2019-04-30 01:24:32,276 - LANL.train.NuSVR - INFO - fold: 15, score: 1.44
+2019-04-30 01:24:41,415 - LANL.train.NuSVR - INFO - fold: 16, score: 2.36
+2019-04-30 01:24:44,794 - LANL.train.NuSVR - INFO - oof_score: 2.30, mean_score: 2.24, std: 0.84
+2019-04-30 01:24:44,795 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 01:24:50,737 - LANL.train.SVR - INFO - fold: 0, score: 3.82
+2019-04-30 01:24:59,821 - LANL.train.SVR - INFO - fold: 1, score: 2.27
+2019-04-30 01:25:08,584 - LANL.train.SVR - INFO - fold: 2, score: 3.14
+2019-04-30 01:25:17,505 - LANL.train.SVR - INFO - fold: 3, score: 1.37
+2019-04-30 01:25:26,404 - LANL.train.SVR - INFO - fold: 4, score: 2.50
+2019-04-30 01:25:35,357 - LANL.train.SVR - INFO - fold: 5, score: 1.86
+2019-04-30 01:25:44,453 - LANL.train.SVR - INFO - fold: 6, score: 2.13
+2019-04-30 01:25:53,235 - LANL.train.SVR - INFO - fold: 7, score: 4.13
+2019-04-30 01:26:02,138 - LANL.train.SVR - INFO - fold: 8, score: 2.04
+2019-04-30 01:26:11,137 - LANL.train.SVR - INFO - fold: 9, score: 1.50
+2019-04-30 01:26:20,083 - LANL.train.SVR - INFO - fold: 10, score: 2.01
+2019-04-30 01:26:29,012 - LANL.train.SVR - INFO - fold: 11, score: 1.82
+2019-04-30 01:26:38,021 - LANL.train.SVR - INFO - fold: 12, score: 1.47
+2019-04-30 01:26:47,083 - LANL.train.SVR - INFO - fold: 13, score: 1.69
+2019-04-30 01:26:55,871 - LANL.train.SVR - INFO - fold: 14, score: 3.73
+2019-04-30 01:27:04,775 - LANL.train.SVR - INFO - fold: 15, score: 1.52
+2019-04-30 01:27:14,097 - LANL.train.SVR - INFO - fold: 16, score: 3.56
+2019-04-30 01:27:17,656 - LANL.train.SVR - INFO - oof_score: 2.41, mean_score: 2.39, std: 0.90
+2019-04-30 01:27:17,656 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 01:27:20,214 - LANL.train.KernelRidge - INFO - fold: 0, score: 1.01
+2019-04-30 01:27:23,935 - LANL.train.KernelRidge - INFO - fold: 1, score: 5.79
+2019-04-30 01:27:27,528 - LANL.train.KernelRidge - INFO - fold: 2, score: 7.09
+2019-04-30 01:27:31,211 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.45
+2019-04-30 01:27:34,852 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.33
+2019-04-30 01:27:38,545 - LANL.train.KernelRidge - INFO - fold: 5, score: 4.04
+2019-04-30 01:27:42,297 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.59
+2019-04-30 01:27:45,894 - LANL.train.KernelRidge - INFO - fold: 7, score: 8.04
+2019-04-30 01:27:49,562 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.95
+2019-04-30 01:27:53,274 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.82
+2019-04-30 01:27:56,934 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.72
+2019-04-30 01:28:00,590 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.51
+2019-04-30 01:28:04,284 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.41
+2019-04-30 01:28:07,997 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.30
+2019-04-30 01:28:11,603 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.36
+2019-04-30 01:28:15,253 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.75
+2019-04-30 01:28:19,096 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.67
+2019-04-30 01:28:19,096 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.67
+2019-04-30 01:28:19,097 - LANL.train.KernelRidge - INFO - oof_score: 5.68, mean_score: 5.40, std: 2.07
+2019-04-30 01:28:19,097 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 01:28:49,115 - LANL.train.RandomForest - INFO - fold: 0, score: 3.26
+2019-04-30 01:29:17,021 - LANL.train.RandomForest - INFO - fold: 1, score: 1.51
+2019-04-30 01:29:45,169 - LANL.train.RandomForest - INFO - fold: 2, score: 2.72
+2019-04-30 01:30:13,597 - LANL.train.RandomForest - INFO - fold: 3, score: 1.48
+2019-04-30 01:30:41,521 - LANL.train.RandomForest - INFO - fold: 4, score: 1.96
+2019-04-30 01:31:09,774 - LANL.train.RandomForest - INFO - fold: 5, score: 2.80
+2019-04-30 01:31:38,391 - LANL.train.RandomForest - INFO - fold: 6, score: 2.90
+2019-04-30 01:32:05,603 - LANL.train.RandomForest - INFO - fold: 7, score: 3.48
+2019-04-30 01:32:34,206 - LANL.train.RandomForest - INFO - fold: 8, score: 2.82
+2019-04-30 01:33:01,998 - LANL.train.RandomForest - INFO - fold: 9, score: 1.33
+2019-04-30 01:33:29,935 - LANL.train.RandomForest - INFO - fold: 10, score: 1.18
+2019-04-30 01:33:57,867 - LANL.train.RandomForest - INFO - fold: 11, score: 1.07
+2019-04-30 01:34:26,315 - LANL.train.RandomForest - INFO - fold: 12, score: 1.68
+2019-04-30 01:34:54,456 - LANL.train.RandomForest - INFO - fold: 13, score: 2.13
+2019-04-30 01:35:22,132 - LANL.train.RandomForest - INFO - fold: 14, score: 3.19
+2019-04-30 01:35:50,478 - LANL.train.RandomForest - INFO - fold: 15, score: 2.36
+2019-04-30 01:36:20,920 - LANL.train.RandomForest - INFO - fold: 16, score: 1.44
+2019-04-30 01:36:20,955 - LANL.train.RandomForest - INFO - oof_score: 2.22, mean_score: 2.19, std: 0.78
+2019-04-30 01:36:20,955 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 01:36:24,505 - LANL.train.xgb - INFO - fold: 0, score: 0.64
+2019-04-30 01:36:31,424 - LANL.train.xgb - INFO - fold: 1, score: 1.46
+2019-04-30 01:36:42,853 - LANL.train.xgb - INFO - fold: 2, score: 2.77
+2019-04-30 01:36:46,838 - LANL.train.xgb - INFO - fold: 3, score: 0.79
+2019-04-30 01:36:58,973 - LANL.train.xgb - INFO - fold: 4, score: 1.91
+2019-04-30 01:37:02,646 - LANL.train.xgb - INFO - fold: 5, score: 0.95
+2019-04-30 01:37:06,264 - LANL.train.xgb - INFO - fold: 6, score: 1.11
+2019-04-30 01:37:20,674 - LANL.train.xgb - INFO - fold: 7, score: 3.51
+2019-04-30 01:37:24,311 - LANL.train.xgb - INFO - fold: 8, score: 0.91
+2019-04-30 01:37:28,433 - LANL.train.xgb - INFO - fold: 9, score: 1.00
+2019-04-30 01:37:36,675 - LANL.train.xgb - INFO - fold: 10, score: 1.20
+2019-04-30 01:37:43,243 - LANL.train.xgb - INFO - fold: 11, score: 1.11
+2019-04-30 01:37:47,223 - LANL.train.xgb - INFO - fold: 12, score: 0.84
+2019-04-30 01:37:50,980 - LANL.train.xgb - INFO - fold: 13, score: 0.92
+2019-04-30 01:38:10,647 - LANL.train.xgb - INFO - fold: 14, score: 3.16
+2019-04-30 01:38:14,467 - LANL.train.xgb - INFO - fold: 15, score: 0.95
+2019-04-30 01:38:24,611 - LANL.train.xgb - INFO - fold: 16, score: 1.24
+2019-04-30 01:38:24,629 - LANL.train.xgb - INFO - oof_score: 1.69, mean_score: 1.44, std: 0.85
+2019-04-30 01:38:24,630 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 01:38:27,852 - LANL.train.cat - INFO - fold: 0, score: 0.71
+2019-04-30 01:38:49,120 - LANL.train.cat - INFO - fold: 1, score: 1.43
+2019-04-30 01:39:08,753 - LANL.train.cat - INFO - fold: 2, score: 2.72
+2019-04-30 01:39:14,881 - LANL.train.cat - INFO - fold: 3, score: 0.84
+2019-04-30 01:39:33,500 - LANL.train.cat - INFO - fold: 4, score: 1.95
+2019-04-30 01:39:38,314 - LANL.train.cat - INFO - fold: 5, score: 0.97
+2019-04-30 01:39:42,936 - LANL.train.cat - INFO - fold: 6, score: 0.98
+2019-04-30 01:40:33,066 - LANL.train.cat - INFO - fold: 7, score: 3.50
+2019-04-30 01:40:37,710 - LANL.train.cat - INFO - fold: 8, score: 0.99
+2019-04-30 01:40:44,317 - LANL.train.cat - INFO - fold: 9, score: 0.99
+2019-04-30 01:41:17,004 - LANL.train.cat - INFO - fold: 10, score: 1.20
+2019-04-30 01:41:44,814 - LANL.train.cat - INFO - fold: 11, score: 1.04
+2019-04-30 01:41:50,656 - LANL.train.cat - INFO - fold: 12, score: 0.88
+2019-04-30 01:41:55,836 - LANL.train.cat - INFO - fold: 13, score: 1.02
+2019-04-30 01:42:27,437 - LANL.train.cat - INFO - fold: 14, score: 3.15
+2019-04-30 01:42:33,700 - LANL.train.cat - INFO - fold: 15, score: 1.04
+2019-04-30 01:42:58,984 - LANL.train.cat - INFO - fold: 16, score: 1.49
+2019-04-30 01:42:59,033 - LANL.train.cat - INFO - oof_score: 1.70, mean_score: 1.47, std: 0.83
+2019-04-30 01:42:59,034 - LANL.train.cat - INFO - Model stored!
+2019-04-30 01:43:02,763 - LANL.train.NuSVR - INFO - fold: 0, score: 3.41
+2019-04-30 01:43:08,259 - LANL.train.NuSVR - INFO - fold: 1, score: 1.94
+2019-04-30 01:43:13,545 - LANL.train.NuSVR - INFO - fold: 2, score: 3.51
+2019-04-30 01:43:18,929 - LANL.train.NuSVR - INFO - fold: 3, score: 1.12
+2019-04-30 01:43:24,308 - LANL.train.NuSVR - INFO - fold: 4, score: 2.63
+2019-04-30 01:43:29,755 - LANL.train.NuSVR - INFO - fold: 5, score: 2.07
+2019-04-30 01:43:35,303 - LANL.train.NuSVR - INFO - fold: 6, score: 2.33
+2019-04-30 01:43:40,588 - LANL.train.NuSVR - INFO - fold: 7, score: 3.85
+2019-04-30 01:43:45,979 - LANL.train.NuSVR - INFO - fold: 8, score: 2.28
+2019-04-30 01:43:51,463 - LANL.train.NuSVR - INFO - fold: 9, score: 1.20
+2019-04-30 01:43:56,832 - LANL.train.NuSVR - INFO - fold: 10, score: 1.84
+2019-04-30 01:44:02,197 - LANL.train.NuSVR - INFO - fold: 11, score: 1.68
+2019-04-30 01:44:07,628 - LANL.train.NuSVR - INFO - fold: 12, score: 1.17
+2019-04-30 01:44:13,086 - LANL.train.NuSVR - INFO - fold: 13, score: 1.60
+2019-04-30 01:44:18,406 - LANL.train.NuSVR - INFO - fold: 14, score: 3.48
+2019-04-30 01:44:23,762 - LANL.train.NuSVR - INFO - fold: 15, score: 2.00
+2019-04-30 01:44:29,402 - LANL.train.NuSVR - INFO - fold: 16, score: 2.42
+2019-04-30 01:44:31,462 - LANL.train.NuSVR - INFO - oof_score: 2.35, mean_score: 2.27, std: 0.83
+2019-04-30 01:44:31,463 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 01:44:35,157 - LANL.train.SVR - INFO - fold: 0, score: 3.79
+2019-04-30 01:44:40,737 - LANL.train.SVR - INFO - fold: 1, score: 2.26
+2019-04-30 01:44:46,134 - LANL.train.SVR - INFO - fold: 2, score: 3.45
+2019-04-30 01:44:51,609 - LANL.train.SVR - INFO - fold: 3, score: 1.29
+2019-04-30 01:44:57,085 - LANL.train.SVR - INFO - fold: 4, score: 2.84
+2019-04-30 01:45:02,604 - LANL.train.SVR - INFO - fold: 5, score: 1.87
+2019-04-30 01:45:08,222 - LANL.train.SVR - INFO - fold: 6, score: 2.18
+2019-04-30 01:45:13,595 - LANL.train.SVR - INFO - fold: 7, score: 4.01
+2019-04-30 01:45:19,071 - LANL.train.SVR - INFO - fold: 8, score: 1.97
+2019-04-30 01:45:24,649 - LANL.train.SVR - INFO - fold: 9, score: 1.55
+2019-04-30 01:45:30,140 - LANL.train.SVR - INFO - fold: 10, score: 2.19
+2019-04-30 01:45:35,592 - LANL.train.SVR - INFO - fold: 11, score: 2.00
+2019-04-30 01:45:41,135 - LANL.train.SVR - INFO - fold: 12, score: 1.46
+2019-04-30 01:45:46,684 - LANL.train.SVR - INFO - fold: 13, score: 1.72
+2019-04-30 01:45:52,105 - LANL.train.SVR - INFO - fold: 14, score: 3.57
+2019-04-30 01:45:57,558 - LANL.train.SVR - INFO - fold: 15, score: 1.62
+2019-04-30 01:46:03,320 - LANL.train.SVR - INFO - fold: 16, score: 3.51
+2019-04-30 01:46:05,487 - LANL.train.SVR - INFO - oof_score: 2.46, mean_score: 2.43, std: 0.88
+2019-04-30 01:46:05,487 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 01:46:08,034 - LANL.train.KernelRidge - INFO - fold: 0, score: 1.01
+2019-04-30 01:46:11,726 - LANL.train.KernelRidge - INFO - fold: 1, score: 5.79
+2019-04-30 01:46:15,288 - LANL.train.KernelRidge - INFO - fold: 2, score: 7.09
+2019-04-30 01:46:18,919 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.45
+2019-04-30 01:46:22,535 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.33
+2019-04-30 01:46:26,202 - LANL.train.KernelRidge - INFO - fold: 5, score: 4.04
+2019-04-30 01:46:29,926 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.59
+2019-04-30 01:46:33,492 - LANL.train.KernelRidge - INFO - fold: 7, score: 8.04
+2019-04-30 01:46:37,137 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.95
+2019-04-30 01:46:40,822 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.82
+2019-04-30 01:46:44,456 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.72
+2019-04-30 01:46:48,071 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.51
+2019-04-30 01:46:51,740 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.41
+2019-04-30 01:46:55,439 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.30
+2019-04-30 01:46:59,015 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.36
+2019-04-30 01:47:02,641 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.75
+2019-04-30 01:47:06,442 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.67
+2019-04-30 01:47:06,442 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.67
+2019-04-30 01:47:06,442 - LANL.train.KernelRidge - INFO - oof_score: 5.68, mean_score: 5.40, std: 2.07
+2019-04-30 01:47:06,443 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 01:47:25,143 - LANL.train.RandomForest - INFO - fold: 0, score: 3.42
+2019-04-30 01:47:42,591 - LANL.train.RandomForest - INFO - fold: 1, score: 1.48
+2019-04-30 01:47:59,669 - LANL.train.RandomForest - INFO - fold: 2, score: 2.69
+2019-04-30 01:48:17,446 - LANL.train.RandomForest - INFO - fold: 3, score: 1.50
+2019-04-30 01:48:34,689 - LANL.train.RandomForest - INFO - fold: 4, score: 1.90
+2019-04-30 01:48:52,294 - LANL.train.RandomForest - INFO - fold: 5, score: 2.74
+2019-04-30 01:49:10,279 - LANL.train.RandomForest - INFO - fold: 6, score: 2.93
+2019-04-30 01:49:27,253 - LANL.train.RandomForest - INFO - fold: 7, score: 3.47
+2019-04-30 01:49:45,106 - LANL.train.RandomForest - INFO - fold: 8, score: 2.86
+2019-04-30 01:50:02,545 - LANL.train.RandomForest - INFO - fold: 9, score: 1.34
+2019-04-30 01:50:20,071 - LANL.train.RandomForest - INFO - fold: 10, score: 1.16
+2019-04-30 19:16:51,841 - LANL - INFO - Begin Logging:
+2019-04-30 19:16:58,650 - LANL.train.xgb - INFO - fold: 0, score: 0.64
+2019-04-30 19:17:06,560 - LANL.train.xgb - INFO - fold: 1, score: 1.46
+2019-04-30 19:17:19,829 - LANL.train.xgb - INFO - fold: 2, score: 2.77
+2019-04-30 19:17:24,657 - LANL.train.xgb - INFO - fold: 3, score: 0.79
+2019-04-30 19:17:37,963 - LANL.train.xgb - INFO - fold: 4, score: 1.91
+2019-04-30 19:17:41,913 - LANL.train.xgb - INFO - fold: 5, score: 0.95
+2019-04-30 19:17:46,482 - LANL.train.xgb - INFO - fold: 6, score: 1.11
+2019-04-30 19:18:02,687 - LANL.train.xgb - INFO - fold: 7, score: 3.51
+2019-04-30 19:18:06,698 - LANL.train.xgb - INFO - fold: 8, score: 0.91
+2019-04-30 19:18:11,136 - LANL.train.xgb - INFO - fold: 9, score: 1.00
+2019-04-30 19:18:20,808 - LANL.train.xgb - INFO - fold: 10, score: 1.20
+2019-04-30 19:18:27,935 - LANL.train.xgb - INFO - fold: 11, score: 1.11
+2019-04-30 19:18:32,258 - LANL.train.xgb - INFO - fold: 12, score: 0.84
+2019-04-30 19:18:36,443 - LANL.train.xgb - INFO - fold: 13, score: 0.92
+2019-04-30 19:19:01,301 - LANL.train.xgb - INFO - fold: 14, score: 3.16
+2019-04-30 19:19:05,218 - LANL.train.xgb - INFO - fold: 15, score: 0.95
+2019-04-30 19:19:15,562 - LANL.train.xgb - INFO - fold: 16, score: 1.24
+2019-04-30 19:19:15,588 - LANL.train.xgb - INFO - oof_score: 1.69, mean_score: 1.44, std: 0.85
+2019-04-30 19:19:15,594 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 19:19:18,800 - LANL.train.cat - INFO - fold: 0, score: 0.71
+2019-04-30 19:19:39,598 - LANL.train.cat - INFO - fold: 1, score: 1.43
+2019-04-30 19:19:59,062 - LANL.train.cat - INFO - fold: 2, score: 2.72
+2019-04-30 19:20:05,063 - LANL.train.cat - INFO - fold: 3, score: 0.84
+2019-04-30 19:20:23,301 - LANL.train.cat - INFO - fold: 4, score: 1.95
+2019-04-30 19:20:28,024 - LANL.train.cat - INFO - fold: 5, score: 0.97
+2019-04-30 19:20:32,525 - LANL.train.cat - INFO - fold: 6, score: 0.98
+2019-04-30 19:21:21,839 - LANL.train.cat - INFO - fold: 7, score: 3.50
+2019-04-30 19:21:26,378 - LANL.train.cat - INFO - fold: 8, score: 0.99
+2019-04-30 19:21:32,818 - LANL.train.cat - INFO - fold: 9, score: 0.99
+2019-04-30 19:22:05,020 - LANL.train.cat - INFO - fold: 10, score: 1.20
+2019-04-30 19:22:32,322 - LANL.train.cat - INFO - fold: 11, score: 1.04
+2019-04-30 19:22:38,016 - LANL.train.cat - INFO - fold: 12, score: 0.88
+2019-04-30 19:22:43,099 - LANL.train.cat - INFO - fold: 13, score: 1.02
+2019-04-30 19:23:14,081 - LANL.train.cat - INFO - fold: 14, score: 3.15
+2019-04-30 19:23:20,188 - LANL.train.cat - INFO - fold: 15, score: 1.04
+2019-04-30 19:23:45,009 - LANL.train.cat - INFO - fold: 16, score: 1.49
+2019-04-30 19:23:45,059 - LANL.train.cat - INFO - oof_score: 1.70, mean_score: 1.47, std: 0.83
+2019-04-30 19:23:45,060 - LANL.train.cat - INFO - Model stored!
+2019-04-30 19:23:48,895 - LANL.train.NuSVR - INFO - fold: 0, score: 3.41
+2019-04-30 19:23:54,406 - LANL.train.NuSVR - INFO - fold: 1, score: 1.94
+2019-04-30 19:23:59,729 - LANL.train.NuSVR - INFO - fold: 2, score: 3.51
+2019-04-30 19:24:05,169 - LANL.train.NuSVR - INFO - fold: 3, score: 1.12
+2019-04-30 19:24:10,603 - LANL.train.NuSVR - INFO - fold: 4, score: 2.63
+2019-04-30 19:24:16,058 - LANL.train.NuSVR - INFO - fold: 5, score: 2.07
+2019-04-30 19:24:21,616 - LANL.train.NuSVR - INFO - fold: 6, score: 2.33
+2019-04-30 19:24:26,935 - LANL.train.NuSVR - INFO - fold: 7, score: 3.85
+2019-04-30 19:24:32,346 - LANL.train.NuSVR - INFO - fold: 8, score: 2.28
+2019-04-30 19:24:37,848 - LANL.train.NuSVR - INFO - fold: 9, score: 1.20
+2019-04-30 19:24:43,266 - LANL.train.NuSVR - INFO - fold: 10, score: 1.84
+2019-04-30 19:24:48,649 - LANL.train.NuSVR - INFO - fold: 11, score: 1.68
+2019-04-30 19:24:54,111 - LANL.train.NuSVR - INFO - fold: 12, score: 1.17
+2019-04-30 19:24:59,589 - LANL.train.NuSVR - INFO - fold: 13, score: 1.60
+2019-04-30 19:25:04,921 - LANL.train.NuSVR - INFO - fold: 14, score: 3.48
+2019-04-30 19:25:10,296 - LANL.train.NuSVR - INFO - fold: 15, score: 2.00
+2019-04-30 19:25:15,938 - LANL.train.NuSVR - INFO - fold: 16, score: 2.42
+2019-04-30 19:25:18,018 - LANL.train.NuSVR - INFO - oof_score: 2.35, mean_score: 2.27, std: 0.83
+2019-04-30 19:25:18,018 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 19:25:21,706 - LANL.train.SVR - INFO - fold: 0, score: 3.79
+2019-04-30 19:25:27,322 - LANL.train.SVR - INFO - fold: 1, score: 2.26
+2019-04-30 19:25:32,713 - LANL.train.SVR - INFO - fold: 2, score: 3.45
+2019-04-30 19:25:38,202 - LANL.train.SVR - INFO - fold: 3, score: 1.29
+2019-04-30 19:25:43,694 - LANL.train.SVR - INFO - fold: 4, score: 2.84
+2019-04-30 19:25:49,222 - LANL.train.SVR - INFO - fold: 5, score: 1.87
+2019-04-30 19:25:54,856 - LANL.train.SVR - INFO - fold: 6, score: 2.18
+2019-04-30 19:26:00,243 - LANL.train.SVR - INFO - fold: 7, score: 4.01
+2019-04-30 19:26:05,730 - LANL.train.SVR - INFO - fold: 8, score: 1.97
+2019-04-30 19:26:11,303 - LANL.train.SVR - INFO - fold: 9, score: 1.55
+2019-04-30 19:26:16,832 - LANL.train.SVR - INFO - fold: 10, score: 2.19
+2019-04-30 19:26:22,312 - LANL.train.SVR - INFO - fold: 11, score: 2.00
+2019-04-30 19:26:27,865 - LANL.train.SVR - INFO - fold: 12, score: 1.46
+2019-04-30 19:26:33,436 - LANL.train.SVR - INFO - fold: 13, score: 1.72
+2019-04-30 19:26:38,862 - LANL.train.SVR - INFO - fold: 14, score: 3.57
+2019-04-30 19:26:44,339 - LANL.train.SVR - INFO - fold: 15, score: 1.62
+2019-04-30 19:26:50,094 - LANL.train.SVR - INFO - fold: 16, score: 3.51
+2019-04-30 19:26:52,266 - LANL.train.SVR - INFO - oof_score: 2.46, mean_score: 2.43, std: 0.88
+2019-04-30 19:26:52,266 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 19:26:54,863 - LANL.train.KernelRidge - INFO - fold: 0, score: 1.01
+2019-04-30 19:26:58,560 - LANL.train.KernelRidge - INFO - fold: 1, score: 5.79
+2019-04-30 19:27:02,140 - LANL.train.KernelRidge - INFO - fold: 2, score: 7.09
+2019-04-30 19:27:05,773 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.45
+2019-04-30 19:27:09,396 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.33
+2019-04-30 19:27:13,068 - LANL.train.KernelRidge - INFO - fold: 5, score: 4.04
+2019-04-30 19:27:16,797 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.59
+2019-04-30 19:27:20,356 - LANL.train.KernelRidge - INFO - fold: 7, score: 8.04
+2019-04-30 19:27:23,996 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.95
+2019-04-30 19:27:27,672 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.82
+2019-04-30 19:27:31,313 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.72
+2019-04-30 19:27:34,934 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.51
+2019-04-30 19:27:38,601 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.41
+2019-04-30 19:27:42,289 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.30
+2019-04-30 19:27:45,865 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.36
+2019-04-30 19:27:49,492 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.75
+2019-04-30 19:27:53,297 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.67
+2019-04-30 19:27:53,297 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.67
+2019-04-30 19:27:53,298 - LANL.train.KernelRidge - INFO - oof_score: 5.68, mean_score: 5.40, std: 2.07
+2019-04-30 19:27:53,298 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 19:28:12,157 - LANL.train.RandomForest - INFO - fold: 0, score: 3.39
+2019-04-30 19:28:29,685 - LANL.train.RandomForest - INFO - fold: 1, score: 1.47
+2019-04-30 19:28:46,891 - LANL.train.RandomForest - INFO - fold: 2, score: 2.67
+2019-04-30 19:29:04,632 - LANL.train.RandomForest - INFO - fold: 3, score: 1.52
+2019-04-30 19:29:21,931 - LANL.train.RandomForest - INFO - fold: 4, score: 1.91
+2019-04-30 19:29:39,948 - LANL.train.RandomForest - INFO - fold: 5, score: 2.76
+2019-04-30 19:29:57,916 - LANL.train.RandomForest - INFO - fold: 6, score: 2.90
+2019-04-30 19:30:14,891 - LANL.train.RandomForest - INFO - fold: 7, score: 3.46
+2019-04-30 19:30:32,752 - LANL.train.RandomForest - INFO - fold: 8, score: 2.81
+2019-04-30 19:30:50,154 - LANL.train.RandomForest - INFO - fold: 9, score: 1.31
+2019-04-30 19:31:07,578 - LANL.train.RandomForest - INFO - fold: 10, score: 1.16
+2019-04-30 19:31:25,202 - LANL.train.RandomForest - INFO - fold: 11, score: 1.04
+2019-04-30 19:31:43,044 - LANL.train.RandomForest - INFO - fold: 12, score: 1.65
+2019-04-30 19:32:00,724 - LANL.train.RandomForest - INFO - fold: 13, score: 2.13
+2019-04-30 19:32:18,075 - LANL.train.RandomForest - INFO - fold: 14, score: 3.17
+2019-04-30 19:32:35,867 - LANL.train.RandomForest - INFO - fold: 15, score: 2.28
+2019-04-30 19:32:54,808 - LANL.train.RandomForest - INFO - fold: 16, score: 1.41
+2019-04-30 19:32:54,843 - LANL.train.RandomForest - INFO - oof_score: 2.20, mean_score: 2.18, std: 0.79
+2019-04-30 19:32:54,844 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 19:32:57,257 - LANL.train.xgb - INFO - fold: 0, score: 0.61
+2019-04-30 19:33:01,882 - LANL.train.xgb - INFO - fold: 1, score: 1.51
+2019-04-30 19:33:07,279 - LANL.train.xgb - INFO - fold: 2, score: 2.77
+2019-04-30 19:33:09,907 - LANL.train.xgb - INFO - fold: 3, score: 0.80
+2019-04-30 19:33:15,707 - LANL.train.xgb - INFO - fold: 4, score: 1.98
+2019-04-30 19:33:18,178 - LANL.train.xgb - INFO - fold: 5, score: 0.94
+2019-04-30 19:33:20,635 - LANL.train.xgb - INFO - fold: 6, score: 1.05
+2019-04-30 19:33:26,044 - LANL.train.xgb - INFO - fold: 7, score: 3.47
+2019-04-30 19:33:28,502 - LANL.train.xgb - INFO - fold: 8, score: 0.89
+2019-04-30 19:33:31,205 - LANL.train.xgb - INFO - fold: 9, score: 0.97
+2019-04-30 19:33:36,408 - LANL.train.xgb - INFO - fold: 10, score: 1.20
+2019-04-30 19:33:41,103 - LANL.train.xgb - INFO - fold: 11, score: 1.10
+2019-04-30 19:33:43,787 - LANL.train.xgb - INFO - fold: 12, score: 0.90
+2019-04-30 19:33:46,317 - LANL.train.xgb - INFO - fold: 13, score: 0.95
+2019-04-30 19:33:53,233 - LANL.train.xgb - INFO - fold: 14, score: 3.13
+2019-04-30 19:33:55,831 - LANL.train.xgb - INFO - fold: 15, score: 1.01
+2019-04-30 19:34:01,601 - LANL.train.xgb - INFO - fold: 16, score: 1.16
+2019-04-30 19:34:01,615 - LANL.train.xgb - INFO - oof_score: 1.69, mean_score: 1.44, std: 0.84
+2019-04-30 19:34:01,632 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 19:34:03,662 - LANL.train.cat - INFO - fold: 0, score: 0.69
+2019-04-30 19:34:17,773 - LANL.train.cat - INFO - fold: 1, score: 1.40
+2019-04-30 19:34:28,647 - LANL.train.cat - INFO - fold: 2, score: 2.72
+2019-04-30 19:34:32,417 - LANL.train.cat - INFO - fold: 3, score: 0.84
+2019-04-30 19:34:45,320 - LANL.train.cat - INFO - fold: 4, score: 1.95
+2019-04-30 19:34:48,295 - LANL.train.cat - INFO - fold: 5, score: 1.00
+2019-04-30 19:34:51,045 - LANL.train.cat - INFO - fold: 6, score: 0.98
+2019-04-30 19:35:12,141 - LANL.train.cat - INFO - fold: 7, score: 3.46
+2019-04-30 19:35:14,967 - LANL.train.cat - INFO - fold: 8, score: 0.99
+2019-04-30 19:35:18,946 - LANL.train.cat - INFO - fold: 9, score: 0.98
+2019-04-30 19:35:30,663 - LANL.train.cat - INFO - fold: 10, score: 1.26
+2019-04-30 19:35:46,678 - LANL.train.cat - INFO - fold: 11, score: 1.03
+2019-04-30 19:35:50,188 - LANL.train.cat - INFO - fold: 12, score: 0.89
+2019-04-30 19:35:53,423 - LANL.train.cat - INFO - fold: 13, score: 1.05
+2019-04-30 19:36:22,464 - LANL.train.cat - INFO - fold: 14, score: 3.09
+2019-04-30 19:36:26,277 - LANL.train.cat - INFO - fold: 15, score: 1.03
+2019-04-30 19:36:44,264 - LANL.train.cat - INFO - fold: 16, score: 1.40
+2019-04-30 19:36:44,295 - LANL.train.cat - INFO - oof_score: 1.69, mean_score: 1.46, std: 0.81
+2019-04-30 19:36:44,296 - LANL.train.cat - INFO - Model stored!
+2019-04-30 19:36:46,590 - LANL.train.NuSVR - INFO - fold: 0, score: 3.41
+2019-04-30 19:36:49,886 - LANL.train.NuSVR - INFO - fold: 1, score: 1.94
+2019-04-30 19:36:53,064 - LANL.train.NuSVR - INFO - fold: 2, score: 3.51
+2019-04-30 19:36:56,303 - LANL.train.NuSVR - INFO - fold: 3, score: 1.12
+2019-04-30 19:36:59,525 - LANL.train.NuSVR - INFO - fold: 4, score: 2.63
+2019-04-30 19:37:02,798 - LANL.train.NuSVR - INFO - fold: 5, score: 2.07
+2019-04-30 19:37:06,122 - LANL.train.NuSVR - INFO - fold: 6, score: 2.33
+2019-04-30 19:37:09,296 - LANL.train.NuSVR - INFO - fold: 7, score: 3.85
+2019-04-30 19:37:12,549 - LANL.train.NuSVR - INFO - fold: 8, score: 2.28
+2019-04-30 19:37:15,842 - LANL.train.NuSVR - INFO - fold: 9, score: 1.20
+2019-04-30 19:37:19,081 - LANL.train.NuSVR - INFO - fold: 10, score: 1.84
+2019-04-30 19:37:22,306 - LANL.train.NuSVR - INFO - fold: 11, score: 1.68
+2019-04-30 19:37:25,554 - LANL.train.NuSVR - INFO - fold: 12, score: 1.17
+2019-04-30 19:37:28,848 - LANL.train.NuSVR - INFO - fold: 13, score: 1.60
+2019-04-30 19:37:32,035 - LANL.train.NuSVR - INFO - fold: 14, score: 3.48
+2019-04-30 19:37:35,257 - LANL.train.NuSVR - INFO - fold: 15, score: 2.00
+2019-04-30 19:37:38,651 - LANL.train.NuSVR - INFO - fold: 16, score: 2.42
+2019-04-30 19:37:39,878 - LANL.train.NuSVR - INFO - oof_score: 2.35, mean_score: 2.27, std: 0.83
+2019-04-30 19:37:39,878 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 19:37:42,098 - LANL.train.SVR - INFO - fold: 0, score: 3.79
+2019-04-30 19:37:45,437 - LANL.train.SVR - INFO - fold: 1, score: 2.25
+2019-04-30 19:37:48,654 - LANL.train.SVR - INFO - fold: 2, score: 3.45
+2019-04-30 19:37:51,943 - LANL.train.SVR - INFO - fold: 3, score: 1.28
+2019-04-30 19:37:55,210 - LANL.train.SVR - INFO - fold: 4, score: 2.84
+2019-04-30 19:37:58,505 - LANL.train.SVR - INFO - fold: 5, score: 1.87
+2019-04-30 19:38:01,854 - LANL.train.SVR - INFO - fold: 6, score: 2.18
+2019-04-30 19:38:05,064 - LANL.train.SVR - INFO - fold: 7, score: 4.01
+2019-04-30 19:38:08,334 - LANL.train.SVR - INFO - fold: 8, score: 1.97
+2019-04-30 19:38:11,661 - LANL.train.SVR - INFO - fold: 9, score: 1.55
+2019-04-30 19:38:14,943 - LANL.train.SVR - INFO - fold: 10, score: 2.19
+2019-04-30 19:38:18,212 - LANL.train.SVR - INFO - fold: 11, score: 2.00
+2019-04-30 19:38:21,515 - LANL.train.SVR - INFO - fold: 12, score: 1.45
+2019-04-30 19:38:24,832 - LANL.train.SVR - INFO - fold: 13, score: 1.72
+2019-04-30 19:38:28,072 - LANL.train.SVR - INFO - fold: 14, score: 3.57
+2019-04-30 19:38:31,328 - LANL.train.SVR - INFO - fold: 15, score: 1.61
+2019-04-30 19:38:34,739 - LANL.train.SVR - INFO - fold: 16, score: 3.50
+2019-04-30 19:38:36,023 - LANL.train.SVR - INFO - oof_score: 2.46, mean_score: 2.43, std: 0.88
+2019-04-30 19:38:36,024 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 19:38:38,556 - LANL.train.KernelRidge - INFO - fold: 0, score: 1.01
+2019-04-30 19:38:42,235 - LANL.train.KernelRidge - INFO - fold: 1, score: 5.79
+2019-04-30 19:38:45,788 - LANL.train.KernelRidge - INFO - fold: 2, score: 7.09
+2019-04-30 19:38:49,418 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.45
+2019-04-30 19:38:53,023 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.33
+2019-04-30 19:38:56,686 - LANL.train.KernelRidge - INFO - fold: 5, score: 4.04
+2019-04-30 19:39:00,401 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.59
+2019-04-30 19:39:03,956 - LANL.train.KernelRidge - INFO - fold: 7, score: 8.04
+2019-04-30 19:39:07,589 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.95
+2019-04-30 19:39:11,252 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.82
+2019-04-30 19:39:14,879 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.72
+2019-04-30 19:39:18,493 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.51
+2019-04-30 19:39:22,142 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.41
+2019-04-30 19:39:25,812 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.30
+2019-04-30 19:39:29,387 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.36
+2019-04-30 19:39:33,003 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.75
+2019-04-30 19:39:36,807 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.67
+2019-04-30 19:39:36,807 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.67
+2019-04-30 19:39:36,808 - LANL.train.KernelRidge - INFO - oof_score: 5.68, mean_score: 5.40, std: 2.07
+2019-04-30 19:39:36,808 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 19:39:47,982 - LANL.train.RandomForest - INFO - fold: 0, score: 3.32
+2019-04-30 19:39:58,456 - LANL.train.RandomForest - INFO - fold: 1, score: 1.52
+2019-04-30 19:40:08,773 - LANL.train.RandomForest - INFO - fold: 2, score: 2.68
+2019-04-30 19:40:19,425 - LANL.train.RandomForest - INFO - fold: 3, score: 1.52
+2019-04-30 19:40:29,806 - LANL.train.RandomForest - INFO - fold: 4, score: 1.93
+2019-04-30 19:40:40,476 - LANL.train.RandomForest - INFO - fold: 5, score: 2.72
+2019-04-30 19:40:51,226 - LANL.train.RandomForest - INFO - fold: 6, score: 2.92
+2019-04-30 19:41:01,257 - LANL.train.RandomForest - INFO - fold: 7, score: 3.46
+2019-04-30 19:41:11,925 - LANL.train.RandomForest - INFO - fold: 8, score: 2.81
+2019-04-30 19:41:22,361 - LANL.train.RandomForest - INFO - fold: 9, score: 1.30
+2019-04-30 19:41:32,824 - LANL.train.RandomForest - INFO - fold: 10, score: 1.18
+2019-04-30 19:41:43,188 - LANL.train.RandomForest - INFO - fold: 11, score: 1.07
+2019-04-30 19:41:54,101 - LANL.train.RandomForest - INFO - fold: 12, score: 1.68
+2019-04-30 19:42:04,641 - LANL.train.RandomForest - INFO - fold: 13, score: 2.14
+2019-04-30 19:42:14,949 - LANL.train.RandomForest - INFO - fold: 14, score: 3.13
+2019-04-30 19:42:25,469 - LANL.train.RandomForest - INFO - fold: 15, score: 2.23
+2019-04-30 19:42:36,705 - LANL.train.RandomForest - INFO - fold: 16, score: 1.37
+2019-04-30 19:42:36,739 - LANL.train.RandomForest - INFO - oof_score: 2.20, mean_score: 2.18, std: 0.77
+2019-04-30 19:42:36,739 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 19:42:38,579 - LANL.train.xgb - INFO - fold: 0, score: 0.60
+2019-04-30 19:42:41,903 - LANL.train.xgb - INFO - fold: 1, score: 1.48
+2019-04-30 19:42:48,264 - LANL.train.xgb - INFO - fold: 2, score: 2.74
+2019-04-30 19:42:50,235 - LANL.train.xgb - INFO - fold: 3, score: 0.78
+2019-04-30 19:43:00,848 - LANL.train.xgb - INFO - fold: 4, score: 1.92
+2019-04-30 19:43:02,692 - LANL.train.xgb - INFO - fold: 5, score: 0.98
+2019-04-30 19:43:04,454 - LANL.train.xgb - INFO - fold: 6, score: 1.09
+2019-04-30 19:43:10,338 - LANL.train.xgb - INFO - fold: 7, score: 3.48
+2019-04-30 19:43:12,110 - LANL.train.xgb - INFO - fold: 8, score: 0.89
+2019-04-30 19:43:14,089 - LANL.train.xgb - INFO - fold: 9, score: 0.99
+2019-04-30 19:43:17,361 - LANL.train.xgb - INFO - fold: 10, score: 1.20
+2019-04-30 19:43:21,119 - LANL.train.xgb - INFO - fold: 11, score: 1.09
+2019-04-30 19:43:23,021 - LANL.train.xgb - INFO - fold: 12, score: 0.88
+2019-04-30 19:43:24,866 - LANL.train.xgb - INFO - fold: 13, score: 0.95
+2019-04-30 19:43:32,110 - LANL.train.xgb - INFO - fold: 14, score: 3.10
+2019-04-30 19:43:34,048 - LANL.train.xgb - INFO - fold: 15, score: 1.02
+2019-04-30 19:43:42,788 - LANL.train.xgb - INFO - fold: 16, score: 1.24
+2019-04-30 19:43:42,826 - LANL.train.xgb - INFO - oof_score: 1.69, mean_score: 1.44, std: 0.83
+2019-04-30 19:43:42,828 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 19:43:44,267 - LANL.train.cat - INFO - fold: 0, score: 0.68
+2019-04-30 19:43:53,558 - LANL.train.cat - INFO - fold: 1, score: 1.40
+2019-04-30 19:44:03,471 - LANL.train.cat - INFO - fold: 2, score: 2.71
+2019-04-30 19:44:06,031 - LANL.train.cat - INFO - fold: 3, score: 0.83
+2019-04-30 19:44:14,928 - LANL.train.cat - INFO - fold: 4, score: 1.93
+2019-04-30 19:44:16,974 - LANL.train.cat - INFO - fold: 5, score: 0.98
+2019-04-30 19:44:18,881 - LANL.train.cat - INFO - fold: 6, score: 0.99
+2019-04-30 19:44:29,351 - LANL.train.cat - INFO - fold: 7, score: 3.47
+2019-04-30 19:44:31,337 - LANL.train.cat - INFO - fold: 8, score: 0.98
+2019-04-30 19:44:34,064 - LANL.train.cat - INFO - fold: 9, score: 0.98
+2019-04-30 19:44:43,941 - LANL.train.cat - INFO - fold: 10, score: 1.23
+2019-04-30 19:44:54,458 - LANL.train.cat - INFO - fold: 11, score: 1.01
+2019-04-30 19:44:56,904 - LANL.train.cat - INFO - fold: 12, score: 0.90
+2019-04-30 19:44:59,107 - LANL.train.cat - INFO - fold: 13, score: 1.03
+2019-04-30 19:45:12,811 - LANL.train.cat - INFO - fold: 14, score: 3.10
+2019-04-30 19:45:15,410 - LANL.train.cat - INFO - fold: 15, score: 1.01
+2019-04-30 19:45:28,108 - LANL.train.cat - INFO - fold: 16, score: 1.35
+2019-04-30 19:45:28,131 - LANL.train.cat - INFO - oof_score: 1.68, mean_score: 1.45, std: 0.82
+2019-04-30 19:45:28,132 - LANL.train.cat - INFO - Model stored!
+2019-04-30 19:45:29,711 - LANL.train.NuSVR - INFO - fold: 0, score: 3.37
+2019-04-30 19:45:31,944 - LANL.train.NuSVR - INFO - fold: 1, score: 1.92
+2019-04-30 19:45:34,094 - LANL.train.NuSVR - INFO - fold: 2, score: 3.50
+2019-04-30 19:45:36,277 - LANL.train.NuSVR - INFO - fold: 3, score: 1.14
+2019-04-30 19:45:38,435 - LANL.train.NuSVR - INFO - fold: 4, score: 2.60
+2019-04-30 19:45:40,642 - LANL.train.NuSVR - INFO - fold: 5, score: 2.09
+2019-04-30 19:45:42,879 - LANL.train.NuSVR - INFO - fold: 6, score: 2.39
+2019-04-30 19:45:45,026 - LANL.train.NuSVR - INFO - fold: 7, score: 3.83
+2019-04-30 19:45:47,217 - LANL.train.NuSVR - INFO - fold: 8, score: 2.32
+2019-04-30 19:45:49,435 - LANL.train.NuSVR - INFO - fold: 9, score: 1.17
+2019-04-30 19:45:51,616 - LANL.train.NuSVR - INFO - fold: 10, score: 1.83
+2019-04-30 19:45:53,808 - LANL.train.NuSVR - INFO - fold: 11, score: 1.67
+2019-04-30 19:45:56,005 - LANL.train.NuSVR - INFO - fold: 12, score: 1.17
+2019-04-30 19:45:58,234 - LANL.train.NuSVR - INFO - fold: 13, score: 1.60
+2019-04-30 19:46:00,387 - LANL.train.NuSVR - INFO - fold: 14, score: 3.46
+2019-04-30 19:46:02,544 - LANL.train.NuSVR - INFO - fold: 15, score: 2.19
+2019-04-30 19:46:04,832 - LANL.train.NuSVR - INFO - fold: 16, score: 2.30
+2019-04-30 19:46:05,640 - LANL.train.NuSVR - INFO - oof_score: 2.35, mean_score: 2.27, std: 0.83
+2019-04-30 19:46:05,640 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 19:46:07,114 - LANL.train.SVR - INFO - fold: 0, score: 3.59
+2019-04-30 19:46:09,306 - LANL.train.SVR - INFO - fold: 1, score: 2.11
+2019-04-30 19:46:11,414 - LANL.train.SVR - INFO - fold: 2, score: 3.45
+2019-04-30 19:46:13,572 - LANL.train.SVR - INFO - fold: 3, score: 1.10
+2019-04-30 19:46:15,732 - LANL.train.SVR - INFO - fold: 4, score: 2.74
+2019-04-30 19:46:17,897 - LANL.train.SVR - INFO - fold: 5, score: 1.86
+2019-04-30 19:46:20,103 - LANL.train.SVR - INFO - fold: 6, score: 2.19
+2019-04-30 19:46:22,224 - LANL.train.SVR - INFO - fold: 7, score: 3.92
+2019-04-30 19:46:24,375 - LANL.train.SVR - INFO - fold: 8, score: 2.02
+2019-04-30 19:46:26,564 - LANL.train.SVR - INFO - fold: 9, score: 1.37
+2019-04-30 19:46:28,720 - LANL.train.SVR - INFO - fold: 10, score: 2.04
+2019-04-30 19:46:30,877 - LANL.train.SVR - INFO - fold: 11, score: 1.84
+2019-04-30 19:46:33,048 - LANL.train.SVR - INFO - fold: 12, score: 1.27
+2019-04-30 19:46:35,236 - LANL.train.SVR - INFO - fold: 13, score: 1.61
+2019-04-30 19:46:37,359 - LANL.train.SVR - INFO - fold: 14, score: 3.51
+2019-04-30 19:46:39,499 - LANL.train.SVR - INFO - fold: 15, score: 1.56
+2019-04-30 19:46:41,754 - LANL.train.SVR - INFO - fold: 16, score: 3.08
+2019-04-30 19:46:42,589 - LANL.train.SVR - INFO - oof_score: 2.37, mean_score: 2.31, std: 0.87
+2019-04-30 19:46:42,589 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 19:46:45,128 - LANL.train.KernelRidge - INFO - fold: 0, score: 1.01
+2019-04-30 19:46:48,808 - LANL.train.KernelRidge - INFO - fold: 1, score: 5.79
+2019-04-30 19:46:52,360 - LANL.train.KernelRidge - INFO - fold: 2, score: 7.09
+2019-04-30 19:46:55,987 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.45
+2019-04-30 19:46:59,584 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.33
+2019-04-30 19:47:03,242 - LANL.train.KernelRidge - INFO - fold: 5, score: 4.04
+2019-04-30 19:47:06,948 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.59
+2019-04-30 19:47:10,508 - LANL.train.KernelRidge - INFO - fold: 7, score: 8.04
+2019-04-30 19:47:14,129 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.95
+2019-04-30 19:47:17,795 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.82
+2019-04-30 19:47:21,409 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.72
+2019-04-30 19:47:25,025 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.51
+2019-04-30 19:47:28,674 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.41
+2019-04-30 19:47:32,348 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.30
+2019-04-30 19:47:35,908 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.36
+2019-04-30 19:47:39,515 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.75
+2019-04-30 19:47:43,313 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.67
+2019-04-30 19:47:43,314 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.67
+2019-04-30 19:47:43,319 - LANL.train.KernelRidge - INFO - oof_score: 5.68, mean_score: 5.40, std: 2.07
+2019-04-30 19:47:43,319 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 19:47:50,723 - LANL.train.RandomForest - INFO - fold: 0, score: 3.29
+2019-04-30 19:47:57,652 - LANL.train.RandomForest - INFO - fold: 1, score: 1.48
+2019-04-30 19:48:04,551 - LANL.train.RandomForest - INFO - fold: 2, score: 2.67
+2019-04-30 19:48:11,666 - LANL.train.RandomForest - INFO - fold: 3, score: 1.47
+2019-04-30 19:48:18,549 - LANL.train.RandomForest - INFO - fold: 4, score: 1.91
+2019-04-30 19:48:25,604 - LANL.train.RandomForest - INFO - fold: 5, score: 2.76
+2019-04-30 19:48:32,745 - LANL.train.RandomForest - INFO - fold: 6, score: 2.92
+2019-04-30 19:48:39,490 - LANL.train.RandomForest - INFO - fold: 7, score: 3.47
+2019-04-30 19:48:46,630 - LANL.train.RandomForest - INFO - fold: 8, score: 2.82
+2019-04-30 19:48:53,547 - LANL.train.RandomForest - INFO - fold: 9, score: 1.31
+2019-04-30 19:49:00,499 - LANL.train.RandomForest - INFO - fold: 10, score: 1.15
+2019-04-30 19:49:07,427 - LANL.train.RandomForest - INFO - fold: 11, score: 1.08
+2019-04-30 19:49:14,488 - LANL.train.RandomForest - INFO - fold: 12, score: 1.65
+2019-04-30 19:49:21,578 - LANL.train.RandomForest - INFO - fold: 13, score: 2.14
+2019-04-30 19:49:28,582 - LANL.train.RandomForest - INFO - fold: 14, score: 3.11
+2019-04-30 19:49:35,585 - LANL.train.RandomForest - INFO - fold: 15, score: 2.23
+2019-04-30 19:49:42,986 - LANL.train.RandomForest - INFO - fold: 16, score: 1.36
+2019-04-30 19:49:43,018 - LANL.train.RandomForest - INFO - oof_score: 2.19, mean_score: 2.17, std: 0.78
+2019-04-30 19:49:43,018 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 19:49:44,216 - LANL.train.xgb - INFO - fold: 0, score: 0.59
+2019-04-30 19:49:46,068 - LANL.train.xgb - INFO - fold: 1, score: 1.49
+2019-04-30 19:49:51,034 - LANL.train.xgb - INFO - fold: 2, score: 2.69
+2019-04-30 19:49:52,239 - LANL.train.xgb - INFO - fold: 3, score: 0.82
+2019-04-30 19:49:56,003 - LANL.train.xgb - INFO - fold: 4, score: 1.90
+2019-04-30 19:49:57,151 - LANL.train.xgb - INFO - fold: 5, score: 0.96
+2019-04-30 19:49:58,267 - LANL.train.xgb - INFO - fold: 6, score: 0.97
+2019-04-30 19:50:00,942 - LANL.train.xgb - INFO - fold: 7, score: 3.52
+2019-04-30 19:50:02,120 - LANL.train.xgb - INFO - fold: 8, score: 0.90
+2019-04-30 19:50:03,330 - LANL.train.xgb - INFO - fold: 9, score: 0.99
+2019-04-30 19:50:05,397 - LANL.train.xgb - INFO - fold: 10, score: 1.19
+2019-04-30 19:50:07,237 - LANL.train.xgb - INFO - fold: 11, score: 1.08
+2019-04-30 19:50:08,447 - LANL.train.xgb - INFO - fold: 12, score: 0.84
+2019-04-30 19:50:09,569 - LANL.train.xgb - INFO - fold: 13, score: 0.91
+2019-04-30 19:50:12,112 - LANL.train.xgb - INFO - fold: 14, score: 3.08
+2019-04-30 19:50:13,224 - LANL.train.xgb - INFO - fold: 15, score: 0.97
+2019-04-30 19:50:16,007 - LANL.train.xgb - INFO - fold: 16, score: 1.21
+2019-04-30 19:50:16,023 - LANL.train.xgb - INFO - oof_score: 1.67, mean_score: 1.42, std: 0.84
+2019-04-30 19:50:16,041 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 19:50:16,831 - LANL.train.cat - INFO - fold: 0, score: 0.70
+2019-04-30 19:50:21,622 - LANL.train.cat - INFO - fold: 1, score: 1.43
+2019-04-30 19:50:28,086 - LANL.train.cat - INFO - fold: 2, score: 2.70
+2019-04-30 19:50:29,439 - LANL.train.cat - INFO - fold: 3, score: 0.83
+2019-04-30 19:50:35,037 - LANL.train.cat - INFO - fold: 4, score: 1.86
+2019-04-30 19:50:36,173 - LANL.train.cat - INFO - fold: 5, score: 0.95
+2019-04-30 19:50:37,213 - LANL.train.cat - INFO - fold: 6, score: 0.97
+2019-04-30 19:50:43,389 - LANL.train.cat - INFO - fold: 7, score: 3.47
+2019-04-30 19:50:44,481 - LANL.train.cat - INFO - fold: 8, score: 0.94
+2019-04-30 19:50:45,995 - LANL.train.cat - INFO - fold: 9, score: 0.98
+2019-04-30 19:50:53,141 - LANL.train.cat - INFO - fold: 10, score: 1.14
+2019-04-30 19:50:57,850 - LANL.train.cat - INFO - fold: 11, score: 1.00
+2019-04-30 19:50:59,164 - LANL.train.cat - INFO - fold: 12, score: 0.90
+2019-04-30 19:51:00,369 - LANL.train.cat - INFO - fold: 13, score: 1.02
+2019-04-30 19:51:08,661 - LANL.train.cat - INFO - fold: 14, score: 3.11
+2019-04-30 19:51:10,089 - LANL.train.cat - INFO - fold: 15, score: 1.04
+2019-04-30 19:51:14,493 - LANL.train.cat - INFO - fold: 16, score: 1.49
+2019-04-30 19:51:14,504 - LANL.train.cat - INFO - oof_score: 1.67, mean_score: 1.44, std: 0.82
+2019-04-30 19:51:14,505 - LANL.train.cat - INFO - Model stored!
+2019-04-30 19:51:15,375 - LANL.train.NuSVR - INFO - fold: 0, score: 4.32
+2019-04-30 19:51:16,584 - LANL.train.NuSVR - INFO - fold: 1, score: 2.59
+2019-04-30 19:51:17,728 - LANL.train.NuSVR - INFO - fold: 2, score: 3.51
+2019-04-30 19:51:18,901 - LANL.train.NuSVR - INFO - fold: 3, score: 1.89
+2019-04-30 19:51:20,064 - LANL.train.NuSVR - INFO - fold: 4, score: 2.96
+2019-04-30 19:51:21,249 - LANL.train.NuSVR - INFO - fold: 5, score: 1.95
+2019-04-30 19:51:22,454 - LANL.train.NuSVR - INFO - fold: 6, score: 2.20
+2019-04-30 19:51:23,600 - LANL.train.NuSVR - INFO - fold: 7, score: 4.29
+2019-04-30 19:51:24,775 - LANL.train.NuSVR - INFO - fold: 8, score: 2.03
+2019-04-30 19:51:25,957 - LANL.train.NuSVR - INFO - fold: 9, score: 2.07
+2019-04-30 19:51:27,119 - LANL.train.NuSVR - INFO - fold: 10, score: 2.55
+2019-04-30 19:51:28,283 - LANL.train.NuSVR - INFO - fold: 11, score: 2.38
+2019-04-30 19:51:29,468 - LANL.train.NuSVR - INFO - fold: 12, score: 1.93
+2019-04-30 19:51:30,655 - LANL.train.NuSVR - INFO - fold: 13, score: 2.01
+2019-04-30 19:51:31,820 - LANL.train.NuSVR - INFO - fold: 14, score: 3.79
+2019-04-30 19:51:32,986 - LANL.train.NuSVR - INFO - fold: 15, score: 2.00
+2019-04-30 19:51:34,222 - LANL.train.NuSVR - INFO - fold: 16, score: 4.43
+2019-04-30 19:51:34,621 - LANL.train.NuSVR - INFO - oof_score: 2.75, mean_score: 2.76, std: 0.91
+2019-04-30 19:51:34,621 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 19:51:35,416 - LANL.train.SVR - INFO - fold: 0, score: 4.62
+2019-04-30 19:51:36,565 - LANL.train.SVR - INFO - fold: 1, score: 2.87
+2019-04-30 19:51:37,681 - LANL.train.SVR - INFO - fold: 2, score: 3.74
+2019-04-30 19:51:38,813 - LANL.train.SVR - INFO - fold: 3, score: 2.31
+2019-04-30 19:51:39,940 - LANL.train.SVR - INFO - fold: 4, score: 3.20
+2019-04-30 19:51:41,072 - LANL.train.SVR - INFO - fold: 5, score: 2.21
+2019-04-30 19:51:42,233 - LANL.train.SVR - INFO - fold: 6, score: 2.31
+2019-04-30 19:51:43,345 - LANL.train.SVR - INFO - fold: 7, score: 4.49
+2019-04-30 19:51:44,467 - LANL.train.SVR - INFO - fold: 8, score: 2.26
+2019-04-30 19:51:45,613 - LANL.train.SVR - INFO - fold: 9, score: 2.42
+2019-04-30 19:51:46,741 - LANL.train.SVR - INFO - fold: 10, score: 2.82
+2019-04-30 19:51:47,863 - LANL.train.SVR - INFO - fold: 11, score: 2.71
+2019-04-30 19:51:49,006 - LANL.train.SVR - INFO - fold: 12, score: 2.29
+2019-04-30 19:51:50,161 - LANL.train.SVR - INFO - fold: 13, score: 2.30
+2019-04-30 19:51:51,276 - LANL.train.SVR - INFO - fold: 14, score: 3.95
+2019-04-30 19:51:52,410 - LANL.train.SVR - INFO - fold: 15, score: 2.38
+2019-04-30 19:51:53,592 - LANL.train.SVR - INFO - fold: 16, score: 5.23
+2019-04-30 19:51:54,009 - LANL.train.SVR - INFO - oof_score: 3.02, mean_score: 3.07, std: 0.95
+2019-04-30 19:51:54,010 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 19:51:56,544 - LANL.train.KernelRidge - INFO - fold: 0, score: 1.01
+2019-04-30 19:52:00,213 - LANL.train.KernelRidge - INFO - fold: 1, score: 5.76
+2019-04-30 19:52:03,759 - LANL.train.KernelRidge - INFO - fold: 2, score: 7.07
+2019-04-30 19:52:07,367 - LANL.train.KernelRidge - INFO - fold: 3, score: 4.38
+2019-04-30 19:52:10,960 - LANL.train.KernelRidge - INFO - fold: 4, score: 6.28
+2019-04-30 19:52:14,611 - LANL.train.KernelRidge - INFO - fold: 5, score: 3.96
+2019-04-30 19:52:18,313 - LANL.train.KernelRidge - INFO - fold: 6, score: 3.52
+2019-04-30 19:52:21,857 - LANL.train.KernelRidge - INFO - fold: 7, score: 7.99
+2019-04-30 19:52:25,484 - LANL.train.KernelRidge - INFO - fold: 8, score: 3.90
+2019-04-30 19:52:29,149 - LANL.train.KernelRidge - INFO - fold: 9, score: 4.75
+2019-04-30 19:52:32,755 - LANL.train.KernelRidge - INFO - fold: 10, score: 5.68
+2019-04-30 19:52:36,352 - LANL.train.KernelRidge - INFO - fold: 11, score: 5.48
+2019-04-30 19:52:39,996 - LANL.train.KernelRidge - INFO - fold: 12, score: 4.38
+2019-04-30 19:52:43,665 - LANL.train.KernelRidge - INFO - fold: 13, score: 4.27
+2019-04-30 19:52:47,224 - LANL.train.KernelRidge - INFO - fold: 14, score: 7.33
+2019-04-30 19:52:50,824 - LANL.train.KernelRidge - INFO - fold: 15, score: 4.73
+2019-04-30 19:52:54,612 - LANL.train.KernelRidge - INFO - fold: 16, score: 10.64
+2019-04-30 19:52:54,612 - LANL.train.KernelRidge - WARNING - Excluded as the cutoff: 10, fold: 16, score: 10.64
+2019-04-30 19:52:54,612 - LANL.train.KernelRidge - INFO - oof_score: 5.64, mean_score: 5.36, std: 2.07
+2019-04-30 19:52:54,613 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 19:52:58,463 - LANL.train.RandomForest - INFO - fold: 0, score: 3.25
+2019-04-30 19:53:01,972 - LANL.train.RandomForest - INFO - fold: 1, score: 1.46
+2019-04-30 19:53:05,422 - LANL.train.RandomForest - INFO - fold: 2, score: 2.63
+2019-04-30 19:53:09,023 - LANL.train.RandomForest - INFO - fold: 3, score: 1.50
+2019-04-30 19:53:12,498 - LANL.train.RandomForest - INFO - fold: 4, score: 1.85
+2019-04-30 19:53:16,073 - LANL.train.RandomForest - INFO - fold: 5, score: 2.74
+2019-04-30 19:53:19,683 - LANL.train.RandomForest - INFO - fold: 6, score: 2.75
+2019-04-30 19:53:23,092 - LANL.train.RandomForest - INFO - fold: 7, score: 3.47
+2019-04-30 19:53:26,707 - LANL.train.RandomForest - INFO - fold: 8, score: 2.85
+2019-04-30 19:53:30,261 - LANL.train.RandomForest - INFO - fold: 9, score: 1.31
+2019-04-30 19:53:33,909 - LANL.train.RandomForest - INFO - fold: 10, score: 1.17
+2019-04-30 19:53:37,405 - LANL.train.RandomForest - INFO - fold: 11, score: 1.00
+2019-04-30 19:53:40,978 - LANL.train.RandomForest - INFO - fold: 12, score: 1.69
+2019-04-30 19:53:44,545 - LANL.train.RandomForest - INFO - fold: 13, score: 2.18
+2019-04-30 19:53:48,007 - LANL.train.RandomForest - INFO - fold: 14, score: 3.11
+2019-04-30 19:53:51,613 - LANL.train.RandomForest - INFO - fold: 15, score: 2.33
+2019-04-30 19:53:55,385 - LANL.train.RandomForest - INFO - fold: 16, score: 1.28
+2019-04-30 19:53:55,414 - LANL.train.RandomForest - INFO - oof_score: 2.18, mean_score: 2.15, std: 0.78
+2019-04-30 19:53:55,414 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 19:53:56,371 - LANL.train.xgb - INFO - fold: 0, score: 0.58
+2019-04-30 19:53:57,567 - LANL.train.xgb - INFO - fold: 1, score: 1.56
+2019-04-30 19:53:59,242 - LANL.train.xgb - INFO - fold: 2, score: 2.76
+2019-04-30 19:54:00,162 - LANL.train.xgb - INFO - fold: 3, score: 0.86
+2019-04-30 19:54:01,805 - LANL.train.xgb - INFO - fold: 4, score: 1.95
+2019-04-30 19:54:02,561 - LANL.train.xgb - INFO - fold: 5, score: 0.96
+2019-04-30 19:54:03,360 - LANL.train.xgb - INFO - fold: 6, score: 1.00
+2019-04-30 19:54:04,675 - LANL.train.xgb - INFO - fold: 7, score: 3.51
+2019-04-30 19:54:05,475 - LANL.train.xgb - INFO - fold: 8, score: 0.85
+2019-04-30 19:54:06,286 - LANL.train.xgb - INFO - fold: 9, score: 0.99
+2019-04-30 19:54:07,526 - LANL.train.xgb - INFO - fold: 10, score: 1.31
+2019-04-30 19:54:08,753 - LANL.train.xgb - INFO - fold: 11, score: 1.16
+2019-04-30 19:54:09,557 - LANL.train.xgb - INFO - fold: 12, score: 0.92
+2019-04-30 19:54:10,289 - LANL.train.xgb - INFO - fold: 13, score: 1.03
+2019-04-30 19:54:13,087 - LANL.train.xgb - INFO - fold: 14, score: 3.06
+2019-04-30 19:54:13,874 - LANL.train.xgb - INFO - fold: 15, score: 1.07
+2019-04-30 19:54:15,488 - LANL.train.xgb - INFO - fold: 16, score: 1.37
+2019-04-30 19:54:15,502 - LANL.train.xgb - INFO - oof_score: 1.72, mean_score: 1.47, std: 0.83
+2019-04-30 19:54:15,517 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 19:54:16,030 - LANL.train.cat - INFO - fold: 0, score: 0.71
+2019-04-30 19:54:18,878 - LANL.train.cat - INFO - fold: 1, score: 1.44
+2019-04-30 19:54:22,055 - LANL.train.cat - INFO - fold: 2, score: 2.72
+2019-04-30 19:54:22,828 - LANL.train.cat - INFO - fold: 3, score: 0.87
+2019-04-30 19:54:25,878 - LANL.train.cat - INFO - fold: 4, score: 1.90
+2019-04-30 19:54:26,520 - LANL.train.cat - INFO - fold: 5, score: 0.95
+2019-04-30 19:54:27,151 - LANL.train.cat - INFO - fold: 6, score: 1.00
+2019-04-30 19:54:31,227 - LANL.train.cat - INFO - fold: 7, score: 3.48
+2019-04-30 19:54:31,880 - LANL.train.cat - INFO - fold: 8, score: 0.95
+2019-04-30 19:54:32,751 - LANL.train.cat - INFO - fold: 9, score: 1.00
+2019-04-30 19:54:37,800 - LANL.train.cat - INFO - fold: 10, score: 1.21
+2019-04-30 19:54:40,480 - LANL.train.cat - INFO - fold: 11, score: 1.03
+2019-04-30 19:54:41,247 - LANL.train.cat - INFO - fold: 12, score: 0.90
+2019-04-30 19:54:41,944 - LANL.train.cat - INFO - fold: 13, score: 1.04
+2019-04-30 19:54:46,768 - LANL.train.cat - INFO - fold: 14, score: 3.09
+2019-04-30 19:54:47,574 - LANL.train.cat - INFO - fold: 15, score: 1.04
+2019-04-30 19:54:50,057 - LANL.train.cat - INFO - fold: 16, score: 1.48
+2019-04-30 19:54:50,064 - LANL.train.cat - INFO - oof_score: 1.69, mean_score: 1.46, std: 0.82
+2019-04-30 19:54:50,065 - LANL.train.cat - INFO - Model stored!
+2019-04-30 19:54:50,615 - LANL.train.NuSVR - INFO - fold: 0, score: 3.53
+2019-04-30 19:54:51,347 - LANL.train.NuSVR - INFO - fold: 1, score: 2.02
+2019-04-30 19:54:52,058 - LANL.train.NuSVR - INFO - fold: 2, score: 3.18
+2019-04-30 19:54:52,770 - LANL.train.NuSVR - INFO - fold: 3, score: 1.44
+2019-04-30 19:54:53,473 - LANL.train.NuSVR - INFO - fold: 4, score: 2.49
+2019-04-30 19:54:54,210 - LANL.train.NuSVR - INFO - fold: 5, score: 2.01
+2019-04-30 19:54:54,938 - LANL.train.NuSVR - INFO - fold: 6, score: 2.28
+2019-04-30 19:54:55,633 - LANL.train.NuSVR - INFO - fold: 7, score: 3.95
+2019-04-30 19:54:56,349 - LANL.train.NuSVR - INFO - fold: 8, score: 2.26
+2019-04-30 19:54:57,056 - LANL.train.NuSVR - INFO - fold: 9, score: 1.38
+2019-04-30 19:54:57,756 - LANL.train.NuSVR - INFO - fold: 10, score: 1.97
+2019-04-30 19:54:58,465 - LANL.train.NuSVR - INFO - fold: 11, score: 1.72
+2019-04-30 19:54:59,173 - LANL.train.NuSVR - INFO - fold: 12, score: 1.46
+2019-04-30 19:54:59,900 - LANL.train.NuSVR - INFO - fold: 13, score: 1.85
+2019-04-30 19:55:00,598 - LANL.train.NuSVR - INFO - fold: 14, score: 3.58
+2019-04-30 19:55:01,308 - LANL.train.NuSVR - INFO - fold: 15, score: 1.60
+2019-04-30 19:55:02,056 - LANL.train.NuSVR - INFO - fold: 16, score: 2.38
+2019-04-30 19:55:02,276 - LANL.train.NuSVR - INFO - oof_score: 2.37, mean_score: 2.30, std: 0.78
+2019-04-30 19:55:02,276 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 19:55:02,799 - LANL.train.SVR - INFO - fold: 0, score: 3.86
+2019-04-30 19:55:03,506 - LANL.train.SVR - INFO - fold: 1, score: 2.32
+2019-04-30 19:55:04,185 - LANL.train.SVR - INFO - fold: 2, score: 3.30
+2019-04-30 19:55:04,868 - LANL.train.SVR - INFO - fold: 3, score: 1.43
+2019-04-30 19:55:05,556 - LANL.train.SVR - INFO - fold: 4, score: 2.72
+2019-04-30 19:55:06,246 - LANL.train.SVR - INFO - fold: 5, score: 1.78
+2019-04-30 19:55:06,954 - LANL.train.SVR - INFO - fold: 6, score: 2.14
+2019-04-30 19:55:07,644 - LANL.train.SVR - INFO - fold: 7, score: 4.11
+2019-04-30 19:55:08,340 - LANL.train.SVR - INFO - fold: 8, score: 1.96
+2019-04-30 19:55:09,035 - LANL.train.SVR - INFO - fold: 9, score: 1.64
+2019-04-30 19:55:09,724 - LANL.train.SVR - INFO - fold: 10, score: 2.27
+2019-04-30 19:55:10,417 - LANL.train.SVR - INFO - fold: 11, score: 2.02
+2019-04-30 19:55:11,111 - LANL.train.SVR - INFO - fold: 12, score: 1.48
+2019-04-30 19:55:11,812 - LANL.train.SVR - INFO - fold: 13, score: 1.71
+2019-04-30 19:55:12,494 - LANL.train.SVR - INFO - fold: 14, score: 3.67
+2019-04-30 19:55:13,179 - LANL.train.SVR - INFO - fold: 15, score: 1.53
+2019-04-30 19:55:13,906 - LANL.train.SVR - INFO - fold: 16, score: 3.55
+2019-04-30 19:55:14,141 - LANL.train.SVR - INFO - oof_score: 2.48, mean_score: 2.44, std: 0.88
+2019-04-30 19:55:14,141 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 19:55:15,006 - LANL.train.KernelRidge - INFO - fold: 0, score: 3.27
+2019-04-30 19:55:16,008 - LANL.train.KernelRidge - INFO - fold: 1, score: 1.78
+2019-04-30 19:55:16,974 - LANL.train.KernelRidge - INFO - fold: 2, score: 3.08
+2019-04-30 19:55:17,969 - LANL.train.KernelRidge - INFO - fold: 3, score: 1.77
+2019-04-30 19:55:18,948 - LANL.train.KernelRidge - INFO - fold: 4, score: 2.34
+2019-04-30 19:55:19,962 - LANL.train.KernelRidge - INFO - fold: 5, score: 2.68
+2019-04-30 19:55:21,002 - LANL.train.KernelRidge - INFO - fold: 6, score: 2.58
+2019-04-30 19:55:21,960 - LANL.train.KernelRidge - INFO - fold: 7, score: 3.86
+2019-04-30 19:55:22,971 - LANL.train.KernelRidge - INFO - fold: 8, score: 2.64
+2019-04-30 19:55:23,988 - LANL.train.KernelRidge - INFO - fold: 9, score: 1.67
+2019-04-30 19:55:24,983 - LANL.train.KernelRidge - INFO - fold: 10, score: 1.58
+2019-04-30 19:55:25,973 - LANL.train.KernelRidge - INFO - fold: 11, score: 1.53
+2019-04-30 19:55:26,984 - LANL.train.KernelRidge - INFO - fold: 12, score: 1.87
+2019-04-30 19:55:27,997 - LANL.train.KernelRidge - INFO - fold: 13, score: 2.37
+2019-04-30 19:55:28,959 - LANL.train.KernelRidge - INFO - fold: 14, score: 3.42
+2019-04-30 19:55:29,962 - LANL.train.KernelRidge - INFO - fold: 15, score: 2.71
+2019-04-30 19:55:31,034 - LANL.train.KernelRidge - INFO - fold: 16, score: 1.83
+2019-04-30 19:55:31,290 - LANL.train.KernelRidge - INFO - oof_score: 2.48, mean_score: 2.41, std: 0.68
+2019-04-30 19:55:31,291 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 19:55:33,186 - LANL.train.RandomForest - INFO - fold: 0, score: 3.04
+2019-04-30 19:55:34,933 - LANL.train.RandomForest - INFO - fold: 1, score: 1.48
+2019-04-30 19:55:36,669 - LANL.train.RandomForest - INFO - fold: 2, score: 2.69
+2019-04-30 19:55:38,449 - LANL.train.RandomForest - INFO - fold: 3, score: 1.49
+2019-04-30 19:55:40,168 - LANL.train.RandomForest - INFO - fold: 4, score: 1.86
+2019-04-30 19:55:41,963 - LANL.train.RandomForest - INFO - fold: 5, score: 2.68
+2019-04-30 19:55:43,769 - LANL.train.RandomForest - INFO - fold: 6, score: 2.71
+2019-04-30 19:55:45,470 - LANL.train.RandomForest - INFO - fold: 7, score: 3.49
+2019-04-30 19:55:47,266 - LANL.train.RandomForest - INFO - fold: 8, score: 2.75
+2019-04-30 19:55:49,023 - LANL.train.RandomForest - INFO - fold: 9, score: 1.32
+2019-04-30 19:55:50,809 - LANL.train.RandomForest - INFO - fold: 10, score: 1.22
+2019-04-30 19:55:52,563 - LANL.train.RandomForest - INFO - fold: 11, score: 1.10
+2019-04-30 19:55:54,345 - LANL.train.RandomForest - INFO - fold: 12, score: 1.72
+2019-04-30 19:55:56,112 - LANL.train.RandomForest - INFO - fold: 13, score: 2.25
+2019-04-30 19:55:57,819 - LANL.train.RandomForest - INFO - fold: 14, score: 3.10
+2019-04-30 19:55:59,611 - LANL.train.RandomForest - INFO - fold: 15, score: 2.52
+2019-04-30 19:56:01,506 - LANL.train.RandomForest - INFO - fold: 16, score: 1.39
+2019-04-30 19:56:01,534 - LANL.train.RandomForest - INFO - oof_score: 2.21, mean_score: 2.16, std: 0.74
+2019-04-30 19:56:01,534 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 19:56:02,314 - LANL.train.xgb - INFO - fold: 0, score: 0.57
+2019-04-30 19:56:03,371 - LANL.train.xgb - INFO - fold: 1, score: 1.44
+2019-04-30 19:56:05,455 - LANL.train.xgb - INFO - fold: 2, score: 2.75
+2019-04-30 19:56:06,126 - LANL.train.xgb - INFO - fold: 3, score: 0.84
+2019-04-30 19:56:08,065 - LANL.train.xgb - INFO - fold: 4, score: 1.93
+2019-04-30 19:56:08,684 - LANL.train.xgb - INFO - fold: 5, score: 0.99
+2019-04-30 19:56:09,341 - LANL.train.xgb - INFO - fold: 6, score: 1.00
+2019-04-30 19:56:10,742 - LANL.train.xgb - INFO - fold: 7, score: 3.53
+2019-04-30 19:56:11,395 - LANL.train.xgb - INFO - fold: 8, score: 0.85
+2019-04-30 19:56:12,094 - LANL.train.xgb - INFO - fold: 9, score: 1.00
+2019-04-30 19:56:13,237 - LANL.train.xgb - INFO - fold: 10, score: 1.27
+2019-04-30 19:56:14,138 - LANL.train.xgb - INFO - fold: 11, score: 1.16
+2019-04-30 19:56:14,808 - LANL.train.xgb - INFO - fold: 12, score: 0.91
+2019-04-30 19:56:15,503 - LANL.train.xgb - INFO - fold: 13, score: 1.04
+2019-04-30 19:56:17,384 - LANL.train.xgb - INFO - fold: 14, score: 3.09
+2019-04-30 19:56:18,034 - LANL.train.xgb - INFO - fold: 15, score: 1.10
+2019-04-30 19:56:19,225 - LANL.train.xgb - INFO - fold: 16, score: 1.38
+2019-04-30 19:56:19,236 - LANL.train.xgb - INFO - oof_score: 1.71, mean_score: 1.46, std: 0.83
+2019-04-30 19:56:19,238 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 19:56:19,691 - LANL.train.cat - INFO - fold: 0, score: 0.71
+2019-04-30 19:56:22,751 - LANL.train.cat - INFO - fold: 1, score: 1.40
+2019-04-30 19:56:24,814 - LANL.train.cat - INFO - fold: 2, score: 2.69
+2019-04-30 19:56:25,469 - LANL.train.cat - INFO - fold: 3, score: 0.85
+2019-04-30 19:56:27,907 - LANL.train.cat - INFO - fold: 4, score: 1.92
+2019-04-30 19:56:28,427 - LANL.train.cat - INFO - fold: 5, score: 0.95
+2019-04-30 19:56:28,981 - LANL.train.cat - INFO - fold: 6, score: 1.01
+2019-04-30 19:56:32,067 - LANL.train.cat - INFO - fold: 7, score: 3.49
+2019-04-30 19:56:32,576 - LANL.train.cat - INFO - fold: 8, score: 0.95
+2019-04-30 19:56:33,292 - LANL.train.cat - INFO - fold: 9, score: 0.97
+2019-04-30 19:56:37,174 - LANL.train.cat - INFO - fold: 10, score: 1.20
+2019-04-30 19:56:39,988 - LANL.train.cat - INFO - fold: 11, score: 1.02
+2019-04-30 19:56:40,585 - LANL.train.cat - INFO - fold: 12, score: 0.88
+2019-04-30 19:56:41,172 - LANL.train.cat - INFO - fold: 13, score: 1.04
+2019-04-30 19:56:44,404 - LANL.train.cat - INFO - fold: 14, score: 3.11
+2019-04-30 19:56:45,068 - LANL.train.cat - INFO - fold: 15, score: 1.03
+2019-04-30 19:56:47,201 - LANL.train.cat - INFO - fold: 16, score: 1.43
+2019-04-30 19:56:47,206 - LANL.train.cat - INFO - oof_score: 1.68, mean_score: 1.45, std: 0.82
+2019-04-30 19:56:47,207 - LANL.train.cat - INFO - Model stored!
+2019-04-30 19:56:47,723 - LANL.train.NuSVR - INFO - fold: 0, score: 3.53
+2019-04-30 19:56:48,382 - LANL.train.NuSVR - INFO - fold: 1, score: 2.02
+2019-04-30 19:56:49,005 - LANL.train.NuSVR - INFO - fold: 2, score: 3.19
+2019-04-30 19:56:49,656 - LANL.train.NuSVR - INFO - fold: 3, score: 1.44
+2019-04-30 19:56:50,279 - LANL.train.NuSVR - INFO - fold: 4, score: 2.49
+2019-04-30 19:56:50,914 - LANL.train.NuSVR - INFO - fold: 5, score: 2.02
+2019-04-30 19:56:51,579 - LANL.train.NuSVR - INFO - fold: 6, score: 2.29
+2019-04-30 19:56:52,183 - LANL.train.NuSVR - INFO - fold: 7, score: 3.95
+2019-04-30 19:56:52,832 - LANL.train.NuSVR - INFO - fold: 8, score: 2.26
+2019-04-30 19:56:53,466 - LANL.train.NuSVR - INFO - fold: 9, score: 1.38
+2019-04-30 19:56:54,085 - LANL.train.NuSVR - INFO - fold: 10, score: 1.97
+2019-04-30 19:56:54,719 - LANL.train.NuSVR - INFO - fold: 11, score: 1.72
+2019-04-30 19:56:55,354 - LANL.train.NuSVR - INFO - fold: 12, score: 1.46
+2019-04-30 19:56:55,984 - LANL.train.NuSVR - INFO - fold: 13, score: 1.85
+2019-04-30 19:56:56,608 - LANL.train.NuSVR - INFO - fold: 14, score: 3.58
+2019-04-30 19:56:57,238 - LANL.train.NuSVR - INFO - fold: 15, score: 1.60
+2019-04-30 19:56:57,903 - LANL.train.NuSVR - INFO - fold: 16, score: 2.38
+2019-04-30 19:56:58,096 - LANL.train.NuSVR - INFO - oof_score: 2.37, mean_score: 2.30, std: 0.78
+2019-04-30 19:56:58,097 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 19:56:58,573 - LANL.train.SVR - INFO - fold: 0, score: 3.86
+2019-04-30 19:56:59,181 - LANL.train.SVR - INFO - fold: 1, score: 2.31
+2019-04-30 19:56:59,786 - LANL.train.SVR - INFO - fold: 2, score: 3.30
+2019-04-30 19:57:00,406 - LANL.train.SVR - INFO - fold: 3, score: 1.42
+2019-04-30 19:57:01,009 - LANL.train.SVR - INFO - fold: 4, score: 2.72
+2019-04-30 19:57:01,632 - LANL.train.SVR - INFO - fold: 5, score: 1.78
+2019-04-30 19:57:02,256 - LANL.train.SVR - INFO - fold: 6, score: 2.14
+2019-04-30 19:57:02,843 - LANL.train.SVR - INFO - fold: 7, score: 4.11
+2019-04-30 19:57:03,455 - LANL.train.SVR - INFO - fold: 8, score: 1.96
+2019-04-30 19:57:04,078 - LANL.train.SVR - INFO - fold: 9, score: 1.64
+2019-04-30 19:57:04,702 - LANL.train.SVR - INFO - fold: 10, score: 2.27
+2019-04-30 19:57:05,316 - LANL.train.SVR - INFO - fold: 11, score: 2.02
+2019-04-30 19:57:05,942 - LANL.train.SVR - INFO - fold: 12, score: 1.47
+2019-04-30 19:57:06,553 - LANL.train.SVR - INFO - fold: 13, score: 1.71
+2019-04-30 19:57:07,152 - LANL.train.SVR - INFO - fold: 14, score: 3.67
+2019-04-30 19:57:07,763 - LANL.train.SVR - INFO - fold: 15, score: 1.53
+2019-04-30 19:57:08,397 - LANL.train.SVR - INFO - fold: 16, score: 3.54
+2019-04-30 19:57:08,598 - LANL.train.SVR - INFO - oof_score: 2.47, mean_score: 2.44, std: 0.88
+2019-04-30 19:57:08,599 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 19:57:09,467 - LANL.train.KernelRidge - INFO - fold: 0, score: 3.19
+2019-04-30 19:57:10,455 - LANL.train.KernelRidge - INFO - fold: 1, score: 1.76
+2019-04-30 19:57:11,409 - LANL.train.KernelRidge - INFO - fold: 2, score: 3.08
+2019-04-30 19:57:12,398 - LANL.train.KernelRidge - INFO - fold: 3, score: 1.77
+2019-04-30 19:57:13,370 - LANL.train.KernelRidge - INFO - fold: 4, score: 2.33
+2019-04-30 19:57:14,379 - LANL.train.KernelRidge - INFO - fold: 5, score: 2.67
+2019-04-30 19:57:15,413 - LANL.train.KernelRidge - INFO - fold: 6, score: 2.58
+2019-04-30 19:57:16,365 - LANL.train.KernelRidge - INFO - fold: 7, score: 3.85
+2019-04-30 19:57:17,382 - LANL.train.KernelRidge - INFO - fold: 8, score: 2.67
+2019-04-30 19:57:18,382 - LANL.train.KernelRidge - INFO - fold: 9, score: 1.64
+2019-04-30 19:57:19,374 - LANL.train.KernelRidge - INFO - fold: 10, score: 1.55
+2019-04-30 19:57:20,368 - LANL.train.KernelRidge - INFO - fold: 11, score: 1.55
+2019-04-30 19:57:21,371 - LANL.train.KernelRidge - INFO - fold: 12, score: 1.88
+2019-04-30 19:57:22,375 - LANL.train.KernelRidge - INFO - fold: 13, score: 2.37
+2019-04-30 19:57:23,333 - LANL.train.KernelRidge - INFO - fold: 14, score: 3.43
+2019-04-30 19:57:24,321 - LANL.train.KernelRidge - INFO - fold: 15, score: 2.73
+2019-04-30 19:57:25,390 - LANL.train.KernelRidge - INFO - fold: 16, score: 1.81
+2019-04-30 19:57:25,647 - LANL.train.KernelRidge - INFO - oof_score: 2.47, mean_score: 2.40, std: 0.69
+2019-04-30 19:57:25,648 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 19:57:27,238 - LANL.train.RandomForest - INFO - fold: 0, score: 2.99
+2019-04-30 19:57:28,696 - LANL.train.RandomForest - INFO - fold: 1, score: 1.46
+2019-04-30 19:57:30,141 - LANL.train.RandomForest - INFO - fold: 2, score: 2.69
+2019-04-30 19:57:31,648 - LANL.train.RandomForest - INFO - fold: 3, score: 1.49
+2019-04-30 19:57:33,097 - LANL.train.RandomForest - INFO - fold: 4, score: 1.93
+2019-04-30 19:57:34,602 - LANL.train.RandomForest - INFO - fold: 5, score: 2.69
+2019-04-30 19:57:36,190 - LANL.train.RandomForest - INFO - fold: 6, score: 2.75
+2019-04-30 19:57:37,662 - LANL.train.RandomForest - INFO - fold: 7, score: 3.49
+2019-04-30 19:57:39,164 - LANL.train.RandomForest - INFO - fold: 8, score: 2.73
+2019-04-30 19:57:40,657 - LANL.train.RandomForest - INFO - fold: 9, score: 1.29
+2019-04-30 19:57:42,137 - LANL.train.RandomForest - INFO - fold: 10, score: 1.25
+2019-04-30 19:57:43,614 - LANL.train.RandomForest - INFO - fold: 11, score: 1.10
+2019-04-30 19:57:45,121 - LANL.train.RandomForest - INFO - fold: 12, score: 1.70
+2019-04-30 19:57:46,652 - LANL.train.RandomForest - INFO - fold: 13, score: 2.28
+2019-04-30 19:57:48,098 - LANL.train.RandomForest - INFO - fold: 14, score: 3.07
+2019-04-30 19:57:49,611 - LANL.train.RandomForest - INFO - fold: 15, score: 2.55
+2019-04-30 19:57:51,201 - LANL.train.RandomForest - INFO - fold: 16, score: 1.17
+2019-04-30 19:57:51,229 - LANL.train.RandomForest - INFO - oof_score: 2.21, mean_score: 2.15, std: 0.75
+2019-04-30 19:57:51,229 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 19:57:51,953 - LANL.train.xgb - INFO - fold: 0, score: 0.58
+2019-04-30 19:57:52,866 - LANL.train.xgb - INFO - fold: 1, score: 1.53
+2019-04-30 19:57:54,458 - LANL.train.xgb - INFO - fold: 2, score: 2.67
+2019-04-30 19:57:55,132 - LANL.train.xgb - INFO - fold: 3, score: 0.86
+2019-04-30 19:57:56,173 - LANL.train.xgb - INFO - fold: 4, score: 1.79
+2019-04-30 19:57:56,773 - LANL.train.xgb - INFO - fold: 5, score: 0.92
+2019-04-30 19:57:57,333 - LANL.train.xgb - INFO - fold: 6, score: 1.03
+2019-04-30 19:57:58,806 - LANL.train.xgb - INFO - fold: 7, score: 3.45
+2019-04-30 19:57:59,367 - LANL.train.xgb - INFO - fold: 8, score: 0.84
+2019-04-30 19:58:00,015 - LANL.train.xgb - INFO - fold: 9, score: 0.99
+2019-04-30 19:58:01,304 - LANL.train.xgb - INFO - fold: 10, score: 1.29
+2019-04-30 19:58:02,127 - LANL.train.xgb - INFO - fold: 11, score: 1.16
+2019-04-30 19:58:02,714 - LANL.train.xgb - INFO - fold: 12, score: 0.93
+2019-04-30 19:58:03,337 - LANL.train.xgb - INFO - fold: 13, score: 1.05
+2019-04-30 19:58:04,407 - LANL.train.xgb - INFO - fold: 14, score: 3.07
+2019-04-30 19:58:05,086 - LANL.train.xgb - INFO - fold: 15, score: 1.05
+2019-04-30 19:58:06,236 - LANL.train.xgb - INFO - fold: 16, score: 1.61
+2019-04-30 19:58:06,245 - LANL.train.xgb - INFO - oof_score: 1.69, mean_score: 1.46, std: 0.81
+2019-04-30 19:58:06,247 - LANL.train.xgb - INFO - Model stored!
+2019-04-30 19:58:06,657 - LANL.train.cat - INFO - fold: 0, score: 0.71
+2019-04-30 19:58:09,519 - LANL.train.cat - INFO - fold: 1, score: 1.45
+2019-04-30 19:58:12,095 - LANL.train.cat - INFO - fold: 2, score: 2.60
+2019-04-30 19:58:12,645 - LANL.train.cat - INFO - fold: 3, score: 0.86
+2019-04-30 19:58:16,403 - LANL.train.cat - INFO - fold: 4, score: 1.78
+2019-04-30 19:58:16,864 - LANL.train.cat - INFO - fold: 5, score: 0.93
+2019-04-30 19:58:17,315 - LANL.train.cat - INFO - fold: 6, score: 1.01
+2019-04-30 19:58:19,450 - LANL.train.cat - INFO - fold: 7, score: 3.47
+2019-04-30 19:58:19,890 - LANL.train.cat - INFO - fold: 8, score: 0.94
+2019-04-30 19:58:20,491 - LANL.train.cat - INFO - fold: 9, score: 1.00
+2019-04-30 19:58:23,764 - LANL.train.cat - INFO - fold: 10, score: 1.18
+2019-04-30 19:58:25,483 - LANL.train.cat - INFO - fold: 11, score: 1.03
+2019-04-30 19:58:26,007 - LANL.train.cat - INFO - fold: 12, score: 0.91
+2019-04-30 19:58:26,523 - LANL.train.cat - INFO - fold: 13, score: 1.03
+2019-04-30 19:58:29,103 - LANL.train.cat - INFO - fold: 14, score: 3.12
+2019-04-30 19:58:29,620 - LANL.train.cat - INFO - fold: 15, score: 1.06
+2019-04-30 19:58:31,487 - LANL.train.cat - INFO - fold: 16, score: 1.49
+2019-04-30 19:58:31,492 - LANL.train.cat - INFO - oof_score: 1.67, mean_score: 1.45, std: 0.80
+2019-04-30 19:58:31,493 - LANL.train.cat - INFO - Model stored!
+2019-04-30 19:58:31,950 - LANL.train.NuSVR - INFO - fold: 0, score: 3.51
+2019-04-30 19:58:32,516 - LANL.train.NuSVR - INFO - fold: 1, score: 2.01
+2019-04-30 19:58:33,061 - LANL.train.NuSVR - INFO - fold: 2, score: 3.19
+2019-04-30 19:58:33,629 - LANL.train.NuSVR - INFO - fold: 3, score: 1.43
+2019-04-30 19:58:34,171 - LANL.train.NuSVR - INFO - fold: 4, score: 2.50
+2019-04-30 19:58:34,732 - LANL.train.NuSVR - INFO - fold: 5, score: 2.02
+2019-04-30 19:58:35,290 - LANL.train.NuSVR - INFO - fold: 6, score: 2.29
+2019-04-30 19:58:35,819 - LANL.train.NuSVR - INFO - fold: 7, score: 3.93
+2019-04-30 19:58:36,372 - LANL.train.NuSVR - INFO - fold: 8, score: 2.26
+2019-04-30 19:58:36,919 - LANL.train.NuSVR - INFO - fold: 9, score: 1.39
+2019-04-30 19:58:37,474 - LANL.train.NuSVR - INFO - fold: 10, score: 1.98
+2019-04-30 19:58:38,016 - LANL.train.NuSVR - INFO - fold: 11, score: 1.73
+2019-04-30 19:58:38,576 - LANL.train.NuSVR - INFO - fold: 12, score: 1.45
+2019-04-30 19:58:39,129 - LANL.train.NuSVR - INFO - fold: 13, score: 1.84
+2019-04-30 19:58:39,666 - LANL.train.NuSVR - INFO - fold: 14, score: 3.56
+2019-04-30 19:58:40,217 - LANL.train.NuSVR - INFO - fold: 15, score: 1.62
+2019-04-30 19:58:40,803 - LANL.train.NuSVR - INFO - fold: 16, score: 2.35
+2019-04-30 19:58:40,962 - LANL.train.NuSVR - INFO - oof_score: 2.37, mean_score: 2.30, std: 0.77
+2019-04-30 19:58:40,963 - LANL.train.NuSVR - INFO - Model stored!
+2019-04-30 19:58:41,375 - LANL.train.SVR - INFO - fold: 0, score: 3.86
+2019-04-30 19:58:41,910 - LANL.train.SVR - INFO - fold: 1, score: 2.31
+2019-04-30 19:58:42,425 - LANL.train.SVR - INFO - fold: 2, score: 3.30
+2019-04-30 19:58:42,952 - LANL.train.SVR - INFO - fold: 3, score: 1.42
+2019-04-30 19:58:43,475 - LANL.train.SVR - INFO - fold: 4, score: 2.72
+2019-04-30 19:58:44,016 - LANL.train.SVR - INFO - fold: 5, score: 1.78
+2019-04-30 19:58:44,565 - LANL.train.SVR - INFO - fold: 6, score: 2.14
+2019-04-30 19:58:45,088 - LANL.train.SVR - INFO - fold: 7, score: 4.11
+2019-04-30 19:58:45,616 - LANL.train.SVR - INFO - fold: 8, score: 1.96
+2019-04-30 19:58:46,146 - LANL.train.SVR - INFO - fold: 9, score: 1.64
+2019-04-30 19:58:46,679 - LANL.train.SVR - INFO - fold: 10, score: 2.27
+2019-04-30 19:58:47,203 - LANL.train.SVR - INFO - fold: 11, score: 2.02
+2019-04-30 19:58:47,728 - LANL.train.SVR - INFO - fold: 12, score: 1.47
+2019-04-30 19:58:48,268 - LANL.train.SVR - INFO - fold: 13, score: 1.71
+2019-04-30 19:58:48,780 - LANL.train.SVR - INFO - fold: 14, score: 3.67
+2019-04-30 19:58:49,301 - LANL.train.SVR - INFO - fold: 15, score: 1.52
+2019-04-30 19:58:49,866 - LANL.train.SVR - INFO - fold: 16, score: 3.53
+2019-04-30 19:58:50,026 - LANL.train.SVR - INFO - oof_score: 2.47, mean_score: 2.44, std: 0.88
+2019-04-30 19:58:50,027 - LANL.train.SVR - INFO - Model stored!
+2019-04-30 19:58:50,878 - LANL.train.KernelRidge - INFO - fold: 0, score: 3.01
+2019-04-30 19:58:51,866 - LANL.train.KernelRidge - INFO - fold: 1, score: 1.56
+2019-04-30 19:58:52,810 - LANL.train.KernelRidge - INFO - fold: 2, score: 2.78
+2019-04-30 19:58:53,793 - LANL.train.KernelRidge - INFO - fold: 3, score: 1.66
+2019-04-30 19:58:54,760 - LANL.train.KernelRidge - INFO - fold: 4, score: 1.89
+2019-04-30 19:58:55,761 - LANL.train.KernelRidge - INFO - fold: 5, score: 2.68
+2019-04-30 19:58:56,787 - LANL.train.KernelRidge - INFO - fold: 6, score: 2.63
+2019-04-30 19:58:57,733 - LANL.train.KernelRidge - INFO - fold: 7, score: 3.57
+2019-04-30 19:58:58,731 - LANL.train.KernelRidge - INFO - fold: 8, score: 2.75
+2019-04-30 19:58:59,730 - LANL.train.KernelRidge - INFO - fold: 9, score: 1.49
+2019-04-30 19:59:00,713 - LANL.train.KernelRidge - INFO - fold: 10, score: 1.32
+2019-04-30 19:59:01,689 - LANL.train.KernelRidge - INFO - fold: 11, score: 1.24
+2019-04-30 19:59:02,686 - LANL.train.KernelRidge - INFO - fold: 12, score: 1.83
+2019-04-30 19:59:03,682 - LANL.train.KernelRidge - INFO - fold: 13, score: 2.26
+2019-04-30 19:59:04,635 - LANL.train.KernelRidge - INFO - fold: 14, score: 3.26
+2019-04-30 19:59:05,619 - LANL.train.KernelRidge - INFO - fold: 15, score: 1.99
+2019-04-30 19:59:06,679 - LANL.train.KernelRidge - INFO - fold: 16, score: 1.53
+2019-04-30 19:59:06,933 - LANL.train.KernelRidge - INFO - oof_score: 2.25, mean_score: 2.20, std: 0.70
+2019-04-30 19:59:06,934 - LANL.train.KernelRidge - INFO - Model stored!
+2019-04-30 19:59:08,082 - LANL.train.RandomForest - INFO - fold: 0, score: 2.85
+2019-04-30 19:59:09,150 - LANL.train.RandomForest - INFO - fold: 1, score: 1.48
+2019-04-30 19:59:10,225 - LANL.train.RandomForest - INFO - fold: 2, score: 2.62
+2019-04-30 19:59:11,323 - LANL.train.RandomForest - INFO - fold: 3, score: 1.59
+2019-04-30 19:59:12,406 - LANL.train.RandomForest - INFO - fold: 4, score: 1.81
+2019-04-30 19:59:13,504 - LANL.train.RandomForest - INFO - fold: 5, score: 2.66
+2019-04-30 19:59:14,621 - LANL.train.RandomForest - INFO - fold: 6, score: 2.58
+2019-04-30 19:59:15,672 - LANL.train.RandomForest - INFO - fold: 7, score: 3.47
+2019-04-30 19:59:16,783 - LANL.train.RandomForest - INFO - fold: 8, score: 2.77
+2019-04-30 19:59:17,888 - LANL.train.RandomForest - INFO - fold: 9, score: 1.37
+2019-04-30 19:59:18,965 - LANL.train.RandomForest - INFO - fold: 10, score: 1.25
+2019-04-30 19:59:20,040 - LANL.train.RandomForest - INFO - fold: 11, score: 1.09
+2019-04-30 19:59:21,148 - LANL.train.RandomForest - INFO - fold: 12, score: 1.77
+2019-04-30 19:59:22,246 - LANL.train.RandomForest - INFO - fold: 13, score: 2.35
+2019-04-30 19:59:23,309 - LANL.train.RandomForest - INFO - fold: 14, score: 3.11
+2019-04-30 19:59:24,411 - LANL.train.RandomForest - INFO - fold: 15, score: 1.88
+2019-04-30 19:59:25,572 - LANL.train.RandomForest - INFO - fold: 16, score: 1.35
+2019-04-30 19:59:25,601 - LANL.train.RandomForest - INFO - oof_score: 2.17, mean_score: 2.12, std: 0.71
+2019-04-30 19:59:25,601 - LANL.train.RandomForest - INFO - Model stored!
+2019-04-30 20:31:30,499 - LANL - INFO - Begin Logging:
+2019-04-30 20:32:07,170 - LANL - INFO - Begin Logging:
+2019-04-30 20:32:07,197 - LANL.train - INFO - Ensemble excluded: 0430_0128_KernelRidge_40_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,198 - LANL.train - INFO - Ensemble excluded: 0428_2109_XGBModel_9_CV_1.71_1.45_0.85
+2019-04-30 20:32:07,200 - LANL.train - INFO - Ensemble excluded: 0430_0115_XGBModel_40_CV_1.70_1.45_0.85
+2019-04-30 20:32:07,200 - LANL.train - INFO - Ensemble excluded: 0428_2222_CatModel_14_CV_1.66_1.43_0.80
+2019-04-30 20:32:07,202 - LANL.train - INFO - Ensemble excluded: 0429_2357_CatModel_37_CV_1.70_1.47_0.83
+2019-04-30 20:32:07,203 - LANL.train - INFO - Ensemble excluded: 0430_1934_XGBModel_42_CV_1.69_1.44_0.84
+2019-04-30 20:32:07,207 - LANL.train - INFO - Ensemble excluded: 0428_2218_XGBModel_13_CV_1.69_1.45_0.82
+2019-04-30 20:32:07,207 - LANL.train - INFO - Ensemble excluded: 0430_1958_XGBModel_47_CV_1.69_1.46_0.81
+2019-04-30 20:32:07,207 - LANL.train - INFO - Ensemble excluded: 0430_1951_CatModel_44_CV_1.67_1.44_0.82
+2019-04-30 20:32:07,208 - LANL.train - INFO - Ensemble excluded: 0429_2329_XGBModel_36_CV_1.70_1.45_0.85
+2019-04-30 20:32:07,208 - LANL.train - INFO - Ensemble excluded: 0428_2306_XGBModel_21_CV_1.69_1.45_0.84
+2019-04-30 20:32:07,208 - LANL.train - INFO - Ensemble excluded: 0429_2336_CatModel_36_CV_1.71_1.47_0.84
+2019-04-30 20:32:07,208 - LANL.train - INFO - Ensemble excluded: 0429_0033_XGBModel_26_CV_1.67_1.43_0.83
+2019-04-30 20:32:07,208 - LANL.train - INFO - Ensemble excluded: 0428_2020_XGBModel_5_CV_1.68_1.44_0.84
+2019-04-30 20:32:07,209 - LANL.train - INFO - Ensemble excluded: 0429_2239_CatModel_34_CV_1.72_1.48_0.84
+2019-04-30 20:32:07,209 - LANL.train - INFO - Ensemble excluded: 0429_0041_CatModel_28_CV_1.66_1.43_0.80
+2019-04-30 20:32:07,211 - LANL.train - INFO - Ensemble excluded: 0428_2224_CatModel_16_CV_1.69_1.45_0.83
+2019-04-30 20:32:07,211 - LANL.train - INFO - Ensemble excluded: 0430_0147_KernelRidge_41_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,211 - LANL.train - INFO - Ensemble excluded: 0429_2317_KernelRidge_35_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,211 - LANL.train - INFO - Ensemble excluded: 0430_0102_KernelRidge_39_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,213 - LANL.train - INFO - Ensemble excluded: 0428_2044_XGBModel_6_CV_1.67_1.43_0.83
+2019-04-30 20:32:07,214 - LANL.train - INFO - Ensemble excluded: 0428_2224_XGBModel_16_CV_1.72_1.47_0.84
+2019-04-30 20:32:07,214 - LANL.train - INFO - Ensemble excluded: 0429_0040_XGBModel_28_CV_1.67_1.43_0.80
+2019-04-30 20:32:07,214 - LANL.train - INFO - Ensemble excluded: 0430_1939_KernelRidge_42_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,214 - LANL.train - INFO - Ensemble excluded: 0430_1954_XGBModel_45_CV_1.72_1.47_0.83
+2019-04-30 20:32:07,214 - LANL.train - INFO - Ensemble excluded: 0429_0038_XGBModel_27_CV_1.69_1.45_0.82
+2019-04-30 20:32:07,215 - LANL.train - INFO - Ensemble excluded: 0429_2309_CatModel_35_CV_1.72_1.48_0.84
+2019-04-30 20:32:07,216 - LANL.train - INFO - Ensemble excluded: 0428_2213_XGBModel_12_CV_1.67_1.43_0.83
+2019-04-30 20:32:07,219 - LANL.train - INFO - Ensemble excluded: 0428_2225_XGBModel_17_CV_1.78_1.52_0.87
+2019-04-30 20:32:07,223 - LANL.train - INFO - Ensemble excluded: 0428_2223_XGBModel_15_CV_1.70_1.45_0.81
+2019-04-30 20:32:07,223 - LANL.train - INFO - Ensemble excluded: 0425_2324_XGBModel_3_CV_1.45_0.85
+2019-04-30 20:32:07,227 - LANL.train - INFO - Ensemble excluded: 0425_2231_LGBModel_1_CV_4.15_1.87
+2019-04-30 20:32:07,227 - LANL.train - INFO - Ensemble excluded: 0428_2104_XGBModel_8_CV_1.68_1.44_0.82
+2019-04-30 20:32:07,229 - LANL.train - INFO - Ensemble excluded: 0428_2021_CatModel_5_CV_1.69_1.46_0.82
+2019-04-30 20:32:07,230 - LANL.train - INFO - Ensemble excluded: 0428_2102_XGBModel_7_CV_1.75_1.50_0.84
+2019-04-30 20:32:07,230 - LANL.train - INFO - Ensemble excluded: 0428_2151_CatModel_10_CV_1.70_1.47_0.83
+2019-04-30 20:32:07,232 - LANL.train - INFO - Ensemble excluded: 0430_0010_XGBModel_38_CV_1.71_1.46_0.85
+2019-04-30 20:32:07,235 - LANL.train - INFO - Ensemble excluded: 0428_2122_CatModel_9_CV_1.72_1.48_0.84
+2019-04-30 20:32:07,235 - LANL.train - INFO - Ensemble excluded: 0429_0043_CatModel_30_CV_1.69_1.45_0.83
+2019-04-30 20:32:07,235 - LANL.train - INFO - Ensemble excluded: 0428_2332_CatModel_22_CV_1.70_1.47_0.83
+2019-04-30 20:32:07,235 - LANL.train - INFO - Ensemble excluded: 0428_2215_CatModel_12_CV_1.68_1.44_0.82
+2019-04-30 20:32:07,235 - LANL.train - INFO - Ensemble excluded: 0428_2221_XGBModel_14_CV_1.67_1.43_0.80
+2019-04-30 20:32:07,237 - LANL.train - INFO - Ensemble excluded: 0428_2044_CatModel_6_CV_1.68_1.45_0.82
+2019-04-30 20:32:07,238 - LANL.train - INFO - Ensemble excluded: 0428_2225_CatModel_17_CV_1.73_1.47_0.87
+2019-04-30 20:32:07,240 - LANL.train - INFO - Ensemble excluded: 0428_2144_XGBModel_10_CV_1.69_1.45_0.84
+2019-04-30 20:32:07,240 - LANL.train - INFO - Ensemble excluded: 0430_1923_CatModel_41_CV_1.70_1.47_0.83
+2019-04-30 20:32:07,242 - LANL.train - INFO - Ensemble excluded: 0429_0035_CatModel_26_CV_1.68_1.44_0.82
+2019-04-30 20:32:07,242 - LANL.train - INFO - Ensemble excluded: 0430_1952_KernelRidge_44_CV_5.64_5.36_2.07
+2019-04-30 20:32:07,243 - LANL.train - INFO - Ensemble excluded: 0429_0027_CatModel_25_CV_1.69_1.46_0.81
+2019-04-30 20:32:07,244 - LANL.train - INFO - Ensemble excluded: 0430_1943_XGBModel_43_CV_1.69_1.44_0.83
+2019-04-30 20:32:07,244 - LANL.train - INFO - Ensemble excluded: 0429_0004_XGBModel_24_CV_1.69_1.45_0.84
+2019-04-30 20:32:07,244 - LANL.train - INFO - Ensemble excluded: 0428_2203_XGBModel_11_CV_1.68_1.43_0.83
+2019-04-30 20:32:07,245 - LANL.train - INFO - Ensemble excluded: 0430_1956_CatModel_46_CV_1.68_1.45_0.82
+2019-04-30 20:32:07,247 - LANL.train - INFO - Ensemble excluded: 0430_1919_XGBModel_41_CV_1.69_1.44_0.85
+2019-04-30 20:32:07,247 - LANL.train - INFO - Ensemble excluded: 0430_1947_KernelRidge_43_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,247 - LANL.train - INFO - Ensemble excluded: 0430_1950_XGBModel_44_CV_1.67_1.42_0.84
+2019-04-30 20:32:07,247 - LANL.train - INFO - Ensemble excluded: 0430_0001_KernelRidge_37_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,247 - LANL.train - INFO - Ensemble excluded: 0428_2254_CatModel_20_CV_1.70_1.47_0.83
+2019-04-30 20:32:07,248 - LANL.train - INFO - Ensemble excluded: 0429_0039_CatModel_27_CV_1.68_1.45_0.81
+2019-04-30 20:32:07,248 - LANL.train - INFO - Ensemble excluded: 0429_2343_KernelRidge_36_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,249 - LANL.train - INFO - Ensemble excluded: 0425_2339_CatModel_3_CV_1.48_0.84
+2019-04-30 20:32:07,251 - LANL.train - INFO - Ensemble excluded: 0428_2228_XGBModel_19_CV_1.69_1.45_0.84
+2019-04-30 20:32:07,251 - LANL.train - INFO - Ensemble excluded: 0428_2325_XGBModel_22_CV_1.69_1.45_0.84
+2019-04-30 20:32:07,251 - LANL.train - INFO - Ensemble excluded: 0429_0043_XGBModel_30_CV_1.72_1.47_0.84
+2019-04-30 20:32:07,253 - LANL.train - INFO - Ensemble excluded: 0428_2313_CatModel_21_CV_1.70_1.47_0.83
+2019-04-30 20:32:07,254 - LANL.train - INFO - Ensemble excluded: 0428_2345_XGBModel_23_CV_1.69_1.45_0.84
+2019-04-30 20:32:07,254 - LANL.train - INFO - Ensemble excluded: 0428_2235_CatModel_19_CV_1.70_1.47_0.83
+2019-04-30 20:32:07,254 - LANL.train - INFO - Ensemble excluded: 0429_0011_CatModel_24_CV_1.70_1.47_0.83
+2019-04-30 20:32:07,256 - LANL.train - INFO - Ensemble excluded: 0429_0042_CatModel_29_CV_1.67_1.43_0.81
+2019-04-30 20:32:07,258 - LANL.train - INFO - Ensemble excluded: 0428_2352_CatModel_23_CV_1.70_1.47_0.83
+2019-04-30 20:32:07,258 - LANL.train - INFO - Ensemble excluded: 0430_1927_KernelRidge_41_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,258 - LANL.train - INFO - Ensemble excluded: 0428_2103_CatModel_7_CV_1.73_1.49_0.83
+2019-04-30 20:32:07,260 - LANL.train - INFO - Ensemble excluded: 0430_1954_CatModel_45_CV_1.69_1.46_0.82
+2019-04-30 20:32:07,261 - LANL.train - INFO - Ensemble excluded: 0430_1945_CatModel_43_CV_1.68_1.45_0.82
+2019-04-30 20:32:07,262 - LANL.train - INFO - Ensemble excluded: 0430_0142_CatModel_41_CV_1.70_1.47_0.83
+2019-04-30 20:32:07,266 - LANL.train - INFO - Ensemble excluded: 0430_1956_XGBModel_46_CV_1.71_1.46_0.83
+2019-04-30 20:32:07,267 - LANL.train - INFO - Ensemble excluded: 0429_2247_KernelRidge_34_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,270 - LANL.train - INFO - Ensemble excluded: 0429_2231_XGBModel_34_CV_1.71_1.46_0.85
+2019-04-30 20:32:07,272 - LANL.train - INFO - Ensemble excluded: 0429_0044_XGBModel_31_CV_1.78_1.52_0.87
+2019-04-30 20:32:07,273 - LANL.train - INFO - Ensemble excluded: 0428_2219_CatModel_13_CV_1.68_1.45_0.81
+2019-04-30 20:32:07,273 - LANL.train - INFO - Ensemble excluded: 0430_0122_CatModel_40_CV_1.71_1.47_0.84
+2019-04-30 20:32:07,273 - LANL.train - INFO - Ensemble excluded: 0430_0047_XGBModel_39_CV_1.71_1.46_0.85
+2019-04-30 20:32:07,274 - LANL.train - INFO - Ensemble excluded: 0429_2353_XGBModel_37_CV_1.69_1.44_0.85
+2019-04-30 20:32:07,277 - LANL.train - INFO - Ensemble excluded: 0430_0055_CatModel_39_CV_1.72_1.48_0.84
+2019-04-30 20:32:07,281 - LANL.train - INFO - Ensemble excluded: 0430_0138_XGBModel_41_CV_1.69_1.44_0.85
+2019-04-30 20:32:07,288 - LANL.train - INFO - Ensemble excluded: 0430_0031_KernelRidge_38_CV_5.68_5.40_2.07
+2019-04-30 20:32:07,289 - LANL.train - INFO - Ensemble excluded: 0428_2207_CatModel_11_CV_1.69_1.46_0.81
+2019-04-30 20:32:07,291 - LANL.train - INFO - Ensemble excluded: 0430_1958_CatModel_47_CV_1.67_1.45_0.80
+2019-04-30 20:32:07,292 - LANL.train - INFO - Ensemble excluded: 0428_2248_XGBModel_20_CV_1.69_1.45_0.84
+2019-04-30 20:32:07,293 - LANL.train - INFO - Ensemble excluded: 0430_1936_CatModel_42_CV_1.69_1.46_0.81
+2019-04-30 20:32:07,293 - LANL.train - INFO - Ensemble excluded: 0429_0023_XGBModel_25_CV_1.68_1.43_0.83
+2019-04-30 20:32:07,293 - LANL.train - INFO - Ensemble excluded: 0430_0022_CatModel_38_CV_1.71_1.48_0.84
+2019-04-30 20:32:07,296 - LANL.train - INFO - Ensemble excluded: 0429_2301_XGBModel_35_CV_1.71_1.46_0.85
+2019-04-30 20:32:07,296 - LANL.train - INFO - Ensemble excluded: 0428_2104_CatModel_8_CV_1.69_1.46_0.82
+2019-04-30 20:32:07,298 - LANL.train - INFO - Ensemble excluded: 0429_0044_CatModel_31_CV_1.73_1.47_0.87
+2019-04-30 20:32:07,298 - LANL.train - INFO - Ensemble excluded: 0429_0042_XGBModel_29_CV_1.70_1.45_0.81
+2019-04-30 20:32:07,298 - LANL.train - INFO - Ensemble excluded: 0428_2223_CatModel_15_CV_1.67_1.43_0.81
+2019-04-30 20:32:10,232 - LANL.train.cat - INFO - fold: 0, score: 0.63
+2019-04-30 20:32:21,550 - LANL - INFO - Begin Logging:
+2019-04-30 20:32:21,572 - LANL.train - INFO - Ensemble excluded: 0430_0128_KernelRidge_40_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,573 - LANL.train - INFO - Ensemble excluded: 0428_2109_XGBModel_9_CV_1.71_1.45_0.85
+2019-04-30 20:32:21,573 - LANL.train - INFO - Ensemble excluded: 0430_0115_XGBModel_40_CV_1.70_1.45_0.85
+2019-04-30 20:32:21,573 - LANL.train - INFO - Ensemble excluded: 0428_2222_CatModel_14_CV_1.66_1.43_0.80
+2019-04-30 20:32:21,573 - LANL.train - INFO - Ensemble excluded: 0429_2357_CatModel_37_CV_1.70_1.47_0.83
+2019-04-30 20:32:21,573 - LANL.train - INFO - Ensemble excluded: 0430_1934_XGBModel_42_CV_1.69_1.44_0.84
+2019-04-30 20:32:21,574 - LANL.train - INFO - Ensemble excluded: 0428_2218_XGBModel_13_CV_1.69_1.45_0.82
+2019-04-30 20:32:21,574 - LANL.train - INFO - Ensemble excluded: 0430_1958_XGBModel_47_CV_1.69_1.46_0.81
+2019-04-30 20:32:21,574 - LANL.train - INFO - Ensemble excluded: 0430_1951_CatModel_44_CV_1.67_1.44_0.82
+2019-04-30 20:32:21,574 - LANL.train - INFO - Ensemble excluded: 0429_2329_XGBModel_36_CV_1.70_1.45_0.85
+2019-04-30 20:32:21,574 - LANL.train - INFO - Ensemble excluded: 0428_2306_XGBModel_21_CV_1.69_1.45_0.84
+2019-04-30 20:32:21,574 - LANL.train - INFO - Ensemble excluded: 0429_2336_CatModel_36_CV_1.71_1.47_0.84
+2019-04-30 20:32:21,574 - LANL.train - INFO - Ensemble excluded: 0429_0033_XGBModel_26_CV_1.67_1.43_0.83
+2019-04-30 20:32:21,574 - LANL.train - INFO - Ensemble excluded: 0428_2020_XGBModel_5_CV_1.68_1.44_0.84
+2019-04-30 20:32:21,574 - LANL.train - INFO - Ensemble excluded: 0429_2239_CatModel_34_CV_1.72_1.48_0.84
+2019-04-30 20:32:21,574 - LANL.train - INFO - Ensemble excluded: 0429_0041_CatModel_28_CV_1.66_1.43_0.80
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0428_2224_CatModel_16_CV_1.69_1.45_0.83
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0430_0147_KernelRidge_41_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0429_2317_KernelRidge_35_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0430_0102_KernelRidge_39_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0428_2044_XGBModel_6_CV_1.67_1.43_0.83
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0428_2224_XGBModel_16_CV_1.72_1.47_0.84
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0429_0040_XGBModel_28_CV_1.67_1.43_0.80
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0430_1939_KernelRidge_42_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0430_1954_XGBModel_45_CV_1.72_1.47_0.83
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0429_0038_XGBModel_27_CV_1.69_1.45_0.82
+2019-04-30 20:32:21,575 - LANL.train - INFO - Ensemble excluded: 0429_2309_CatModel_35_CV_1.72_1.48_0.84
+2019-04-30 20:32:21,576 - LANL.train - INFO - Ensemble excluded: 0428_2213_XGBModel_12_CV_1.67_1.43_0.83
+2019-04-30 20:32:21,576 - LANL.train - INFO - Ensemble excluded: 0428_2225_XGBModel_17_CV_1.78_1.52_0.87
+2019-04-30 20:32:21,576 - LANL.train - INFO - Ensemble excluded: 0428_2223_XGBModel_15_CV_1.70_1.45_0.81
+2019-04-30 20:32:21,577 - LANL.train - INFO - Ensemble excluded: 0425_2324_XGBModel_3_CV_1.45_0.85
+2019-04-30 20:32:21,577 - LANL.train - INFO - Ensemble excluded: 0425_2231_LGBModel_1_CV_4.15_1.87
+2019-04-30 20:32:21,577 - LANL.train - INFO - Ensemble excluded: 0428_2104_XGBModel_8_CV_1.68_1.44_0.82
+2019-04-30 20:32:21,577 - LANL.train - INFO - Ensemble excluded: 0428_2021_CatModel_5_CV_1.69_1.46_0.82
+2019-04-30 20:32:21,577 - LANL.train - INFO - Ensemble excluded: 0428_2102_XGBModel_7_CV_1.75_1.50_0.84
+2019-04-30 20:32:21,577 - LANL.train - INFO - Ensemble excluded: 0428_2151_CatModel_10_CV_1.70_1.47_0.83
+2019-04-30 20:32:21,578 - LANL.train - INFO - Ensemble excluded: 0430_0010_XGBModel_38_CV_1.71_1.46_0.85
+2019-04-30 20:32:21,578 - LANL.train - INFO - Ensemble excluded: 0428_2122_CatModel_9_CV_1.72_1.48_0.84
+2019-04-30 20:32:21,578 - LANL.train - INFO - Ensemble excluded: 0429_0043_CatModel_30_CV_1.69_1.45_0.83
+2019-04-30 20:32:21,578 - LANL.train - INFO - Ensemble excluded: 0428_2332_CatModel_22_CV_1.70_1.47_0.83
+2019-04-30 20:32:21,578 - LANL.train - INFO - Ensemble excluded: 0428_2215_CatModel_12_CV_1.68_1.44_0.82
+2019-04-30 20:32:21,578 - LANL.train - INFO - Ensemble excluded: 0428_2221_XGBModel_14_CV_1.67_1.43_0.80
+2019-04-30 20:32:21,579 - LANL.train - INFO - Ensemble excluded: 0428_2044_CatModel_6_CV_1.68_1.45_0.82
+2019-04-30 20:32:21,579 - LANL.train - INFO - Ensemble excluded: 0428_2225_CatModel_17_CV_1.73_1.47_0.87
+2019-04-30 20:32:21,579 - LANL.train - INFO - Ensemble excluded: 0428_2144_XGBModel_10_CV_1.69_1.45_0.84
+2019-04-30 20:32:21,579 - LANL.train - INFO - Ensemble excluded: 0430_1923_CatModel_41_CV_1.70_1.47_0.83
+2019-04-30 20:32:21,579 - LANL.train - INFO - Ensemble excluded: 0429_0035_CatModel_26_CV_1.68_1.44_0.82
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0430_1952_KernelRidge_44_CV_5.64_5.36_2.07
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0429_0027_CatModel_25_CV_1.69_1.46_0.81
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0430_1943_XGBModel_43_CV_1.69_1.44_0.83
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0429_0004_XGBModel_24_CV_1.69_1.45_0.84
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0428_2203_XGBModel_11_CV_1.68_1.43_0.83
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0430_1956_CatModel_46_CV_1.68_1.45_0.82
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0430_1919_XGBModel_41_CV_1.69_1.44_0.85
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0430_1947_KernelRidge_43_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0430_1950_XGBModel_44_CV_1.67_1.42_0.84
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0430_0001_KernelRidge_37_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,580 - LANL.train - INFO - Ensemble excluded: 0428_2254_CatModel_20_CV_1.70_1.47_0.83
+2019-04-30 20:32:21,581 - LANL.train - INFO - Ensemble excluded: 0429_0039_CatModel_27_CV_1.68_1.45_0.81
+2019-04-30 20:32:21,581 - LANL.train - INFO - Ensemble excluded: 0429_2343_KernelRidge_36_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,581 - LANL.train - INFO - Ensemble excluded: 0425_2339_CatModel_3_CV_1.48_0.84
+2019-04-30 20:32:21,581 - LANL.train - INFO - Ensemble excluded: 0428_2228_XGBModel_19_CV_1.69_1.45_0.84
+2019-04-30 20:32:21,581 - LANL.train - INFO - Ensemble excluded: 0428_2325_XGBModel_22_CV_1.69_1.45_0.84
+2019-04-30 20:32:21,581 - LANL.train - INFO - Ensemble excluded: 0429_0043_XGBModel_30_CV_1.72_1.47_0.84
+2019-04-30 20:32:21,581 - LANL.train - INFO - Ensemble excluded: 0428_2313_CatModel_21_CV_1.70_1.47_0.83
+2019-04-30 20:32:21,581 - LANL.train - INFO - Ensemble excluded: 0428_2345_XGBModel_23_CV_1.69_1.45_0.84
+2019-04-30 20:32:21,581 - LANL.train - INFO - Ensemble excluded: 0428_2235_CatModel_19_CV_1.70_1.47_0.83
+2019-04-30 20:32:21,581 - LANL.train - INFO - Ensemble excluded: 0429_0011_CatModel_24_CV_1.70_1.47_0.83
+2019-04-30 20:32:21,582 - LANL.train - INFO - Ensemble excluded: 0429_0042_CatModel_29_CV_1.67_1.43_0.81
+2019-04-30 20:32:21,582 - LANL.train - INFO - Ensemble excluded: 0428_2352_CatModel_23_CV_1.70_1.47_0.83
+2019-04-30 20:32:21,582 - LANL.train - INFO - Ensemble excluded: 0430_1927_KernelRidge_41_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,582 - LANL.train - INFO - Ensemble excluded: 0428_2103_CatModel_7_CV_1.73_1.49_0.83
+2019-04-30 20:32:21,582 - LANL.train - INFO - Ensemble excluded: 0430_1954_CatModel_45_CV_1.69_1.46_0.82
+2019-04-30 20:32:21,582 - LANL.train - INFO - Ensemble excluded: 0430_1945_CatModel_43_CV_1.68_1.45_0.82
+2019-04-30 20:32:21,583 - LANL.train - INFO - Ensemble excluded: 0430_0142_CatModel_41_CV_1.70_1.47_0.83
+2019-04-30 20:32:21,583 - LANL.train - INFO - Ensemble excluded: 0430_1956_XGBModel_46_CV_1.71_1.46_0.83
+2019-04-30 20:32:21,583 - LANL.train - INFO - Ensemble excluded: 0429_2247_KernelRidge_34_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,583 - LANL.train - INFO - Ensemble excluded: 0429_2231_XGBModel_34_CV_1.71_1.46_0.85
+2019-04-30 20:32:21,584 - LANL.train - INFO - Ensemble excluded: 0429_0044_XGBModel_31_CV_1.78_1.52_0.87
+2019-04-30 20:32:21,584 - LANL.train - INFO - Ensemble excluded: 0428_2219_CatModel_13_CV_1.68_1.45_0.81
+2019-04-30 20:32:21,584 - LANL.train - INFO - Ensemble excluded: 0430_0122_CatModel_40_CV_1.71_1.47_0.84
+2019-04-30 20:32:21,584 - LANL.train - INFO - Ensemble excluded: 0430_0047_XGBModel_39_CV_1.71_1.46_0.85
+2019-04-30 20:32:21,584 - LANL.train - INFO - Ensemble excluded: 0429_2353_XGBModel_37_CV_1.69_1.44_0.85
+2019-04-30 20:32:21,584 - LANL.train - INFO - Ensemble excluded: 0430_0055_CatModel_39_CV_1.72_1.48_0.84
+2019-04-30 20:32:21,585 - LANL.train - INFO - Ensemble excluded: 0430_0138_XGBModel_41_CV_1.69_1.44_0.85
+2019-04-30 20:32:21,586 - LANL.train - INFO - Ensemble excluded: 0430_0031_KernelRidge_38_CV_5.68_5.40_2.07
+2019-04-30 20:32:21,586 - LANL.train - INFO - Ensemble excluded: 0428_2207_CatModel_11_CV_1.69_1.46_0.81
+2019-04-30 20:32:21,586 - LANL.train - INFO - Ensemble excluded: 0430_1958_CatModel_47_CV_1.67_1.45_0.80
+2019-04-30 20:32:21,586 - LANL.train - INFO - Ensemble excluded: 0428_2248_XGBModel_20_CV_1.69_1.45_0.84
+2019-04-30 20:32:21,587 - LANL.train - INFO - Ensemble excluded: 0430_1936_CatModel_42_CV_1.69_1.46_0.81
+2019-04-30 20:32:21,587 - LANL.train - INFO - Ensemble excluded: 0429_0023_XGBModel_25_CV_1.68_1.43_0.83
+2019-04-30 20:32:21,587 - LANL.train - INFO - Ensemble excluded: 0430_0022_CatModel_38_CV_1.71_1.48_0.84
+2019-04-30 20:32:21,587 - LANL.train - INFO - Ensemble excluded: 0429_2301_XGBModel_35_CV_1.71_1.46_0.85
+2019-04-30 20:32:21,587 - LANL.train - INFO - Ensemble excluded: 0428_2104_CatModel_8_CV_1.69_1.46_0.82
+2019-04-30 20:32:21,587 - LANL.train - INFO - Ensemble excluded: 0429_0044_CatModel_31_CV_1.73_1.47_0.87
+2019-04-30 20:32:21,587 - LANL.train - INFO - Ensemble excluded: 0429_0042_XGBModel_29_CV_1.70_1.45_0.81
+2019-04-30 20:32:21,587 - LANL.train - INFO - Ensemble excluded: 0428_2223_CatModel_15_CV_1.67_1.43_0.81
+2019-04-30 20:32:24,529 - LANL.train.cat - INFO - fold: 0, score: 0.63
+2019-04-30 20:33:14,343 - LANL - INFO - Begin Logging:
+2019-04-30 20:33:14,365 - LANL.train - INFO - Ensemble excluded: 0430_0128_KernelRidge_40_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,365 - LANL.train - INFO - Ensemble excluded: 0428_2109_XGBModel_9_CV_1.71_1.45_0.85
+2019-04-30 20:33:14,365 - LANL.train - INFO - Ensemble excluded: 0430_0115_XGBModel_40_CV_1.70_1.45_0.85
+2019-04-30 20:33:14,366 - LANL.train - INFO - Ensemble excluded: 0428_2222_CatModel_14_CV_1.66_1.43_0.80
+2019-04-30 20:33:14,366 - LANL.train - INFO - Ensemble excluded: 0429_2357_CatModel_37_CV_1.70_1.47_0.83
+2019-04-30 20:33:14,366 - LANL.train - INFO - Ensemble excluded: 0430_1934_XGBModel_42_CV_1.69_1.44_0.84
+2019-04-30 20:33:14,367 - LANL.train - INFO - Ensemble excluded: 0428_2218_XGBModel_13_CV_1.69_1.45_0.82
+2019-04-30 20:33:14,367 - LANL.train - INFO - Ensemble excluded: 0430_1958_XGBModel_47_CV_1.69_1.46_0.81
+2019-04-30 20:33:14,367 - LANL.train - INFO - Ensemble excluded: 0430_1951_CatModel_44_CV_1.67_1.44_0.82
+2019-04-30 20:33:14,367 - LANL.train - INFO - Ensemble excluded: 0429_2329_XGBModel_36_CV_1.70_1.45_0.85
+2019-04-30 20:33:14,367 - LANL.train - INFO - Ensemble excluded: 0428_2306_XGBModel_21_CV_1.69_1.45_0.84
+2019-04-30 20:33:14,367 - LANL.train - INFO - Ensemble excluded: 0429_2336_CatModel_36_CV_1.71_1.47_0.84
+2019-04-30 20:33:14,367 - LANL.train - INFO - Ensemble excluded: 0429_0033_XGBModel_26_CV_1.67_1.43_0.83
+2019-04-30 20:33:14,368 - LANL.train - INFO - Ensemble excluded: 0428_2020_XGBModel_5_CV_1.68_1.44_0.84
+2019-04-30 20:33:14,368 - LANL.train - INFO - Ensemble excluded: 0429_2239_CatModel_34_CV_1.72_1.48_0.84
+2019-04-30 20:33:14,368 - LANL.train - INFO - Ensemble excluded: 0429_0041_CatModel_28_CV_1.66_1.43_0.80
+2019-04-30 20:33:14,368 - LANL.train - INFO - Ensemble excluded: 0428_2224_CatModel_16_CV_1.69_1.45_0.83
+2019-04-30 20:33:14,368 - LANL.train - INFO - Ensemble excluded: 0430_0147_KernelRidge_41_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,368 - LANL.train - INFO - Ensemble excluded: 0429_2317_KernelRidge_35_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,368 - LANL.train - INFO - Ensemble excluded: 0430_0102_KernelRidge_39_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,369 - LANL.train - INFO - Ensemble excluded: 0428_2044_XGBModel_6_CV_1.67_1.43_0.83
+2019-04-30 20:33:14,369 - LANL.train - INFO - Ensemble excluded: 0428_2224_XGBModel_16_CV_1.72_1.47_0.84
+2019-04-30 20:33:14,369 - LANL.train - INFO - Ensemble excluded: 0429_0040_XGBModel_28_CV_1.67_1.43_0.80
+2019-04-30 20:33:14,369 - LANL.train - INFO - Ensemble excluded: 0430_1939_KernelRidge_42_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,369 - LANL.train - INFO - Ensemble excluded: 0430_1954_XGBModel_45_CV_1.72_1.47_0.83
+2019-04-30 20:33:14,369 - LANL.train - INFO - Ensemble excluded: 0429_0038_XGBModel_27_CV_1.69_1.45_0.82
+2019-04-30 20:33:14,369 - LANL.train - INFO - Ensemble excluded: 0429_2309_CatModel_35_CV_1.72_1.48_0.84
+2019-04-30 20:33:14,370 - LANL.train - INFO - Ensemble excluded: 0428_2213_XGBModel_12_CV_1.67_1.43_0.83
+2019-04-30 20:33:14,370 - LANL.train - INFO - Ensemble excluded: 0428_2225_XGBModel_17_CV_1.78_1.52_0.87
+2019-04-30 20:33:14,371 - LANL.train - INFO - Ensemble excluded: 0428_2223_XGBModel_15_CV_1.70_1.45_0.81
+2019-04-30 20:33:14,371 - LANL.train - INFO - Ensemble excluded: 0425_2324_XGBModel_3_CV_1.45_0.85
+2019-04-30 20:33:14,371 - LANL.train - INFO - Ensemble excluded: 0425_2231_LGBModel_1_CV_4.15_1.87
+2019-04-30 20:33:14,372 - LANL.train - INFO - Ensemble excluded: 0428_2104_XGBModel_8_CV_1.68_1.44_0.82
+2019-04-30 20:33:14,372 - LANL.train - INFO - Ensemble excluded: 0428_2021_CatModel_5_CV_1.69_1.46_0.82
+2019-04-30 20:33:14,372 - LANL.train - INFO - Ensemble excluded: 0428_2102_XGBModel_7_CV_1.75_1.50_0.84
+2019-04-30 20:33:14,372 - LANL.train - INFO - Ensemble excluded: 0428_2151_CatModel_10_CV_1.70_1.47_0.83
+2019-04-30 20:33:14,373 - LANL.train - INFO - Ensemble excluded: 0430_0010_XGBModel_38_CV_1.71_1.46_0.85
+2019-04-30 20:33:14,373 - LANL.train - INFO - Ensemble excluded: 0428_2122_CatModel_9_CV_1.72_1.48_0.84
+2019-04-30 20:33:14,373 - LANL.train - INFO - Ensemble excluded: 0429_0043_CatModel_30_CV_1.69_1.45_0.83
+2019-04-30 20:33:14,373 - LANL.train - INFO - Ensemble excluded: 0428_2332_CatModel_22_CV_1.70_1.47_0.83
+2019-04-30 20:33:14,373 - LANL.train - INFO - Ensemble excluded: 0428_2215_CatModel_12_CV_1.68_1.44_0.82
+2019-04-30 20:33:14,373 - LANL.train - INFO - Ensemble excluded: 0428_2221_XGBModel_14_CV_1.67_1.43_0.80
+2019-04-30 20:33:14,374 - LANL.train - INFO - Ensemble excluded: 0428_2044_CatModel_6_CV_1.68_1.45_0.82
+2019-04-30 20:33:14,374 - LANL.train - INFO - Ensemble excluded: 0428_2225_CatModel_17_CV_1.73_1.47_0.87
+2019-04-30 20:33:14,374 - LANL.train - INFO - Ensemble excluded: 0428_2144_XGBModel_10_CV_1.69_1.45_0.84
+2019-04-30 20:33:14,375 - LANL.train - INFO - Ensemble excluded: 0430_1923_CatModel_41_CV_1.70_1.47_0.83
+2019-04-30 20:33:14,375 - LANL.train - INFO - Ensemble excluded: 0429_0035_CatModel_26_CV_1.68_1.44_0.82
+2019-04-30 20:33:14,375 - LANL.train - INFO - Ensemble excluded: 0430_1952_KernelRidge_44_CV_5.64_5.36_2.07
+2019-04-30 20:33:14,375 - LANL.train - INFO - Ensemble excluded: 0429_0027_CatModel_25_CV_1.69_1.46_0.81
+2019-04-30 20:33:14,375 - LANL.train - INFO - Ensemble excluded: 0430_1943_XGBModel_43_CV_1.69_1.44_0.83
+2019-04-30 20:33:14,376 - LANL.train - INFO - Ensemble excluded: 0429_0004_XGBModel_24_CV_1.69_1.45_0.84
+2019-04-30 20:33:14,376 - LANL.train - INFO - Ensemble excluded: 0428_2203_XGBModel_11_CV_1.68_1.43_0.83
+2019-04-30 20:33:14,376 - LANL.train - INFO - Ensemble excluded: 0430_1956_CatModel_46_CV_1.68_1.45_0.82
+2019-04-30 20:33:14,376 - LANL.train - INFO - Ensemble excluded: 0430_1919_XGBModel_41_CV_1.69_1.44_0.85
+2019-04-30 20:33:14,376 - LANL.train - INFO - Ensemble excluded: 0430_1947_KernelRidge_43_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,376 - LANL.train - INFO - Ensemble excluded: 0430_1950_XGBModel_44_CV_1.67_1.42_0.84
+2019-04-30 20:33:14,377 - LANL.train - INFO - Ensemble excluded: 0430_0001_KernelRidge_37_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,377 - LANL.train - INFO - Ensemble excluded: 0428_2254_CatModel_20_CV_1.70_1.47_0.83
+2019-04-30 20:33:14,377 - LANL.train - INFO - Ensemble excluded: 0429_0039_CatModel_27_CV_1.68_1.45_0.81
+2019-04-30 20:33:14,377 - LANL.train - INFO - Ensemble excluded: 0429_2343_KernelRidge_36_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,377 - LANL.train - INFO - Ensemble excluded: 0425_2339_CatModel_3_CV_1.48_0.84
+2019-04-30 20:33:14,377 - LANL.train - INFO - Ensemble excluded: 0428_2228_XGBModel_19_CV_1.69_1.45_0.84
+2019-04-30 20:33:14,377 - LANL.train - INFO - Ensemble excluded: 0428_2325_XGBModel_22_CV_1.69_1.45_0.84
+2019-04-30 20:33:14,378 - LANL.train - INFO - Ensemble excluded: 0429_0043_XGBModel_30_CV_1.72_1.47_0.84
+2019-04-30 20:33:14,378 - LANL.train - INFO - Ensemble excluded: 0428_2313_CatModel_21_CV_1.70_1.47_0.83
+2019-04-30 20:33:14,378 - LANL.train - INFO - Ensemble excluded: 0428_2345_XGBModel_23_CV_1.69_1.45_0.84
+2019-04-30 20:33:14,378 - LANL.train - INFO - Ensemble excluded: 0428_2235_CatModel_19_CV_1.70_1.47_0.83
+2019-04-30 20:33:14,378 - LANL.train - INFO - Ensemble excluded: 0429_0011_CatModel_24_CV_1.70_1.47_0.83
+2019-04-30 20:33:14,379 - LANL.train - INFO - Ensemble excluded: 0429_0042_CatModel_29_CV_1.67_1.43_0.81
+2019-04-30 20:33:14,379 - LANL.train - INFO - Ensemble excluded: 0428_2352_CatModel_23_CV_1.70_1.47_0.83
+2019-04-30 20:33:14,379 - LANL.train - INFO - Ensemble excluded: 0430_1927_KernelRidge_41_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,379 - LANL.train - INFO - Ensemble excluded: 0428_2103_CatModel_7_CV_1.73_1.49_0.83
+2019-04-30 20:33:14,379 - LANL.train - INFO - Ensemble excluded: 0430_1954_CatModel_45_CV_1.69_1.46_0.82
+2019-04-30 20:33:14,380 - LANL.train - INFO - Ensemble excluded: 0430_1945_CatModel_43_CV_1.68_1.45_0.82
+2019-04-30 20:33:14,380 - LANL.train - INFO - Ensemble excluded: 0430_0142_CatModel_41_CV_1.70_1.47_0.83
+2019-04-30 20:33:14,381 - LANL.train - INFO - Ensemble excluded: 0430_1956_XGBModel_46_CV_1.71_1.46_0.83
+2019-04-30 20:33:14,381 - LANL.train - INFO - Ensemble excluded: 0429_2247_KernelRidge_34_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,381 - LANL.train - INFO - Ensemble excluded: 0429_2231_XGBModel_34_CV_1.71_1.46_0.85
+2019-04-30 20:33:14,382 - LANL.train - INFO - Ensemble excluded: 0429_0044_XGBModel_31_CV_1.78_1.52_0.87
+2019-04-30 20:33:14,382 - LANL.train - INFO - Ensemble excluded: 0428_2219_CatModel_13_CV_1.68_1.45_0.81
+2019-04-30 20:33:14,382 - LANL.train - INFO - Ensemble excluded: 0430_0122_CatModel_40_CV_1.71_1.47_0.84
+2019-04-30 20:33:14,382 - LANL.train - INFO - Ensemble excluded: 0430_0047_XGBModel_39_CV_1.71_1.46_0.85
+2019-04-30 20:33:14,382 - LANL.train - INFO - Ensemble excluded: 0429_2353_XGBModel_37_CV_1.69_1.44_0.85
+2019-04-30 20:33:14,383 - LANL.train - INFO - Ensemble excluded: 0430_0055_CatModel_39_CV_1.72_1.48_0.84
+2019-04-30 20:33:14,384 - LANL.train - INFO - Ensemble excluded: 0430_0138_XGBModel_41_CV_1.69_1.44_0.85
+2019-04-30 20:33:14,385 - LANL.train - INFO - Ensemble excluded: 0430_0031_KernelRidge_38_CV_5.68_5.40_2.07
+2019-04-30 20:33:14,385 - LANL.train - INFO - Ensemble excluded: 0428_2207_CatModel_11_CV_1.69_1.46_0.81
+2019-04-30 20:33:14,386 - LANL.train - INFO - Ensemble excluded: 0430_1958_CatModel_47_CV_1.67_1.45_0.80
+2019-04-30 20:33:14,386 - LANL.train - INFO - Ensemble excluded: 0428_2248_XGBModel_20_CV_1.69_1.45_0.84
+2019-04-30 20:33:14,386 - LANL.train - INFO - Ensemble excluded: 0430_1936_CatModel_42_CV_1.69_1.46_0.81
+2019-04-30 20:33:14,386 - LANL.train - INFO - Ensemble excluded: 0429_0023_XGBModel_25_CV_1.68_1.43_0.83
+2019-04-30 20:33:14,386 - LANL.train - INFO - Ensemble excluded: 0430_0022_CatModel_38_CV_1.71_1.48_0.84
+2019-04-30 20:33:14,387 - LANL.train - INFO - Ensemble excluded: 0429_2301_XGBModel_35_CV_1.71_1.46_0.85
+2019-04-30 20:33:14,387 - LANL.train - INFO - Ensemble excluded: 0428_2104_CatModel_8_CV_1.69_1.46_0.82
+2019-04-30 20:33:14,387 - LANL.train - INFO - Ensemble excluded: 0429_0044_CatModel_31_CV_1.73_1.47_0.87
+2019-04-30 20:33:14,387 - LANL.train - INFO - Ensemble excluded: 0429_0042_XGBModel_29_CV_1.70_1.45_0.81
+2019-04-30 20:33:14,387 - LANL.train - INFO - Ensemble excluded: 0428_2223_CatModel_15_CV_1.67_1.43_0.81
+2019-04-30 20:33:29,651 - LANL.train.RandomForest - INFO - fold: 0, score: 1.55
+2019-04-30 20:33:43,857 - LANL.train.RandomForest - INFO - fold: 1, score: 1.74
+2019-04-30 20:33:57,994 - LANL.train.RandomForest - INFO - fold: 2, score: 2.05
+2019-04-30 20:34:12,240 - LANL.train.RandomForest - INFO - fold: 3, score: 0.90
+2019-04-30 20:34:26,145 - LANL.train.RandomForest - INFO - fold: 4, score: 1.65
+2019-04-30 20:34:40,725 - LANL.train.RandomForest - INFO - fold: 5, score: 0.81
+2019-04-30 20:34:55,616 - LANL.train.RandomForest - INFO - fold: 6, score: 0.94
+2019-04-30 20:35:10,004 - LANL.train.RandomForest - INFO - fold: 7, score: 2.59
+2019-04-30 20:35:25,369 - LANL.train.RandomForest - INFO - fold: 8, score: 0.71
+2019-04-30 20:35:40,316 - LANL.train.RandomForest - INFO - fold: 9, score: 1.40
+2019-04-30 20:35:54,799 - LANL.train.RandomForest - INFO - fold: 10, score: 1.22
+2019-04-30 20:36:09,692 - LANL.train.RandomForest - INFO - fold: 11, score: 1.17
+2019-04-30 20:36:25,197 - LANL.train.RandomForest - INFO - fold: 12, score: 0.87
+2019-04-30 20:36:40,007 - LANL.train.RandomForest - INFO - fold: 13, score: 0.97
+2019-04-30 20:36:54,409 - LANL.train.RandomForest - INFO - fold: 14, score: 2.11
+2019-04-30 20:37:09,229 - LANL.train.RandomForest - INFO - fold: 15, score: 1.04
+2019-04-30 20:37:24,681 - LANL.train.RandomForest - INFO - fold: 16, score: 0.83
+2019-04-30 20:37:24,710 - LANL.train.RandomForest - INFO - oof_score: 1.47, mean_score: 1.33, std: 0.53
+2019-04-30 20:38:25,841 - LANL - INFO - Begin Logging:
+2019-04-30 20:38:48,339 - LANL.train.RandomForest - INFO - fold: 0, score: 1.22
+2019-04-30 20:39:09,383 - LANL.train.RandomForest - INFO - fold: 1, score: 1.69
+2019-04-30 20:39:31,041 - LANL.train.RandomForest - INFO - fold: 2, score: 2.12
+2019-04-30 20:39:53,152 - LANL.train.RandomForest - INFO - fold: 3, score: 0.70
+2019-04-30 20:40:14,333 - LANL.train.RandomForest - INFO - fold: 4, score: 1.47
+2019-04-30 20:40:36,710 - LANL.train.RandomForest - INFO - fold: 5, score: 0.72
+2019-04-30 20:40:58,780 - LANL.train.RandomForest - INFO - fold: 6, score: 0.94
+2019-04-30 20:41:19,980 - LANL.train.RandomForest - INFO - fold: 7, score: 2.41
+2019-04-30 20:41:41,717 - LANL.train.RandomForest - INFO - fold: 8, score: 0.63
+2019-04-30 20:42:03,212 - LANL.train.RandomForest - INFO - fold: 9, score: 0.87
+2019-04-30 20:42:24,077 - LANL.train.RandomForest - INFO - fold: 10, score: 1.24
+2019-04-30 20:42:45,112 - LANL.train.RandomForest - INFO - fold: 11, score: 1.10
+2019-04-30 20:43:07,076 - LANL.train.RandomForest - INFO - fold: 12, score: 0.71
+2019-04-30 20:43:29,102 - LANL.train.RandomForest - INFO - fold: 13, score: 0.88
+2019-04-30 20:43:50,547 - LANL.train.RandomForest - INFO - fold: 14, score: 1.87
+2019-04-30 20:44:12,106 - LANL.train.RandomForest - INFO - fold: 15, score: 0.85
+2019-04-30 20:44:34,632 - LANL.train.RandomForest - INFO - fold: 16, score: 0.68
+2019-04-30 20:44:34,664 - LANL.train.RandomForest - INFO - oof_score: 1.33, mean_score: 1.18, std: 0.53
+2019-04-30 20:45:06,095 - LANL - INFO - Begin Logging:
+2019-04-30 20:45:09,680 - LANL.train.lgb - INFO - fold: 0, score: 0.58
+2019-04-30 20:45:14,093 - LANL.train.lgb - INFO - fold: 1, score: 1.53
+2019-04-30 20:45:24,672 - LANL.train.lgb - INFO - fold: 2, score: 2.10
+2019-04-30 20:45:29,079 - LANL.train.lgb - INFO - fold: 3, score: 0.76
+2019-04-30 20:45:36,809 - LANL.train.lgb - INFO - fold: 4, score: 1.62
+2019-04-30 20:45:49,494 - LANL.train.lgb - INFO - fold: 5, score: 0.76
+2019-04-30 20:45:53,036 - LANL.train.lgb - INFO - fold: 6, score: 0.92
+2019-04-30 20:45:59,426 - LANL.train.lgb - INFO - fold: 7, score: 2.45
+2019-04-30 20:46:05,308 - LANL.train.lgb - INFO - fold: 8, score: 0.74
+2019-04-30 20:46:09,534 - LANL.train.lgb - INFO - fold: 9, score: 0.91
+2019-04-30 20:46:14,110 - LANL.train.lgb - INFO - fold: 10, score: 1.21
+2019-04-30 20:46:18,551 - LANL.train.lgb - INFO - fold: 11, score: 1.02
+2019-04-30 20:46:27,042 - LANL.train.lgb - INFO - fold: 12, score: 0.78
+2019-04-30 20:46:30,593 - LANL.train.lgb - INFO - fold: 13, score: 0.93
+2019-04-30 20:46:37,811 - LANL.train.lgb - INFO - fold: 14, score: 2.05
+2019-04-30 20:46:41,831 - LANL.train.lgb - INFO - fold: 15, score: 0.90
+2019-04-30 20:46:46,480 - LANL.train.lgb - INFO - fold: 16, score: 0.79
+2019-04-30 20:46:46,538 - LANL.train.lgb - INFO - oof_score: 1.36, mean_score: 1.18, std: 0.54
+2019-04-30 22:39:12,211 - LANL - INFO - Begin Logging:
+2019-04-30 22:39:13,194 - LANL.train.lgb - INFO - fold: 0, score: 2.59
+2019-04-30 22:39:13,697 - LANL.train.lgb - INFO - fold: 1, score: 1.48
+2019-04-30 22:39:14,293 - LANL.train.lgb - INFO - fold: 2, score: 2.76
+2019-04-30 22:39:14,549 - LANL.train.lgb - INFO - fold: 3, score: 1.17
+2019-04-30 22:39:15,075 - LANL.train.lgb - INFO - fold: 4, score: 2.02
+2019-04-30 22:39:15,292 - LANL.train.lgb - INFO - fold: 5, score: 1.90
+2019-04-30 22:39:15,497 - LANL.train.lgb - INFO - fold: 6, score: 2.13
+2019-04-30 22:39:15,999 - LANL.train.lgb - INFO - fold: 7, score: 3.56
+2019-04-30 22:39:16,224 - LANL.train.lgb - INFO - fold: 8, score: 1.99
+2019-04-30 22:39:16,524 - LANL.train.lgb - INFO - fold: 9, score: 1.13
+2019-04-30 22:39:17,043 - LANL.train.lgb - INFO - fold: 10, score: 1.36
+2019-04-30 22:39:17,446 - LANL.train.lgb - INFO - fold: 11, score: 1.14
+2019-04-30 22:39:17,687 - LANL.train.lgb - INFO - fold: 12, score: 1.33
+2019-04-30 22:39:17,912 - LANL.train.lgb - INFO - fold: 13, score: 1.70
+2019-04-30 22:39:18,393 - LANL.train.lgb - INFO - fold: 14, score: 3.22
+2019-04-30 22:39:18,644 - LANL.train.lgb - INFO - fold: 15, score: 1.49
+2019-04-30 22:39:19,196 - LANL.train.lgb - INFO - fold: 16, score: 1.49
+2019-04-30 22:39:19,215 - LANL.train.lgb - INFO - oof_score: 2.01, mean_score: 1.91, std: 0.71
+2019-04-30 22:39:46,726 - LANL - INFO - Begin Logging:
+2019-04-30 22:39:50,125 - LANL.train.lgb - INFO - fold: 0, score: 2.59
+2019-04-30 22:39:50,648 - LANL.train.lgb - INFO - fold: 1, score: 1.48
+2019-04-30 22:39:51,260 - LANL.train.lgb - INFO - fold: 2, score: 2.76
+2019-04-30 22:39:51,523 - LANL.train.lgb - INFO - fold: 3, score: 1.17
+2019-04-30 22:39:52,062 - LANL.train.lgb - INFO - fold: 4, score: 2.02
+2019-04-30 22:39:52,281 - LANL.train.lgb - INFO - fold: 5, score: 1.90
+2019-04-30 22:39:52,478 - LANL.train.lgb - INFO - fold: 6, score: 2.13
+2019-04-30 22:39:52,987 - LANL.train.lgb - INFO - fold: 7, score: 3.56
+2019-04-30 22:39:53,212 - LANL.train.lgb - INFO - fold: 8, score: 1.99
+2019-04-30 22:39:53,476 - LANL.train.lgb - INFO - fold: 9, score: 1.13
+2019-04-30 22:39:53,997 - LANL.train.lgb - INFO - fold: 10, score: 1.36
+2019-04-30 22:39:54,409 - LANL.train.lgb - INFO - fold: 11, score: 1.14
+2019-04-30 22:39:54,665 - LANL.train.lgb - INFO - fold: 12, score: 1.33
+2019-04-30 22:39:54,889 - LANL.train.lgb - INFO - fold: 13, score: 1.70
+2019-04-30 22:39:55,388 - LANL.train.lgb - INFO - fold: 14, score: 3.22
+2019-04-30 22:39:55,649 - LANL.train.lgb - INFO - fold: 15, score: 1.49
+2019-04-30 22:39:56,202 - LANL.train.lgb - INFO - fold: 16, score: 1.49
+2019-04-30 22:39:56,220 - LANL.train.lgb - INFO - oof_score: 2.01, mean_score: 1.91, std: 0.71
+2019-04-30 23:01:07,357 - LANL - INFO - Begin Logging:
+2019-04-30 23:01:07,616 - LANL.data_transfer - INFO - Working on: 1
+2019-04-30 23:01:07,940 - LANL.train.xgb - INFO - fold: 0, score: 0.57
+2019-04-30 23:01:08,504 - LANL.train.xgb - INFO - fold: 1, score: 1.53
+2019-04-30 23:01:09,336 - LANL.train.xgb - INFO - fold: 2, score: 2.66
+2019-04-30 23:01:09,730 - LANL.train.xgb - INFO - fold: 3, score: 0.89
+2019-04-30 23:01:10,363 - LANL.train.xgb - INFO - fold: 4, score: 1.88
+2019-04-30 23:01:10,734 - LANL.train.xgb - INFO - fold: 5, score: 0.93
+2019-04-30 23:01:11,088 - LANL.train.xgb - INFO - fold: 6, score: 0.99
+2019-04-30 23:01:11,839 - LANL.train.xgb - INFO - fold: 7, score: 3.46
+2019-04-30 23:01:12,212 - LANL.train.xgb - INFO - fold: 8, score: 0.82
+2019-04-30 23:01:12,600 - LANL.train.xgb - INFO - fold: 9, score: 0.98
+2019-04-30 23:01:13,223 - LANL.train.xgb - INFO - fold: 10, score: 1.37
+2019-04-30 23:01:13,761 - LANL.train.xgb - INFO - fold: 11, score: 1.20
+2019-04-30 23:01:14,150 - LANL.train.xgb - INFO - fold: 12, score: 0.91
+2019-04-30 23:01:14,516 - LANL.train.xgb - INFO - fold: 13, score: 1.10
+2019-04-30 23:01:15,465 - LANL.train.xgb - INFO - fold: 14, score: 3.13
+2019-04-30 23:01:15,863 - LANL.train.xgb - INFO - fold: 15, score: 1.09
+2019-04-30 23:01:16,548 - LANL.train.xgb - INFO - fold: 16, score: 1.53
+2019-04-30 23:01:16,558 - LANL.train.xgb - INFO - oof_score: 1.71, mean_score: 1.47, std: 0.82
+2019-04-30 23:01:17,302 - LANL.train.lgb - INFO - fold: 0, score: 2.59
+2019-04-30 23:01:17,813 - LANL.train.lgb - INFO - fold: 1, score: 1.48
+2019-04-30 23:01:18,412 - LANL.train.lgb - INFO - fold: 2, score: 2.76
+2019-04-30 23:01:18,677 - LANL.train.lgb - INFO - fold: 3, score: 1.17
+2019-04-30 23:01:19,340 - LANL.train.lgb - INFO - fold: 4, score: 2.02
+2019-04-30 23:01:19,645 - LANL.train.lgb - INFO - fold: 5, score: 1.90
+2019-04-30 23:01:19,882 - LANL.train.lgb - INFO - fold: 6, score: 2.13
+2019-04-30 23:01:20,498 - LANL.train.lgb - INFO - fold: 7, score: 3.56
+2019-04-30 23:01:20,795 - LANL.train.lgb - INFO - fold: 8, score: 1.99
+2019-04-30 23:01:21,065 - LANL.train.lgb - INFO - fold: 9, score: 1.13
+2019-04-30 23:01:21,607 - LANL.train.lgb - INFO - fold: 10, score: 1.36
+2019-04-30 23:01:22,032 - LANL.train.lgb - INFO - fold: 11, score: 1.14
+2019-04-30 23:01:22,357 - LANL.train.lgb - INFO - fold: 12, score: 1.33
+2019-04-30 23:01:22,595 - LANL.train.lgb - INFO - fold: 13, score: 1.70
+2019-04-30 23:01:23,132 - LANL.train.lgb - INFO - fold: 14, score: 3.22
+2019-04-30 23:01:23,391 - LANL.train.lgb - INFO - fold: 15, score: 1.49
+2019-04-30 23:01:23,974 - LANL.train.lgb - INFO - fold: 16, score: 1.49
+2019-04-30 23:01:23,992 - LANL.train.lgb - INFO - oof_score: 2.01, mean_score: 1.91, std: 0.71
+2019-04-30 23:01:24,901 - LANL.train.cat - INFO - fold: 0, score: 0.72
+2019-04-30 23:01:26,982 - LANL.train.cat - INFO - fold: 1, score: 1.42
+2019-04-30 23:01:28,289 - LANL.train.cat - INFO - fold: 2, score: 2.66
+2019-04-30 23:01:28,693 - LANL.train.cat - INFO - fold: 3, score: 0.84
+2019-04-30 23:01:30,730 - LANL.train.cat - INFO - fold: 4, score: 1.82
+2019-04-30 23:01:31,045 - LANL.train.cat - INFO - fold: 5, score: 0.92
+2019-04-30 23:01:31,331 - LANL.train.cat - INFO - fold: 6, score: 1.00
+2019-04-30 23:01:32,806 - LANL.train.cat - INFO - fold: 7, score: 3.47
+2019-04-30 23:01:33,084 - LANL.train.cat - INFO - fold: 8, score: 0.94
+2019-04-30 23:01:33,480 - LANL.train.cat - INFO - fold: 9, score: 0.98
+2019-04-30 23:01:34,916 - LANL.train.cat - INFO - fold: 10, score: 1.23
+2019-04-30 23:01:36,084 - LANL.train.cat - INFO - fold: 11, score: 1.04
+2019-04-30 23:01:36,425 - LANL.train.cat - INFO - fold: 12, score: 0.89
+2019-04-30 23:01:36,741 - LANL.train.cat - INFO - fold: 13, score: 1.02
+2019-04-30 23:01:38,629 - LANL.train.cat - INFO - fold: 14, score: 3.11
+2019-04-30 23:01:38,985 - LANL.train.cat - INFO - fold: 15, score: 1.06
+2019-04-30 23:01:40,099 - LANL.train.cat - INFO - fold: 16, score: 1.44
+2019-04-30 23:01:40,103 - LANL.train.cat - INFO - oof_score: 1.68, mean_score: 1.45, std: 0.81
+2019-04-30 23:01:40,508 - LANL.train.NuSVR - INFO - fold: 0, score: 3.51
+2019-04-30 23:01:40,987 - LANL.train.NuSVR - INFO - fold: 1, score: 2.01
+2019-04-30 23:01:41,442 - LANL.train.NuSVR - INFO - fold: 2, score: 3.19
+2019-04-30 23:01:41,939 - LANL.train.NuSVR - INFO - fold: 3, score: 1.43
+2019-04-30 23:01:42,412 - LANL.train.NuSVR - INFO - fold: 4, score: 2.50
+2019-04-30 23:01:42,878 - LANL.train.NuSVR - INFO - fold: 5, score: 2.02
+2019-04-30 23:01:43,350 - LANL.train.NuSVR - INFO - fold: 6, score: 2.29
+2019-04-30 23:01:43,792 - LANL.train.NuSVR - INFO - fold: 7, score: 3.92
+2019-04-30 23:01:44,254 - LANL.train.NuSVR - INFO - fold: 8, score: 2.27
+2019-04-30 23:01:44,717 - LANL.train.NuSVR - INFO - fold: 9, score: 1.39
+2019-04-30 23:01:45,177 - LANL.train.NuSVR - INFO - fold: 10, score: 1.98
+2019-04-30 23:01:45,642 - LANL.train.NuSVR - INFO - fold: 11, score: 1.73
+2019-04-30 23:01:46,112 - LANL.train.NuSVR - INFO - fold: 12, score: 1.46
+2019-04-30 23:01:46,585 - LANL.train.NuSVR - INFO - fold: 13, score: 1.85
+2019-04-30 23:01:47,033 - LANL.train.NuSVR - INFO - fold: 14, score: 3.56
+2019-04-30 23:01:47,492 - LANL.train.NuSVR - INFO - fold: 15, score: 1.62
+2019-04-30 23:01:47,982 - LANL.train.NuSVR - INFO - fold: 16, score: 2.34
+2019-04-30 23:01:48,104 - LANL.train.NuSVR - INFO - oof_score: 2.37, mean_score: 2.30, std: 0.77
+2019-04-30 23:01:48,459 - LANL.train.SVR - INFO - fold: 0, score: 3.84
+2019-04-30 23:01:48,901 - LANL.train.SVR - INFO - fold: 1, score: 2.30
+2019-04-30 23:01:49,321 - LANL.train.SVR - INFO - fold: 2, score: 3.30
+2019-04-30 23:01:49,753 - LANL.train.SVR - INFO - fold: 3, score: 1.41
+2019-04-30 23:01:50,181 - LANL.train.SVR - INFO - fold: 4, score: 2.71
+2019-04-30 23:01:50,624 - LANL.train.SVR - INFO - fold: 5, score: 1.78
+2019-04-30 23:01:51,069 - LANL.train.SVR - INFO - fold: 6, score: 2.14
+2019-04-30 23:01:51,489 - LANL.train.SVR - INFO - fold: 7, score: 4.10
+2019-04-30 23:01:51,925 - LANL.train.SVR - INFO - fold: 8, score: 1.96
+2019-04-30 23:01:52,360 - LANL.train.SVR - INFO - fold: 9, score: 1.63
+2019-04-30 23:01:52,789 - LANL.train.SVR - INFO - fold: 10, score: 2.26
+2019-04-30 23:01:53,217 - LANL.train.SVR - INFO - fold: 11, score: 2.01
+2019-04-30 23:01:53,653 - LANL.train.SVR - INFO - fold: 12, score: 1.46
+2019-04-30 23:01:54,092 - LANL.train.SVR - INFO - fold: 13, score: 1.71
+2019-04-30 23:01:54,516 - LANL.train.SVR - INFO - fold: 14, score: 3.67
+2019-04-30 23:01:54,947 - LANL.train.SVR - INFO - fold: 15, score: 1.51
+2019-04-30 23:01:55,405 - LANL.train.SVR - INFO - fold: 16, score: 3.50
+2019-04-30 23:01:55,532 - LANL.train.SVR - INFO - oof_score: 2.46, mean_score: 2.43, std: 0.88
+2019-04-30 23:01:56,440 - LANL.train.KernelRidge - INFO - fold: 0, score: 3.12
+2019-04-30 23:01:57,396 - LANL.train.KernelRidge - INFO - fold: 1, score: 1.48
+2019-04-30 23:01:58,316 - LANL.train.KernelRidge - INFO - fold: 2, score: 2.80
+2019-04-30 23:01:59,277 - LANL.train.KernelRidge - INFO - fold: 3, score: 1.65
+2019-04-30 23:02:00,217 - LANL.train.KernelRidge - INFO - fold: 4, score: 1.95
+2019-04-30 23:02:01,190 - LANL.train.KernelRidge - INFO - fold: 5, score: 2.58
+2019-04-30 23:02:02,184 - LANL.train.KernelRidge - INFO - fold: 6, score: 2.73
+2019-04-30 23:02:03,100 - LANL.train.KernelRidge - INFO - fold: 7, score: 3.54
+2019-04-30 23:02:04,069 - LANL.train.KernelRidge - INFO - fold: 8, score: 2.77
+2019-04-30 23:02:05,037 - LANL.train.KernelRidge - INFO - fold: 9, score: 1.47
+2019-04-30 23:02:05,988 - LANL.train.KernelRidge - INFO - fold: 10, score: 1.33
+2019-04-30 23:02:06,939 - LANL.train.KernelRidge - INFO - fold: 11, score: 1.24
+2019-04-30 23:02:07,911 - LANL.train.KernelRidge - INFO - fold: 12, score: 1.73
+2019-04-30 23:02:08,884 - LANL.train.KernelRidge - INFO - fold: 13, score: 2.21
+2019-04-30 23:02:09,806 - LANL.train.KernelRidge - INFO - fold: 14, score: 3.24
+2019-04-30 23:02:10,763 - LANL.train.KernelRidge - INFO - fold: 15, score: 2.05
+2019-04-30 23:02:11,795 - LANL.train.KernelRidge - INFO - fold: 16, score: 1.39
+2019-04-30 23:02:12,020 - LANL.train.KernelRidge - INFO - oof_score: 2.24, mean_score: 2.19, std: 0.72
+2019-04-30 23:02:12,877 - LANL.train.RandomForest - INFO - fold: 0, score: 2.94
+2019-04-30 23:02:13,675 - LANL.train.RandomForest - INFO - fold: 1, score: 1.49
+2019-04-30 23:02:14,468 - LANL.train.RandomForest - INFO - fold: 2, score: 2.61
+2019-04-30 23:02:15,283 - LANL.train.RandomForest - INFO - fold: 3, score: 1.60
+2019-04-30 23:02:16,080 - LANL.train.RandomForest - INFO - fold: 4, score: 1.86
+2019-04-30 23:02:16,900 - LANL.train.RandomForest - INFO - fold: 5, score: 2.68
+2019-04-30 23:02:17,727 - LANL.train.RandomForest - INFO - fold: 6, score: 2.63
+2019-04-30 23:02:18,504 - LANL.train.RandomForest - INFO - fold: 7, score: 3.49
+2019-04-30 23:02:19,331 - LANL.train.RandomForest - INFO - fold: 8, score: 2.84
+2019-04-30 23:02:20,137 - LANL.train.RandomForest - INFO - fold: 9, score: 1.37
+2019-04-30 23:02:20,939 - LANL.train.RandomForest - INFO - fold: 10, score: 1.29
+2019-04-30 23:02:21,741 - LANL.train.RandomForest - INFO - fold: 11, score: 1.12
+2019-04-30 23:02:22,558 - LANL.train.RandomForest - INFO - fold: 12, score: 1.74
+2019-04-30 23:02:23,373 - LANL.train.RandomForest - INFO - fold: 13, score: 2.36
+2019-04-30 23:02:24,151 - LANL.train.RandomForest - INFO - fold: 14, score: 3.12
+2019-04-30 23:02:24,963 - LANL.train.RandomForest - INFO - fold: 15, score: 1.92
+2019-04-30 23:02:25,827 - LANL.train.RandomForest - INFO - fold: 16, score: 1.44
+2019-04-30 23:02:25,857 - LANL.train.RandomForest - INFO - oof_score: 2.19, mean_score: 2.15, std: 0.71
+2019-04-30 23:02:26,360 - LANL.data_transfer - INFO - Working on: 2
+2019-04-30 23:02:26,789 - LANL.train.xgb - INFO - fold: 0, score: 0.57
+2019-04-30 23:02:27,355 - LANL.train.xgb - INFO - fold: 1, score: 1.53
+2019-04-30 23:02:28,201 - LANL.train.xgb - INFO - fold: 2, score: 2.66
+2019-04-30 23:02:28,602 - LANL.train.xgb - INFO - fold: 3, score: 0.89
+2019-04-30 23:02:29,236 - LANL.train.xgb - INFO - fold: 4, score: 1.88
+2019-04-30 23:02:29,605 - LANL.train.xgb - INFO - fold: 5, score: 0.93
+2019-04-30 23:02:29,966 - LANL.train.xgb - INFO - fold: 6, score: 0.99
+2019-04-30 23:02:30,709 - LANL.train.xgb - INFO - fold: 7, score: 3.46
+2019-04-30 23:02:31,097 - LANL.train.xgb - INFO - fold: 8, score: 0.82
+2019-04-30 23:02:31,491 - LANL.train.xgb - INFO - fold: 9, score: 0.98
+2019-04-30 23:02:32,119 - LANL.train.xgb - INFO - fold: 10, score: 1.37
+2019-04-30 23:02:32,660 - LANL.train.xgb - INFO - fold: 11, score: 1.20
+2019-04-30 23:02:33,043 - LANL.train.xgb - INFO - fold: 12, score: 0.91
+2019-04-30 23:02:33,407 - LANL.train.xgb - INFO - fold: 13, score: 1.10
+2019-04-30 23:02:34,351 - LANL.train.xgb - INFO - fold: 14, score: 3.13
+2019-04-30 23:02:34,755 - LANL.train.xgb - INFO - fold: 15, score: 1.09
+2019-04-30 23:02:35,433 - LANL.train.xgb - INFO - fold: 16, score: 1.53
+2019-04-30 23:02:35,440 - LANL.train.xgb - INFO - oof_score: 1.71, mean_score: 1.47, std: 0.82
+2019-04-30 23:02:36,192 - LANL.train.lgb - INFO - fold: 0, score: 2.59
+2019-04-30 23:02:36,709 - LANL.train.lgb - INFO - fold: 1, score: 1.48
+2019-04-30 23:02:37,518 - LANL.train.lgb - INFO - fold: 2, score: 2.76
+2019-04-30 23:04:21,138 - LANL - INFO - Begin Logging:
+2019-04-30 23:04:21,398 - LANL.data_transfer - INFO - Working on: 1

@@ -39,27 +39,32 @@ def cv_predict(fold_choice, feature_version=None):
     # model = SklearnModel('KernelRidge', feature_version=feature_version)
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
     model.store_model()
-    df = model.rank_feature()
-    df.to_csv('./feature_all.csv')
+    # df = model.rank_feature()
+    # df.to_csv('./feature_all.csv')
     return predicted_result, oof, file_group, model.oof_score
 
 
 def cv_predict_all(fold_choice, feature_version):
     """ Generate prediction packages"""
-    X_tr, y_tr, X_test, file_group = data_loader.load_data()
+    X_tr, y_tr, X_test, _ = data_loader.load_data()
     fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
+    cv_predict_all_helper(feature_version, fold_iter, X_tr, y_tr, X_test)
+
+
+def cv_predict_all_helper(feature_version, fold_iter, X_tr, y_tr, X_test):
     for model in LGBModel.subclasses:
         if model is SklearnModel:
             for name in package:
                 obj = model(feature_version=feature_version, model_name=name)
                 obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
                 obj.store_model()
-        elif model is not LGBModel:
+        else:
             obj = model(feature_version=feature_version)
             obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
             obj.store_model()
 
-def ensemble(fold_choice='earthquake'):
+
+def ensemble(fold_choice='earthquake', lower=1.8, upper=4):
     """ Stack/blend/ensemble from existing outputs"""
     folder = r'./data/prediction'
     X_tr, y_tr = data_loader.load_transfrom_train()
@@ -71,10 +76,14 @@ def ensemble(fold_choice='earthquake'):
     test_stack = []
     for name in os.listdir(folder):
         if 'CV' in name:
-            path = os.path.join(folder, name)
-            data = pickle.load(open(path, 'rb'))
-            test_stack.append(data['prediction'])
-            train_stack.append(data['oof'])
+            score = float(name.rsplit('_', 3)[-2])
+            if (score > lower) and (score < upper):
+                path = os.path.join(folder, name)
+                data = pickle.load(open(path, 'rb'))
+                test_stack.append(data['prediction'])
+                train_stack.append(data['oof'])
+            else:
+                logger.info(f'Ensemble excluded: {name}')
 
     train_stack = np.vstack(train_stack).transpose()
     train_stack = pd.DataFrame(train_stack)
@@ -83,9 +92,9 @@ def ensemble(fold_choice='earthquake'):
 
     # TODO: ensemble hyperparameter setup
     # model = SklearnModel(model_name='RandomForest', feature_version='stack')
-    model = SklearnModel(model_name='RandomForest', feature_version='stack')
-    # model = LGBModel(feature_version='stack')
-    model = CatModel(feature_version='stack')
+    # model = SklearnModel(model_name='RandomForest', feature_version='stack')
+    model = LGBModel(feature_version='stack')
+    # model = CatModel(feature_version='stack')
     predicted_result, oof = model.train_CV_test(train_stack, y_tr, test_stack, fold_iter)
     return predicted_result, oof, file_group, model.oof_score
 

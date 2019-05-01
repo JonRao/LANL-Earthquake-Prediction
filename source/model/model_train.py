@@ -6,6 +6,7 @@ import datetime
 import os.path
 import pickle
 import json
+import joblib
 
 import data_loader
 
@@ -25,6 +26,7 @@ class ModelTrain(metaclass=ABCMeta):
         else:
             self.columns, self.feature_version = data_loader.load_feature_names(feature_version)
         self.model_name = type(self).__name__
+        self.model_pack = []
 
     def update(self, params):
         self.params.update(params)
@@ -33,9 +35,17 @@ class ModelTrain(metaclass=ABCMeta):
     def train(self, X_train, y_train, X_valid, y_valid):
         pass
     
-    def store_model(self):
+    @property
+    def save_name(self):
         prefix = datetime.datetime.now().strftime(r'%m%d_%H%M')
         name_model = f'{prefix}_{self.model_name}_{self.feature_version}_CV_{self.oof_score:.2f}_{self.mean_score:.2f}_{self.std_score:.2f}'
+        return name_model
+    
+    def store_model(self):
+        joblib.dump(self.model_pack, os.path.join('./data/transfer', self.save_name + '.p'))
+    
+    def store_prediction(self):
+        name_model = self.save_name
 
         data = {}
         data['prediction'] = self.prediction
@@ -67,12 +77,13 @@ class ModelTrain(metaclass=ABCMeta):
             X_train, X_valid = X.iloc[train_index], X.iloc[valid_index]
             y_train, y_valid = y.iloc[train_index], y.iloc[valid_index]
 
-            predictor = self.train(X_train, y_train, X_valid, y_valid)
+            predictor, model = self.train(X_train, y_train, X_valid, y_valid)
             y_pred = predictor(X_valid)
 
             oof[valid_index] = y_pred.flatten()
             score = mean_absolute_error(y_pred, y_valid)
             dump.append(score)
+            self.model_pack.append((model, score))
 
             self.logger.info(f"fold: {fold_n}, score: {score:.2f}")
 

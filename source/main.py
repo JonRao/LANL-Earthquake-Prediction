@@ -9,6 +9,7 @@ import logging
 import data_loader
 import data_transform
 import data_train
+import data_transfer
 
 warnings.filterwarnings("ignore")
 
@@ -18,17 +19,18 @@ def main():
 
     logger = log_prep()
     logger.info('Begin Logging:')
+    data_transfer.prepare_model()
     # predicted_result, _, file_group = data_train.stack()
 #     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
     # generateSubmission(predicted_result, file_group, file_name='all_lgb')
 #     feature_selection_iterative()
     # result = data_train.tune_model()
     # print(result)
-#     predicted_result, _, file_group, score = data_train.cv_predict('earthquake', feature_version=5)
-#     predicted_result, _, file_group, score = data_train.ensemble()
-#     generateSubmission(predicted_result, file_group, file_name=f'KernelRidge_{score:.2f}')
-    for v in range(34, 48):
-        data_train.cv_predict_all('earthquake', feature_version=v)
+#     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
+#     predicted_result, _, file_group, score = data_train.ensemble(lower=0, upper=100)
+#     generateSubmission(predicted_result, file_group, file_name=f'ensemble_{score:.2f}')
+#     for v in range(41, 48):
+#         data_train.cv_predict_all('earthquake', feature_version=v)
     
 
 def feature_selection_iterative():

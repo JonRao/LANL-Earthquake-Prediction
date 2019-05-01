@@ -63,10 +63,9 @@ class LGBModel(ModelTrain):
             """ wrapper for prediction"""
             y_pred = model.predict(X, num_iteration=model.best_iteration_)
             return y_pred
-        return predict
+        return predict, model
 
     def feature_importance(self, column_names, model):
-        model.feature_importances_
         df = pd.DataFrame({'feature': column_names, 'importance': model.feature_importances_})
         self.feature_rank.append(df)
     
