@@ -19,7 +19,7 @@ def main():
 
     logger = log_prep()
     logger.info('Begin Logging:')
-    data_transfer.prepare_model()
+#     data_transfer.prepare_model(5)
     # predicted_result, _, file_group = data_train.stack()
 #     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
     # generateSubmission(predicted_result, file_group, file_name='all_lgb')
@@ -27,8 +27,8 @@ def main():
     # result = data_train.tune_model()
     # print(result)
 #     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
-#     predicted_result, _, file_group, score = data_train.ensemble(lower=0, upper=100)
-#     generateSubmission(predicted_result, file_group, file_name=f'ensemble_{score:.2f}')
+    predicted_result, _, file_group, score = data_train.ensemble(lower=0, upper=100)
+    generateSubmission(predicted_result, file_group, file_name=f'ensemble_{score:.2f}')
 #     for v in range(41, 48):
 #         data_train.cv_predict_all('earthquake', feature_version=v)
     

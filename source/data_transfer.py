@@ -1,5 +1,6 @@
 import logging
 import joblib
+import os
 
 logger = logging.getLogger('LANL.data_transfer')
 
@@ -31,6 +32,14 @@ def load_unique_feature():
         else:
             print(f'Duplicated feature version: {feature_version}')
 
+def load_undone_feature():
+    name_group = os.listdir(r'./data/transfer')
+    current_feature = int(max(name_group, default=0, key=lambda x: int(x.split('_')[3])).split('_')[3])
+    for col, feature_version in load_unique_feature():
+        if feature_version > current_feature:
+            yield col, feature_version
+
+
 
 def load_model():
     X_test = data_loader.load_transfrom_test()
@@ -39,11 +48,13 @@ def load_model():
     return dump[0][0].predict(X_test[col])
 
  
-def prepare_model():
+def prepare_model(number_rounds=99):
     X_tr, y_tr, X_test, _ = data_loader.load_data()
     fold_iter = list(data_train.fold_maker(X_tr, fold_choice='earthquake'))
 
-    for _, feature_version in load_unique_feature():
+    for i, (_, feature_version) in enumerate(load_undone_feature()):
+        if i >= number_rounds:
+            break
         logger.info(f'Working on: {feature_version}')
         data_train.cv_predict_all_helper(feature_version, fold_iter, X_tr, y_tr, X_test)
 

@@ -42,7 +42,8 @@ class ModelTrain(metaclass=ABCMeta):
         return name_model
     
     def store_model(self):
-        joblib.dump(self.model_pack, os.path.join('./data/transfer', self.save_name + '.p'))
+        """ Save model for each fold and overall oof """
+        joblib.dump((self.model_pack, self.oof), os.path.join('./data/transfer', self.save_name + '.p'))
     
     def store_prediction(self):
         name_model = self.save_name

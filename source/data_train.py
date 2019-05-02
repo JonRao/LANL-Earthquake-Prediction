@@ -58,13 +58,15 @@ def cv_predict_all_helper(feature_version, fold_iter, X_tr, y_tr, X_test):
                 obj = model(feature_version=feature_version, model_name=name)
                 obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
                 obj.store_model()
+                obj.store_prediction()
         else:
             obj = model(feature_version=feature_version)
             obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
             obj.store_model()
+            obj.store_prediction()
 
 
-def ensemble(fold_choice='earthquake', lower=1.8, upper=4):
+def ensemble(fold_choice='earthquake', lower=0.8, upper=44):
     """ Stack/blend/ensemble from existing outputs"""
     folder = r'./data/prediction'
     X_tr, y_tr = data_loader.load_transfrom_train()
@@ -74,28 +76,40 @@ def ensemble(fold_choice='earthquake', lower=1.8, upper=4):
 
     train_stack = []
     test_stack = []
+    column_name = []
+    column_name_unique = set()
     for name in os.listdir(folder):
         if 'CV' in name:
             score = float(name.rsplit('_', 3)[-2])
             if (score > lower) and (score < upper):
-                path = os.path.join(folder, name)
-                data = pickle.load(open(path, 'rb'))
-                test_stack.append(data['prediction'])
-                train_stack.append(data['oof'])
+                model_name = name.split('_', 2)[-1]
+                if model_name not in column_name_unique:
+                    column_name_unique.add(model_name)
+                    column_name.append(model_name)
+
+                    path = os.path.join(folder, name)
+                    data = pickle.load(open(path, 'rb'))
+                    test_stack.append(data['prediction'])
+                    train_stack.append(data['oof'])
+                else:
+                    logger.info(f'Ensemble excluded: {name}')
             else:
                 logger.info(f'Ensemble excluded: {name}')
 
     train_stack = np.vstack(train_stack).transpose()
-    train_stack = pd.DataFrame(train_stack)
+    train_stack = pd.DataFrame(train_stack, columns=column_name)
     test_stack = np.vstack(test_stack).transpose()
-    test_stack = pd.DataFrame(test_stack)
+    test_stack = pd.DataFrame(test_stack, columns=column_name)
 
     # TODO: ensemble hyperparameter setup
     # model = SklearnModel(model_name='RandomForest', feature_version='stack')
     # model = SklearnModel(model_name='RandomForest', feature_version='stack')
     model = LGBModel(feature_version='stack')
     # model = CatModel(feature_version='stack')
+
     predicted_result, oof = model.train_CV_test(train_stack, y_tr, test_stack, fold_iter)
+    df = model.rank_feature()
+    df.to_csv('./feature_ensemble.csv')
     return predicted_result, oof, file_group, model.oof_score
 
 def tune_model():
