@@ -25,10 +25,18 @@ def fold_maker(X, n_fold=10, fold_choice='default'):
         earthquake_id = data_loader.load_earthquake_id()
         group_kfold = LeaveOneGroupOut()
         fold_iter = group_kfold.split(X, groups=earthquake_id)
+        # fold_iter = shuffle_group(fold_iter)
     else:
         raise AttributeError(f"Not support CV {fold_choice} yet...")
 
     return fold_iter
+
+def shuffle_group(fold_iter):
+    """ Wrong for shuffling across different earthquakes"""
+    for train_index, valid_index in fold_iter:
+        np.random.shuffle(train_index)
+        np.random.shuffle(valid_index)
+        yield train_index, valid_index
 
 def cv_predict(fold_choice, feature_version=None):
     X_tr, y_tr, X_test, file_group = data_loader.load_data()
@@ -38,9 +46,9 @@ def cv_predict(fold_choice, feature_version=None):
     # model = SklearnModel('RandomForest')
     # model = SklearnModel('KernelRidge', feature_version=feature_version)
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
-    model.store_model()
-    # df = model.rank_feature()
-    # df.to_csv('./feature_all.csv')
+    model.store_prediction()
+    df = model.rank_feature()
+    df.to_csv('./feature_tmp.csv')
     return predicted_result, oof, file_group, model.oof_score
 
 

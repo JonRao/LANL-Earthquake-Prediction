@@ -5,17 +5,22 @@ import tqdm
 import librosa  # MFCC feature
 import warnings
 import multiprocessing
+import scipy.signal as sg
 from collections import ChainMap, defaultdict
 from sklearn.linear_model import LinearRegression
 from scipy import stats
 from sklearn.preprocessing import StandardScaler
-from scipy.signal import firls, convolve, decimate, hilbert, hann
 from scipy.spatial.distance import pdist
 from tsfresh.feature_extraction import feature_calculators
 
 import data_loader
 
 warnings.filterwarnings("ignore")
+
+
+NY_FREQ_IDX = 75_000
+CUTOFF = 18_000
+
 
 def transfrom_test(raw):
     """ Transform test data in parallel"""
@@ -112,7 +117,8 @@ def transform(df):
         # transform_pack3,
         # transform_pack4,
         # transform_pack5,
-        transform_pack6,
+        # transform_pack6,
+        transform_pack7,
     ]
     dump = []
     for func in transform_pack:
@@ -120,6 +126,60 @@ def transform(df):
         dump.append(x)
     
     return ChainMap(*dump)
+
+def transform_pack7(df):
+    """Features from Vettejeep"""
+    MAX_FREQ_IDX = 20_000
+    FREQ_STEP = 2500
+    output = {}
+    xc = df.values.astype(np.float64)
+    xcdm = xc - np.mean(xc)
+    b, a = des_bw_filter_lp(cutoff=18000)
+    xcz = sg.lfilter(b, a, xcdm)
+
+    zc = np.fft.fft(xcz)
+    zc = zc[:MAX_FREQ_IDX]
+
+    # FFT transform values
+    realFFT = np.real(zc)
+    imagFFT = np.imag(zc)
+    freq_bands = [x for x in range(0, MAX_FREQ_IDX, FREQ_STEP)]
+    magFFT = np.sqrt(realFFT ** 2 + imagFFT ** 2)
+    phzFFT = np.arctan(imagFFT / realFFT)
+    phzFFT[phzFFT == -np.inf] = -np.pi / 2.0
+    phzFFT[phzFFT == np.inf] = np.pi / 2.0
+    phzFFT = np.nan_to_num(phzFFT)
+
+    for freq in freq_bands:
+        output[f'FFT_Mag_01q_{freq}'] = np.quantile(magFFT[freq: freq + FREQ_STEP], 0.01)
+        output[f'FFT_Mag_10q_{freq}'] = np.quantile(magFFT[freq: freq + FREQ_STEP], 0.1)
+        output[f'FFT_Mag_90q_{freq}'] = np.quantile(magFFT[freq: freq + FREQ_STEP], 0.9)
+        output[f'FFT_Mag_99q_{freq}'] = np.quantile(magFFT[freq: freq + FREQ_STEP], 0.99)
+        output[f'FFT_Mag_mean_{freq}'] = np.mean(magFFT[freq: freq + FREQ_STEP])
+        output[f'FFT_Mag_std_{freq}'] = np.std(magFFT[freq: freq + FREQ_STEP])
+        output[f'FFT_Mag_max_{freq}'] = np.max(magFFT[freq: freq + FREQ_STEP])
+
+        output[f'FFT_Phz_mean_{freq}'] = np.mean(phzFFT[freq: freq + FREQ_STEP])
+        output[f'FFT_Phz_std_{freq}'] = np.std(phzFFT[freq: freq + FREQ_STEP])
+
+    output['FFT_Rmean'] = realFFT.mean()
+    output['FFT_Rstd'] = realFFT.std()
+    output['FFT_Rmax'] = realFFT.max()
+    output['FFT_Rmin'] = realFFT.min()
+    output['FFT_Imean'] = imagFFT.mean()
+    output['FFT_Istd'] = imagFFT.std()
+    output['FFT_Imax'] = imagFFT.max()
+    output['FFT_Imin'] = imagFFT.min()
+
+    output['FFT_Rmean_first_6000'] = realFFT[:6000].mean()
+    output['FFT_Rstd__first_6000'] = realFFT[:6000].std()
+    output['FFT_Rmax_first_6000'] = realFFT[:6000].max()
+    output['FFT_Rmin_first_6000'] = realFFT[:6000].min()
+    output['FFT_Rmean_first_18000'] = realFFT[:18000].mean()
+    output['FFT_Rstd_first_18000'] = realFFT[:18000].std()
+    output['FFT_Rmax_first_18000'] = realFFT[:18000].max()
+    output['FFT_Rmin_first_18000'] = realFFT[:18000].min()    
+    return output
 
 def transform_pack6(df):
     """ 0427 paper amplitude features"""
@@ -291,8 +351,8 @@ def transform_pack1(df):
     output['abs_std'] = tmp.std()
     output['abs_med'] = tmp.median()
 
-    output['Hilbert_mean'] = np.abs(hilbert(df.values)).mean()
-    output['Hann_window_mean'] = (convolve(df.values, hann(150), mode='same') / sum(hann(150))).mean()
+    output['Hilbert_mean'] = np.abs(sp.hilbert(df.values)).mean()
+    output['Hann_window_mean'] = (sp.convolve(df.values, sp.hann(150), mode='same') / sum(sp.hann(150))).mean()
 
     x = df.values
     output['F_test'], output['p_test'] = stats.f_oneway(x[:30000],x[30000:60000],x[60000:90000],x[90000:120000],x[120000:])
@@ -425,6 +485,17 @@ def feature_sta_lta_ratio(x, length_sta, length_lta):
 
     return sta / lta
 
+def des_bw_filter_lp(cutoff=CUTOFF):  # low pass filter
+    b, a = sg.butter(4, Wn=cutoff/NY_FREQ_IDX)
+    return b, a
+
+def des_bw_filter_hp(cutoff=CUTOFF):  # high pass filter
+    b, a = sg.butter(4, Wn=cutoff/NY_FREQ_IDX, btype='highpass')
+    return b, a
+
+def des_bw_filter_bp(low, high):  # band pass filter
+    b, a = sg.butter(4, Wn=(low/NY_FREQ_IDX, high/NY_FREQ_IDX), btype='bandpass')
+    return b, a
 
 def preprocess_features(X):
     # scaling 

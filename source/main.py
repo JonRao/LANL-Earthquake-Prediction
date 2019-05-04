@@ -19,7 +19,7 @@ def main():
 
     logger = log_prep()
     logger.info('Begin Logging:')
-    data_transfer.prepare_model(5)
+    data_transfer.prepare_model(10)
     # predicted_result, _, file_group = data_train.stack()
 #     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
     # generateSubmission(predicted_result, file_group, file_name='all_lgb')
@@ -30,7 +30,7 @@ def main():
 #     for v in range(41, 48):
 #         data_train.cv_predict_all('earthquake', feature_version=v)
     # predicted_result, _, file_group, score = data_train.ensemble_filter(col)
-    # generateSubmission(predicted_result, file_group, file_name=f'ensemble_{score:.2f}')
+#     generateSubmission(predicted_result, file_group, file_name=f'lgb_{score:.2f}')
     # feature_ensemble_iterative()
     
 def feature_ensemble_iterative():
@@ -45,14 +45,14 @@ def feature_ensemble_iterative():
 
 def feature_selection_iterative():
     logger = logging.getLogger('LANL.train.feature_select')
-    num_feature_group = [500, 400, 250, 150, 100, 50, 25, 20, 15, 10]
+    num_feature_group = [600, 500, 400, 250, 150, 100, 50, 40, 25, 20, 15, 10, 5]
     for i, num in enumerate(num_feature_group):
         df = pd.read_csv('./feature_tmp.csv')
         col = df['feature'].tolist()[:num]
         data_loader.store_feature_names(col)
         logger.info(f'Iteration {i} - features - {num}')
         predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
-        generateSubmission(predicted_result, file_group, file_name=f'top_feature_{num}_score_{score:.2f}_lgb')
+        generateSubmission(predicted_result, file_group, file_name=f'top_{num}_lgb_{score:.2f}')
 
 def generateSubmission(predicted_result, file_group, file_name='submission.csv'):
     df = pd.Series(predicted_result, index=file_group).to_frame()
