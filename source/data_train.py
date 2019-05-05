@@ -74,96 +74,65 @@ def cv_predict_all_helper(feature_version, fold_iter, X_tr, y_tr, X_test):
             obj.store_prediction()
 
 
-def ensemble(fold_choice='earthquake', lower=0.8, upper=44):
-    """ Stack/blend/ensemble from existing outputs"""
+def ensemble(X_tr, y_tr, X_test, fold_choice='earthquake'):
+    fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
+    model = LGBModel(feature_version='stack')
+
+    predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+    return predicted_result, oof, model.oof_score
+
+
+def prepare_ensemble(feature_group=None, lower=0.3, upper=5):
+    """ Only select model within feature group"""
     folder = r'./data/prediction'
-    X_tr, y_tr = data_loader.load_transfrom_train()
+    _, y_tr = data_loader.load_transfrom_train()
     X_test = data_loader.load_transfrom_test()
     file_group = X_test.index
-    fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
+    filter_pipe = filter_model(feature_group, lower, upper)
+    next(filter_pipe)   # prime it
 
     train_stack = []
     test_stack = []
     column_name = []
     column_name_unique = set()
+    excluded_count = 0
     for name in os.listdir(folder):
-        if 'CV' in name:
-            score = float(name.rsplit('_', 3)[-2])
-            if (score > lower) and (score < upper):
-                model_name = name.split('_', 2)[-1]
-                if model_name not in column_name_unique:
-                    column_name_unique.add(model_name)
-                    column_name.append(model_name)
+        model_name = name.split('_', 2)[-1]
+        if filter_pipe.send(name) and (model_name not in column_name_unique):
+            column_name_unique.add(model_name)
+            column_name.append(model_name)
 
-                    path = os.path.join(folder, name)
-                    data = pickle.load(open(path, 'rb'))
-                    test_stack.append(data['prediction'])
-                    train_stack.append(data['oof'])
-                else:
-                    logger.info(f'Ensemble excluded: {name}')
-            else:
-                logger.info(f'Ensemble excluded: {name}')
+            path = os.path.join(folder, name)
+            data = pickle.load(open(path, 'rb'))
+            test_stack.append(data['prediction'])
+            train_stack.append(data['oof'])
+        else:
+            excluded_count += 1
+    
+    logger.info(f'Excluded {excluded_count} model packages!')
+    logger.info(f'{len(column_name)} model packages for ensemble!')
 
     train_stack = np.vstack(train_stack).transpose()
     train_stack = pd.DataFrame(train_stack, columns=column_name)
     test_stack = np.vstack(test_stack).transpose()
     test_stack = pd.DataFrame(test_stack, columns=column_name)
+    return train_stack, y_tr, test_stack, file_group
 
-    # TODO: ensemble hyperparameter setup
-    # model = SklearnModel(model_name='RandomForest', feature_version='stack')
-    # model = SklearnModel(model_name='RandomForest', feature_version='stack')
-    model = LGBModel(feature_version='stack')
-    # model = CatModel(feature_version='stack')
-
-    predicted_result, oof = model.train_CV_test(train_stack, y_tr, test_stack, fold_iter)
-    df = model.rank_feature()
-    df.to_csv('./feature_ensemble.csv')
-    return predicted_result, oof, file_group, model.oof_score
-
-def ensemble_filter(feature_group, fold_choice='earthquake'):
-    folder = r'./data/prediction'
-    X_tr, y_tr = data_loader.load_transfrom_train()
-    X_test = data_loader.load_transfrom_test()
-    file_group = X_test.index
-    fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
-
-    train_stack = []
-    test_stack = []
-    column_name = []
-    column_name_unique = set()
-    for name in os.listdir(folder):
+def filter_model(feature_group, lower, upper):
+    """Pipeline to filter out unwanted predictions: 
+        1. not in feature group, and 2. not in score range """
+    keep = False
+    name = None
+    while True:
+        name = yield keep
+        keep = False
         if 'CV' in name:
             score = float(name.rsplit('_', 3)[-2])
-            model_name = name.split('_', 2)[-1]
-            if model_name not in column_name_unique:
-                if model_name in feature_group:
-                    column_name_unique.add(model_name)
-                    column_name.append(model_name)
-
-                    path = os.path.join(folder, name)
-                    data = pickle.load(open(path, 'rb'))
-                    test_stack.append(data['prediction'])
-                    train_stack.append(data['oof'])
-                else:
-                    logger.info(f'Ensemble excluded: {name}')
-            else:
-                logger.info(f'Ensemble excluded: {name}')
-
-    train_stack = np.vstack(train_stack).transpose()
-    train_stack = pd.DataFrame(train_stack, columns=column_name)
-    test_stack = np.vstack(test_stack).transpose()
-    test_stack = pd.DataFrame(test_stack, columns=column_name)
-
-    # TODO: ensemble hyperparameter setup
-    # model = SklearnModel(model_name='RandomForest', feature_version='stack')
-    # model = SklearnModel(model_name='RandomForest', feature_version='stack')
-    model = LGBModel(feature_version='stack')
-    # model = CatModel(feature_version='stack')
-
-    predicted_result, oof = model.train_CV_test(train_stack, y_tr, test_stack, fold_iter)
-    # df = model.rank_feature()
-    # df.to_csv('./feature_tmp.csv')
-    return predicted_result, oof, file_group, model.oof_score
+            # model_name = name.split('_', 2)[-1]
+            feature_version = int(name.split('_')[3])
+            if lower <= score <= upper:
+                if (feature_group is None) or (feature_version in feature_group):
+                    keep = True
 
 def tune_model():
     X_tr, y_tr, X_test, _ = data_loader.load_data()

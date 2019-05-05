@@ -19,7 +19,7 @@ def main():
 
     logger = log_prep()
     logger.info('Begin Logging:')
-    data_transfer.prepare_model(10)
+#     data_transfer.prepare_model(10)
     # predicted_result, _, file_group = data_train.stack()
 #     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
     # generateSubmission(predicted_result, file_group, file_name='all_lgb')
@@ -29,10 +29,20 @@ def main():
 #     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
 #     for v in range(41, 48):
 #         data_train.cv_predict_all('earthquake', feature_version=v)
-    # predicted_result, _, file_group, score = data_train.ensemble_filter(col)
-#     generateSubmission(predicted_result, file_group, file_name=f'lgb_{score:.2f}')
+#     predicted_result, _, file_group, score = data_train.ensemble()
+#     generateSubmission(predicted_result, file_group, file_name=f'ensemble_{score:.2f}')
     # feature_ensemble_iterative()
+    ensemble(True)
     
+def ensemble(generate=True):
+    feature_group = [feature_version for _, feature_version in data_transfer.load_unique_feature()]
+    train_stack, y_tr, test_stack, file_group = data_train.prepare_ensemble(feature_group=feature_group)
+    predicted_result, _, score = data_train.ensemble(train_stack, y_tr, test_stack, fold_choice='default')
+
+    if generate:
+        num_model = test_stack.shape[1]
+        generateSubmission(predicted_result, file_group, file_name=f'ensemble_default_{num_model}_{score:.2f}')
+
 def feature_ensemble_iterative():
     logger = logging.getLogger('LANL.train.feature_select')
     df = pd.read_csv('./feature_ensemble.csv')
