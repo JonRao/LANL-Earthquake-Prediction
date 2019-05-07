@@ -8,7 +8,7 @@ import data_loader
 import data_train
 
 def load_all_features():
-    X_tr, _ = data_loader.load_transfrom_train()
+    X_tr, _ = data_loader.load_transform_train()
     return set(X_tr.columns)
 
 def load_feature(start=0):
@@ -34,25 +34,33 @@ def load_unique_feature():
 
 def load_undone_feature():
     name_group = os.listdir(r'./data/transfer')
-    current_feature = int(max(name_group, default=0, key=lambda x: int(x.split('_')[3])).split('_')[3])
+    try:
+        current_feature = int(max(name_group, default=0, key=lambda x: int(x.split('_')[3])).split('_')[3])
+    except:
+        # empty folder case
+        current_feature = -1 
     for col, feature_version in load_unique_feature():
         if feature_version > current_feature:
             yield col, feature_version
 
+def load_limited_feature(n):
+    for col, feature_version in load_undone_feature():
+        if len(col) <= n:
+            yield col, feature_version
 
 
 def load_model():
-    X_test = data_loader.load_transfrom_test()
+    X_test = data_loader.load_transform_test()
     dump = joblib.load(r'./data/transfer/0430_2239_LGBModel_48_CV_2.01_1.91_0.71.p')
     col, _ = data_loader.load_feature_names()
     return dump[0][0].predict(X_test[col])
 
  
-def prepare_model(number_rounds=99):
+def prepare_model(fold_choice, number_rounds=99, n=250):
     X_tr, y_tr, X_test, _ = data_loader.load_data()
-    fold_iter = list(data_train.fold_maker(X_tr, fold_choice='earthquake'))
+    fold_iter = list(data_train.fold_maker(X_tr, fold_choice))
 
-    for i, (_, feature_version) in enumerate(load_undone_feature()):
+    for i, (_, feature_version) in enumerate(load_limited_feature(n)):
         if i >= number_rounds:
             break
         logger.info(f'Working on: {feature_version}')
@@ -63,4 +71,6 @@ if __name__ == '__main__':
     # print(len(load_all_features()))
     # for i, col in enumerate(load_unique_feature()):
     #     print(i, col[1])
-    print(load_model())
+    # print(load_model())
+    for i, j in load_limited_feature(n=250):
+        print(j)

@@ -18,21 +18,27 @@ def main():
     # generateSubmission(predictor, test_data)
 
     logger = log_prep()
-    logger.info('Begin Logging:')
-#     data_transfer.prepare_model(10)
+#     data_transfer.prepare_model('default', number_rounds=10, n=400)
     # predicted_result, _, file_group = data_train.stack()
 #     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
     # generateSubmission(predicted_result, file_group, file_name='all_lgb')
 #     feature_selection_iterative()
     # result = data_train.tune_model()
     # print(result)
-#     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
+#     predicted_result, _, file_group, score = data_train.cv_predict('default', feature_version=73)
 #     for v in range(41, 48):
 #         data_train.cv_predict_all('earthquake', feature_version=v)
 #     predicted_result, _, file_group, score = data_train.ensemble()
-#     generateSubmission(predicted_result, file_group, file_name=f'ensemble_{score:.2f}')
+#     generateSubmission(predicted_result, file_group, file_name=f'lgb_shuffle_{score:.2f}')
     # feature_ensemble_iterative()
-    ensemble(True)
+#     ensemble(True)
+    # a = pickle.load(open('./data/prediction/0505_2058_LGBModel_71_CV_1.96_1.96_0.10_default', 'rb'))
+
+    # predicted_result, _, file_group, score = data_loader.load_prediction('0505_2058_LGBModel_71_CV_1.96_1.96_0.10_default')
+    # generateSubmission(predicted_result, file_group, file_name=f'lgb_default_{score:.2f}')
+    fold_choice='earthquake'
+    predicted_result, _, file_group, score = data_train.cv_predict(fold_choice, 71)
+    generateSubmission(predicted_result, file_group, file_name=f'lgb_{fold_choice}_71_{score:.2f}')
     
 def ensemble(generate=True):
     feature_group = [feature_version for _, feature_version in data_transfer.load_unique_feature()]
@@ -85,6 +91,7 @@ def log_prep():
     ch.setFormatter(formatter)
     logger.addHandler(fh)
     logger.addHandler(ch)
+    logger.info('Begin Logging:')
 
     return logger
 

@@ -17,7 +17,7 @@ from model.model_tune import tune_lgb
 
 logger = logging.getLogger('LANL.train')
 
-def fold_maker(X, n_fold=10, fold_choice='default'):
+def fold_maker(X, fold_choice='default', n_fold=10):
     if fold_choice == 'default':
         folds = KFold(n_splits=n_fold, shuffle=True, random_state=11)
         fold_iter = folds.split(X)
@@ -26,10 +26,17 @@ def fold_maker(X, n_fold=10, fold_choice='default'):
         group_kfold = LeaveOneGroupOut()
         fold_iter = group_kfold.split(X, groups=earthquake_id)
         # fold_iter = shuffle_group(fold_iter)
+    elif fold_choice == 'eqCombo':
+        earthquake_id = data_loader.load_earthquake_id()
+        # group 9 seems to be overfit easily
+        earthquake_id[earthquake_id == 0] = 9
+        earthquake_id[earthquake_id == 16] = 3
+        group_kfold = LeaveOneGroupOut()
+        fold_iter = group_kfold.split(X, groups=earthquake_id)
     else:
         raise AttributeError(f"Not support CV {fold_choice} yet...")
 
-    return fold_iter
+    return (list(fold_iter), fold_choice)
 
 def shuffle_group(fold_iter):
     """ Wrong for shuffling across different earthquakes"""
@@ -46,16 +53,16 @@ def cv_predict(fold_choice, feature_version=None):
     # model = SklearnModel('RandomForest')
     # model = SklearnModel('KernelRidge', feature_version=feature_version)
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
-    model.store_prediction()
-    df = model.rank_feature()
-    df.to_csv('./feature_tmp.csv')
+    # model.store_prediction()
+    # df = model.rank_feature()
+    # df.to_csv('./feature_tmp.csv')
     return predicted_result, oof, file_group, model.oof_score
 
 
 def cv_predict_all(fold_choice, feature_version):
     """ Generate prediction packages"""
     X_tr, y_tr, X_test, _ = data_loader.load_data()
-    fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
+    fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
     cv_predict_all_helper(feature_version, fold_iter, X_tr, y_tr, X_test)
 
 
@@ -74,8 +81,8 @@ def cv_predict_all_helper(feature_version, fold_iter, X_tr, y_tr, X_test):
             obj.store_prediction()
 
 
-def ensemble(X_tr, y_tr, X_test, fold_choice='earthquake'):
-    fold_iter = list(fold_maker(X_tr, fold_choice=fold_choice))
+def ensemble(X_tr, y_tr, X_test, fold_choice):
+    fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
     model = LGBModel(feature_version='stack')
 
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
@@ -85,9 +92,10 @@ def ensemble(X_tr, y_tr, X_test, fold_choice='earthquake'):
 def prepare_ensemble(feature_group=None, lower=0.3, upper=5):
     """ Only select model within feature group"""
     folder = r'./data/prediction'
-    _, y_tr = data_loader.load_transfrom_train()
-    X_test = data_loader.load_transfrom_test()
-    file_group = X_test.index
+    # _, y_tr = data_loader.load_transform_train()
+    # X_test = data_loader.load_transform_test()
+    # file_group = X_test.index
+    _, y_tr, _, file_group = data_loader.load_data()
     filter_pipe = filter_model(feature_group, lower, upper)
     next(filter_pipe)   # prime it
 
@@ -127,7 +135,7 @@ def filter_model(feature_group, lower, upper):
         name = yield keep
         keep = False
         if 'CV' in name:
-            score = float(name.rsplit('_', 3)[-2])
+            score = float(name.split('_')[5])
             # model_name = name.split('_', 2)[-1]
             feature_version = int(name.split('_')[3])
             if lower <= score <= upper:

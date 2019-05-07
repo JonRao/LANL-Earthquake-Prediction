@@ -27,6 +27,7 @@ class ModelTrain(metaclass=ABCMeta):
             self.columns, self.feature_version = data_loader.load_feature_names(feature_version)
         self.model_name = type(self).__name__
         self.model_pack = []
+        self.fold_choice = None
 
     def update(self, params):
         self.params.update(params)
@@ -38,7 +39,7 @@ class ModelTrain(metaclass=ABCMeta):
     @property
     def save_name(self):
         prefix = datetime.datetime.now().strftime(r'%m%d_%H%M')
-        name_model = f'{prefix}_{self.model_name}_{self.feature_version}_CV_{self.oof_score:.2f}_{self.mean_score:.2f}_{self.std_score:.2f}'
+        name_model = f'{prefix}_{self.model_name}_{self.feature_version}_CV_{self.oof_score:.2f}_{self.mean_score:.2f}_{self.std_score:.2f}_{self.fold_choice}'
         return name_model
     
     def store_model(self):
@@ -74,6 +75,7 @@ class ModelTrain(metaclass=ABCMeta):
             X_test = X_test[self.columns]
         
         exclude_count = 0
+        fold_iter, self.fold_choice = fold_iter
         for fold_n, (train_index, valid_index) in enumerate(fold_iter):
             X_train, X_valid = X.iloc[train_index], X.iloc[valid_index]
             y_train, y_valid = y.iloc[train_index], y.iloc[valid_index]

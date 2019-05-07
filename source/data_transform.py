@@ -8,10 +8,12 @@ import multiprocessing
 import scipy.signal as sg
 from collections import ChainMap, defaultdict
 from sklearn.linear_model import LinearRegression
+from sklearn.neighbors import NearestNeighbors
 from scipy import stats
 from sklearn.preprocessing import StandardScaler
 from scipy.spatial.distance import pdist
 from tsfresh.feature_extraction import feature_calculators
+
 
 import data_loader
 
@@ -22,7 +24,7 @@ NY_FREQ_IDX = 75_000
 CUTOFF = 18_000
 
 
-def transfrom_test(raw):
+def transform_test(raw):
     """ Transform test data in parallel"""
     num_process = multiprocessing.cpu_count()
     ctx = multiprocessing.get_context('spawn')
@@ -497,12 +499,12 @@ def des_bw_filter_bp(low, high):  # band pass filter
     b, a = sg.butter(4, Wn=(low/NY_FREQ_IDX, high/NY_FREQ_IDX), btype='bandpass')
     return b, a
 
-def preprocess_features(X):
-    # scaling 
+def preprocess_features(X_tr, X_test):
     scaler = StandardScaler()
-    scaler.fit(X)
-    X = pd.DataFrame(scaler.transform(X), columns=X.columns)
-    return X
+    scaler.fit(X_tr)
+    X_tr_scaled = pd.DataFrame(scaler.transform(X_tr), columns=X_tr.columns)
+    X_test_scaled = pd.DataFrame(scaler.transform(X_test), columns=X_test.columns)
+    return X_tr_scaled, X_test_scaled
 
 
 def missing_fix_tr(X_tr):
@@ -527,3 +529,37 @@ def missing_fix_test(X_test, means_dict):
             print('test', col)
     return X_test
 
+def on_the_fly_features(X_tr, X_test, n=10):
+    """ NN features, generate based on input"""
+    neigh = NearestNeighbors(n, n_jobs=-1)
+    neigh.fit(X_tr)
+
+    dists, _ = neigh.kneighbors(X_tr, n_neighbors=n)
+    mean_dist = dists.mean(axis=1)
+    max_dist = dists.max(axis=1)
+    min_dist = dists.min(axis=1)
+
+    X_tr['mean_dist'] = mean_dist
+    X_tr['max_dist'] = max_dist
+    X_tr['min_dist'] = min_dist
+
+    test_dists, _ = neigh.kneighbors(X_test, n_neighbors=n)
+
+    test_mean_dist = test_dists.mean(axis=1)
+    test_max_dist = test_dists.max(axis=1)
+    test_min_dist = test_dists.min(axis=1)
+
+    X_test['mean_dist'] = test_mean_dist
+    X_test['max_dist'] = test_max_dist
+    X_test['min_dist'] = test_min_dist
+
+    return X_tr, X_test
+
+
+if __name__ == '__main__':
+    # X_tr, y_tr = data_loader.load_transform_train()
+    # X_test = data_loader.load_transform_test()
+    # X_tr, means_dict = missing_fix_tr(X_tr)
+    # X_test = missing_fix_test(X_test, means_dict)
+    # preprocess_features(X_tr, X_test)
+    data_loader.load_data(10)

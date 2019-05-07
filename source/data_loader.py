@@ -12,7 +12,7 @@ def load_train():
     return train
 
 
-def load_transfrom_train(update=False):
+def load_transform_train(update=False):
     cache_path = './data/transform.p'
     existed = True
     if os.path.exists(cache_path):
@@ -35,7 +35,7 @@ def load_transfrom_train(update=False):
     return X_tr, y_tr
 
 
-def load_transfrom_test(update=False):
+def load_transform_test(update=False):
     cache_path = './data/test_transform.p'
     existed = True
     if os.path.exists(cache_path):
@@ -45,7 +45,7 @@ def load_transfrom_test(update=False):
 
     if (not existed) or update:
         raw = load_test()
-        result_new = data_transform.transfrom_test(raw)
+        result_new = data_transform.transform_test(raw)
         if existed:
             # upload cache
             result_new = update_dataframe(result, result_new)
@@ -84,12 +84,12 @@ def load_earthquake_id():
 
     return earthquake_id
 
-def load_data():
+def load_data(NN_feature=None):
     """ load processed train data and test data as well"""
-    X_tr, y_tr = load_transfrom_train()
+    X_tr, y_tr = load_transform_train()
     X_tr, means_dict = data_transform.missing_fix_tr(X_tr)
 
-    X_test = load_transfrom_test()
+    X_test = load_transform_test()
     file_group = X_test.index
 
     X_test = X_test[X_tr.columns]
@@ -97,6 +97,12 @@ def load_data():
 
     X_tr = X_tr.clip(-1e8, 1e8)
     X_test = X_test.clip(-1e8, 1e8)
+
+    X_tr, X_test = data_transform.preprocess_features(X_tr, X_test)
+    if NN_feature is not None:
+        # dangerous to add... may introduce inconsistency
+        # X_tr, X_test = data_transform.on_the_fly_features(X_tr, X_test, n=NN_feature)
+        pass
     return X_tr, y_tr, X_test, file_group
 
 def update_dataframe(df_old, df_new):
@@ -145,9 +151,17 @@ def find_feature_version(feature_group, version=None):
     current_version = int(feature_find.split('_', 1)[0])
     return feature_find, current_version
 
+def load_prediction(name):
+    data = pickle.load(open(f'./data/prediction/{name}', 'rb'))
+    score = name.split('_')[5]
+    X_tr = load_transform_test()
+    file_group = X_tr.index
+    return data['prediction'], data['oof'], file_group, float(score)
+
+
 if __name__ == '__main__':
-    X_tr, _ = load_transfrom_train(update=True)
-    load_transfrom_test(update=True)
+    X_tr, _ = load_transform_train(update=True)
+    load_transform_test(update=True)
     store_feature_names(X_tr.columns.tolist())
     # df = pd.read_csv('./feature.csv')
     # col = df['feature'].tolist()[:15]
