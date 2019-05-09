@@ -98,7 +98,7 @@ def load_data(NN_feature=None):
     X_tr = X_tr.clip(-1e8, 1e8)
     X_test = X_test.clip(-1e8, 1e8)
 
-    X_tr, X_test = data_transform.preprocess_features(X_tr, X_test)
+    # X_tr, X_test = data_transform.preprocess_features(X_tr, X_test)
     if NN_feature is not None:
         # dangerous to add... may introduce inconsistency
         # X_tr, X_test = data_transform.on_the_fly_features(X_tr, X_test, n=NN_feature)

@@ -18,7 +18,7 @@ def main():
     # generateSubmission(predictor, test_data)
 
     logger = log_prep()
-#     data_transfer.prepare_model('default', number_rounds=10, n=400)
+#     data_transfer.prepare_model('earthquake', number_rounds=10, n=900)
     # predicted_result, _, file_group = data_train.stack()
 #     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
     # generateSubmission(predicted_result, file_group, file_name='all_lgb')
@@ -31,23 +31,23 @@ def main():
 #     predicted_result, _, file_group, score = data_train.ensemble()
 #     generateSubmission(predicted_result, file_group, file_name=f'lgb_shuffle_{score:.2f}')
     # feature_ensemble_iterative()
-#     ensemble(True)
+    ensemble(True, fold_choice='earthquake')
     # a = pickle.load(open('./data/prediction/0505_2058_LGBModel_71_CV_1.96_1.96_0.10_default', 'rb'))
 
     # predicted_result, _, file_group, score = data_loader.load_prediction('0505_2058_LGBModel_71_CV_1.96_1.96_0.10_default')
     # generateSubmission(predicted_result, file_group, file_name=f'lgb_default_{score:.2f}')
-    fold_choice='earthquake'
-    predicted_result, _, file_group, score = data_train.cv_predict(fold_choice, 71)
-    generateSubmission(predicted_result, file_group, file_name=f'lgb_{fold_choice}_71_{score:.2f}')
+#     fold_choice='eqCombo'
+#     predicted_result, _, file_group, score = data_train.cv_predict(fold_choice, 71)
+#     generateSubmission(predicted_result, file_group, file_name=f'lgb_gamma_{fold_choice}_71_{score:.2f}')
     
-def ensemble(generate=True):
+def ensemble(generate=True, fold_choice='earthquake'):
     feature_group = [feature_version for _, feature_version in data_transfer.load_unique_feature()]
     train_stack, y_tr, test_stack, file_group = data_train.prepare_ensemble(feature_group=feature_group)
-    predicted_result, _, score = data_train.ensemble(train_stack, y_tr, test_stack, fold_choice='default')
+    predicted_result, _, score = data_train.ensemble(train_stack, y_tr, test_stack, fold_choice=fold_choice)
 
     if generate:
         num_model = test_stack.shape[1]
-        generateSubmission(predicted_result, file_group, file_name=f'ensemble_default_{num_model}_{score:.2f}')
+        generateSubmission(predicted_result, file_group, file_name=f'ensemble_{fold_choice}_{num_model}_{score:.2f}')
 
 def feature_ensemble_iterative():
     logger = logging.getLogger('LANL.train.feature_select')

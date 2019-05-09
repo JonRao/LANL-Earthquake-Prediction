@@ -129,6 +129,26 @@ def transform(df):
     
     return ChainMap(*dump)
 
+def transform_random(df):
+    """ Only a handful features for multiple training data"""
+    output = {}
+    output1 = transform_pack2(df)
+
+    percentiles = [25,]
+
+    # In absolute space
+    df = np.abs(df)
+    length = len(df)
+
+    x = np.sort(df.values)[::-1]
+    for p in percentiles:
+        bound = int((p / 100) * length)
+        other_bound = length - bound
+        tmp1 = np.mean(np.power(2, x[:bound]))
+        tmp2 = np.mean(np.power(2, x[other_bound:]))
+        output[f'ampl_p{p}_ratio'] = tmp1 / tmp2
+
+
 def transform_pack7(df):
     """Features from Vettejeep"""
     MAX_FREQ_IDX = 20_000
@@ -240,7 +260,7 @@ def transform_pack4(df):
     return output
 
 def transform_pack3(df):
-    """ augment X form tsfresh features"""
+    """ augment X from tsfresh features"""
     x = df.values
     output = {}
 

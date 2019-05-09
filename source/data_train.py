@@ -83,7 +83,12 @@ def cv_predict_all_helper(feature_version, fold_iter, X_tr, y_tr, X_test):
 
 def ensemble(X_tr, y_tr, X_test, fold_choice):
     fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
-    model = LGBModel(feature_version='stack')
+    # model = LGBModel(feature_version='stack')
+    # params = {"feature_fraction_fraction": 0.38,
+    #           "bagging_freq": 5,}
+        
+    # model.update(params)
+    model = SklearnModel('RandomForest', feature_version='stack')
 
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
     return predicted_result, oof, model.oof_score
