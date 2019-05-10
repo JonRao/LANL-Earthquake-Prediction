@@ -25,13 +25,13 @@ def main():
 #     feature_selection_iterative()
     # result = data_train.tune_model()
     # print(result)
-#     predicted_result, _, file_group, score = data_train.cv_predict('default', feature_version=73)
+    predicted_result, _, file_group, score = data_train.cv_predict('customize', feature_version=71)
 #     for v in range(41, 48):
 #         data_train.cv_predict_all('earthquake', feature_version=v)
 #     predicted_result, _, file_group, score = data_train.ensemble()
-#     generateSubmission(predicted_result, file_group, file_name=f'lgb_shuffle_{score:.2f}')
+    generateSubmission(predicted_result, file_group, file_name=f'lgb_customize_{score:.2f}')
     # feature_ensemble_iterative()
-    ensemble(True, fold_choice='earthquake')
+#     ensemble(True, fold_choice='customize')
     # a = pickle.load(open('./data/prediction/0505_2058_LGBModel_71_CV_1.96_1.96_0.10_default', 'rb'))
 
     # predicted_result, _, file_group, score = data_loader.load_prediction('0505_2058_LGBModel_71_CV_1.96_1.96_0.10_default')

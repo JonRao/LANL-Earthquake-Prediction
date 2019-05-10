@@ -5,6 +5,7 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import KFold, LeaveOneGroupOut
 import pickle
 import os
+import random
 
 
 import data_loader
@@ -33,10 +34,64 @@ def fold_maker(X, fold_choice='default', n_fold=10):
         earthquake_id[earthquake_id == 16] = 3
         group_kfold = LeaveOneGroupOut()
         fold_iter = group_kfold.split(X, groups=earthquake_id)
+    elif fold_choice == 'customize':
+        fold = CVPipe()
+        fold_iter = fold.fold_iter(num_fold=20, mini_quake_prob=0.4)
     else:
         raise AttributeError(f"Not support CV {fold_choice} yet...")
 
     return (list(fold_iter), fold_choice)
+
+class CVPipe(object):
+    """ Finally, customized cv strategy
+        Taking mini-quake into consideration
+        Guess the ratio (mini-quake in test set)
+    """
+    MINI_QUAKE_ID = {2, 7, 14}
+    def __init__(self):
+        earthquake_id = data_loader.load_earthquake_id()
+        self.mini = self.MINI_QUAKE_ID
+        self.noMini = set(range(16)) - self.mini
+        self.index_map, self.count_map = self.process_earthquake(earthquake_id)
+    
+    def process_earthquake(self, df):
+        earthquake_index_map = {}
+        earthquake_count_map = {}
+        for i, tmp in df.groupby(df):
+            earthquake_index_map[i] = tmp.index.tolist()
+            earthquake_count_map[i] = len(tmp)
+        return earthquake_index_map, earthquake_count_map
+    
+    def fold_iter(self, num_fold=20, mini_quake_prob=0):
+        count = 0
+        logger.info(f'Customize {num_fold}-fold, mini_quake_prob: {mini_quake_prob:.2f}')
+        while (count < num_fold):
+            train_index = random.sample(list(self.noMini), 10)
+            valid_index = list(self.noMini - set(train_index))
+
+            if np.random.uniform() < mini_quake_prob:
+                #include mini-quake
+                train_mini_index = random.sample(self.mini, 2)
+                valid_mini_index = self.mini - set(train_mini_index)
+
+                train_index = list(train_index) + list(train_mini_index)
+                valid_index = list(valid_index) + list(valid_mini_index)
+
+            random.shuffle(train_index)
+            random.shuffle(valid_index)
+
+            logger.info(f'Train: {train_index}, Valid: {valid_index}')
+            train_index = self.get_index(train_index)
+            valid_index = self.get_index(valid_index)
+            count += 1
+            yield train_index, valid_index
+    
+    def get_index(self, indexGroup):
+        dump = []
+        for i in indexGroup:
+            dump.extend(self.index_map[i])
+        return dump
+    
 
 def shuffle_group(fold_iter):
     """ Wrong for shuffling across different earthquakes"""
