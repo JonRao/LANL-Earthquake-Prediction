@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import logging
 from sklearn.metrics import mean_absolute_error
-from sklearn.model_selection import KFold, LeaveOneGroupOut
+from sklearn.model_selection import KFold, LeaveOneGroupOut, LeavePGroupsOut
 import pickle
 import os
 import random
@@ -18,29 +18,50 @@ from model.model_tune import tune_lgb
 
 logger = logging.getLogger('LANL.train')
 
-def fold_maker(X, fold_choice='default', n_fold=10):
+def fold_maker(X, fold_choice='default', n_fold=5, n_groups=2):
     if fold_choice == 'default':
-        folds = KFold(n_splits=n_fold, shuffle=True, random_state=11)
+        folds = KFold(n_splits=n_fold, shuffle=False)
         fold_iter = folds.split(X)
+        fold_iter = shuffle_group(fold_iter)
     elif fold_choice == 'earthquake':
         earthquake_id = data_loader.load_earthquake_id()
         group_kfold = LeaveOneGroupOut()
         fold_iter = group_kfold.split(X, groups=earthquake_id)
         # fold_iter = shuffle_group(fold_iter)
-    elif fold_choice == 'eqCombo':
-        earthquake_id = data_loader.load_earthquake_id()
-        # group 9 seems to be overfit easily
-        earthquake_id[earthquake_id == 0] = 9
-        earthquake_id[earthquake_id == 16] = 3
+        # fold_iter = min_valid_filter(fold_iter)
+    elif fold_choice == f'eqCombo':
+        earthquake_id = eqComboMaker(n_fold)
         group_kfold = LeaveOneGroupOut()
         fold_iter = group_kfold.split(X, groups=earthquake_id)
+        fold_iter = shuffle_group(fold_iter)
+    elif fold_choice == 'k-earthquake':
+        earthquake_id = data_loader.load_earthquake_id()
+        group_kfold = LeavePGroupsOut(n_groups=n_groups)
+        fold_iter = group_kfold.split(X, groups=earthquake_id)
+        fold_iter = min_valid_filter(fold_iter)
     elif fold_choice == 'customize':
         fold = CVPipe()
-        fold_iter = fold.fold_iter(num_fold=20, mini_quake_prob=0.4)
+        fold_iter = fold.fold_iter(num_fold=n_fold, mini_quake_prob=0.3)
     else:
         raise AttributeError(f"Not support CV {fold_choice} yet...")
 
     return (list(fold_iter), fold_choice)
+
+def eqComboMaker(n_fold):
+    earthquake_id = data_loader.load_earthquake_id()
+    for i in range(17):
+        earthquake_id[earthquake_id == i] = i % n_fold
+    return earthquake_id
+
+
+
+def min_valid_filter(fold_iter, n=100):
+    for train_index, valid_index in fold_iter:
+        if len(valid_index) > n:
+            yield train_index, valid_index
+        else:
+            logger.warn(f'Drop set with {len(valid_index)} less than minimum {n}')
+
 
 class CVPipe(object):
     """ Finally, customized cv strategy
@@ -76,6 +97,9 @@ class CVPipe(object):
 
                 train_index = list(train_index) + list(train_mini_index)
                 valid_index = list(valid_index) + list(valid_mini_index)
+            else:
+                # all goto train data
+                train_index = list(train_index) + list(self.mini)
 
             random.shuffle(train_index)
             random.shuffle(valid_index)
@@ -97,20 +121,22 @@ def shuffle_group(fold_iter):
     """ Wrong for shuffling across different earthquakes"""
     for train_index, valid_index in fold_iter:
         np.random.shuffle(train_index)
-        np.random.shuffle(valid_index)
+        # np.random.shuffle(valid_index)
         yield train_index, valid_index
 
-def cv_predict(fold_choice, feature_version=None):
+def cv_predict(fold_choice, feature_version=None, num_fold=10, feature_save=False):
+    """ Use average fold prediction for testing data"""
     X_tr, y_tr, X_test, file_group = data_loader.load_data()
-    fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
+    fold_iter = fold_maker(X_tr, fold_choice=fold_choice, n_fold=num_fold)
 
     model = LGBModel(feature_version=feature_version)
     # model = SklearnModel('RandomForest')
     # model = SklearnModel('KernelRidge', feature_version=feature_version)
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
     # model.store_prediction()
-    # df = model.rank_feature()
-    # df.to_csv('./feature_tmp.csv')
+    if feature_save:
+        df = model.rank_feature()
+        df.to_csv('./feature_tmp.csv')
     return predicted_result, oof, file_group, model.oof_score
 
 
@@ -127,23 +153,24 @@ def cv_predict_all_helper(feature_version, fold_iter, X_tr, y_tr, X_test):
             for name in package:
                 obj = model(feature_version=feature_version, model_name=name)
                 obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
-                obj.store_model()
+                # obj.store_model()
                 obj.store_prediction()
         else:
             obj = model(feature_version=feature_version)
             obj.train_CV_test(X_tr, y_tr, X_test, fold_iter)
-            obj.store_model()
+            # obj.store_model()
             obj.store_prediction()
 
 
 def ensemble(X_tr, y_tr, X_test, fold_choice):
     fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
-    # model = LGBModel(feature_version='stack')
-    # params = {"feature_fraction_fraction": 0.38,
-    #           "bagging_freq": 5,}
+    model = LGBModel(feature_version='stack')
+    params = {"feature_fraction_fraction": 0.38,
+              "bagging_freq": 5,}
         
-    # model.update(params)
-    model = SklearnModel('RandomForest', feature_version='stack')
+    model.update(params)
+    # model = SklearnModel('RandomForest', feature_version='stack')
+    model = LGBModel(feature_version='stack')
 
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
     return predicted_result, oof, model.oof_score

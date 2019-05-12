@@ -32,8 +32,19 @@ def load_unique_feature():
         else:
             print(f'Duplicated feature version: {feature_version}')
 
-def load_undone_feature():
+def load_undone_feature_old():
     name_group = os.listdir(r'./data/transfer')
+    try:
+        current_feature = int(max(name_group, default=0, key=lambda x: int(x.split('_')[3])).split('_')[3])
+    except:
+        # empty folder case
+        current_feature = -1 
+    for col, feature_version in load_unique_feature():
+        if feature_version > current_feature:
+            yield col, feature_version
+
+def load_undone_feature():
+    name_group = os.listdir(r'./data/prediction')
     try:
         current_feature = int(max(name_group, default=0, key=lambda x: int(x.split('_')[3])).split('_')[3])
     except:

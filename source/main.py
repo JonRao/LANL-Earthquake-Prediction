@@ -18,20 +18,21 @@ def main():
     # generateSubmission(predictor, test_data)
 
     logger = log_prep()
-#     data_transfer.prepare_model('earthquake', number_rounds=10, n=900)
+    data_transfer.prepare_model('earthquake', number_rounds=20, n=1000)
     # predicted_result, _, file_group = data_train.stack()
 #     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
     # generateSubmission(predicted_result, file_group, file_name='all_lgb')
 #     feature_selection_iterative()
     # result = data_train.tune_model()
     # print(result)
-    predicted_result, _, file_group, score = data_train.cv_predict('customize', feature_version=71)
+#     predicted_result, _, file_group, score = data_train.cv_predict('customize', feature_version=55, num_fold=60)
+#     predicted_result, _, file_group, score = data_train.cv_predict('k-earthquake', feature_version=72)
 #     for v in range(41, 48):
 #         data_train.cv_predict_all('earthquake', feature_version=v)
 #     predicted_result, _, file_group, score = data_train.ensemble()
-    generateSubmission(predicted_result, file_group, file_name=f'lgb_customize_{score:.2f}')
+#     generateSubmission(predicted_result, file_group, file_name=f'lgb_customize_{score:.2f}')
     # feature_ensemble_iterative()
-#     ensemble(True, fold_choice='customize')
+#     ensemble(True, fold_choice='eqCombo')
     # a = pickle.load(open('./data/prediction/0505_2058_LGBModel_71_CV_1.96_1.96_0.10_default', 'rb'))
 
     # predicted_result, _, file_group, score = data_loader.load_prediction('0505_2058_LGBModel_71_CV_1.96_1.96_0.10_default')
@@ -61,7 +62,7 @@ def feature_ensemble_iterative():
 
 def feature_selection_iterative():
     logger = logging.getLogger('LANL.train.feature_select')
-    num_feature_group = [600, 500, 400, 250, 150, 100, 50, 40, 25, 20, 15, 10, 5]
+    num_feature_group = [500, 400, 250, 150, 100, 50, 40, 25, 20, 15, 10, 5]
     for i, num in enumerate(num_feature_group):
         df = pd.read_csv('./feature_tmp.csv')
         col = df['feature'].tolist()[:num]

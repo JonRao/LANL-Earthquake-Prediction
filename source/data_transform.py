@@ -120,7 +120,8 @@ def transform(df):
         # transform_pack4,
         # transform_pack5,
         # transform_pack6,
-        transform_pack7,
+        # transform_pack7,
+        transform_pack8,
     ]
     dump = []
     for func in transform_pack:
@@ -148,6 +149,14 @@ def transform_random(df):
         tmp2 = np.mean(np.power(2, x[other_bound:]))
         output[f'ampl_p{p}_ratio'] = tmp1 / tmp2
 
+def transform_pack8(df):
+    """Useful to tell mini-quakes"""
+    output = {}
+
+    x = df.astype('float').values
+    contrast = librosa.feature.spectral_contrast(x, hop_length=1501, fmin=200.0, n_bands=6, quantile=0.005, linear=True)
+    output['contrast'] = contrast[0].max()
+    return output
 
 def transform_pack7(df):
     """Features from Vettejeep"""

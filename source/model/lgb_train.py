@@ -13,17 +13,14 @@ LGB_PARAMS = {
           'max_depth': -1,
           'learning_rate': 0.005,
           "boosting": "gbdt",
-          "bagging_freq": 9,
+          "bagging_freq": 5,
           "bagging_fraction": 0.91,
-        #   "feature_fraction_fraction": 0.38314,
           "bagging_seed": 11,
           "metric": 'mae',
           "verbosity": -1,
           "random_state": 42,
           'n_estimators': 20000,
           'silent': True,
-          "lambda_l2": 1.545969040487455e-05,
-          "lambda_l1": 0.2030,
          }
 # tune based on feature version 5
 TUNED = {
@@ -54,7 +51,7 @@ class LGBModel(ModelTrain):
     
     def train(self, X, y, X_valid, y_valid):
         """ Train model output model for prediction"""
-        self.update(TUNED)
+        # self.update(TUNED)
         model = lgb.LGBMRegressor(**self.params)
         
         eval_set = [(X, y), (X_valid, y_valid)]

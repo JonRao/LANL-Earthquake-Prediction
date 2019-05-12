@@ -69,6 +69,7 @@ class ModelTrain(metaclass=ABCMeta):
         dump = []
         prediction = np.zeros(len(X_test))
         oof = np.zeros(len(y))
+        divisor = np.zeros(len(y))
 
         if self.feature_version != 'stack':
             X = X[self.columns]
@@ -83,7 +84,9 @@ class ModelTrain(metaclass=ABCMeta):
             predictor, model = self.train(X_train, y_train, X_valid, y_valid)
             y_pred = predictor(X_valid)
 
-            oof[valid_index] = y_pred.flatten()
+            oof[valid_index] += y_pred.flatten()
+            divisor[valid_index] += 1
+
             score = mean_absolute_error(y_pred, y_valid)
             dump.append(score)
             self.model_pack.append((model, score))
@@ -96,6 +99,7 @@ class ModelTrain(metaclass=ABCMeta):
             else:
                 prediction += predictor(X_test).flatten()
 
+        oof = oof / divisor # average
 
         # store all necessary info
         self.mean_score = np.mean(dump)

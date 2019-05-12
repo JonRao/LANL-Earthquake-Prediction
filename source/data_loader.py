@@ -98,7 +98,7 @@ def load_data(NN_feature=None):
     X_tr = X_tr.clip(-1e8, 1e8)
     X_test = X_test.clip(-1e8, 1e8)
 
-    # X_tr, X_test = data_transform.preprocess_features(X_tr, X_test)
+    X_tr, X_test = data_transform.preprocess_features(X_tr, X_test)
     if NN_feature is not None:
         # dangerous to add... may introduce inconsistency
         # X_tr, X_test = data_transform.on_the_fly_features(X_tr, X_test, n=NN_feature)
@@ -160,9 +160,9 @@ def load_prediction(name):
 
 
 if __name__ == '__main__':
-    X_tr, _ = load_transform_train(update=True)
-    load_transform_test(update=True)
-    store_feature_names(X_tr.columns.tolist())
+    # X_tr, _ = load_transform_train(update=True)
+    # load_transform_test(update=True)
+    # store_feature_names(X_tr.columns.tolist())
     # df = pd.read_csv('./feature.csv')
     # col = df['feature'].tolist()[:15]
     # store_feature_names(X_tr.columns.tolist())
@@ -172,3 +172,4 @@ if __name__ == '__main__':
     # column_names = ['a', 'b']
     # store_feature_names(column_names)
     # print(load_feature_names())
+    load_data()
