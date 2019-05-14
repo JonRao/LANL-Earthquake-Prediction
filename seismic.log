@@ -36164,3 +36164,5 @@
 2019-05-11 21:54:38,129 - LANL.train.lgb - INFO - fold: 3, score: 1.00
 2019-05-11 21:54:55,454 - LANL.train.lgb - INFO - fold: 4, score: 2.25
 2019-05-11 21:54:55,547 - LANL.train.lgb - INFO - oof_score: 1.93, mean_score: 1.85, std: 0.60
+2019-05-13 20:50:06,823 - LANL - INFO - Begin Logging:
+2019-05-13 20:50:07,206 - LANL.data_transfer - INFO - Working on: 1

@@ -54,7 +54,6 @@ def eqComboMaker(n_fold):
     return earthquake_id
 
 
-
 def min_valid_filter(fold_iter, n=100):
     for train_index, valid_index in fold_iter:
         if len(valid_index) > n:
