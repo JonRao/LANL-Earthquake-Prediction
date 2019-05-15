@@ -1,5 +1,6 @@
 
 import logging
+import numpy as np
 import xgboost as xgb
 from model.model_train import ModelTrain
 
@@ -28,6 +29,8 @@ class XGBModel(ModelTrain):
         watchlist = [(train_data, 'train'), (valid_data, 'valid'),]
 
         # TODO: runtime parameters will be allowed to customize?
+        # reasonable start point
+        self.params['base_score'] = np.mean(y.values)
         model = xgb.train(dtrain=train_data, num_boost_round=20000, early_stopping_rounds=200, 
                           evals=watchlist, verbose_eval=500, params=self.params)
 

@@ -19,7 +19,7 @@ class CatModel(ModelTrain):
     def train(self, X, y, X_valid, y_valid):
         """ Train model output model for prediction"""
         model = CatBoostRegressor(**self.params)
-        eval_set = [(X, y), (X_valid, y_valid)]
+        eval_set = [(X_valid, y_valid)]
         model.fit(X, y, eval_set=eval_set, cat_features=[], use_best_model=True, verbose=500)
 
         def predict(X):

@@ -28,6 +28,7 @@ class ModelTrain(metaclass=ABCMeta):
         self.model_name = type(self).__name__
         self.model_pack = []
         self.fold_choice = None
+        self.prediction_dump = []
 
     def update(self, params):
         self.params.update(params)
@@ -52,6 +53,7 @@ class ModelTrain(metaclass=ABCMeta):
         data = {}
         data['prediction'] = self.prediction
         data['oof'] = self.oof
+        data['prediction_dump'] = self.prediction_dump
 
         pickle.dump(data, open(os.path.join('./data/prediction', name_model), 'wb'))
         
@@ -97,7 +99,9 @@ class ModelTrain(metaclass=ABCMeta):
                 self.logger.warning(f"Excluded as the cutoff: {exclude_score}, fold: {fold_n}, score: {score:.2f}")
                 exclude_count += 1
             else:
-                prediction += predictor(X_test).flatten()
+                tmp = predictor(X_test).flatten()
+                prediction += tmp
+                self.prediction_dump.append((score, tmp))
 
         oof = oof / divisor # average
 

@@ -18,7 +18,7 @@ def main():
     # generateSubmission(predictor, test_data)
 
     logger = log_prep()
-    data_transfer.prepare_model('earthquake', number_rounds=20, n=1000)
+#     data_transfer.prepare_model('earthquake', number_rounds=80, n=1000)
     # predicted_result, _, file_group = data_train.stack()
 #     predicted_result, _, file_group, score = data_train.cv_predict('earthquake')
     # generateSubmission(predicted_result, file_group, file_name='all_lgb')
@@ -32,7 +32,7 @@ def main():
 #     predicted_result, _, file_group, score = data_train.ensemble()
 #     generateSubmission(predicted_result, file_group, file_name=f'lgb_customize_{score:.2f}')
     # feature_ensemble_iterative()
-#     ensemble(True, fold_choice='eqCombo')
+    ensemble(True, fold_choice='earthquake')
     # a = pickle.load(open('./data/prediction/0505_2058_LGBModel_71_CV_1.96_1.96_0.10_default', 'rb'))
 
     # predicted_result, _, file_group, score = data_loader.load_prediction('0505_2058_LGBModel_71_CV_1.96_1.96_0.10_default')
@@ -44,11 +44,11 @@ def main():
 def ensemble(generate=True, fold_choice='earthquake'):
     feature_group = [feature_version for _, feature_version in data_transfer.load_unique_feature()]
     train_stack, y_tr, test_stack, file_group = data_train.prepare_ensemble(feature_group=feature_group)
-    predicted_result, _, score = data_train.ensemble(train_stack, y_tr, test_stack, fold_choice=fold_choice)
+    predicted_result, _, score, model_name = data_train.ensemble(train_stack, y_tr, test_stack, fold_choice=fold_choice)
 
     if generate:
         num_model = test_stack.shape[1]
-        generateSubmission(predicted_result, file_group, file_name=f'ensemble_{fold_choice}_{num_model}_{score:.2f}')
+        generateSubmission(predicted_result, file_group, file_name=f'ensemble_{model_name}_{fold_choice}_{num_model}_{score:.2f}')
 
 def feature_ensemble_iterative():
     logger = logging.getLogger('LANL.train.feature_select')
