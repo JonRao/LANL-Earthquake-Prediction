@@ -1,11 +1,14 @@
 import pandas as pd
 import numpy as np
 import logging
-from sklearn.metrics import mean_absolute_error
-from sklearn.model_selection import KFold, LeaveOneGroupOut, LeavePGroupsOut
 import pickle
 import os
 import random
+import re
+import tqdm
+from collections import namedtuple, defaultdict
+from sklearn.metrics import mean_absolute_error
+from sklearn.model_selection import KFold, LeaveOneGroupOut, LeavePGroupsOut
 
 
 import data_loader
@@ -18,7 +21,9 @@ from model.model_tune import tune_lgb
 
 logger = logging.getLogger('LANL.train')
 
-def fold_maker(X, fold_choice='default', n_fold=5, n_groups=2):
+Result = namedtuple('Result', ('oof_score', 'mean', 'std', 'score', 'name'))
+
+def fold_maker(X, fold_choice='default', n_fold=4, n_groups=2):
     if fold_choice == 'default':
         folds = KFold(n_splits=n_fold, shuffle=False)
         fold_iter = folds.split(X)
@@ -161,7 +166,7 @@ def cv_predict_all_helper(feature_version, fold_iter, X_tr, y_tr, X_test):
             obj.store_prediction()
 
 
-def ensemble(X_tr, y_tr, X_test, fold_choice):
+def ensemble(X_tr, y_tr, X_test, fold_choice, feature_importance=False):
     fold_iter = fold_maker(X_tr, fold_choice=fold_choice)
     model = LGBModel(feature_version='stack')
     # params = {"feature_fraction_fraction": 0.38,
@@ -169,10 +174,13 @@ def ensemble(X_tr, y_tr, X_test, fold_choice):
         
     # model.update(params)
     # model = SklearnModel('RandomForest', feature_version='stack')
-    model = XGBModel(feature_version='stack')
-    # model = LGBModel(feature_version='stack')
+    # model = XGBModel(feature_version='stack')
+    model = LGBModel(feature_version='stack')
 
     predicted_result, oof = model.train_CV_test(X_tr, y_tr, X_test, fold_iter)
+    if feature_importance:
+        df = model.rank_feature()
+        df.to_csv('./feature_ensemble.csv')
     return predicted_result, oof, model.oof_score, model.model_name
 
 
@@ -236,3 +244,54 @@ def tune_model():
 
     result = tune_lgb(X_tr, y_tr, X_test, fold_iter)
     return result
+
+
+def marginal_train():
+    import mock
+    X_tr, y_tr, X_test, _ = data_loader.load_data()
+    fold_iter = fold_maker(X_tr, fold_choice='earthquake')
+
+    output = defaultdict(list)
+    model = LGBModel()
+    model.logger = mock.MagicMock()
+    for col in tqdm.tqdm(X_tr, total=X_tr.shape[1]):
+        key = re.sub('\d+', '*', col)
+        X = X_tr[col].to_frame()
+        oof_score, mean_score, std_score, dump = model.train_CV(X, y_tr, fold_iter)
+        res = Result(oof_score, mean_score, std_score, dump, col)
+        output[key].append(res)
+    return output
+
+def marginal_check():
+    # col_group = ['num_crossing_10']
+    # col_group = ['percentile_roll_50_std_25']
+    # col_group = ['q05_roll_std_10', 'contrast']
+    col_group = ['percentile_roll_50_std_25',
+        'q05_roll_std_10',
+        'logmel_mean_54',
+        'mfcc_mean_0',
+        'ampl_p30_ratio',
+        'mad',
+        'count_med',
+        'q95_roll_mean_10',
+        'mean_abs_change_mean_50',
+        'ave_roll_std_10',
+        'mean_abs_change_std_50',
+        'num_crossing_10',
+        'kstat_4',
+        'abs_sum_of_changes',
+        'Hilbert_mean']
+    # col_group = ['percentile_roll_50_std_25', 'q05_roll_std_10', 'kstat_4']
+    X_tr, y_tr, X_test, _ = data_loader.load_data()
+    fold_iter = fold_maker(X_tr, fold_choice='earthquake')
+
+    X = X_tr[col_group]
+    model = LGBModel()
+    oof_score, mean_score, std_score, dump = model.train_CV(X, y_tr, fold_iter)
+    # res = Result(oof_score, mean_score, std_score, dump, col)
+
+if __name__ == '__main__':
+    # res = marginal_train()
+    # pickle.dump(res, open('./data/marginal.p', 'wb'))
+    marginal_check()
+

@@ -65,6 +65,38 @@ class ModelTrain(metaclass=ABCMeta):
             json.dump(params, f, indent=4, sort_keys=True)
 
         self.logger.info('Model stored!')
+    
+    def train_CV(self, X, y, fold_iter):
+        dump = []
+        oof = np.zeros(len(y))
+        divisor = np.zeros(len(y))
+
+        fold_iter, self.fold_choice = fold_iter
+        for fold_n, (train_index, valid_index) in enumerate(fold_iter):
+            X_train, X_valid = X.iloc[train_index], X.iloc[valid_index]
+            y_train, y_valid = y.iloc[train_index], y.iloc[valid_index]
+
+            predictor, model = self.train(X_train, y_train, X_valid, y_valid)
+            y_pred = predictor(X_valid)
+
+            oof[valid_index] += y_pred.flatten()
+            divisor[valid_index] += 1
+
+            score = mean_absolute_error(y_pred, y_valid)
+            dump.append(score)
+            self.logger.info(f"fold: {fold_n}, score: {score:.2f}")
+
+        oof = oof / divisor # average
+
+        # store all necessary info
+        self.mean_score = np.mean(dump)
+        self.std_score = np.std(dump)
+        self.oof = oof
+        self.oof_score = mean_absolute_error(oof, y)
+
+        self.logger.info(f"oof_score: {self.oof_score:.2f}, mean_score: {self.mean_score:.2f}, std: {self.std_score:.2f}")
+        return self.oof_score, self.mean_score, self.std_score, dump
+
 
     def train_CV_test(self, X, y, X_test, fold_iter, exclude_score=10):
         """ Return predicted values as well as oof"""

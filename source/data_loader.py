@@ -98,7 +98,7 @@ def load_data(NN_feature=None):
     X_tr = X_tr.clip(-1e8, 1e8)
     X_test = X_test.clip(-1e8, 1e8)
 
-    X_tr, X_test = data_transform.preprocess_features(X_tr, X_test)
+    # X_tr, X_test = data_transform.preprocess_features(X_tr, X_test)
     if NN_feature is not None:
         # dangerous to add... may introduce inconsistency
         # X_tr, X_test = data_transform.on_the_fly_features(X_tr, X_test, n=NN_feature)
@@ -131,7 +131,7 @@ def store_feature_names(column_names):
     feature_path = r'./data/features'
     feature_group = os.listdir(feature_path)
     _, current_version = find_feature_version(feature_group)
-    columns_names = sorted(column_names)
+    column_names = sorted(column_names)
     with open(os.path.join(feature_path, f'{current_version + 1}_{len(column_names)}.txt'), 'w') as f:
         f.write('\n'.join(column_names))
 
@@ -172,4 +172,51 @@ if __name__ == '__main__':
     # column_names = ['a', 'b']
     # store_feature_names(column_names)
     # print(load_feature_names())
-    load_data()
+    # load_data()
+    a = [
+        'logmel_std_19',
+        'mfcc_mean_14',
+        'mfcc_mean_7',
+        'mfcc_std_2',
+        'mfcc_std_16',
+    
+        'logmel_mean_65',
+        'logmel_mean_20',
+        
+        'logmel_mean_19',
+        'num_peaks_50',
+        'q05_roll_std_10',
+    
+        'mfcc_std_3',
+    
+        'mfcc_mean_16',
+        'spkt_welch_density_50',
+        
+        'logmel_mean_72',
+        'mfcc_std_11',
+        'percentile_roll_500_std_10',
+    
+        'logmel_mean_71',
+        'FFT_Mag_max_17500',
+        'logmel_mean_10',
+        'logmel_std_8',
+        'time_rev_asym_stat_10',
+    
+        'logmel_mean_66',
+        'mfcc_mean_18',
+        
+        'q01_roll_mean_1000',
+        'mfcc_std_13',
+        
+        'ampl_p30_ratio',
+        'min_roll_std_1000',
+        'mfcc_std_4',
+        'mfcc_std_6',
+        'mfcc_mean_8',
+        'autocorrelation_10',
+        'FFT_Mag_99q_17500',
+        'classic_sta_lta5_mean',
+        'cid_ce_1',
+    ]
+    store_feature_names(a)
+

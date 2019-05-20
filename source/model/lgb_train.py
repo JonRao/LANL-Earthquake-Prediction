@@ -11,15 +11,15 @@ LGB_PARAMS = {
           'min_data_in_leaf': 10,
           'objective': 'gamma',
           'max_depth': -1,
-          'learning_rate': 0.005,
+          'learning_rate': 0.01,
           "boosting": "gbdt",
-          "bagging_freq": 5,
+        #   "bagging_freq": 5,
           "bagging_fraction": 0.91,
           "bagging_seed": 11,
           "metric": 'mae',
           "verbosity": -1,
           "random_state": 42,
-          'n_estimators': 20000,
+          'n_estimators': 9999999,
           'silent': True,
          }
 # tune based on feature version 5
@@ -56,7 +56,7 @@ class LGBModel(ModelTrain):
         
         eval_set = [(X, y), (X_valid, y_valid)]
 
-        model.fit(X, y, eval_set=eval_set, eval_metric='mae', verbose=200, early_stopping_rounds=200)
+        model.fit(X, y, eval_set=eval_set, eval_metric='mae', verbose=200, early_stopping_rounds=500)
         self.feature_importance(X.columns, model)
 
         def predict(X):
