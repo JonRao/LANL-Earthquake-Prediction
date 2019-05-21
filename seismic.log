@@ -45025,3 +45025,99 @@
 2019-05-19 20:23:19,748 - LANL.train.lgb - INFO - fold: 15, score: 0.86
 2019-05-19 20:23:25,750 - LANL.train.lgb - INFO - fold: 16, score: 0.82
 2019-05-19 20:23:25,772 - LANL.train.lgb - INFO - oof_score: 1.29, mean_score: 1.11, std: 0.55
+2019-05-20 21:29:32,567 - LANL - INFO - Begin Logging:
+2019-05-20 21:29:34,503 - LANL.train - INFO - Excluded 320 model packages!
+2019-05-20 21:29:34,504 - LANL.train - INFO - 813 model packages for ensemble!
+2019-05-20 21:29:34,548 - LANL.train.feature_select - INFO - Iteration 0 - features - 80
+2019-05-20 21:29:37,544 - LANL.train.lgb - INFO - fold: 0, score: 0.32
+2019-05-20 21:29:42,256 - LANL.train.lgb - INFO - fold: 1, score: 1.39
+2019-05-20 21:29:48,632 - LANL.train.lgb - INFO - fold: 2, score: 2.09
+2019-05-20 21:29:52,282 - LANL.train.lgb - INFO - fold: 3, score: 0.72
+2019-05-20 21:29:57,940 - LANL.train.lgb - INFO - fold: 4, score: 1.53
+2019-05-20 21:30:03,913 - LANL.train.lgb - INFO - fold: 5, score: 0.72
+2019-05-20 21:30:07,725 - LANL.train.lgb - INFO - fold: 6, score: 0.86
+2019-05-20 21:30:15,990 - LANL.train.lgb - INFO - fold: 7, score: 2.39
+2019-05-20 21:30:20,902 - LANL.train.lgb - INFO - fold: 8, score: 0.61
+2019-05-20 21:30:25,311 - LANL.train.lgb - INFO - fold: 9, score: 0.85
+2019-05-20 21:30:30,798 - LANL.train.lgb - INFO - fold: 10, score: 1.08
+2019-05-20 21:30:35,837 - LANL.train.lgb - INFO - fold: 11, score: 1.03
+2019-05-20 21:30:40,762 - LANL.train.lgb - INFO - fold: 12, score: 0.70
+2019-05-20 21:30:44,464 - LANL.train.lgb - INFO - fold: 13, score: 0.88
+2019-05-20 21:30:51,450 - LANL.train.lgb - INFO - fold: 14, score: 1.96
+2019-05-20 21:30:55,700 - LANL.train.lgb - INFO - fold: 15, score: 0.84
+2019-05-20 21:31:00,334 - LANL.train.lgb - INFO - fold: 16, score: 0.80
+2019-05-20 21:31:00,366 - LANL.train.lgb - INFO - oof_score: 1.29, mean_score: 1.10, std: 0.56
+2019-05-20 21:31:49,993 - LANL - INFO - Begin Logging:
+2019-05-20 21:31:50,423 - LANL.train - INFO - Excluded 320 model packages!
+2019-05-20 21:31:50,423 - LANL.train - INFO - 813 model packages for ensemble!
+2019-05-20 21:31:50,440 - LANL.train.feature_select - INFO - Iteration 0 - features - 75
+2019-05-20 21:31:53,498 - LANL.train.lgb - INFO - fold: 0, score: 0.32
+2019-05-20 21:31:58,137 - LANL.train.lgb - INFO - fold: 1, score: 1.43
+2019-05-20 21:32:03,864 - LANL.train.lgb - INFO - fold: 2, score: 2.08
+2019-05-20 21:32:08,108 - LANL.train.lgb - INFO - fold: 3, score: 0.72
+2019-05-20 21:32:13,337 - LANL.train.lgb - INFO - fold: 4, score: 1.53
+2019-05-20 21:32:19,121 - LANL.train.lgb - INFO - fold: 5, score: 0.74
+2019-05-20 21:32:22,742 - LANL.train.lgb - INFO - fold: 6, score: 0.85
+2019-05-20 21:34:44,374 - LANL - INFO - Begin Logging:
+2019-05-20 21:34:44,782 - LANL.train - INFO - Excluded 566 model packages!
+2019-05-20 21:34:44,782 - LANL.train - INFO - 567 model packages for ensemble!
+2019-05-20 21:35:04,766 - LANL.train.lgb - INFO - fold: 0, score: 0.34
+2019-05-20 21:35:30,594 - LANL.train.lgb - INFO - fold: 1, score: 1.44
+2019-05-20 21:36:06,116 - LANL.train.lgb - INFO - fold: 2, score: 2.17
+2019-05-20 21:36:29,295 - LANL.train.lgb - INFO - fold: 3, score: 0.73
+2019-05-20 21:36:59,889 - LANL.train.lgb - INFO - fold: 4, score: 1.61
+2019-05-20 21:37:31,114 - LANL.train.lgb - INFO - fold: 5, score: 0.76
+2019-05-20 21:37:53,481 - LANL.train.lgb - INFO - fold: 6, score: 0.86
+2019-05-20 21:38:23,874 - LANL.train.lgb - INFO - fold: 7, score: 2.67
+2019-05-20 21:38:52,429 - LANL.train.lgb - INFO - fold: 8, score: 0.64
+2019-05-20 21:39:15,326 - LANL.train.lgb - INFO - fold: 9, score: 0.88
+2019-05-20 21:39:41,419 - LANL.train.lgb - INFO - fold: 10, score: 1.08
+2019-05-20 21:40:07,577 - LANL.train.lgb - INFO - fold: 11, score: 1.00
+2019-05-20 21:40:36,631 - LANL.train.lgb - INFO - fold: 12, score: 0.76
+2019-05-20 21:41:00,014 - LANL.train.lgb - INFO - fold: 13, score: 0.89
+2019-05-20 21:41:35,265 - LANL.train.lgb - INFO - fold: 14, score: 2.26
+2019-05-20 21:42:09,077 - LANL.train.lgb - INFO - fold: 15, score: 0.92
+2019-05-20 21:42:49,961 - LANL - INFO - Begin Logging:
+2019-05-20 21:42:50,391 - LANL.train - INFO - Excluded 320 model packages!
+2019-05-20 21:42:50,391 - LANL.train - INFO - 813 model packages for ensemble!
+2019-05-20 21:42:50,407 - LANL.train.feature_select - INFO - Iteration 0 - features - 75
+2019-05-20 21:42:53,592 - LANL.train.lgb - INFO - fold: 0, score: 0.32
+2019-05-20 21:42:58,261 - LANL.train.lgb - INFO - fold: 1, score: 1.43
+2019-05-20 21:43:04,724 - LANL.train.lgb - INFO - fold: 2, score: 2.08
+2019-05-20 21:43:08,592 - LANL.train.lgb - INFO - fold: 3, score: 0.72
+2019-05-20 21:43:14,163 - LANL.train.lgb - INFO - fold: 4, score: 1.53
+2019-05-20 21:43:19,994 - LANL.train.lgb - INFO - fold: 5, score: 0.74
+2019-05-20 21:43:23,543 - LANL.train.lgb - INFO - fold: 6, score: 0.86
+2019-05-20 21:43:28,940 - LANL.train.lgb - INFO - fold: 7, score: 2.37
+2019-05-20 21:43:33,790 - LANL.train.lgb - INFO - fold: 8, score: 0.62
+2019-05-20 21:43:38,154 - LANL.train.lgb - INFO - fold: 9, score: 0.88
+2019-05-20 21:43:43,617 - LANL.train.lgb - INFO - fold: 10, score: 1.06
+2019-05-20 21:43:48,191 - LANL.train.lgb - INFO - fold: 11, score: 1.01
+2019-05-20 21:43:53,724 - LANL.train.lgb - INFO - fold: 12, score: 0.68
+2019-05-20 21:43:57,379 - LANL.train.lgb - INFO - fold: 13, score: 0.87
+2019-05-20 21:44:02,800 - LANL.train.lgb - INFO - fold: 14, score: 2.00
+2019-05-20 21:44:06,958 - LANL.train.lgb - INFO - fold: 15, score: 0.85
+2019-05-20 21:44:11,253 - LANL.train.lgb - INFO - fold: 16, score: 0.83
+2019-05-20 21:44:11,281 - LANL.train.lgb - INFO - oof_score: 1.29, mean_score: 1.11, std: 0.56
+2019-05-20 21:45:17,583 - LANL - INFO - Begin Logging:
+2019-05-20 21:45:18,000 - LANL.train - INFO - Excluded 320 model packages!
+2019-05-20 21:45:18,000 - LANL.train - INFO - 813 model packages for ensemble!
+2019-05-20 21:45:18,017 - LANL.train.feature_select - INFO - Iteration 0 - features - 75
+2019-05-20 21:45:21,123 - LANL.train.lgb - INFO - fold: 0, score: 0.32
+2019-05-20 21:45:25,663 - LANL.train.lgb - INFO - fold: 1, score: 1.43
+2019-05-20 21:45:31,445 - LANL.train.lgb - INFO - fold: 2, score: 2.08
+2019-05-20 21:45:34,848 - LANL.train.lgb - INFO - fold: 3, score: 0.72
+2019-05-20 21:45:39,664 - LANL.train.lgb - INFO - fold: 4, score: 1.53
+2019-05-20 21:45:45,123 - LANL.train.lgb - INFO - fold: 5, score: 0.74
+2019-05-20 21:45:48,492 - LANL.train.lgb - INFO - fold: 6, score: 0.85
+2019-05-20 21:45:54,256 - LANL.train.lgb - INFO - fold: 7, score: 2.37
+2019-05-20 21:45:58,829 - LANL.train.lgb - INFO - fold: 8, score: 0.62
+2019-05-20 21:46:02,548 - LANL.train.lgb - INFO - fold: 9, score: 0.88
+2019-05-20 21:46:07,769 - LANL.train.lgb - INFO - fold: 10, score: 1.06
+2019-05-20 21:46:12,191 - LANL.train.lgb - INFO - fold: 11, score: 1.01
+2019-05-20 21:46:17,598 - LANL.train.lgb - INFO - fold: 12, score: 0.68
+2019-05-20 21:46:21,243 - LANL.train.lgb - INFO - fold: 13, score: 0.87
+2019-05-20 21:46:26,652 - LANL.train.lgb - INFO - fold: 14, score: 2.00
+2019-05-20 21:46:30,623 - LANL.train.lgb - INFO - fold: 15, score: 0.85
+2019-05-20 21:46:35,236 - LANL.train.lgb - INFO - fold: 16, score: 0.82
+2019-05-20 21:46:35,260 - LANL.train.lgb - INFO - oof_score: 1.29, mean_score: 1.11, std: 0.56

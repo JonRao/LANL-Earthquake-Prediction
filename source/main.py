@@ -45,7 +45,7 @@ def main():
     # data_train.marginal_check()
     
 def ensemble(generate=True, fold_choice='earthquake'):
-    feature_group = [feature_version for _, feature_version in data_transfer.load_unique_feature()]
+    feature_group = [feature_version for col, feature_version in data_transfer.load_unique_feature() if len(col) < 200]
     train_stack, y_tr, test_stack, file_group = data_train.prepare_ensemble(feature_group=feature_group)
     predicted_result, _, score, model_name = data_train.ensemble(train_stack, y_tr, test_stack, fold_choice=fold_choice, feature_importance=True)
 
@@ -57,7 +57,7 @@ def feature_ensemble_iterative(generate=True, fold_choice='earthquake'):
     logger = logging.getLogger('LANL.train.feature_select')
     df = pd.read_csv('./feature_ensemble.csv')
     # num_feature_group = [500, 250, 150, 100, 50, 25, 20, 15, 10]
-    num_feature_group = [100,]
+    num_feature_group = [75,]
     feature_group = [feature_version for _, feature_version in data_transfer.load_unique_feature()]
     train_stack, y_tr, test_stack, file_group = data_train.prepare_ensemble(feature_group=feature_group)
 

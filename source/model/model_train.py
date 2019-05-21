@@ -135,7 +135,7 @@ class ModelTrain(metaclass=ABCMeta):
                 prediction += tmp
                 self.prediction_dump.append((score, tmp))
 
-        oof = oof / divisor # average
+        oof /= divisor # average
 
         # store all necessary info
         self.mean_score = np.mean(dump)
